@@ -1,0 +1,202 @@
+{
+  "name": "外置大脑 v4.2 - 阶段1 最小联网搜索",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -940,
+        -120
+      ],
+      "id": "36052457-20f5-49e5-89ea-03aad1d55a92",
+      "name": "When chat message received",
+      "webhookId": "7422a477-e2b7-4b96-8f49-e01cb80a072a"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "你是“外置大脑”的主脑，也是唯一最终回答者。\n\n当前是第一阶段最小联网测试版，只连接 investigator。\n\n规则：\n1. 普通解释、改写、翻译等简单任务直接回答。\n2. 用户要求联网搜索、最新资料、来源或网址时，调用 investigator。\n3. investigator 返回结果后，由你整理最终答案。\n4. 必须保留真实标题和 URL，不得编造来源。\n5. investigator 失败时，直接说明错误，不要反复调用。\n6. 一次任务中最多调用 investigator 一次。\n7. 最终只由你回答用户。",
+          "maxIterations": 30,
+          "returnIntermediateSteps": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -640,
+        -120
+      ],
+      "id": "86b15919-09de-47bf-885c-f37c46364cff",
+      "name": "main_brain"
+    },
+    {
+      "parameters": {
+        "model": "deepseek-v4-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "typeVersion": 1,
+      "position": [
+        -760,
+        120
+      ],
+      "id": "80cde9f0-3434-4849-8cf0-299b9b326112",
+      "name": "DeepSeek Main",
+      "credentials": {
+        "deepSeekApi": {
+          "id": "ck53ty7ejf2nKK3d",
+          "name": "DeepSeek account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 12
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        -560,
+        120
+      ],
+      "id": "5b2ec7f2-0c70-4100-8543-51a65d1d33c5",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "toolDescription": "需要联网搜索、查找来源、获取最新资料或网址时调用。只返回调查材料，不直接回答用户。",
+        "text": "={{ $fromAI('task', '交给 investigator 的搜索任务。必须包含用户问题、官方来源要求和输出格式。', 'string') }}",
+        "options": {
+          "systemMessage": "你是联网调查代理，只有一个工具：search_web_general。\n\n规则：\n1. 把任务压缩成一个清晰的搜索查询。\n2. 用户要求官方来源时，在查询中加入 site:官方域名。\n3. 一次任务只调用 search_web_general 一次。\n4. 工具内部失败后最多自动重试一次。\n5. 若仍失败，立即把错误返回主脑，不再调用。\n6. 返回至少两个结果。\n7. 每项必须包含：标题、URL、摘要。\n8. 不负责最终回答。",
+          "maxIterations": 15
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 3,
+      "position": [
+        -340,
+        260
+      ],
+      "id": "106fbf7c-3114-4063-a839-23bfd23a99c5",
+      "name": "investigator"
+    },
+    {
+      "parameters": {
+        "model": "deepseek-v4-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "typeVersion": 1,
+      "position": [
+        -440,
+        500
+      ],
+      "id": "2c10de1f-5c5b-44ab-bb1c-b522a7c793b1",
+      "name": "DeepSeek Investigator",
+      "credentials": {
+        "deepSeekApi": {
+          "id": "ck53ty7ejf2nKK3d",
+          "name": "DeepSeek account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "description": "联网搜索工具。输入一个简洁查询，返回 Tavily 搜索结果。失败时内部最多重试一次。",
+        "source": "parameter",
+        "workflowJson": "{\"name\":\"Tavily Search Child\",\"nodes\":[{\"parameters\":{\"workflowInputs\":{\"values\":[{\"name\":\"query\"}]}},\"type\":\"n8n-nodes-base.executeWorkflowTrigger\",\"typeVersion\":1.1,\"position\":[-420,0],\"id\":\"91c11db2-3588-4d2c-a7f6-c8aab4c0d0ca\",\"name\":\"When Executed by Another Workflow\"},{\"parameters\":{\"method\":\"POST\",\"url\":\"https://api.tavily.com/search\",\"sendHeaders\":true,\"specifyHeaders\":\"keypair\",\"headerParameters\":{\"parameters\":[{\"name\":\"Content-Type\",\"value\":\"application/json\"},{\"name\":\"X-Tavily-Access-Mode\",\"value\":\"keyless\"}]},\"sendBody\":true,\"contentType\":\"json\",\"specifyBody\":\"json\",\"jsonBody\":\"={{ { query: $json.query, search_depth: 'basic', max_results: 5, include_answer: false, include_raw_content: false, include_images: false } }}\",\"options\":{\"timeout\":60000,\"response\":{\"response\":{\"neverError\":true,\"responseFormat\":\"json\"}}}},\"type\":\"n8n-nodes-base.httpRequest\",\"typeVersion\":4.2,\"position\":[-140,0],\"id\":\"a1c665a2-68eb-460d-a51f-8a0f7fef1225\",\"name\":\"Tavily Search\"},{\"parameters\":{\"jsCode\":\"const data = $json ?? {};\\nconst rows = Array.isArray(data.results) ? data.results.slice(0, 5) : [];\\n\\nreturn [{\\n  json: {\\n    success: rows.length > 0,\\n    query: data.query ?? null,\\n    results: rows.map(r => ({\\n      title: r.title ?? '',\\n      url: r.url ?? '',\\n      content: r.content ?? '',\\n      score: r.score ?? null\\n    })),\\n    error: rows.length > 0 ? null : (data.detail ?? data.message ?? 'Tavily 没有返回结果')\\n  }\\n}];\"},\"type\":\"n8n-nodes-base.code\",\"typeVersion\":2,\"position\":[140,0],\"id\":\"0b465528-36a8-4b10-936b-3720f324a293\",\"name\":\"整理搜索结果\"}],\"connections\":{\"When Executed by Another Workflow\":{\"main\":[[{\"node\":\"Tavily Search\",\"type\":\"main\",\"index\":0}]]},\"Tavily Search\":{\"main\":[[{\"node\":\"整理搜索结果\",\"type\":\"main\",\"index\":0}]]}},\"settings\":{\"executionOrder\":\"v1\"},\"pinData\":{},\"tags\":[]}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        -160,
+        500
+      ],
+      "id": "8032a8b3-4cd6-4803-995f-2bde285468b5",
+      "name": "search_web_general",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 1000
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "main_brain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek Main": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "main_brain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "main_brain",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "investigator": {
+      "ai_tool": [
+        [
+          {
+            "node": "main_brain",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek Investigator": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "investigator",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "search_web_general": {
+      "ai_tool": [
+        [
+          {
+            "node": "investigator",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}
