@@ -78,13 +78,19 @@ PAST_NEWS = [
 ]
 DENY_DOMAINS = [
     'wikipedia.org','amazon.','facebook.com','instagram.com','pinterest.','quora.com','reddit.com',
-    'youtube.com','tiktok.com','happeningnext.','allevents.','frederickhotelnyc.com'
+    'youtube.com','tiktok.com','happeningnext.','allevents.','frederickhotelnyc.com',
+    'bookretreats.com','cectv.net'
 ]
 TRUST_DOMAINS = [
     'taoist.org.cn','dao.china.com.cn','daoisms.com.cn','wdsdjxh.com','xiancyg.cn','sdsdjxh.com',
     'sxdaojiao.com','bixiaci.org','dao.crs.cuhk.edu.hk','daoist.org','siksikyuen.org.hk',
     'macaotaoist.org.mo','daoglobe.com','aarweb.org','ea-cp.eu','daoistfoundation.org',
     'edu.cn','edu.hk','edu.tw','.gov.cn','.gov.tw','.ac.cn','.ac.hk','.ac.tw'
+]
+GENERIC_TITLES = [
+    '中国道教协会 - taoist.org.cn','中国道教协会','events — daoist foundation',
+    'events - daoist foundation','upcoming events, workshops, and seminars',
+    'the 10 best taoist retreats','活动 — daoist foundation','schedule - taoist studies institute'
 ]
 TRACKING_KEYS = {'utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid','ref'}
 
@@ -131,6 +137,17 @@ def domain_denied(url: str) -> bool:
     d = urlparse(url).netloc.lower()
     return any(x in d for x in DENY_DOMAINS)
 
+def generic_page(title: str, url: str) -> bool:
+    t = (title or '').strip().lower()
+    if any(x.lower() in t for x in GENERIC_TITLES):
+        return True
+    path = urlparse(url).path.rstrip('/').lower()
+    if t in {'events','event','schedule','活动','活動','通知公告'}:
+        return True
+    if path in {'', '/events', '/event', '/schedule'} and len(t) < 45:
+        return True
+    return False
+
 def title_key(title: str) -> str:
     s = re.sub(r'20\d{2}|第[一二三四五六七八九十百0-9]+届|\s+', '', title or '')
     s = re.sub(r'[^\w\u4e00-\u9fff]', '', s.lower())
@@ -168,11 +185,24 @@ def looks_current_or_future(title: str, body: str, url: str) -> bool:
         return False
     if re.search(r'\b202[7-9]\b', text):
         return True
-    if contains_any(text, FUTURE_WORDS):
-        return True
 
-    path = urlparse(url).path.lower()
-    if any(x in path for x in ['/events','/event/','/schedule','/conference','/conferences','/cfp','call-for','registration','/course']):
+    # Search snippets often write ranges such as "31 July - 16 August" while
+    # putting the year only once in the title. Infer the current-year month
+    # so an already-finished summer event is not kept in October.
+    if str(TODAY_DATE.year) in text:
+        eng_months = [MONTHS[m.lower()] for m in re.findall(
+            r'\b(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b',
+            text, re.I
+        ) if m.lower() in MONTHS]
+        cn_months = [int(m) for m in re.findall(r'(?<!\d)(\d{1,2})月', text)]
+        all_months = eng_months + [m for m in cn_months if 1 <= m <= 12]
+        if all_months:
+            if max(all_months) < TODAY_DATE.month:
+                return False
+            if max(all_months) >= TODAY_DATE.month:
+                return True
+
+    if contains_any(text, FUTURE_WORDS):
         return True
     return False
 
@@ -284,9 +314,12 @@ def collect():
                     title = (r.get('title') or '').strip()
                     body = (r.get('body') or '').strip()
                     url = canonical((r.get('href') or '').strip())
-                    if not title or not url or domain_denied(url):
+                    if not title or not url or domain_denied(url) or generic_page(title, url):
                         continue
                     if not looks_current_or_future(title, body, url):
+                        continue
+                    # Prefer concrete event pages over category/index pages.
+                    if not contains_any(title, ACTIVITY) and not explicit_future_dates(f'{title} {body}') and not re.search(r'\b202[7-9]\b', title):
                         continue
                     score = score_item(title, body, url)
                     if score < 7:
