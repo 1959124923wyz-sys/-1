@@ -2,22 +2,22 @@
   "updated_at": "2026-10-01",
   "items": [
     {
-      "id": "eacp-2027",
-      "title": "The 6th Biennial Conference of the European Association for Chinese Philosophy",
-      "title_zh": "欧洲中国哲学协会 2027 双年会",
-      "country": "波兰",
-      "city": "波兹南",
+      "id": "vancouver-tao-te-ching-forum-2026",
+      "title": "Tao Te Ching and Civilizations Dialogue and Exchange International Academic Forum",
+      "title_zh": "《道德经》与文明对话交流国际学术论坛",
+      "country": "加拿大",
+      "city": "温哥华",
       "category": "海外/港澳台",
-      "format": "线下会议",
-      "relevance": "含道家议题",
-      "event_date": "2027年7月1—4日",
-      "deadline": "2026年12月15日",
-      "summary_zh": "面向中国哲学研究者，明确邀请道家、儒家、中国佛教等方向投稿；11月15日开始提交提案。",
-      "source_name": "EACP 官网",
-      "source_url": "https://www.ea-cp.eu/biennial-conferences.html",
+      "format": "国际论坛",
+      "relevance": "道教直接相关",
+      "event_date": "2026年11月（筹备中）",
+      "deadline": "",
+      "summary_zh": "国际道文化协会与温哥华宗教机构正在筹备，公开信息尚未给出具体报名方式，适合继续跟踪。",
+      "source_name": "国际道文化协会",
+      "source_url": "https://www.daoglobe.com/eng.php/News/190.html",
       "discovered_at": "2026-10-01",
       "manual": true,
-      "score": 12
+      "score": 15
     },
     {
       "id": "daoist-foundation-dsss-2027",
@@ -56,22 +56,22 @@
       "score": 14
     },
     {
-      "id": "vancouver-tao-te-ching-forum-2026",
-      "title": "Tao Te Ching and Civilizations Dialogue and Exchange International Academic Forum",
-      "title_zh": "《道德经》与文明对话交流国际学术论坛",
-      "country": "加拿大",
-      "city": "温哥华",
+      "id": "eacp-2027",
+      "title": "The 6th Biennial Conference of the European Association for Chinese Philosophy",
+      "title_zh": "欧洲中国哲学协会 2027 双年会",
+      "country": "波兰",
+      "city": "波兹南",
       "category": "海外/港澳台",
-      "format": "国际论坛",
-      "relevance": "道教直接相关",
-      "event_date": "2026年11月（筹备中）",
-      "deadline": "",
-      "summary_zh": "国际道文化协会与温哥华宗教机构正在筹备，公开信息尚未给出具体报名方式，适合继续跟踪。",
-      "source_name": "国际道文化协会",
-      "source_url": "https://www.daoglobe.com/eng.php/News/190.html",
+      "format": "线下会议",
+      "relevance": "含道家议题",
+      "event_date": "2027年7月1—4日",
+      "deadline": "2026年12月15日",
+      "summary_zh": "面向中国哲学研究者，明确邀请道家、儒家、中国佛教等方向投稿；11月15日开始提交提案。",
+      "source_name": "EACP 官网",
+      "source_url": "https://www.ea-cp.eu/biennial-conferences.html",
       "discovered_at": "2026-10-01",
       "manual": true,
-      "score": 15
+      "score": 12
     }
   ]
 }
