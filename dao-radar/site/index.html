@@ -4,47 +4,86 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f2ea">
-<title>道行四海｜道教文化交流机会</title>
+<title>道行四海｜道教活动与文化交流</title>
 <style>
 :root{--bg:#f5f2ea;--card:#fff;--text:#20231f;--muted:#6f716d;--line:#ded8ca;--accent:#6b5038;--soft:#ece5d8;--warn:#8f3f32}
-*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:20px;line-height:1.65}
-.wrap{max-width:760px;margin:auto;padding:22px 16px 44px} header{padding:8px 3px 18px} h1{font-size:34px;line-height:1.25;margin:0 0 5px;letter-spacing:.04em}.sub{font-size:19px;color:var(--muted)}
-.status{margin:2px 0 18px;color:var(--muted);font-size:16px}.tabs{display:flex;gap:9px;overflow:auto;padding-bottom:4px;margin-bottom:16px}.tab{border:1px solid var(--line);background:#fff;color:var(--text);font-size:18px;padding:10px 15px;border-radius:999px;white-space:nowrap}.tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:15px;box-shadow:0 2px 8px rgba(0,0,0,.025)}.meta{font-size:17px;color:var(--muted);margin-bottom:5px}.title{font-size:24px;font-weight:750;line-height:1.45;margin-bottom:9px}.badges{margin:1px 0 8px}.badge{display:inline-block;background:var(--soft);font-size:16px;padding:3px 9px;border-radius:999px;margin:0 5px 5px 0}.summary{margin:7px 0 10px}.dates{font-size:18px}.deadline{color:var(--warn);font-weight:650}.source{display:block;text-decoration:none;text-align:center;background:var(--accent);color:#fff;padding:13px 14px;border-radius:12px;margin-top:14px;font-size:20px;font-weight:750}.empty{text-align:center;color:var(--muted);padding:34px 0}.foot{font-size:15px;color:var(--muted);text-align:center;margin-top:24px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;font-size:20px;line-height:1.65}
+.wrap{max-width:760px;margin:auto;padding:22px 16px 44px}
+header{padding:8px 3px 16px}
+h1{font-size:34px;line-height:1.25;margin:0 0 5px;letter-spacing:.04em}
+.sub{font-size:19px;color:var(--muted)}
+.status{margin:2px 0 18px;color:var(--muted);font-size:16px}
+.tabs{display:flex;gap:9px;overflow:auto;padding-bottom:4px;margin-bottom:16px}
+.tab{border:1px solid var(--line);background:#fff;color:var(--text);font-size:18px;padding:10px 15px;border-radius:999px;white-space:nowrap}
+.tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:15px;box-shadow:0 2px 8px rgba(0,0,0,.025)}
+.meta{font-size:17px;color:var(--muted);margin-bottom:5px}
+.title{font-size:24px;font-weight:750;line-height:1.45;margin-bottom:9px}
+.badge{display:inline-block;background:var(--soft);font-size:16px;padding:3px 9px;border-radius:999px;margin:0 5px 6px 0}
+.summary{margin:7px 0 10px}
+.dates{font-size:18px}
+.deadline{color:var(--warn);font-weight:650}
+.source{display:block;text-decoration:none;text-align:center;background:var(--accent);color:#fff;padding:13px 14px;border-radius:12px;margin-top:14px;font-size:20px;font-weight:750}
+.empty{text-align:center;color:var(--muted);padding:34px 0}
+.foot{font-size:15px;color:var(--muted);text-align:center;margin-top:24px}
 @media(max-width:420px){body{font-size:19px}.wrap{padding:18px 13px 36px}h1{font-size:31px}.title{font-size:23px}.card{padding:16px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header><h1>道行四海</h1><div class="sub">道教文化交流机会</div></header>
+<header><h1>道行四海</h1><div class="sub">道教活动与文化交流</div></header>
 <div class="status" id="status">正在读取最新信息……</div>
+
 <div class="tabs">
 <button class="tab active" data-filter="全部">最新</button>
-<button class="tab" data-filter="海外/港澳台">海外/港澳台</button>
-<button class="tab" data-filter="国内交流">国内</button>
-<button class="tab" data-filter="线上/国际">线上/国际</button>
+<button class="tab" data-filter="国内">国内</button>
+<button class="tab" data-filter="港澳台">港澳台</button>
+<button class="tab" data-filter="海外">海外</button>
+<button class="tab" data-filter="线上">线上</button>
 </div>
+
 <main id="list"></main>
-<div class="foot">这里只显示简要信息。感兴趣请点击“查看原文”。</div>
+<div class="foot">只保留简要信息。感兴趣请点击“查看原文”，具体要求以主办方原文为准。</div>
 </div>
+
 <script>
 let allData=[], current='全部';
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+
 function render(){
- const items=current==='全部'?allData:allData.filter(x=>x.category===current);
+ const items=current==='全部'?allData:allData.filter(x=>x.region===current);
  const box=document.getElementById('list');
  if(!items.length){box.innerHTML='<div class="empty">暂时没有相关信息</div>';return;}
  box.innerHTML=items.map(x=>`<article class="card">
    <div class="meta">${esc(x.country||'国际')}${x.city?' · '+esc(x.city):''}</div>
    <div class="title">${esc(x.title_zh||x.title)}</div>
-   <div class="badges">${x.relevance?`<span class="badge">${esc(x.relevance)}</span>`:''}${x.format?`<span class="badge">${esc(x.format)}</span>`:''}</div>
+   ${x.type?`<span class="badge">${esc(x.type)}</span>`:''}
    <div class="summary">${esc(x.summary_zh||'')}</div>
-   <div class="dates">${x.event_date?`📅 ${esc(x.event_date)}<br>`:''}${x.deadline?`<span class="deadline">⏰ 截止：${esc(x.deadline)}</span>`:''}</div>
+   <div class="dates">
+     ${x.event_date?`📅 ${esc(x.event_date)}<br>`:''}
+     ${x.deadline?`<span class="deadline">⏰ 截止：${esc(x.deadline)}</span>`:''}
+   </div>
    <a class="source" href="${esc(x.source_url)}" target="_blank" rel="noopener">查看原文｜${esc(x.source_name||'原网站')}</a>
  </article>`).join('');
 }
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');current=b.dataset.filter;render();});
-fetch('./data.json?ts='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(d=>{allData=d.items||[];document.getElementById('status').textContent=`更新：${d.updated_at||'—'} · 共 ${allData.length} 条`;render();}).catch(()=>{document.getElementById('status').textContent='数据读取失败，请稍后刷新';document.getElementById('list').innerHTML='<div class="empty">暂时无法读取信息</div>';});
+
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+ b.classList.add('active'); current=b.dataset.filter; render();
+});
+
+fetch('./data.json?ts='+Date.now(),{cache:'no-store'})
+ .then(r=>r.json())
+ .then(d=>{
+   allData=d.items||[];
+   document.getElementById('status').textContent=`更新：${d.updated_at||'—'} · 共 ${allData.length} 条`;
+   render();
+ })
+ .catch(()=>{
+   document.getElementById('status').textContent='数据读取失败，请稍后刷新';
+   document.getElementById('list').innerHTML='<div class="empty">暂时无法读取信息</div>';
+ });
 </script>
 </body>
 </html>
