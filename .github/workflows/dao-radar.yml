@@ -1,0 +1,68 @@
+name: 道行四海每日更新
+
+on:
+  schedule:
+    - cron: '30 8 * * *'
+      timezone: 'Asia/Taipei'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'dao-radar/**'
+      - '.github/workflows/dao-radar.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: dao-radar-pages
+  cancel-in-progress: true
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: dao-radar/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r dao-radar/requirements.txt
+
+      - name: Search and update data
+        run: python dao-radar/update.py
+
+      - name: Save new data to repository
+        run: |
+          if ! git diff --quiet -- dao-radar/site/data.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add dao-radar/site/data.json
+            git commit -m "data: daily opportunity update [skip ci]"
+            git push
+          else
+            echo "No data changes"
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dao-radar/site
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
