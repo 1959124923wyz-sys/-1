@@ -1,4 +1,2 @@
-ddgs>=9.0,<10
+ddgs==9.16.0
 requests>=2.32,<3
-beautifulsoup4>=4.12,<5
-deep-translator>=1.11,<2
