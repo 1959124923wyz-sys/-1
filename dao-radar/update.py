@@ -96,6 +96,18 @@ REVIEWED_EXPIRED_URLS = {
     'https://www.daoisms.com.cn/2026/22/20/126469',
     'https://www.daoisms.com.cn/2026/19/15/125869'
 }
+CHINESE_URL_OVERRIDES = {
+    'https://wudang.org/events/i-ching-learning/i-ching-beginner-course-singapore':
+        'https://wudang.org/zh/events/i-ching-learning/i-ching-beginner-course-singapore',
+    'https://wudang.org/events/internal-arts-wellness/baduanjin-workshop-september':
+        'https://wudang.org/zh/events/internal-arts-wellness/baduanjin-workshop-september',
+    'https://www.daoglobe.com/eng.php/News/190.html':
+        'https://www.daoglobe.com/News/190.html',
+    'https://www.phil.arts.cuhk.edu.hk/conference/ISCP2027/en':
+        'https://www.phil.arts.cuhk.edu.hk/conference/ISCP2027/gb/',
+    'https://www.phil.arts.cuhk.edu.hk/conference/ISCP2027/en/':
+        'https://www.phil.arts.cuhk.edu.hk/conference/ISCP2027/gb/'
+}
 TRACKING_KEYS = {'utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid','ref'}
 
 COUNTRY_HINTS = [
@@ -132,6 +144,9 @@ def canonical(url: str) -> str:
 def contains_any(text, words):
     t = (text or '').lower()
     return any(w.lower() in t for w in words)
+
+def prefer_chinese_url(url: str) -> str:
+    return CHINESE_URL_OVERRIDES.get(url, CHINESE_URL_OVERRIDES.get(url.rstrip('/'), url))
 
 def trusted(url: str) -> bool:
     d = urlparse(url).netloc.lower()
@@ -324,7 +339,7 @@ def collect():
                 for r in rows:
                     title = (r.get('title') or '').strip()
                     body = (r.get('body') or '').strip()
-                    url = canonical((r.get('href') or '').strip())
+                    url = prefer_chinese_url(canonical((r.get('href') or '').strip()))
                     if not title or not url or domain_denied(url) or generic_page(title, url):
                         continue
                     if not looks_current_or_future(title, body, url):
