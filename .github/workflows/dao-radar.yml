@@ -2,8 +2,9 @@ name: 道行四海每日更新
 
 on:
   schedule:
-    - cron: '30 8 * * *'
-      timezone: 'Asia/Taipei'
+    # 中国大陆/台湾均为 UTC+8：00:43 UTC = 08:43
+    # 使用纯 UTC cron，避免依赖时区扩展；避开整点高峰。
+    - cron: '43 0 * * *'
   workflow_dispatch:
   push:
     branches: [main]
@@ -22,7 +23,7 @@ concurrency:
 
 jobs:
   update:
-    if: github.event_name != 'push'
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[manual-update]'))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
