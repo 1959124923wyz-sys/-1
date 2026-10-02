@@ -32,11 +32,25 @@ QUERIES = [
     'site:wdsdjxh.com 道教 活动 交流 2026 2027',
     'site:xiancyg.cn 预告 法会 道教 2026 2027',
     'site:sdsdjxh.com 道教 活动 讲经 2026 2027',
+    # 中国大陆线上：慕课/公开课/读书会/直播/混合课程
+    '道教 慕课 在线课程 开课中 2026 2027',
+    '道家 哲学 慕课 在线课程 开课中 2026 2027',
+    '道德经 在线课程 慕课 2026 2027',
+    '道教 线上 公开课 直播 读书会 2026 2027',
+    '道教 Zoom 腾讯会议 线上 讲座 读书会 2026 2027',
+    'site:chinaooc.com.cn 道教 道家 道德经 开课中 2026 2027',
+    'site:cscr.swjtu.edu.cn 道教 Zoom 线上 读书会 2026 2027',
 
     # 港澳台
     '香港 道教 活动 报名 课程 论坛 2026 2027',
     '台湾 道教 活动 报名 宫庙 论坛 2026 2027',
     '澳門 澳门 道教 文化节 论坛 活动 2026 2027',
+    # 台湾线上：同步直播、Google Meet、Zoom、网课、读书会
+    '台灣 道教 線上 課程 直播 Google Meet Zoom 2026 2027',
+    '台灣 道家 道教 經典 研習 線上 同步 2026 2027',
+    '台灣 道教 直播 講座 讀書會 線上 2026 2027',
+    'site:lungshan.org.tw 道家 道教 線上 2026 2027',
+    'site:edu.tw 道教 線上 直播 講座 2026 2027',
 
     # 海外及国际学术/文化交流
     'Daoism upcoming events conference workshop course 2026 2027',
@@ -60,10 +74,10 @@ ASSOCIATED = [
 ACTIVITY = [
     'conference','symposium','forum','workshop','seminar','course','class','training','retreat',
     'call for','proposal','registration','meeting','exchange','lecture','festival','exhibition',
-    'event','open day','pilgrimage','conference','会议','會議','论坛','論壇','研讨会','研討會',
+    'event','open day','pilgrimage','conference','mooc','livestream','live stream','online','webinar','会议','會議','论坛','論壇','研讨会','研討會',
     '交流','征稿','徵稿','讲座','講座','活动','活動','报名','報名','课程','課程','培训','培訓',
     '研修','法会','法會','醮','科仪','科儀','祈福','讲经','講經','展览','展覽','展演','文化节',
-    '文化節','庙会','廟會','招生','参访','參訪','巡礼','巡禮','国際会議','シンポジウム','募集',
+    '文化節','庙会','廟會','招生','参访','參訪','巡礼','巡禮','慕课','慕課','网课','網課','公开课','公開課','直播','线上同步','線上同步','读书会','讀書會','共修','国際会議','シンポジウム','募集',
     '학술대회','교류','강좌'
 ]
 FUTURE_WORDS = [
@@ -84,7 +98,7 @@ DENY_DOMAINS = [
 TRUST_DOMAINS = [
     'taoist.org.cn','dao.china.com.cn','daoisms.com.cn','wdsdjxh.com','xiancyg.cn','sdsdjxh.com',
     'sxdaojiao.com','bixiaci.org','dao.crs.cuhk.edu.hk','daoist.org','siksikyuen.org.hk',
-    'macaotaoist.org.mo','daoglobe.com','aarweb.org','ea-cp.eu','daoistfoundation.org',
+    'macaotaoist.org.mo','daoglobe.com','aarweb.org','ea-cp.eu','daoistfoundation.org','chinaooc.com.cn','lungshan.org.tw','cscr.swjtu.edu.cn',
     'edu.cn','edu.hk','edu.tw','.gov.cn','.gov.tw','.ac.cn','.ac.hk','.ac.tw'
 ]
 GENERIC_TITLES = [
@@ -300,7 +314,7 @@ def infer_country(text: str, url: str) -> str:
     return '国际'
 
 def region(country: str, text: str) -> str:
-    if contains_any(text, ['online','zoom','线上','線上','网络','網絡','webinar']):
+    if contains_any(text, ['online','zoom','线上','線上','网络','網絡','webinar','google meet','腾讯会议','騰訊會議','慕课','慕課','网课','網課','直播','线上同步','線上同步']):
         return '线上'
     if country == '中国大陆':
         return '国内'
