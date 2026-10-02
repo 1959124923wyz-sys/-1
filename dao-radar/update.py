@@ -92,6 +92,10 @@ GENERIC_TITLES = [
     'events - daoist foundation','upcoming events, workshops, and seminars',
     'the 10 best taoist retreats','活动 — daoist foundation','schedule - taoist studies institute'
 ]
+REVIEWED_EXPIRED_URLS = {
+    'https://www.daoisms.com.cn/2026/22/20/126469',
+    'https://www.daoisms.com.cn/2026/19/15/125869'
+}
 TRACKING_KEYS = {'utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid','ref'}
 
 COUNTRY_HINTS = [
@@ -135,6 +139,8 @@ def trusted(url: str) -> bool:
 
 def domain_denied(url: str) -> bool:
     d = urlparse(url).netloc.lower()
+    if canonical(url).rstrip('/') in {x.rstrip('/') for x in REVIEWED_EXPIRED_URLS}:
+        return True
     return any(x in d for x in DENY_DOMAINS)
 
 def generic_page(title: str, url: str) -> bool:
@@ -143,6 +149,8 @@ def generic_page(title: str, url: str) -> bool:
         return True
     path = urlparse(url).path.rstrip('/').lower()
     if t in {'events','event','schedule','活动','活動','通知公告'}:
+        return True
+    if t.startswith('upcoming events') or path.endswith('/upcoming-events'):
         return True
     if path in {'', '/events', '/event', '/schedule'} and len(t) < 45:
         return True
