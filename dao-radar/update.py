@@ -230,6 +230,9 @@ def score_item(title: str, body: str, url: str) -> int:
     if contains_any(title, ACTIVITY): score += 3
     if contains_any(text, FUTURE_WORDS): score += 2
     if trusted(url): score += 4
+    # 同等质量下优先中文页面，尤其方便长辈直接阅读。
+    # 这里只给小幅加分，不允许中文转载压过更权威的外文官方原页。
+    if is_mostly_chinese(f'{title} {body}'): score += 3
     if url.startswith('https://'): score += 1
     return score
 
