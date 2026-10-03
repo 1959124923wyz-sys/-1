@@ -169,7 +169,18 @@ LOW_BARRIER_QUERIES = [
     '"professeur tai chi" recrutement 2026 2027',
     '"professeur qigong" recrutement 2026 2027',
     '"instructor tai chi" empleo 2026 2027',
-    '"profesor qigong" cultura china 2026 2027'
+    '"profesor qigong" cultura china 2026 2027',
+    # 平台型公开招募：作为发现入口
+    'site:eventbrite.com "Lunar New Year" performer application 2027',
+    'site:eventbrite.com tai chi qigong workshop community 2026 2027',
+    'site:meetup.com tai chi qigong Chinese culture organizer 2026 2027',
+    'site:volunteermatch.org Chinese culture volunteer tai chi 2026 2027',
+    'site:idealist.org Chinese culture volunteer instructor 2026 2027',
+    'site:workaway.info tai chi qigong volunteer host',
+    '"community instructor" tai chi qigong 2026 2027',
+    '"recreation instructor" tai chi 2026 2027',
+    '"senior center" tai chi instructor hiring 2026 2027',
+    '"library" Chinese culture workshop presenter 2026 2027'
 ]
 
 DIRECT = [

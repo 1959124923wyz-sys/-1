@@ -41,6 +41,7 @@
 - [ ] 搜索英文招聘关键词：vacancy / hiring / recruitment / instructor / advisor / consultant / volunteer / visiting professor / guest lecturer / resident teacher
 - [ ] 固定扫地方政府和社区招聘：GovernmentJobs、Canada Job Bank及各地 parks & recreation / community centre / senior centre
 - [ ] 固定扫春节、中秋、亚洲文化节的 performer / vendor / workshop / volunteer application
+- [ ] 固定扫 Eventbrite / Meetup / VolunteerMatch / Idealist / Workaway 等平台，重点找个人可直接报名的小机会；找到后尽量回溯主办方原页
 - [ ] 固定扫华人社团、中文学校、唐人街机构、图书馆、博物馆和社区教育项目
 - [ ] 用日语、韩语、德语、法语、西班牙语补搜太极/气功/中华文化教师和活动招募
 - [ ] 对海外中医项目标注：可报名 / 可投稿 / 可参展 / 可主动联系 / 持续跟踪
