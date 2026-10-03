@@ -2,6 +2,90 @@
   "updated_at": "2026-10-03",
   "items": [
     {
+      "id": "germany-china-tcm-2026",
+      "title": "6. Deutsch-Chinesische Konferenz für Traditionelle Chinesische Medizin",
+      "title_zh": "德国埃森｜第六届德中传统中医药大会",
+      "country": "德国",
+      "city": "埃森",
+      "region": "海外",
+      "type": "论坛会议",
+      "event_date": "2026年11月20日",
+      "deadline": "",
+      "summary_zh": "德中中医药交流平台，连接临床、科研和卫生政策领域，讨论中医在德国医疗体系中的整合、预防与循证发展，适合作为中德合作与专业交流入口。",
+      "source_name": "Deutsch-Chinesische Gesellschaft für Health Care Management",
+      "source_url": "https://www.dcg-health.com/tcm-konferenz/",
+      "discovered_at": "2026-10-03",
+      "last_seen": "2026-10-03",
+      "expires_on": "2026-11-20",
+      "manual": true,
+      "score": 23,
+      "outbound": true,
+      "outbound_action": "可参会｜可主动联系｜中德合作"
+    },
+    {
+      "id": "singapore-tcm-cce-platform",
+      "title": "Singapore College of Traditional Chinese Medicine Continuing Education",
+      "title_zh": "新加坡中医学院｜海外讲座、英文课程与定制活动平台",
+      "country": "新加坡",
+      "city": "新加坡",
+      "region": "海外",
+      "type": "文化交流",
+      "event_date": "持续更新",
+      "deadline": "",
+      "summary_zh": "新加坡中医学院持续举办名医大讲堂、英文公众课程、高层论坛和定制活动，是联系海外中医教学、公众传播和专家讲座合作的长期入口。",
+      "source_name": "新加坡中医学院",
+      "source_url": "https://www.singaporetcm.edu.sg/en/continuing_edu_talk.php",
+      "discovered_at": "2026-10-03",
+      "last_seen": "2026-10-03",
+      "expires_on": "2027-12-31",
+      "manual": true,
+      "score": 25,
+      "outbound": true,
+      "outbound_action": "可主动联系｜讲座/英文课程/定制活动"
+    },
+    {
+      "id": "wfcms-cairo-education-2026",
+      "title": "第八届世界中医药教育大会",
+      "title_zh": "埃及开罗｜第八届世界中医药教育大会 + 北非交流",
+      "country": "埃及",
+      "city": "开罗",
+      "region": "海外",
+      "type": "文化交流",
+      "event_date": "2026年11月13日至15日",
+      "deadline": "2026年10月31日",
+      "summary_zh": "主题“东方智慧，全球共享”，含中医药教学与适宜技术展示、埃及机构实地交流；可现场报名、投稿或视频报告，会后计划在埃及、突尼斯、摩洛哥开展业务交流。",
+      "source_name": "世界中医药学会联合会",
+      "source_url": "https://www.wfcms.org/show/11/8899.html",
+      "discovered_at": "2026-10-03",
+      "last_seen": "2026-10-03",
+      "expires_on": "2026-11-15",
+      "manual": true,
+      "score": 32,
+      "outbound": true,
+      "outbound_action": "可报名｜可投稿/视频报告｜北非交流"
+    },
+    {
+      "id": "wfcms-singapore-2026-outbound",
+      "title": "第二十三届世界中医药大会",
+      "title_zh": "新加坡｜第二十三届世界中医药大会 + 东南亚交流",
+      "country": "新加坡",
+      "city": "新加坡",
+      "region": "海外",
+      "type": "文化交流",
+      "event_date": "2026年10月16日至18日；会后交流10月19日至23日",
+      "deadline": "",
+      "summary_zh": "大会明确聚焦中医药国际传播、文化传播与海外发展，并设服务贸易展；会后计划赴斯里兰卡、印度尼西亚开展中医药业务交流。",
+      "source_name": "世界中医药学会联合会",
+      "source_url": "https://www.wfcms.org/show/11/8945.html",
+      "discovered_at": "2026-10-03",
+      "last_seen": "2026-10-03",
+      "expires_on": "2026-10-23",
+      "manual": true,
+      "score": 30,
+      "outbound": true,
+      "outbound_action": "可报名｜可参展｜东南亚交流"
+    },
+    {
       "id": "wfd-east-west-cooperation",
       "title": "世界道教聯合會「東西道教合作計劃」",
       "title_zh": "世界道教联合会“东西道教合作计划”｜长期合作线索",
@@ -18,7 +102,9 @@
       "last_seen": "2026-10-02",
       "expires_on": "2027-12-31",
       "manual": true,
-      "score": 24
+      "score": 24,
+      "outbound": true,
+      "outbound_action": "可主动联系｜机构结对/文化交流"
     },
     {
       "id": "wfd-overseas-clergy-channel",
@@ -56,7 +142,9 @@
       "last_seen": "2026-10-02",
       "expires_on": "2027-12-31",
       "manual": true,
-      "score": 19
+      "score": 19,
+      "outbound": true,
+      "outbound_action": "可主动联系｜访问教师/欧洲传播"
     },
     {
       "id": "hongkong-luotian-dajiao-2027",
@@ -284,7 +372,9 @@
       "last_seen": "2026-10-01",
       "expires_on": "2027-10-10",
       "manual": true,
-      "score": 18
+      "score": 18,
+      "outbound": true,
+      "outbound_action": "可联系｜美国道教文化交流"
     },
     {
       "id": "daoist-foundation-dsss-2027",
@@ -360,7 +450,9 @@
       "last_seen": "2026-10-01",
       "expires_on": "2027-03-09",
       "manual": true,
-      "score": 19
+      "score": 19,
+      "outbound": true,
+      "outbound_action": "可投稿｜英文道教学传播"
     },
     {
       "id": "wudang-iching-2026-2027",
@@ -550,7 +642,9 @@
       "last_seen": "2026-10-01",
       "expires_on": "2026-11-30",
       "manual": true,
-      "score": 20
+      "score": 20,
+      "outbound": true,
+      "outbound_action": "持续跟踪｜国际文化论坛"
     },
     {
       "id": "aar-daoist-studies-2026",
@@ -569,7 +663,9 @@
       "last_seen": "2026-10-03",
       "expires_on": "2026-11-24",
       "manual": true,
-      "score": 20
+      "score": 20,
+      "outbound": true,
+      "outbound_action": "可参会｜美国学术交流"
     },
     {
       "id": "mantak-inner-alchemy-2026",
