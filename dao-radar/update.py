@@ -204,7 +204,19 @@ LOW_BARRIER_QUERIES = [
     'site:kungfu-school.de/show Chinese New Year 2027 mitmachen',
     'site:chineseculturecentre.co.za volunteer get involved',
     'site:fetechinoise.ca volunteer 2027 Chinese New Year',
-    'site:workaway.info/en/host qigong tai chi "Last activity" 2026'
+    'site:workaway.info/en/host qigong tai chi "Last activity" 2026',
+    # 第二轮固定低门槛来源
+    'site:eventeny.com/events/vendor "Athens Asian Lunar Festival" performer',
+    'site:eventeny.com/events/vendor "Athens Asian Lunar Festival" arts crafts',
+    'site:calgary.ca Chinatown Activation Microgrant Traditional Chinese Medicine',
+    'site:cccgt.org volunteer Chinese Cultural Centre',
+    'site:londonchineseassociation.org volunteer',
+    'site:thenlca.org.uk volunteer Chinese Association',
+    'site:ccc.org.uk volunteer Chinese Community Centre',
+    'site:islingtonchinese.com volunteer recruitment',
+    'site:ccchouston.org volunteer Chinese Community Center',
+    'site:ccc.sdsu.edu volunteer Chinese Cultural Center',
+    'site:workaway.info/en/host Corfu tai chi qigong teach'
 ]
 
 DIRECT = [
