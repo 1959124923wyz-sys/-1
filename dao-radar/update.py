@@ -129,6 +129,12 @@ REVIEWED_EXPIRED_URLS = {
     'https://www.daoisms.com.cn/2026/22/20/126469',
     'https://www.daoisms.com.cn/2026/19/15/125869'
 }
+REVIEWED_BLOCKED_URLS = {
+    'https://www.hkcd.com.hk/hkcdweb/content/2026/08/13/content_8769564.html',
+    'https://www.hkcd.com/newsTopic_content.php?id=8769564',
+    'https://www.taoism.tw/教育內涵/課程設計',
+    'http://www.cts65.org/upload/75b1e278be41ab0033b03c5a25d2125f.pdf'
+}
 CHINESE_URL_OVERRIDES = {
     'https://wudang.org/events/i-ching-learning/i-ching-beginner-course-singapore':
         'https://wudang.org/zh/events/i-ching-learning/i-ching-beginner-course-singapore',
@@ -187,7 +193,10 @@ def trusted(url: str) -> bool:
 
 def domain_denied(url: str) -> bool:
     d = urlparse(url).netloc.lower()
-    if canonical(url).rstrip('/') in {x.rstrip('/') for x in REVIEWED_EXPIRED_URLS}:
+    cu = canonical(url).rstrip('/')
+    if cu in {x.rstrip('/') for x in REVIEWED_EXPIRED_URLS}:
+        return True
+    if cu in {canonical(x).rstrip('/') for x in REVIEWED_BLOCKED_URLS}:
         return True
     return any(x in d for x in DENY_DOMAINS)
 
