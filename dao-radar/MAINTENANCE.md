@@ -18,9 +18,11 @@
 - [ ] 合并重复活动
 - [ ] 检查国内来源
 - [ ] 检查港澳台来源
-- [ ] 第一优先检查“低门槛”专区：社区兼职、志愿者、文化节表演/摊位/工作坊、民间协会邀请、中文学校、太极气功教学、道观/养生馆小型合作
+- [ ] 第一优先检查“华人社区”专区：华人社区中心、协会、中文学校、同乡会、中华文化中心的会员、义工、课程带领、健康养生、讲座/工作坊入口
+- [ ] 第二优先检查“低门槛”专区：社区兼职、志愿者、文化项目/摊位/工作坊、民间协会邀请、中文学校、太极气功教学、道观/养生馆小型合作
+- [ ] 纯舞台表演、游行节目和单纯演艺招募不收；发现后清理
 - [ ] 不把当前低门槛条数当作全球总量；每周至少横向扫北美、欧洲、澳新、东南亚、日本韩国、中东/非洲、拉美
-- [ ] 每周低门槛扫描按“地区 × 机会类型”执行：招聘 / 志愿 / 表演 / 摊位/项目 / 工作坊 / 客座 / 民间合作 / 食宿/技能交换
+- [ ] 每周低门槛扫描按“地区 × 机会类型”执行：华人社区入口 / 招聘 / 志愿 / 会员 / 摊位/项目 / 工作坊 / 客座 / 民间合作 / 食宿/技能交换
 - [ ] 每一区域/类型至少更换两组关键词继续搜；连续两轮无新合格项才视为本轮暂时饱和
 - [ ] 对每个大区至少检查一个城市政府机会页、一个华人社团/文化中心、一个招聘/志愿平台、一个节庆/活动平台
 - [ ] 每周至少新增/复核一批“城市级/社区级”来源，而不只搜国家级机构
@@ -47,10 +49,11 @@
 - [ ] 固定扫地方政府和社区招聘：GovernmentJobs、Canada Job Bank及各地 parks & recreation / community centre / senior centre
 - [ ] 固定扫 NSW Neon Marketplace、City of Sydney、Georges River Council、626 Night Market、Houston Chinese Community Center、California Culture Festival、Asian Festival Arizona、San Francisco Chinese New Year Parade 等已验证低门槛来源
 - [ ] 固定扫中国文化中心志愿入口：Sydney、Copenhagen及其他海外中心
-- [ ] 固定扫华人社区长期志愿入口：Chinese Culture Connection、Vancouver CCC、Greater Toronto CCC、Regina RCCA、Mississauga CAM、London Ontario LCA、North London CA、London CCC、Islington CA、Tower Hamlets、Houston CCC等
+- [ ] 固定扫华人社区长期入口：Avenidas ACCC、Vancouver CCC、Greater Toronto CCC、Regina RCCA、Mississauga CAM、Birmingham CCC、London CCC、North London CA、Islington CA、Tower Hamlets、Houston CCC、Flushing CCC
+- [ ] 固定扫澳新华社入口：Auckland Chinese Community Centre、NZCA Auckland、West Auckland Chinese Association、New Life Charitable Trust、Chinese Association of Victoria
 - [ ] 固定扫“个人可发起中华文化项目”的小额资助/开放项目，尤其传统艺术、太极气功、中医文化体验
 - [ ] Workaway等食宿交换只作为低门槛补充来源，必须标注平台性质、签证/保险需另核，不与正式工作混淆
-- [ ] 固定扫春节、中秋、亚洲文化节的 performer / vendor / workshop / volunteer application
+- [ ] 固定扫春节、中秋、亚洲文化节的 vendor / workshop / volunteer / community project；不搜纯 performer
 - [ ] 固定扫 Eventbrite / Meetup / VolunteerMatch / Idealist / Workaway 等平台，重点找个人可直接报名的小机会；找到后尽量回溯主办方原页
 - [ ] 固定扫华人社团、中文学校、唐人街机构、图书馆、博物馆和社区教育项目
 - [ ] 用日语、韩语、德语、法语、西班牙语补搜太极/气功/中华文化教师和活动招募

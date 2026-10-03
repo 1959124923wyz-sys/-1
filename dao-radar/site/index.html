@@ -36,7 +36,8 @@ h1{font-size:34px;line-height:1.25;margin:0 0 5px;letter-spacing:.04em}
 <div class="status" id="status">正在读取最新信息……</div>
 
 <div class="tabs">
-<button class="tab active" data-filter="低门槛">低门槛</button>
+<button class="tab active" data-filter="华人社区">华人社区</button>
+<button class="tab" data-filter="低门槛">低门槛</button>
 <button class="tab" data-filter="出海机会">出海机会</button>
 <button class="tab" data-filter="全部">最新</button>
 <button class="tab" data-filter="国内">国内</button>
@@ -50,17 +51,17 @@ h1{font-size:34px;line-height:1.25;margin:0 0 5px;letter-spacing:.04em}
 </div>
 
 <script>
-let allData=[], current='低门槛';
+let allData=[], current='华人社区';
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
 
 function render(){
- const items=current==='全部'?allData:(current==='低门槛'?allData.filter(x=>x.low_barrier):(current==='出海机会'?allData.filter(x=>x.outbound):allData.filter(x=>x.region===current)));
+ const items=current==='全部'?allData:(current==='华人社区'?allData.filter(x=>x.community_entry):(current==='低门槛'?allData.filter(x=>x.low_barrier):(current==='出海机会'?allData.filter(x=>x.outbound):allData.filter(x=>x.region===current))));
  const box=document.getElementById('list');
  if(!items.length){box.innerHTML='<div class="empty">暂时没有相关信息</div>';return;}
  box.innerHTML=items.map(x=>`<article class="card">
    <div class="meta">${esc(x.country||'国际')}${x.city?' · '+esc(x.city):''}</div>
    <div class="title">${esc(x.title_zh||x.title)}</div>
-   ${x.type?`<span class="badge">${esc(x.type)}</span>`:''}${x.low_barrier?`<span class="badge">低门槛</span>`:''}${x.outbound_action?`<span class="badge">${esc(x.outbound_action)}</span>`:''}
+   ${x.type?`<span class="badge">${esc(x.type)}</span>`:''}${x.community_entry?`<span class="badge">华人社区</span>`:''}${x.low_barrier?`<span class="badge">低门槛</span>`:''}${x.outbound_action?`<span class="badge">${esc(x.outbound_action)}</span>`:''}
    <div class="summary">${esc(x.summary_zh||'')}</div>${x.barrier_note?`<div class="meta">门槛：${esc(x.barrier_note)}</div>`:''}
    <div class="dates">
      ${x.event_date?`📅 ${esc(x.event_date)}<br>`:''}
@@ -79,7 +80,7 @@ fetch('./data.json?ts='+Date.now(),{cache:'no-store'})
  .then(r=>r.json())
  .then(d=>{
    allData=d.items||[];
-   const outCount=allData.filter(x=>x.outbound).length; const lowCount=allData.filter(x=>x.low_barrier).length; document.getElementById('status').textContent=`更新：${d.updated_at||'—'} · 低门槛 ${lowCount} 条 · 出海 ${outCount} 条 · 全库 ${allData.length} 条`;
+   const outCount=allData.filter(x=>x.outbound).length; const lowCount=allData.filter(x=>x.low_barrier).length; const communityCount=allData.filter(x=>x.community_entry).length; document.getElementById('status').textContent=`更新：${d.updated_at||'—'} · 华人社区 ${communityCount} 条 · 低门槛 ${lowCount} 条 · 出海 ${outCount} 条 · 全库 ${allData.length} 条`;
    render();
  })
  .catch(()=>{

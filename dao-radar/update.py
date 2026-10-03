@@ -135,14 +135,9 @@ LOW_BARRIER_QUERIES = [
     'site:jobbank.gc.ca "tai-chi instructor" 2026',
     'site:indeed.com "Tai Chi Instructor" community 2026',
     # 节庆、表演、摊位、工作坊：允许个人/小团体直接报名
-    '"2027 Lunar New Year" performer application',
-    '"2027 Chinese New Year" performer application',
     '"2027 Lunar New Year" vendor application',
-    '"Chinese festival" "call for performers" 2027',
-    '"Chinese culture festival" performer application 2027',
     '"call for presenters" tai chi qigong Chinese medicine 2026 2027',
     '"call for workshop facilitators" Chinese culture 2026 2027',
-    '"community festival" tai chi qigong performer application',
     # 民间协会/华人社团/中文学校
     '"Chinese association" guest speaker tai chi qigong 2026 2027',
     '"Chinese community center" instructor tai chi calligraphy 2026 2027',
@@ -171,7 +166,6 @@ LOW_BARRIER_QUERIES = [
     '"instructor tai chi" empleo 2026 2027',
     '"profesor qigong" cultura china 2026 2027',
     # 平台型公开招募：作为发现入口
-    'site:eventbrite.com "Lunar New Year" performer application 2027',
     'site:eventbrite.com tai chi qigong workshop community 2026 2027',
     'site:meetup.com tai chi qigong Chinese culture organizer 2026 2027',
     'site:volunteermatch.org Chinese culture volunteer tai chi 2026 2027',
@@ -187,13 +181,10 @@ LOW_BARRIER_QUERIES = [
     'site:neonmarketplace.nsw.gov.au "Lunar New Year" performer',
     'site:neonmarketplace.nsw.gov.au "Lunar New Year" stallholder',
     'site:georgesriver.nsw.gov.au Lunar New Year performers stallholders',
-    'site:626nightmarket.com performer application',
     'site:asianfestivalaz.com 2027 vendor performer volunteer',
     'site:ccchouston.org 2027 Lunar New Year performer vendor volunteer',
     'site:squarespace.com "2027 Lunar New Year" performer volunteer application',
     # 固定低门槛来源：已人工验证过会持续产出
-    'site:cityofsydney.nsw.gov.au/opportunities Lunar Festival community performance',
-    'site:chineseparade.com 2027 parade application',
     'site:cccsydney.org volunteer Chinese culture',
     'site:ccccph.org volunteer Chinese culture',
     'site:chinesecultureconnection.org volunteer application tai chi',
@@ -206,7 +197,6 @@ LOW_BARRIER_QUERIES = [
     'site:fetechinoise.ca volunteer 2027 Chinese New Year',
     'site:workaway.info/en/host qigong tai chi "Last activity" 2026',
     # 第二轮固定低门槛来源
-    'site:eventeny.com/events/vendor "Athens Asian Lunar Festival" performer',
     'site:eventeny.com/events/vendor "Athens Asian Lunar Festival" arts crafts',
     'site:calgary.ca Chinatown Activation Microgrant Traditional Chinese Medicine',
     'site:cccgt.org volunteer Chinese Cultural Centre',
@@ -219,9 +209,33 @@ LOW_BARRIER_QUERIES = [
     'site:workaway.info/en/host Corfu tai chi qigong teach'
 ]
 
+COMMUNITY_ENTRY_QUERIES = [
+    '"Chinese community center" volunteer lead class tai chi qigong',
+    '"Chinese community centre" volunteer health wellbeing activity',
+    '"Chinese cultural centre" volunteer tai chi instructor calligraphy',
+    '"Chinese association" membership volunteer cultural activities',
+    '"Chinese association" volunteer community workshop health',
+    '"Chinese community" volunteer "lead a class" culture',
+    '"Chinese community centre" guest speaker workshop volunteer',
+    '华人社区中心 志愿者 太极 气功 课程 海外',
+    '华人协会 志愿者 文化活动 讲座 海外',
+    '华人社团 会员 志愿者 中华文化 海外',
+    '海外 华社 健康讲座 太极 气功 志愿者',
+    'site:avenidas.org volunteer "Lead Activities, Classes"',
+    'site:cccvan.com volunteer Tai Chi instructor',
+    'site:chinesebirmingham.org.uk volunteer Chinese community',
+    'site:cawa.org.nz volunteer register',
+    'site:nznewlife.org.nz volunteer Chinese community',
+    'site:aucklandchinese.nz membership community',
+    'site:nzchinese.org.nz membership volunteer Chinese school',
+    'site:cccflushing.org volunteer Chinese culture',
+    'site:cavinc.com.au membership Tai Ji community',
+    'site:dcg-lsa.de membership Chinese German cultural'
+]
+
 DIRECT = [
     'daoism','daoist','taoism','taoist','tao te ching','道教','道家','道德经','道德經',
-    '玄门','玄門','全真','正一','道经','道經','宫观','宮觀','黄大仙','黃大仙','孔子学院','孔子學院','国际中文','國際中文','中华文化','中華文化','华文学校','華文學校','Confucius Institute','Chinese language','Chinese culture','中医','中醫','中医药','中醫藥','traditional chinese medicine','tcm','针灸','針灸','acupuncture','도교'
+    '玄门','玄門','全真','正一','道经','道經','宫观','宮觀','黄大仙','黃大仙','孔子学院','孔子學院','国际中文','國際中文','中华文化','中華文化','华文学校','華文學校','Confucius Institute','Chinese language','Chinese culture','Chinese community','Chinese association','Chinese cultural centre','Chinese cultural center','华人社区','華人社區','华人协会','華人協會','华人社团','華人社團','中医','中醫','中医药','中醫藥','traditional chinese medicine','tcm','针灸','針灸','acupuncture','도교'
 ]
 ASSOCIATED = [
     '武当','武當','wudang','太极','太極','taiji','qigong','气功','氣功','老子','laozi',
@@ -238,7 +252,7 @@ ACTIVITY = [
 ]
 LOW_BARRIER_SIGNALS = [
     'no education requirement','all levels welcome','high school','ged','0 years','entry level',
-    'part time','part-time','casual','temporary','contract','volunteer','performer','vendor',
+    'part time','part-time','casual','temporary','contract','volunteer','vendor','membership','member application',
     'community center','community centre','recreation center','recreation centre','senior center',
     'guest speaker','guest instructor','workshop facilitator','open call','apply now','anyone can',
     'no formal training','no degree','个人','個人','团体','團體','志愿者','志願者','表演者','摊位',
@@ -520,6 +534,22 @@ def low_barrier_focus(text: str) -> bool:
         return False
     return contains_any(text, LOW_BARRIER_SIGNALS) and contains_any(text, DIRECT + ASSOCIATED)
 
+def community_entry_focus(text: str) -> bool:
+    return contains_any(text, [
+        'chinese community center','chinese community centre','chinese association',
+        'chinese cultural centre','chinese cultural center','华人社区','華人社區',
+        '华人协会','華人協會','华人社团','華人社團','chinatown'
+    ]) and contains_any(text, [
+        'volunteer','membership','member','instructor','teacher','class','activity','workshop',
+        '志愿者','志願者','义工','義工','会员','會員','课程','課程','讲座','講座','活动','活動'
+    ])
+
+def stage_only(text: str) -> bool:
+    return contains_any(text, [
+        'stage performer','performer application','performance application',
+        'call for performers','parade application','舞台表演','表演者招募','演出招募'
+    ])
+
 def event_type(text: str) -> str:
     rules = [
         ('海外招聘', ['招聘','征聘','徵聘','聘请','聘請','vacancy','hiring','recruitment','job opening','lecturer position','instructor position']),
@@ -554,6 +584,7 @@ def collect():
             (QUERIES, 8, 7, 0.7),
             # 低门槛方向多翻几页结果，并允许稍低的初筛分数，之后仍做相关性/日期过滤。
             (LOW_BARRIER_QUERIES, 20, 5, 0.35),
+            (COMMUNITY_ENTRY_QUERIES, 20, 5, 0.35),
         ]
         for queries, max_results, min_score, pause in query_sets:
           for q in queries:
@@ -564,6 +595,8 @@ def collect():
                     body = (r.get('body') or '').strip()
                     url = prefer_chinese_url(canonical((r.get('href') or '').strip()))
                     if not title or not url or domain_denied(url) or generic_page(title, url):
+                        continue
+                    if stage_only(f'{title} {body}'):
                         continue
                     if not looks_current_or_future(title, body, url):
                         continue
@@ -649,7 +682,9 @@ def main():
             'outbound': outbound_focus(country, combined),
             'outbound_action': '海外交流机会' if outbound_focus(country, combined) else '',
             'low_barrier': low_barrier_focus(combined),
-            'barrier_note': '公开/社区型机会，具体签证和资格要求请看原文' if low_barrier_focus(combined) else ''
+            'barrier_note': '公开/社区型机会，具体签证和资格要求请看原文' if low_barrier_focus(combined) else '',
+            'community_entry': community_entry_focus(combined),
+            'entry_note': '可作为进入当地华人社区和文化活动网络的入口' if community_entry_focus(combined) else ''
         }
         items.append(item)
         by_url[url] = item
