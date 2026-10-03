@@ -79,12 +79,26 @@ QUERIES = [
     'site:cts65.org 道教 课程 招生 2026 2027',
     'site:taoismmalaysia.my 道教 活动 交流 2026 2027',
     'site:taoistfederation.org.sg 道教 活动 交流 2026 2027',
-    'site:daoistassociationofeurope.org Daoist cultural exchange collaboration 2026 2027'
+    'site:daoistassociationofeurope.org Daoist cultural exchange collaboration 2026 2027',
+
+    # 出海传播：中医药与中华养生文化
+    '中医药 国际传播 海外 交流 会议 报名 2026 2027',
+    '中医药 海外 文化交流 讲座 展示 参展 2026 2027',
+    '中医 海外 访问 教学 讲座 合作 2026 2027',
+    '针灸 中医 海外 国际会议 交流 2026 2027',
+    'traditional chinese medicine international cultural exchange conference 2026 2027',
+    'TCM overseas lecture workshop cultural exchange speaker 2026 2027',
+    'Chinese medicine visiting teacher guest lecture international 2026 2027',
+    'Chinese cultural center traditional Chinese medicine lecture 2026 2027',
+    'Confucius Institute traditional Chinese medicine lecture 2026 2027',
+    'site:wfcms.org 2026 新加坡 埃及 中医药 国际交流',
+    'site:singaporetcm.edu.sg 2026 lecture course symposium TCM',
+    'site:dcg-health.com TCM Konferenz 2026'
 ]
 
 DIRECT = [
     'daoism','daoist','taoism','taoist','tao te ching','道教','道家','道德经','道德經',
-    '玄门','玄門','全真','正一','道经','道經','宫观','宮觀','黄大仙','黃大仙','도교'
+    '玄门','玄門','全真','正一','道经','道經','宫观','宮觀','黄大仙','黃大仙','中医','中醫','中医药','中醫藥','traditional chinese medicine','tcm','针灸','針灸','acupuncture','도교'
 ]
 ASSOCIATED = [
     '武当','武當','wudang','太极','太極','taiji','qigong','气功','氣功','老子','laozi',
@@ -98,6 +112,12 @@ ACTIVITY = [
     '研修','法会','法會','醮','科仪','科儀','祈福','讲经','講經','展览','展覽','展演','文化节',
     '文化節','庙会','廟會','招生','参访','參訪','巡礼','巡禮','慕课','慕課','网课','網課','公开课','公開課','直播','线上同步','線上同步','读书会','讀書會','共修','国際会議','シンポジウム','募集',
     '학술대회','교류','강좌'
+]
+OUTBOUND_SIGNALS = [
+    'international','overseas','global','exchange','cultural exchange','conference','forum','exhibition',
+    'speaker','lecture','workshop','call for','visiting','collaboration','国际','國際','海外','全球','交流',
+    '文化传播','文化傳播','传播','傳播','论坛','論壇','会议','會議','展览','展覽','参展','參展','投稿',
+    '讲座','講座','访问','訪問','合作','新加坡','埃及','欧洲','歐洲','美国','美國','德国','德國'
 ]
 FUTURE_WORDS = [
     'upcoming','registration','register','call for','deadline','apply','applications','open for',
@@ -350,6 +370,11 @@ def region(country: str, text: str) -> str:
         return '港澳台'
     return '海外'
 
+def outbound_focus(country: str, text: str) -> bool:
+    return country != '中国大陆' and contains_any(text, OUTBOUND_SIGNALS) and contains_any(
+        text, DIRECT + ASSOCIATED
+    )
+
 def event_type(text: str) -> str:
     rules = [
         ('法会科仪', ['法会','法會','科仪','科儀','醮','祈福','圣诞','聖誕','礼斗','禮斗','拜忏','拜懺']),
@@ -468,7 +493,9 @@ def main():
             'last_seen': TODAY,
             'expires_on': expires_on,
             'manual': False,
-            'score': score
+            'score': score,
+            'outbound': outbound_focus(country, combined),
+            'outbound_action': '海外交流机会' if outbound_focus(country, combined) else ''
         }
         items.append(item)
         by_url[url] = item
