@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f2ea">
-<title>道行四海｜道教活动与文化交流</title>
+<title>道行四海｜道教·中医·中华文化出海机会</title>
 <style>
 :root{--bg:#f5f2ea;--card:#fff;--text:#20231f;--muted:#6f716d;--line:#ded8ca;--accent:#6b5038;--soft:#ece5d8;--warn:#8f3f32}
 *{box-sizing:border-box}
@@ -32,11 +32,12 @@ h1{font-size:34px;line-height:1.25;margin:0 0 5px;letter-spacing:.04em}
 </head>
 <body>
 <div class="wrap">
-<header><h1>道行四海</h1><div class="sub">道教活动与文化交流</div></header>
+<header><h1>道行四海</h1><div class="sub">道教 · 中医 · 中华文化交流机会</div></header>
 <div class="status" id="status">正在读取最新信息……</div>
 
 <div class="tabs">
-<button class="tab active" data-filter="全部">最新</button>
+<button class="tab active" data-filter="出海传播">出海传播</button>
+<button class="tab" data-filter="全部">最新</button>
 <button class="tab" data-filter="国内">国内</button>
 <button class="tab" data-filter="港澳台">港澳台</button>
 <button class="tab" data-filter="海外">海外</button>
@@ -48,17 +49,17 @@ h1{font-size:34px;line-height:1.25;margin:0 0 5px;letter-spacing:.04em}
 </div>
 
 <script>
-let allData=[], current='全部';
+let allData=[], current='出海传播';
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
 
 function render(){
- const items=current==='全部'?allData:allData.filter(x=>x.region===current);
+ const items=current==='全部'?allData:(current==='出海传播'?allData.filter(x=>x.outbound):allData.filter(x=>x.region===current));
  const box=document.getElementById('list');
  if(!items.length){box.innerHTML='<div class="empty">暂时没有相关信息</div>';return;}
  box.innerHTML=items.map(x=>`<article class="card">
    <div class="meta">${esc(x.country||'国际')}${x.city?' · '+esc(x.city):''}</div>
    <div class="title">${esc(x.title_zh||x.title)}</div>
-   ${x.type?`<span class="badge">${esc(x.type)}</span>`:''}
+   ${x.type?`<span class="badge">${esc(x.type)}</span>`:''}${x.outbound_action?`<span class="badge">${esc(x.outbound_action)}</span>`:''}
    <div class="summary">${esc(x.summary_zh||'')}</div>
    <div class="dates">
      ${x.event_date?`📅 ${esc(x.event_date)}<br>`:''}
