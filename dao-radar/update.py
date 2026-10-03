@@ -180,7 +180,17 @@ LOW_BARRIER_QUERIES = [
     '"community instructor" tai chi qigong 2026 2027',
     '"recreation instructor" tai chi 2026 2027',
     '"senior center" tai chi instructor hiring 2026 2027',
-    '"library" Chinese culture workshop presenter 2026 2027'
+    '"library" Chinese culture workshop presenter 2026 2027',
+    # 已验证存在有效机会的平台/固定来源
+    'site:governmentjobs.com "Volunteer Tai Chi/QiGong Instructor"',
+    'site:governmentjobs.com "Tai Chi Instructor" "No education requirement"',
+    'site:neonmarketplace.nsw.gov.au "Lunar New Year" performer',
+    'site:neonmarketplace.nsw.gov.au "Lunar New Year" stallholder',
+    'site:georgesriver.nsw.gov.au Lunar New Year performers stallholders',
+    'site:626nightmarket.com performer application',
+    'site:asianfestivalaz.com 2027 vendor performer volunteer',
+    'site:ccchouston.org 2027 Lunar New Year performer vendor volunteer',
+    'site:squarespace.com "2027 Lunar New Year" performer volunteer application'
 ]
 
 DIRECT = [

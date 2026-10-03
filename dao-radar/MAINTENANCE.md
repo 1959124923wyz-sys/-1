@@ -19,6 +19,8 @@
 - [ ] 检查国内来源
 - [ ] 检查港澳台来源
 - [ ] 第一优先检查“低门槛”专区：社区兼职、志愿者、文化节表演/摊位/工作坊、民间协会邀请、中文学校、太极气功教学、道观/养生馆小型合作
+- [ ] 不把当前低门槛条数当作全球总量；每周至少横向扫北美、欧洲、澳新、东南亚、日本韩国、中东/非洲、拉美
+- [ ] 每周至少新增/复核一批“城市级/社区级”来源，而不只搜国家级机构
 - [ ] 第二优先检查“出海机会”专区：可报名、可投稿、可参展、可联系合作、访问教师或海外交流机会
 - [ ] 检查海外来源
 - [ ] 检查线上活动
@@ -40,6 +42,7 @@
 - [ ] 搜索低门槛英文关键词：part-time / casual / community instructor / performer application / vendor application / volunteer / open call / workshop facilitator / guest speaker / recreation center / senior center
 - [ ] 搜索英文招聘关键词：vacancy / hiring / recruitment / instructor / advisor / consultant / volunteer / visiting professor / guest lecturer / resident teacher
 - [ ] 固定扫地方政府和社区招聘：GovernmentJobs、Canada Job Bank及各地 parks & recreation / community centre / senior centre
+- [ ] 固定扫 NSW Neon Marketplace、Georges River Council、626 Night Market、Houston Chinese Community Center、California Culture Festival、Asian Festival Arizona 等已验证低门槛来源
 - [ ] 固定扫春节、中秋、亚洲文化节的 performer / vendor / workshop / volunteer application
 - [ ] 固定扫 Eventbrite / Meetup / VolunteerMatch / Idealist / Workaway 等平台，重点找个人可直接报名的小机会；找到后尽量回溯主办方原页
 - [ ] 固定扫华人社团、中文学校、唐人街机构、图书馆、博物馆和社区教育项目
