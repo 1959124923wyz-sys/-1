@@ -122,6 +122,56 @@ QUERIES = [
     'site:careers.singhealth.com.sg acupuncturist TCM'
 ]
 
+LOW_BARRIER_QUERIES = [
+    # 社区/兼职/临时教学：学历要求通常低于高校和大机构
+    '"Tai Chi instructor" community center hiring 2026 2027',
+    '"Tai Chi instructor" recreation center part time 2026 2027',
+    '"Tai Chi instructor" senior center casual 2026 2027',
+    '"Qigong instructor" community center part time 2026 2027',
+    '"Qigong instructor" senior living hiring 2026 2027',
+    '"Chinese culture instructor" community center part time 2026 2027',
+    '"Chinese cultural instructor" volunteer community 2026 2027',
+    'site:governmentjobs.com "Tai Chi Instructor" 2026',
+    'site:jobbank.gc.ca "tai-chi instructor" 2026',
+    'site:indeed.com "Tai Chi Instructor" community 2026',
+    # 节庆、表演、摊位、工作坊：允许个人/小团体直接报名
+    '"2027 Lunar New Year" performer application',
+    '"2027 Chinese New Year" performer application',
+    '"2027 Lunar New Year" vendor application',
+    '"Chinese festival" "call for performers" 2027',
+    '"Chinese culture festival" performer application 2027',
+    '"call for presenters" tai chi qigong Chinese medicine 2026 2027',
+    '"call for workshop facilitators" Chinese culture 2026 2027',
+    '"community festival" tai chi qigong performer application',
+    # 民间协会/华人社团/中文学校
+    '"Chinese association" guest speaker tai chi qigong 2026 2027',
+    '"Chinese community center" instructor tai chi calligraphy 2026 2027',
+    '"Chinese school" part time culture teacher calligraphy martial arts 2026 2027',
+    '"Chinatown" cultural instructor workshop 2026 2027',
+    '"Chinese cultural association" volunteer teacher 2026 2027',
+    '海外 华人社团 太极 气功 书法 讲师 招募 2026 2027',
+    '海外 华文学校 武术 太极 书法 教师 招聘 2026 2027',
+    '海外 中国文化节 表演者 工作坊 招募 2027',
+    # 道教/养生小机构、静修与民间合作
+    '"Daoist center" guest teacher volunteer workshop 2026 2027',
+    '"Taoist temple" volunteer resident teacher 2026 2027',
+    '"Daoist association" guest lecturer volunteer 2026 2027',
+    '"qigong retreat center" guest teacher host retreat 2027',
+    '"wellness center" tai chi qigong guest instructor 2026 2027',
+    '"traditional Chinese medicine" community workshop speaker 2026 2027',
+    # 本地语言扩大覆盖
+    '太極拳 講師 募集 海外 2026 2027',
+    '気功 講師 募集 中国文化 2026 2027',
+    '태극권 강사 모집 중국문화 2026 2027',
+    '기공 강사 모집 중국문화 2026 2027',
+    '"Tai Chi Kursleiter" gesucht 2026 2027',
+    '"Qigong Kursleiter" gesucht 2026 2027',
+    '"professeur tai chi" recrutement 2026 2027',
+    '"professeur qigong" recrutement 2026 2027',
+    '"instructor tai chi" empleo 2026 2027',
+    '"profesor qigong" cultura china 2026 2027'
+]
+
 DIRECT = [
     'daoism','daoist','taoism','taoist','tao te ching','道教','道家','道德经','道德經',
     '玄门','玄門','全真','正一','道经','道經','宫观','宮觀','黄大仙','黃大仙','孔子学院','孔子學院','国际中文','國際中文','中华文化','中華文化','华文学校','華文學校','Confucius Institute','Chinese language','Chinese culture','中医','中醫','中医药','中醫藥','traditional chinese medicine','tcm','针灸','針灸','acupuncture','도교'
@@ -138,6 +188,19 @@ ACTIVITY = [
     '研修','法会','法會','醮','科仪','科儀','祈福','讲经','講經','展览','展覽','展演','文化节',
     '文化節','庙会','廟會','招生','参访','參訪','巡礼','巡禮','慕课','慕課','网课','網課','公开课','公開課','直播','线上同步','線上同步','读书会','讀書會','共修','国際会議','シンポジウム','募集',
     '학술대회','교류','강좌','招聘','招募','征聘','徵聘','聘请','聘請','岗位','崗位','教师','教師','讲师','講師','顾问','顧問','志愿者','志願者','vacancy','job','hiring','recruitment','instructor','advisor','consultant','volunteer','visiting professor','guest lecturer','resident teacher'
+]
+LOW_BARRIER_SIGNALS = [
+    'no education requirement','all levels welcome','high school','ged','0 years','entry level',
+    'part time','part-time','casual','temporary','contract','volunteer','performer','vendor',
+    'community center','community centre','recreation center','recreation centre','senior center',
+    'guest speaker','guest instructor','workshop facilitator','open call','apply now','anyone can',
+    'no formal training','no degree','个人','個人','团体','團體','志愿者','志願者','表演者','摊位',
+    '攤位','兼职','兼職','临时','臨時','社区','社區','公开招募','公開招募','公开申请','公開申請'
+]
+HIGH_BARRIER_SIGNALS = [
+    'phd required','doctoral degree required','master degree required','master\'s degree required',
+    'medical license required','licensed physician','board certified','faculty appointment',
+    'professor required','当地注册','當地註冊','执业证','執業證','博士学位','博士學位'
 ]
 OUTBOUND_SIGNALS = [
     'international','overseas','global','exchange','cultural exchange','conference','forum','exhibition',
@@ -164,7 +227,7 @@ TRUST_DOMAINS = [
     'taoist.org.cn','dao.china.com.cn','daoisms.com.cn','wdsdjxh.com','xiancyg.cn','sdsdjxh.com',
     'sxdaojiao.com','bixiaci.org','dao.crs.cuhk.edu.hk','daoist.org','siksikyuen.org.hk',
     'macaotaoist.org.mo','daoglobe.com','aarweb.org','ea-cp.eu','daoistfoundation.org','chinaooc.com.cn','lungshan.org.tw','cscr.swjtu.edu.cn',
-    'edu.cn','edu.hk','edu.tw','.gov.cn','.gov.tw','.ac.cn','.ac.hk','.ac.tw'
+    'edu.cn','edu.hk','edu.tw','.gov.cn','.gov.tw','.ac.cn','.ac.hk','.ac.tw','governmentjobs.com','jobbank.gc.ca','volunteermatch.org'
 ]
 GENERIC_TITLES = [
     '中国道教协会 - taoist.org.cn','中国道教协会','events — daoist foundation',
@@ -405,6 +468,11 @@ def region(country: str, text: str) -> str:
 def outbound_focus(country: str, text: str) -> bool:
     return contains_any(text, OUTBOUND_SIGNALS) and contains_any(text, DIRECT + ASSOCIATED)
 
+def low_barrier_focus(text: str) -> bool:
+    if contains_any(text, HIGH_BARRIER_SIGNALS):
+        return False
+    return contains_any(text, LOW_BARRIER_SIGNALS) and contains_any(text, DIRECT + ASSOCIATED)
+
 def event_type(text: str) -> str:
     rules = [
         ('海外招聘', ['招聘','征聘','徵聘','聘请','聘請','vacancy','hiring','recruitment','job opening','lecturer position','instructor position']),
@@ -435,9 +503,15 @@ def stable_id(url: str) -> str:
 def collect():
     found = []
     with DDGS() as ddgs:
-        for q in QUERIES:
+        query_sets = [
+            (QUERIES, 8, 7, 0.7),
+            # 低门槛方向多翻几页结果，并允许稍低的初筛分数，之后仍做相关性/日期过滤。
+            (LOW_BARRIER_QUERIES, 14, 5, 0.4),
+        ]
+        for queries, max_results, min_score, pause in query_sets:
+          for q in queries:
             try:
-                rows = ddgs.text(q, region='wt-wt', safesearch='moderate', timelimit='y', max_results=8) or []
+                rows = ddgs.text(q, region='wt-wt', safesearch='moderate', timelimit='y', max_results=max_results) or []
                 for r in rows:
                     title = (r.get('title') or '').strip()
                     body = (r.get('body') or '').strip()
@@ -450,10 +524,10 @@ def collect():
                     if not contains_any(title, ACTIVITY) and not explicit_future_dates(f'{title} {body}') and not re.search(r'\b202[7-9]\b', title):
                         continue
                     score = score_item(title, body, url)
-                    if score < 7:
+                    if score < min_score:
                         continue
                     found.append((score, title, body, url))
-                time.sleep(0.7)
+                time.sleep(pause)
             except Exception as e:
                 print(f'[warn] search failed: {q}: {e}')
     return found
@@ -526,7 +600,9 @@ def main():
             'manual': False,
             'score': score,
             'outbound': outbound_focus(country, combined),
-            'outbound_action': '海外交流机会' if outbound_focus(country, combined) else ''
+            'outbound_action': '海外交流机会' if outbound_focus(country, combined) else '',
+            'low_barrier': low_barrier_focus(combined),
+            'barrier_note': '公开/社区型机会，具体签证和资格要求请看原文' if low_barrier_focus(combined) else ''
         }
         items.append(item)
         by_url[url] = item

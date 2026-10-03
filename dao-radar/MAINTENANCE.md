@@ -18,7 +18,8 @@
 - [ ] 合并重复活动
 - [ ] 检查国内来源
 - [ ] 检查港澳台来源
-- [ ] 首先检查“出海机会”专区：是否有新的可报名、可投稿、可参展、可联系合作、访问教师或海外交流机会
+- [ ] 第一优先检查“低门槛”专区：社区兼职、志愿者、文化节表演/摊位/工作坊、民间协会邀请、中文学校、太极气功教学、道观/养生馆小型合作
+- [ ] 第二优先检查“出海机会”专区：可报名、可投稿、可参展、可联系合作、访问教师或海外交流机会
 - [ ] 检查海外来源
 - [ ] 检查线上活动
 - [ ] 单独检查中国大陆线上来源：国家高等教育智慧教育平台、公开慕课、高校宗教/哲学研究中心、Zoom/腾讯会议读书会
@@ -36,7 +37,12 @@
 - [ ] 固定搜索海外道观、道教协会、道文化机构的道士、驻点教师、访问教师、客座讲师、顾问、志愿者机会
 - [ ] 固定搜索海外中医学院、大学、医院和研究机构的中医讲师、针灸师、访问教授、客座教师、顾问职位
 - [ ] 固定搜索华人社团、宗亲会、商会和民间文化团体的中华文化顾问、讲师、活动嘉宾邀请
-- [ ] 搜索英文关键词：vacancy / hiring / recruitment / instructor / advisor / consultant / volunteer / visiting professor / guest lecturer / resident teacher
+- [ ] 搜索低门槛英文关键词：part-time / casual / community instructor / performer application / vendor application / volunteer / open call / workshop facilitator / guest speaker / recreation center / senior center
+- [ ] 搜索英文招聘关键词：vacancy / hiring / recruitment / instructor / advisor / consultant / volunteer / visiting professor / guest lecturer / resident teacher
+- [ ] 固定扫地方政府和社区招聘：GovernmentJobs、Canada Job Bank及各地 parks & recreation / community centre / senior centre
+- [ ] 固定扫春节、中秋、亚洲文化节的 performer / vendor / workshop / volunteer application
+- [ ] 固定扫华人社团、中文学校、唐人街机构、图书馆、博物馆和社区教育项目
+- [ ] 用日语、韩语、德语、法语、西班牙语补搜太极/气功/中华文化教师和活动招募
 - [ ] 对海外中医项目标注：可报名 / 可投稿 / 可参展 / 可主动联系 / 持续跟踪
 - [ ] 不把受监管的临床执业机会与文化传播机会混为一谈；如涉及行医、针灸等，后续单独核对当地资格要求
 - [ ] 主动搜索自动程序可能遗漏的重要活动
@@ -48,6 +54,8 @@
 ## 判断标准
 
 “这条是否应该展示”的默认答案：
+
+对“低门槛出海”，优先展示公开申请、个人可联系、学历/资历要求少的机会；无偿或自费也可以，但必须写清楚。签证/工作许可不作为自动排除条件，需单独注明。
 
 对“出海机会”，只要能形成真实的海外任教、任职、志愿服务、顾问、讲座、参展、投稿、访问、驻点或机构合作路径，即使资格要求很窄，也先展示并注明限制。
 
