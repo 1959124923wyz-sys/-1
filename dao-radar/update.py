@@ -190,7 +190,21 @@ LOW_BARRIER_QUERIES = [
     'site:626nightmarket.com performer application',
     'site:asianfestivalaz.com 2027 vendor performer volunteer',
     'site:ccchouston.org 2027 Lunar New Year performer vendor volunteer',
-    'site:squarespace.com "2027 Lunar New Year" performer volunteer application'
+    'site:squarespace.com "2027 Lunar New Year" performer volunteer application',
+    # 固定低门槛来源：已人工验证过会持续产出
+    'site:cityofsydney.nsw.gov.au/opportunities Lunar Festival community performance',
+    'site:chineseparade.com 2027 parade application',
+    'site:cccsydney.org volunteer Chinese culture',
+    'site:ccccph.org volunteer Chinese culture',
+    'site:chinesecultureconnection.org volunteer application tai chi',
+    'site:cccvan.com volunteerism Chinese Cultural Centre',
+    'site:rcca.ca volunteer Chinese culture tai chi',
+    'site:chineseassociationmississauga.com volunteer',
+    'site:thchinese.org.uk volunteer Chinese association',
+    'site:kungfu-school.de/show Chinese New Year 2027 mitmachen',
+    'site:chineseculturecentre.co.za volunteer get involved',
+    'site:fetechinoise.ca volunteer 2027 Chinese New Year',
+    'site:workaway.info/en/host qigong tai chi "Last activity" 2026'
 ]
 
 DIRECT = [
@@ -527,7 +541,7 @@ def collect():
         query_sets = [
             (QUERIES, 8, 7, 0.7),
             # 低门槛方向多翻几页结果，并允许稍低的初筛分数，之后仍做相关性/日期过滤。
-            (LOW_BARRIER_QUERIES, 14, 5, 0.4),
+            (LOW_BARRIER_QUERIES, 20, 5, 0.35),
         ]
         for queries, max_results, min_score, pause in query_sets:
           for q in queries:

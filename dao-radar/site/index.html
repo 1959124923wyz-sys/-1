@@ -61,7 +61,7 @@ function render(){
    <div class="meta">${esc(x.country||'国际')}${x.city?' · '+esc(x.city):''}</div>
    <div class="title">${esc(x.title_zh||x.title)}</div>
    ${x.type?`<span class="badge">${esc(x.type)}</span>`:''}${x.low_barrier?`<span class="badge">低门槛</span>`:''}${x.outbound_action?`<span class="badge">${esc(x.outbound_action)}</span>`:''}
-   <div class="summary">${esc(x.summary_zh||'')}</div>
+   <div class="summary">${esc(x.summary_zh||'')}</div>${x.barrier_note?`<div class="meta">门槛：${esc(x.barrier_note)}</div>`:''}
    <div class="dates">
      ${x.event_date?`📅 ${esc(x.event_date)}<br>`:''}
      ${x.deadline?`<span class="deadline">⏰ 截止：${esc(x.deadline)}</span>`:''}
