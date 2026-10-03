@@ -93,12 +93,38 @@ QUERIES = [
     'Confucius Institute traditional Chinese medicine lecture 2026 2027',
     'site:wfcms.org 2026 新加坡 埃及 中医药 国际交流',
     'site:singaporetcm.edu.sg 2026 lecture course symposium TCM',
-    'site:dcg-health.com TCM Konferenz 2026'
+    'site:dcg-health.com TCM Konferenz 2026',
+
+    # 出海机会：招聘、任教、顾问、志愿者、民间团体、访问教师
+    '2027 国际中文教育志愿者 1066 27国 招募 海外',
+    '孔子学院 招聘 公派教师 2027 海外',
+    '孔子学院 武术老师 太极 书法 中华文化 教师 招聘 2026 2027',
+    '海外 华文学校 中文教师 中华文化教师 招聘 2026 2027',
+    '海外 中国文化中心 教师 讲师 顾问 招聘 2026 2027',
+    '海外 道观 招聘 道士 道长 讲师 顾问 2026 2027',
+    '海外 道教协会 招聘 顾问 访问教师 客座讲师 2026 2027',
+    'Daoist teacher vacancy hiring resident instructor 2026 2027',
+    'Taoist priest hiring temple teacher 2026 2027',
+    'Daoist consultant cultural association guest lecturer 2026 2027',
+    'visiting Daoist teacher apply 2026 2027',
+    '中医 海外 招聘 讲师 教师 顾问 2026 2027',
+    'traditional Chinese medicine lecturer vacancy 2026 2027',
+    'Chinese medicine guest lecturer visiting professor 2026 2027',
+    '太极 气功 海外 招聘 instructor 2026 2027',
+    'Chinese culture instructor calligraphy tai chi recruitment 2026 2027',
+    '海外 华人社团 中华文化 顾问 招募 邀请 讲座 2026 2027',
+    'Chinese association cultural advisor guest speaker 2026 2027',
+    'festival call for presenters Chinese culture TCM Tai Chi 2026 2027',
+    'site:edu.cn 2027 国际中文教育志愿者 1066 27国',
+    'site:ci.cn 招募 合作伙伴 孔子学院 2026 2027',
+    'site:singaporetcm.edu.sg 工作机会 2026 中医 顾问',
+    'site:imu.edu.my careers TCM lecturer',
+    'site:careers.singhealth.com.sg acupuncturist TCM'
 ]
 
 DIRECT = [
     'daoism','daoist','taoism','taoist','tao te ching','道教','道家','道德经','道德經',
-    '玄门','玄門','全真','正一','道经','道經','宫观','宮觀','黄大仙','黃大仙','中医','中醫','中医药','中醫藥','traditional chinese medicine','tcm','针灸','針灸','acupuncture','도교'
+    '玄门','玄門','全真','正一','道经','道經','宫观','宮觀','黄大仙','黃大仙','孔子学院','孔子學院','国际中文','國際中文','中华文化','中華文化','华文学校','華文學校','Confucius Institute','Chinese language','Chinese culture','中医','中醫','中医药','中醫藥','traditional chinese medicine','tcm','针灸','針灸','acupuncture','도교'
 ]
 ASSOCIATED = [
     '武当','武當','wudang','太极','太極','taiji','qigong','气功','氣功','老子','laozi',
@@ -111,17 +137,17 @@ ACTIVITY = [
     '交流','征稿','徵稿','讲座','講座','活动','活動','报名','報名','课程','課程','培训','培訓',
     '研修','法会','法會','醮','科仪','科儀','祈福','讲经','講經','展览','展覽','展演','文化节',
     '文化節','庙会','廟會','招生','参访','參訪','巡礼','巡禮','慕课','慕課','网课','網課','公开课','公開課','直播','线上同步','線上同步','读书会','讀書會','共修','国際会議','シンポジウム','募集',
-    '학술대회','교류','강좌'
+    '학술대회','교류','강좌','招聘','招募','征聘','徵聘','聘请','聘請','岗位','崗位','教师','教師','讲师','講師','顾问','顧問','志愿者','志願者','vacancy','job','hiring','recruitment','instructor','advisor','consultant','volunteer','visiting professor','guest lecturer','resident teacher'
 ]
 OUTBOUND_SIGNALS = [
     'international','overseas','global','exchange','cultural exchange','conference','forum','exhibition',
     'speaker','lecture','workshop','call for','visiting','collaboration','国际','國際','海外','全球','交流',
     '文化传播','文化傳播','传播','傳播','论坛','論壇','会议','會議','展览','展覽','参展','參展','投稿',
-    '讲座','講座','访问','訪問','合作','新加坡','埃及','欧洲','歐洲','美国','美國','德国','德國'
+    '讲座','講座','访问','訪問','合作','招聘','招募','征聘','聘请','岗位','教师','讲师','顾问','志愿者','vacancy','job','hiring','recruitment','instructor','advisor','consultant','volunteer','visiting professor','guest lecturer','resident teacher','孔子学院','国际中文','中华文化','新加坡','埃及','欧洲','歐洲','美国','美國','德国','德國'
 ]
 FUTURE_WORDS = [
     'upcoming','registration','register','call for','deadline','apply','applications','open for',
-    'save the date','schedule','报名','報名','征稿','徵稿','截止','招募','招生','即将','即將',
+    'save the date','schedule','apply now','career','vacancy','hiring','recruitment','报名','報名','征稿','徵稿','截止','招聘','征聘','聘请','岗位','招募','招生','即将','即將',
     '预告','預告','开放','開放','现正','現正','筹备','籌備','接受报名','接受報名','募集','申込',
     '모집','등록'
 ]
@@ -184,7 +210,13 @@ COUNTRY_HINTS = [
     ('法国', ['france','paris','法国','法國']),
     ('德国', ['germany','berlin','德国','德國']),
     ('波兰', ['poland','poznan','poznań','波兰','波蘭']),
-    ('澳大利亚', ['australia','sydney','melbourne','澳大利亚','澳洲'])
+    ('澳大利亚', ['australia','sydney','melbourne','澳大利亚','澳洲']),
+    ('泰国', ['thailand','bangkok','khon kaen','泰国','泰國']),
+    ('印度尼西亚', ['indonesia','jakarta','印尼','印度尼西亚']),
+    ('俄罗斯', ['russia','俄罗斯','俄羅斯']),
+    ('哈萨克斯坦', ['kazakhstan','哈萨克斯坦','哈薩克斯坦']),
+    ('埃及', ['egypt','cairo','埃及']),
+    ('斯里兰卡', ['sri lanka','斯里兰卡','斯里蘭卡'])
 ]
 
 MONTHS = {m.lower():i for i,m in enumerate(
@@ -371,12 +403,11 @@ def region(country: str, text: str) -> str:
     return '海外'
 
 def outbound_focus(country: str, text: str) -> bool:
-    return country != '中国大陆' and contains_any(text, OUTBOUND_SIGNALS) and contains_any(
-        text, DIRECT + ASSOCIATED
-    )
+    return contains_any(text, OUTBOUND_SIGNALS) and contains_any(text, DIRECT + ASSOCIATED)
 
 def event_type(text: str) -> str:
     rules = [
+        ('海外招聘', ['招聘','征聘','徵聘','聘请','聘請','vacancy','hiring','recruitment','job opening','lecturer position','instructor position']),
         ('法会科仪', ['法会','法會','科仪','科儀','醮','祈福','圣诞','聖誕','礼斗','禮斗','拜忏','拜懺']),
         ('培训课程', ['培训','培訓','课程','課程','研修','招生','training','course','class','seminary']),
         ('论坛会议', ['论坛','論壇','会议','會議','研讨会','研討會','conference','symposium','forum']),

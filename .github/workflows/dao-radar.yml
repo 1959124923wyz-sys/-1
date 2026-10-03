@@ -9,7 +9,8 @@ on:
   push:
     branches: [main]
     paths:
-      - 'dao-radar/**'
+      - 'dao-radar/site/**'
+      - 'dao-radar/.manual-update.txt'
       - '.github/workflows/dao-radar.yml'
 
 permissions:
@@ -18,7 +19,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: dao-radar-pages
+  group: dao-radar-pages-v2
   cancel-in-progress: true
 
 jobs:
@@ -55,7 +56,7 @@ jobs:
           fi
 
   deploy:
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' && !contains(github.event.head_commit.message, '[manual-update]')
     runs-on: ubuntu-latest
     environment:
       name: github-pages
