@@ -7622,5 +7622,156 @@
       "country": "Deutschland",
       "country_code": "de"
     }
+  },
+  "Neukölln, Berlin, Germany": {
+    "lat": 52.4811497,
+    "lon": 13.4353501,
+    "address": {
+      "suburb": "Neukölln",
+      "borough": "Neukölln",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Mitte, Berlin, Germany": {
+    "lat": 52.5178855,
+    "lon": 13.4040601,
+    "address": {
+      "suburb": "Mitte",
+      "borough": "Mitte",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Steglitz-Zehlendorf, Berlin, Germany": {
+    "lat": 52.4292052,
+    "lon": 13.2299741,
+    "address": {
+      "borough": "Steglitz-Zehlendorf",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Friedrichshain-Kreuzberg, Berlin, Germany": {
+    "lat": 52.5011154,
+    "lon": 13.4442848,
+    "address": {
+      "borough": "Friedrichshain-Kreuzberg",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Tempelhof-Schöneberg, Berlin, Germany": {
+    "lat": 52.4487714,
+    "lon": 13.3893312,
+    "address": {
+      "borough": "Tempelhof-Schöneberg",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Treptow-Köpenick, Berlin, Germany": {
+    "lat": 52.417893,
+    "lon": 13.6001848,
+    "address": {
+      "borough": "Treptow-Köpenick",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Pankow, Berlin, Germany": {
+    "lat": 52.5979174,
+    "lon": 13.435316,
+    "address": {
+      "borough": "Pankow",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Charlottenburg-Wilmersdorf, Berlin, Germany": {
+    "lat": 52.5017923,
+    "lon": 13.2842678,
+    "address": {
+      "borough": "Charlottenburg-Wilmersdorf",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Spandau, Berlin, Germany": {
+    "lat": 52.535788,
+    "lon": 13.1977924,
+    "address": {
+      "suburb": "Spandau",
+      "city_district": "Spandau",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Marzahn-Hellersdorf, Berlin, Germany": {
+    "lat": 52.5225225,
+    "lon": 13.5876634,
+    "address": {
+      "borough": "Marzahn-Hellersdorf",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Reinickendorf, Berlin, Germany": {
+    "lat": 52.6047631,
+    "lon": 13.2952872,
+    "address": {
+      "borough": "Reinickendorf",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Lichtenberg, Berlin, Germany": {
+    "lat": 52.5321606,
+    "lon": 13.5118927,
+    "address": {
+      "borough": "Lichtenberg",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Berlin, Berlin, Germany": {
+    "lat": 52.503379,
+    "lon": 13.3386522,
+    "address": {
+      "tourism": "Berlin",
+      "road": "Tauentzienstraße",
+      "neighbourhood": "City West",
+      "suburb": "Charlottenburg",
+      "borough": "Charlottenburg-Wilmersdorf",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "postcode": "10789",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
   }
 }
