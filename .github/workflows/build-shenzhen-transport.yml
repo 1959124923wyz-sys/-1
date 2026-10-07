@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/build-shenzhen-transport.yml'
+      - 'dao-radar/site/shenzhen-save-years-map/scripts/build_transport_context.py'
+      - 'dao-radar/site/shenzhen-save-years-map/data/shenzhen-boundary.js'
   workflow_dispatch:
 
 permissions:
