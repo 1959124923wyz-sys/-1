@@ -29,7 +29,9 @@ def parse(text):
         code,rest=m.groups();t=rest.split()
         j=next((i for i,x in enumerate(t) if re.fullmatch(r"[\d.]+",x)),None)
         if j is None or len(t)-j<10:continue
-        name=" ".join(t[:j]);total=nint(t[j]);tail=t[-9:]
+        name=" ".join(t[:j])
+        if "Stadtteile" in name or "insgesamt" in name.lower(): continue
+        total=nint(t[j]);tail=t[-9:]
         if not re.fullmatch(r"[\d.]+",tail[0]):continue
         rate=nint(tail[0]);v=[nint(x) for x in tail[1:]]
         if len(v)!=8:continue
