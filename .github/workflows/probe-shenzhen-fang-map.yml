@@ -1,0 +1,31 @@
+name: Probe Shenzhen Fang map endpoint
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/probe-shenzhen-fang-map.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Probe public map endpoint
+        shell: python
+        run: |
+          import requests
+          url="https://sz.esf.fang.com/map/"
+          params={"mapmode":"y","district":"","subwayline":"","subwaystation":"","price":"","room":"","area":"","towards":"","floor":"","hage":"","equipment":"","keyword":"","comarea":"","orderby":"30","isyouhui":"","x1":"113.72","y1":"22.35","x2":"114.65","y2":"22.90","newCode":"","houseNum":"","schoolDist":"","schoolid":"","ecshop":"","groupedmode":"4","PageNo":"1","zoom":"12","a":"ajaxSearch","city":"sz","searchtype":"loupan"}
+          h={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/154.0 Safari/537.36","Referer":"https://sz.esf.fang.com/map/"}
+          r=requests.get(url,params=params,headers=h,timeout=25)
+          print("STATUS",r.status_code)
+          print("CTYPE",r.headers.get("content-type"))
+          print("LEN",len(r.content))
+          print("URL",r.url)
+          t=r.text
+          print("HEAD",repr(t[:8000]))
