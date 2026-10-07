@@ -3702,5 +3702,3821 @@
       "country": "Deutschland",
       "country_code": "de"
     }
-  }
+  },
+  "Drogeriemarkt, Frankfurt, Germany": null,
+  "Stiftstraße, Minden, Germany": {
+    "lat": 52.2968292,
+    "lon": 8.912072,
+    "address": {
+      "road": "Stiftstraße",
+      "suburb": "Innenstadt",
+      "town": "Minden",
+      "county": "Kreis Minden-Lübbecke",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "32427",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Richtung Margaretastraße, Köln, Germany": null,
+  "Grüner Weg, Iserlohn, Germany": {
+    "lat": 51.3675389,
+    "lon": 7.6720187,
+    "address": {
+      "road": "Grüner Weg",
+      "suburb": "Grüne",
+      "village": "Dröschede",
+      "town": "Iserlohn",
+      "county": "Märkischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "58644",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Supermarkt, Petershagen, Germany": {
+    "lat": 52.3670056,
+    "lon": 9.0074905,
+    "address": {
+      "shop": "Frostland-Supermarkt (Tiefkühlkost)",
+      "house_number": "72",
+      "road": "Bahnhofstraße",
+      "suburb": "Lahde",
+      "village": "Lahde",
+      "town": "Petershagen",
+      "county": "Kreis Minden-Lübbecke",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "32469",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Winzler Straße, Pirmasens, Germany": {
+    "lat": 49.1908089,
+    "lon": 7.5834914,
+    "address": {
+      "road": "Winzler Straße",
+      "suburb": "Winzeln",
+      "village": "Gersbach",
+      "town": "Pirmasens",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "66955",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Supermarkt, Aachen, Germany": {
+    "lat": 50.776324,
+    "lon": 6.0920926,
+    "address": {
+      "shop": "Levante Supermarkt",
+      "house_number": "11-15",
+      "road": "Promenadenstraße",
+      "neighbourhood": "Kaiserplatz",
+      "suburb": "Burtscheid",
+      "city_district": "Aachen-Mitte",
+      "city": "Aachen",
+      "county": "Städteregion Aachen",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "52062",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Mühlenstraße, Lübeck, Germany": {
+    "lat": 53.8630249,
+    "lon": 10.6868324,
+    "address": {
+      "road": "Mühlenstraße",
+      "suburb": "Innenstadt",
+      "city_district": "Innenstadt",
+      "city": "Lübeck",
+      "state": "Schleswig-Holstein",
+      "ISO3166-2-lvl4": "DE-SH",
+      "postcode": "23552",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Eberhardstraße, Stuttgart-Mitte, Germany": {
+    "lat": 48.7730559,
+    "lon": 9.1766721,
+    "address": {
+      "road": "Eberhardstraße",
+      "neighbourhood": "Rathaus",
+      "suburb": "Stuttgart-Mitte",
+      "city": "Stuttgart",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "70173",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Parkplatz, Bonn, Germany": {
+    "lat": 50.746129,
+    "lon": 7.1802063,
+    "address": {
+      "amenity": "Parkplatz ev. Gemeindehaus",
+      "road": "Dahlienweg",
+      "neighbourhood": "Heidebergen",
+      "quarter": "Holzlar",
+      "suburb": "Bonn-Beuel",
+      "village": "Niederholtorf",
+      "city": "Bonn",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "53229",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Vogelsbergstraße, Linsengericht, Germany": {
+    "lat": 50.1918015,
+    "lon": 9.1888572,
+    "address": {
+      "road": "Vogelsbergstraße",
+      "village": "Altenhaßlau",
+      "municipality": "Linsengericht",
+      "county": "Main-Kinzig-Kreis",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "63589",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Spitzwegstraße, Northeim, Germany": {
+    "lat": 51.6952713,
+    "lon": 9.9941583,
+    "address": {
+      "road": "Spitzwegstraße",
+      "town": "Northeim",
+      "county": "Landkreis Northeim",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "37154",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Haydnstraße, Hanau, Germany": {
+    "lat": 50.1407385,
+    "lon": 8.8961564,
+    "address": {
+      "road": "Haydnstraße",
+      "suburb": "Nordwest",
+      "city": "Hanau",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "63452",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Supermarkt, Tecklenburg, Germany": null,
+  "Hauptstraße, Eystrup, Germany": {
+    "lat": 52.766584,
+    "lon": 9.2213512,
+    "address": {
+      "road": "Hauptstraße",
+      "village": "Eystrup",
+      "municipality": "Samtgemeinde Grafschaft Hoya",
+      "county": "Landkreis Nienburg/Weser",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "27324",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Martener Straße, Dortmund, Germany": {
+    "lat": 51.5099106,
+    "lon": 7.3820412,
+    "address": {
+      "road": "Martener Straße",
+      "suburb": "Marten",
+      "city": "Dortmund",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "44379",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Großen Straße, Landkreise Verden & Osterholz, Germany": null,
+  "Wichernstraße, Karlsruhe, Germany": {
+    "lat": 49.0064054,
+    "lon": 8.3680784,
+    "address": {
+      "road": "Wichernstraße",
+      "neighbourhood": "Mühlburger Feld",
+      "suburb": "Mühlburg",
+      "city": "Karlsruhe",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "76185",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Oststraße, Ibbenbüren, Germany": {
+    "lat": 52.2735314,
+    "lon": 7.7176653,
+    "address": {
+      "road": "Oststraße",
+      "town": "Ibbenbüren",
+      "county": "Kreis Steinfurt",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "49477",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Erkrather Straße, Köln, Germany": null,
+  "Loickenziner Straße, Altentreptow, Germany": {
+    "lat": 53.6968475,
+    "lon": 13.2473918,
+    "address": {
+      "road": "Loickenziner Straße",
+      "town": "Altentreptow",
+      "municipality": "Treptower Tollensewinkel",
+      "county": "Mecklenburgische Seenplatte",
+      "state": "Mecklenburg-Vorpommern",
+      "ISO3166-2-lvl4": "DE-MV",
+      "postcode": "17087",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hammer Straße, Warendorf, Germany": {
+    "lat": 51.7390342,
+    "lon": 7.9968106,
+    "address": {
+      "road": "Hammer Straße",
+      "hamlet": "Elker",
+      "town": "Beckum",
+      "county": "Kreis Warendorf",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "59269",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Supermarkt, Bonn, Germany": {
+    "lat": 50.7341418,
+    "lon": 7.119129,
+    "address": {
+      "shop": "TTS Asien Supermarkt",
+      "house_number": "35",
+      "road": "Johannesstraße",
+      "quarter": "Beuel-Mitte",
+      "suburb": "Bonn-Beuel",
+      "city": "Bonn",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "53225",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Speller Straße, Schapen, Germany": {
+    "lat": 52.3870982,
+    "lon": 7.5331898,
+    "address": {
+      "road": "Speller Straße",
+      "village": "Schapen",
+      "municipality": "Samtgemeinde Spelle",
+      "county": "Landkreis Emsland",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "48480",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Mauer Ecke Burgsteig, Bielefeld, Germany": null,
+  "Arminiusstraße, Dortmund, Germany": {
+    "lat": 51.5204262,
+    "lon": 7.4184336,
+    "address": {
+      "road": "Arminiusstraße",
+      "suburb": "Dorstfeld",
+      "city": "Dortmund",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "44149",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Straße Hagenweg, Meschede, Germany": null,
+  "Zwickauer Straße, Moers, Germany": {
+    "lat": 51.4595368,
+    "lon": 6.6441263,
+    "address": {
+      "road": "Zwickauer Straße",
+      "neighbourhood": "Meerbeck",
+      "suburb": "Rheinkamp",
+      "city": "Moers",
+      "county": "Kreis Wesel",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "47443",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Nadorster Straße, Oldenburg, Germany": {
+    "lat": 53.1623045,
+    "lon": 8.2241181,
+    "address": {
+      "road": "Nadorster Straße",
+      "suburb": "Bürgeresch",
+      "city_district": "3. Bezirk",
+      "city": "Oldenburg",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "26123",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Mindener Straße, Hille, Germany": {
+    "lat": 52.3110037,
+    "lon": 8.8330454,
+    "address": {
+      "road": "Mindener Straße",
+      "suburb": "Hartum",
+      "village": "Hartum",
+      "county": "Kreis Minden-Lübbecke",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "32479",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Verbrauchermarkt, Osnabrück, Germany": null,
+  "Heilbronner Straße, Hohenlohekreis, Germany": {
+    "lat": 49.2030686,
+    "lon": 9.4941149,
+    "address": {
+      "road": "Heilbronner Straße",
+      "neighbourhood": "Altstadt",
+      "village": "Möhrig",
+      "town": "Öhringen",
+      "municipality": "VVG der Stadt Öhringen",
+      "county": "Hohenlohekreis",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "74613",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Richtung Pariser Straße, Kaiserslautern, Germany": null,
+  "Bahnhofstraße, Voerde, Germany": {
+    "lat": 53.4839311,
+    "lon": 9.1422647,
+    "address": {
+      "road": "Bahnhofstraße",
+      "suburb": "Engeo",
+      "city_district": "Bremervörde",
+      "town": "Bremervörde",
+      "county": "Landkreis Rotenburg (Wümme)",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "27432",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Darmstadt, Germany": {
+    "lat": 49.872775,
+    "lon": 8.651177,
+    "address": {
+      "city": "Darmstadt",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Rotthauser Straße, Gelsenkirchen, Germany": {
+    "lat": 51.5059426,
+    "lon": 7.0934515,
+    "address": {
+      "road": "Rotthauser Straße",
+      "suburb": "Altstadt",
+      "city_district": "Gelsenkirchen-Mitte",
+      "city": "Gelsenkirchen",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "45879",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Holländischen Platz, Kassel, Germany": null,
+  "Kreuzung Sandmüllersweg, Duisburg, Germany": null,
+  "Paderborner Straße, Hövelhof, Germany": {
+    "lat": 51.7963513,
+    "lon": 8.6881893,
+    "address": {
+      "road": "Paderborner Straße",
+      "suburb": "Klausheide",
+      "town": "Hövelhof",
+      "county": "Kreis Paderborn",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "33161",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Lebensmittelmarkt, Moers, Germany": null,
+  "Kalker Hauptstraße, Köln, Germany": {
+    "lat": 50.9374093,
+    "lon": 6.9971417,
+    "address": {
+      "road": "Kalker Hauptstraße",
+      "suburb": "Kalk",
+      "city_district": "Kalk",
+      "city": "Köln",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "51103",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Brückenstraße, Heidelberg, Germany": {
+    "lat": 49.4136774,
+    "lon": 8.6922046,
+    "address": {
+      "road": "Brückenstraße",
+      "suburb": "Neuenheim",
+      "city": "Heidelberg",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "69120",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Eintrachtstraße, Köln, Germany": {
+    "lat": 50.9455788,
+    "lon": 6.9522501,
+    "address": {
+      "road": "Eintrachtstraße",
+      "neighbourhood": "Ursulaviertel",
+      "suburb": "Altstadt-Nord",
+      "city_district": "Innenstadt",
+      "city": "Köln",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "50668",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Benzstraße, Köln, Germany": {
+    "lat": 50.9687549,
+    "lon": 6.8846249,
+    "address": {
+      "road": "Karl-Benz-Straße",
+      "neighbourhood": "Westend",
+      "suburb": "Bickendorf",
+      "city_district": "Ehrenfeld",
+      "city": "Köln",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "50827",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hauptstraße, Durmersheim, Germany": {
+    "lat": 48.9344746,
+    "lon": 8.2703913,
+    "address": {
+      "road": "Hauptstraße",
+      "neighbourhood": "Bickesheim",
+      "village": "Durmersheim",
+      "municipality": "GVV Durmersheim",
+      "county": "Landkreis Rastatt",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "76448",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Neusener Straße, Würselen, Germany": {
+    "lat": 50.8465538,
+    "lon": 6.195101,
+    "address": {
+      "road": "Neusener Straße",
+      "suburb": "Linden-Neusen",
+      "town": "Würselen",
+      "county": "Städteregion Aachen",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "52146",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Apothekerstraße, Arnsberg, Germany": {
+    "lat": 51.4512345,
+    "lon": 7.965949,
+    "address": {
+      "road": "Apothekerstraße",
+      "neighbourhood": "Binnerfeld",
+      "town": "Neheim",
+      "county": "Hochsauerlandkreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "59755",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Richtung Hohenfelder Straße, Koblenz, Germany": null,
+  "Gibraltarstraße, Delmenhorst, Germany": null,
+  "Emsener Straße, Buchholz/Dibbersen, Germany": {
+    "lat": 53.3680754,
+    "lon": 9.8696235,
+    "address": {
+      "road": "Emsener Straße",
+      "hamlet": "Dangersen",
+      "suburb": "Dibbersen",
+      "village": "Dibbersen",
+      "town": "Buchholz in der Nordheide",
+      "county": "Landkreis Harburg",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "21244",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Königsbergstraße, Zweibrücken, Germany": {
+    "lat": 49.2374311,
+    "lon": 7.358575,
+    "address": {
+      "road": "Königsbergstraße",
+      "neighbourhood": "Langental",
+      "suburb": "Ixheim",
+      "city_district": "Ixheim",
+      "town": "Zweibrücken",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "66482",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Charlottenburger Straße, Diepholz, Germany": {
+    "lat": 52.6861283,
+    "lon": 8.8232689,
+    "address": {
+      "road": "Charlottenburger Straße",
+      "city_district": "Sulingen (Zentrum)",
+      "town": "Sulingen",
+      "county": "Landkreis Diepholz",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "27232",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Dorfstraße, Goldebek, Germany": {
+    "lat": 54.6848961,
+    "lon": 9.1583759,
+    "address": {
+      "road": "Dorfstraße",
+      "village": "Goldebek",
+      "municipality": "Mittleres Nordfriesland",
+      "county": "Kreis Nordfriesland",
+      "state": "Schleswig-Holstein",
+      "ISO3166-2-lvl4": "DE-SH",
+      "postcode": "25862",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bahnhofstraße, Lippe, Germany": {
+    "lat": 51.6263245,
+    "lon": 7.3186559,
+    "address": {
+      "road": "Bahnhofstraße",
+      "suburb": "Meckinghoven",
+      "town": "Datteln",
+      "county": "Kreis Recklinghausen",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "45711",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Mittelstraße, Lippe, Germany": {
+    "lat": 51.9601693,
+    "lon": 8.8918058,
+    "address": {
+      "road": "Mittelstraße",
+      "suburb": "Klüt",
+      "village": "Dehlentrup",
+      "town": "Detmold",
+      "county": "Kreis Lippe",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "32758",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Luisenstraße, Hersfeld-Rotenburg, Germany": {
+    "lat": 50.9760013,
+    "lon": 9.7951542,
+    "address": {
+      "road": "Luisenstraße",
+      "neighbourhood": "Göttinger Bogen",
+      "town": "Bebra",
+      "municipality": "Bebra",
+      "county": "Landkreis Hersfeld-Rotenburg",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "36179",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Heider Bruchweg, Diepholz, Germany": {
+    "lat": 52.538242,
+    "lon": 8.3951798,
+    "address": {
+      "road": "Heider Bruchweg",
+      "village": "Lembruch",
+      "municipality": "Samtgemeinde Altes Amt Lemförde",
+      "county": "Landkreis Diepholz",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "49459",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Knesestraße, Diepholz, Germany": {
+    "lat": 52.842556,
+    "lon": 9.0064006,
+    "address": {
+      "road": "Knesestraße",
+      "suburb": "Bruchhausen",
+      "town": "Bruchhausen-Vilsen",
+      "municipality": "Samtgemeinde Bruchhausen-Vilsen",
+      "county": "Landkreis Diepholz",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "27305",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kempfelder Straße, Herborn, Germany": {
+    "lat": 49.7633526,
+    "lon": 7.2908855,
+    "address": {
+      "road": "Kempfelder Straße",
+      "village": "Herborn",
+      "municipality": "Herrstein-Rhaunen",
+      "county": "Landkreis Birkenfeld",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "55758",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hauptstraße, Cuxhaven, Germany": {
+    "lat": 53.4819316,
+    "lon": 8.5875802,
+    "address": {
+      "road": "Hauptstraße",
+      "hamlet": "Welle",
+      "town": "Loxstedt",
+      "county": "Landkreis Cuxhaven",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "27612",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Feldweg, Bodenheim, Germany": null,
+  "Popkenhöger Straße, Delmenhorst, Germany": null,
+  "Leipziger Straße, Fulda, Germany": {
+    "lat": 50.5728359,
+    "lon": 9.7005555,
+    "address": {
+      "road": "Leipziger Straße",
+      "village": "Lehnerz",
+      "town": "Fulda",
+      "county": "Landkreis Fulda",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "36039",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Deichstraße, Delmenhorst, Germany": null,
+  "Mainzer Ring, Neckar-Odenwald-Kreis, Germany": {
+    "lat": 49.589375,
+    "lon": 9.3513953,
+    "address": {
+      "road": "Mainzer Ring",
+      "suburb": "Walldürn-Stadt",
+      "town": "Walldürn",
+      "municipality": "GVV Hardheim-Walldürn",
+      "county": "Neckar-Odenwald-Kreis",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "74731",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Straße Ostpreußenring, Rhein-Neckar-Kreis, Germany": null,
+  "Blumenstraße, Rhein-Neckar-Kreis, Germany": {
+    "lat": 49.2200332,
+    "lon": 8.9227417,
+    "address": {
+      "road": "Blumenstraße",
+      "village": "Reihen",
+      "city": "Sinsheim",
+      "municipality": "VVG der Stadt Sinsheim",
+      "county": "Rhein-Neckar-Kreis",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "74889",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Birkenweg, Ludwigsburg, Germany": {
+    "lat": 48.9430747,
+    "lon": 9.0924485,
+    "address": {
+      "road": "Birkenweg",
+      "suburb": "Bissingen",
+      "town": "Bietigheim-Bissingen",
+      "municipality": "VVG der Stadt Bietigheim-Bissingen",
+      "county": "Landkreis Ludwigsburg",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "74321",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hirschgasse, Rhein-Neckar-Kreis, Germany": {
+    "lat": 49.1962553,
+    "lon": 8.8562448,
+    "address": {
+      "road": "Hirschgasse",
+      "village": "Hilsbach",
+      "city": "Sinsheim",
+      "municipality": "VVG der Stadt Sinsheim",
+      "county": "Rhein-Neckar-Kreis",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "74889",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Alemannenweg, Bischofsheim, Germany": {
+    "lat": 49.9881345,
+    "lon": 8.3522977,
+    "address": {
+      "road": "Alemannenweg",
+      "town": "Bischofsheim",
+      "county": "Kreis Groß-Gerau",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "65474",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Elzer Straße, Hildesheim, Germany": {
+    "lat": 52.1544307,
+    "lon": 9.9255601,
+    "address": {
+      "road": "Elzer Straße",
+      "suburb": "Moritzberg",
+      "city_district": "Moritzberg/Bockfeld",
+      "city": "Hildesheim",
+      "county": "Landkreis Hildesheim",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "31137",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Akazienweg, Frankenthal, Germany": {
+    "lat": 49.5530625,
+    "lon": 8.3705378,
+    "address": {
+      "road": "Akazienweg",
+      "suburb": "Mörsch",
+      "city_district": "Mörsch",
+      "town": "Frankenthal (Pfalz)",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "67227",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kandelstraße, Freiburg, Germany": {
+    "lat": 48.0092172,
+    "lon": 7.8515254,
+    "address": {
+      "road": "Kandelstraße",
+      "residential": "Brühl-Güterbahnhof",
+      "quarter": "Brühl-Güterbahnhof",
+      "suburb": "Brühl",
+      "city": "Freiburg im Breisgau",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "79106",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Marsberger Straße, Bad Arolsen, Germany": {
+    "lat": 51.3824557,
+    "lon": 8.9932146,
+    "address": {
+      "road": "Marsberger Straße",
+      "village": "Helsen",
+      "municipality": "Bad Arolsen",
+      "county": "Landkreis Waldeck-Frankenberg",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "34454",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Freiheitsstraße, Nettetal-Lobberich, Germany": null,
+  "Alten Schulstraße, Lüneburg, Germany": null,
+  "Lüneburg, Germany": {
+    "lat": 53.248706,
+    "lon": 10.407855,
+    "address": {
+      "town": "Lüneburg",
+      "county": "Landkreis Lüneburg",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Holter Kirchplatz, Gütersloh, Germany": {
+    "lat": 51.9017622,
+    "lon": 8.6152585,
+    "address": {
+      "road": "Holter Kirchplatz",
+      "suburb": "Schloß Holte",
+      "town": "Schloß Holte-Stukenbrock",
+      "county": "Kreis Gütersloh",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "33758",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hombrucher Weg, Iserlohn, Germany": {
+    "lat": 51.394504,
+    "lon": 7.6850997,
+    "address": {
+      "road": "Hombrucher Weg",
+      "suburb": "Iserlohner Heide",
+      "town": "Iserlohn",
+      "county": "Märkischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "58638",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Richtung Straße, Nümbrecht, Germany": null,
+  "Nümbrecht, Germany": {
+    "lat": 50.9033978,
+    "lon": 7.5409481,
+    "address": {
+      "town": "Nümbrecht",
+      "county": "Oberbergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "51588",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Gummersbach, Germany": {
+    "lat": 51.0277658,
+    "lon": 7.5630545,
+    "address": {
+      "town": "Gummersbach",
+      "county": "Oberbergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Feldweg, Cuxhaven, Germany": {
+    "lat": 53.8702399,
+    "lon": 8.690935,
+    "address": {
+      "road": "Feldweg",
+      "quarter": "Musikerviertel",
+      "suburb": "Döse",
+      "town": "Cuxhaven",
+      "county": "Landkreis Cuxhaven",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "27474",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Händelstraße, Lippe, Germany": {
+    "lat": 51.9260763,
+    "lon": 8.8747644,
+    "address": {
+      "road": "Händelstraße",
+      "hamlet": "Osnabrücker Hof",
+      "suburb": "Detmold-Süd",
+      "town": "Detmold",
+      "county": "Kreis Lippe",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "32756",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Carlstraße, Siegburg, Germany": {
+    "lat": 50.7926825,
+    "lon": 7.1971741,
+    "address": {
+      "road": "Carlstraße",
+      "neighbourhood": "Siegburg",
+      "suburb": "Zange",
+      "town": "Siegburg",
+      "county": "Rhein-Sieg-Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "53721",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bahnhofsstraße, Rhein-Neckar-Kreis, Germany": null,
+  "Falltorstraße, Einhausen, Germany": {
+    "lat": 49.6750221,
+    "lon": 8.5437725,
+    "address": {
+      "road": "Falltorstraße",
+      "quarter": "Großhausen",
+      "village": "Einhausen",
+      "county": "Kreis Bergstraße",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "64683",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Gimborner Straße, Marienheide, Germany": {
+    "lat": 51.0567454,
+    "lon": 7.5418463,
+    "address": {
+      "road": "Gimborner Straße",
+      "neighbourhood": "Marienheide",
+      "hamlet": "Schöneborn",
+      "village": "Kotthauserhöhe",
+      "town": "Marienheide",
+      "county": "Oberbergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "51709",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Ennenfeldstraße, Wiehl, Germany": {
+    "lat": 50.9494839,
+    "lon": 7.554331,
+    "address": {
+      "road": "Ennenfeldstraße",
+      "neighbourhood": "Wiehl",
+      "hamlet": "Dahl",
+      "village": "Wülfringhausen",
+      "town": "Wiehl",
+      "county": "Oberbergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "51674",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Adenauerallee, Bad Homburg v.d. Höhe, Germany": null,
+  "Bad Homburg v.d. Höhe, Germany": {
+    "lat": 50.2283803,
+    "lon": 8.6130128,
+    "address": {
+      "town": "Bad Homburg vor der Höhe",
+      "county": "Hochtaunuskreis",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Waldstraße, Einbeck, Germany": {
+    "lat": 51.7995204,
+    "lon": 9.9283544,
+    "address": {
+      "road": "Waldstraße",
+      "village": "Salzderhelden",
+      "city": "Einbeck",
+      "county": "Landkreis Northeim",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "37574",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bereich Schillerstraße, Herne, Germany": null,
+  "Rottlandstraße, Bonn, Germany": {
+    "lat": 50.7450129,
+    "lon": 7.1515862,
+    "address": {
+      "road": "Rottlandstraße",
+      "quarter": "Pützchen",
+      "suburb": "Bonn-Beuel",
+      "village": "Niederholtorf",
+      "city": "Bonn",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "53229",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Brunnenweg, Lindlar, Germany": {
+    "lat": 51.051602,
+    "lon": 7.4367409,
+    "address": {
+      "road": "Brunnenweg",
+      "hamlet": "Zäunchen",
+      "village": "Scheel",
+      "town": "Lindlar",
+      "county": "Oberbergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "51789",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Marburger Straße, Mannheim, Germany": {
+    "lat": 49.5259859,
+    "lon": 8.4923349,
+    "address": {
+      "road": "Marburger Straße",
+      "neighbourhood": "Waldhof-Ost",
+      "suburb": "Waldhof",
+      "city": "Mannheim",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "68305",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Eynattener Straße, Aachen, Germany": {
+    "lat": 50.7636682,
+    "lon": 6.0843088,
+    "address": {
+      "road": "Eynattener Straße",
+      "suburb": "Burtscheid",
+      "city_district": "Aachen-Mitte",
+      "city": "Aachen",
+      "county": "Städteregion Aachen",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "52064",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Eisenbahnstraße, Wörth am Rhein, Germany": {
+    "lat": 49.0351323,
+    "lon": 8.2921952,
+    "address": {
+      "road": "Eisenbahnstraße",
+      "village": "Maximiliansau",
+      "town": "Wörth am Rhein",
+      "county": "Landkreis Germersheim",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "76744",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Warndtstraße, Augsburg, Germany": {
+    "lat": 48.3538146,
+    "lon": 10.9205646,
+    "address": {
+      "road": "Warndtstraße",
+      "neighbourhood": "Spickel",
+      "suburb": "Spickel-Herrenbach",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86161",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Castroper Hellweg, Bochum, Germany": {
+    "lat": 51.4936233,
+    "lon": 7.2561051,
+    "address": {
+      "road": "Castroper Hellweg",
+      "suburb": "Grumme",
+      "borough": "Bochum-Nord",
+      "city": "Bochum",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "44791",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Erlenbacher Straße, Heinsberg-Eschweiler, Germany": {
+    "lat": 51.0583388,
+    "lon": 6.1231274,
+    "address": {
+      "road": "Erlenbacher Straße",
+      "hamlet": "Küpper",
+      "village": "Schafhausen",
+      "town": "Heinsberg",
+      "county": "Kreis Heinsberg",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "52525",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Medicusstraße, Kaiserslautern, Germany": {
+    "lat": 49.4396191,
+    "lon": 7.7612996,
+    "address": {
+      "road": "Medicusstraße",
+      "suburb": "Lämmchesberg",
+      "city": "Kaiserslautern",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "67655",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kallstadter Straße, Dannstadt-Schauernheim, Germany": {
+    "lat": 49.4253918,
+    "lon": 8.3112416,
+    "address": {
+      "road": "Kallstadter Straße",
+      "suburb": "Dannstadt",
+      "village": "Dannstadt",
+      "city": "Dannstadt-Schauernheim",
+      "municipality": "Dannstadt-Schauernheim",
+      "county": "Rhein-Pfalz-Kreis",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "67125",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bereich Rosenring, Herne, Germany": null,
+  "Wiesenstraße, Wipperfürth, Germany": {
+    "lat": 51.1114324,
+    "lon": 7.4851989,
+    "address": {
+      "road": "Wiesenstraße",
+      "neighbourhood": "Klüppelberg",
+      "village": "Ohl",
+      "town": "Wipperfürth",
+      "county": "Oberbergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "51688",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kluskampstraße, Lippe, Germany": {
+    "lat": 52.0283188,
+    "lon": 8.9177092,
+    "address": {
+      "road": "Kluskampstraße",
+      "suburb": "Lemgo",
+      "town": "Lemgo",
+      "county": "Kreis Lippe",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "32657",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Klinkerweg, Elsdorf, Germany": null,
+  "Slevogtstraße, Kaiserslautern, Germany": {
+    "lat": 49.4437801,
+    "lon": 7.7420793,
+    "address": {
+      "road": "Slevogtstraße",
+      "neighbourhood": "Galgenschanze",
+      "suburb": "Fischerrück",
+      "city": "Kaiserslautern",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "67659",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Paulusstraße, Gütersloh, Germany": {
+    "lat": 51.9657897,
+    "lon": 8.2044141,
+    "address": {
+      "road": "Paulusstraße",
+      "suburb": "Harsewinkel",
+      "town": "Harsewinkel",
+      "county": "Kreis Gütersloh",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "33428",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Obernierstraße, Bonn, Germany": {
+    "lat": 50.7455564,
+    "lon": 7.0825025,
+    "address": {
+      "road": "Obernierstraße",
+      "quarter": "Nordstadt",
+      "city_district": "Stadtbezirk Bonn",
+      "city": "Bonn",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "53119",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kunewaldstraße, Rhein-Neckar-Kreis, Germany": {
+    "lat": 49.3490406,
+    "lon": 8.6970463,
+    "address": {
+      "road": "Kunewaldstraße",
+      "town": "Leimen-Mitte",
+      "county": "Rhein-Neckar-Kreis",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "69181",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Landesstraße, Neckar-Odenwald-Kreis, Germany": {
+    "lat": 49.3138487,
+    "lon": 9.1333924,
+    "address": {
+      "road": "Landesstraße A",
+      "village": "Haßmersheim",
+      "municipality": "VVG der Gemeinde Haßmersheim",
+      "county": "Neckar-Odenwald-Kreis",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "74855",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Grebenstraße, Mainz, Germany": {
+    "lat": 49.9983095,
+    "lon": 8.2755502,
+    "address": {
+      "road": "Grebenstraße",
+      "neighbourhood": "Lauterenviertel",
+      "quarter": "Südliche Altstadt",
+      "suburb": "Altstadt",
+      "city": "Mainz",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "55116",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Sternstraße, Ludwigshafen, Germany": {
+    "lat": 49.4895741,
+    "lon": 8.3839004,
+    "address": {
+      "road": "Sternstraße",
+      "suburb": "Ludwigshafen-Oggersheim",
+      "city": "Ludwigshafen am Rhein",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "67071",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Jappopweg, Pinneberg, Germany": {
+    "lat": 53.6164526,
+    "lon": 9.7947692,
+    "address": {
+      "road": "Jappopweg",
+      "suburb": "Waldenau-Datum",
+      "town": "Pinneberg",
+      "county": "Kreis Pinneberg",
+      "state": "Schleswig-Holstein",
+      "ISO3166-2-lvl4": "DE-SH",
+      "postcode": "25421",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Wedel, Germany": {
+    "lat": 53.5810226,
+    "lon": 9.7038772,
+    "address": {
+      "town": "Wedel",
+      "county": "Kreis Pinneberg",
+      "state": "Schleswig-Holstein",
+      "ISO3166-2-lvl4": "DE-SH",
+      "postcode": "22880",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Störtebekerstraße, Wilhelmshaven, Germany": {
+    "lat": 53.5296514,
+    "lon": 8.1015215,
+    "address": {
+      "road": "Störtebekerstraße",
+      "suburb": "Siebethsburg",
+      "town": "Wilhelmshaven",
+      "municipality": "Wangerland",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "26386",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Lange Rötterstraße, Mannheim, Germany": {
+    "lat": 49.4963415,
+    "lon": 8.4749639,
+    "address": {
+      "road": "Lange Rötterstraße",
+      "suburb": "Neckarstadt-Ost",
+      "city": "Mannheim",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "68167",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Römerstraße, Bonn, Germany": {
+    "lat": 50.7453455,
+    "lon": 7.0997991,
+    "address": {
+      "road": "Römerstraße",
+      "quarter": "Bonn-Castell",
+      "city_district": "Stadtbezirk Bonn",
+      "city": "Bonn",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "53111",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Gärtnerstraße, Mannheim, Germany": {
+    "lat": 49.500879,
+    "lon": 8.4650236,
+    "address": {
+      "road": "Gärtnerstraße",
+      "city_block": "Neckarstadt-West",
+      "suburb": "Neckarstadt-West",
+      "city": "Mannheim",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "68169",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Langstraße, Mannheim, Germany": {
+    "lat": 49.5003008,
+    "lon": 8.4629135,
+    "address": {
+      "road": "Langstraße",
+      "city_block": "Neckarstadt-West",
+      "suburb": "Neckarstadt-West",
+      "city": "Mannheim",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "68169",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Möhringstraße, Speyer, Germany": {
+    "lat": 49.3090807,
+    "lon": 8.4262078,
+    "address": {
+      "road": "Möhringstraße",
+      "residential": "Speyer-Süd",
+      "suburb": "Süd",
+      "town": "Speyer",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "67346",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Löttringhauser Straße, Dortmund, Germany": {
+    "lat": 51.4699858,
+    "lon": 7.4425412,
+    "address": {
+      "road": "Löttringhauser Straße",
+      "suburb": "Hombruch",
+      "city_district": "Hombruch",
+      "city": "Dortmund",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "44225",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Landhausstraße, Aalen, Germany": null,
+  "Käfertaler Straße, Mannheim, Germany": {
+    "lat": 49.5016718,
+    "lon": 8.500455,
+    "address": {
+      "road": "Käfertaler Straße",
+      "suburb": "Wohlgelegen",
+      "city": "Mannheim",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "68167",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Berliner Straße, Rhein-Neckar-Kreis, Germany": {
+    "lat": 49.4540001,
+    "lon": 8.5890732,
+    "address": {
+      "road": "Berliner Straße",
+      "village": "Neckarhausen",
+      "municipality": "Edingen-Neckarhausen",
+      "county": "Rhein-Neckar-Kreis",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "68535",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Arnoldstraße, Bochum, Germany": {
+    "lat": 51.4764986,
+    "lon": 7.2062689,
+    "address": {
+      "road": "Arnoldstraße",
+      "neighbourhood": "Griesenbruch",
+      "quarter": "Westend",
+      "suburb": "Innenstadt",
+      "borough": "Bochum-Mitte",
+      "city": "Bochum",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "44793",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kilianstraße, Paderborn, Germany": {
+    "lat": 51.7103292,
+    "lon": 8.7560332,
+    "address": {
+      "road": "Kilianstraße",
+      "suburb": "Paderborn",
+      "city": "Paderborn",
+      "county": "Kreis Paderborn",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "33098",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Sparkassenplatz, Aalen, Germany": {
+    "lat": 48.838323,
+    "lon": 10.0948482,
+    "address": {
+      "road": "Sparkassenplatz",
+      "neighbourhood": "Oststadt",
+      "town": "Aalen",
+      "municipality": "VVG der Stadt Aalen",
+      "county": "Ostalbkreis",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "73430",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Schwimmbadstraße, Lindenfels, Germany": {
+    "lat": 49.6873976,
+    "lon": 8.7692596,
+    "address": {
+      "road": "Schwimmbadstraße",
+      "village": "Schlierbach",
+      "town": "Lindenfels",
+      "county": "Kreis Bergstraße",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "64678",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Curtiusstraße, Augsburg, Germany": {
+    "lat": 48.3728098,
+    "lon": 10.9287067,
+    "address": {
+      "road": "Curtiusstraße",
+      "neighbourhood": "Lechhausen-Süd",
+      "suburb": "Lechhausen",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86165",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Parkplatz, Heilbronn, Germany": {
+    "lat": 49.1431606,
+    "lon": 9.2182805,
+    "address": {
+      "road": "Ausfahrt Parkplatz Lothorstraße",
+      "suburb": "Kernstadt",
+      "city": "Heilbronn",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "74072",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bahnhofstraße, Calw, Germany": {
+    "lat": 48.7096652,
+    "lon": 8.740987,
+    "address": {
+      "road": "Bahnhofstraße",
+      "hamlet": "Öländerle",
+      "town": "Calw",
+      "municipality": "VVG der Stadt Calw",
+      "county": "Landkreis Calw",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "75365",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Königsberger Straße, Bad Sobernheim, Germany": {
+    "lat": 49.7935066,
+    "lon": 7.6556845,
+    "address": {
+      "road": "Königsberger Straße",
+      "suburb": "Dörndich",
+      "town": "Bad Sobernheim",
+      "municipality": "Nahe-Glan",
+      "county": "Landkreis Bad Kreuznach",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "55566",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kamper Straße, Lindlar, Germany": {
+    "lat": 51.0221508,
+    "lon": 7.3730776,
+    "address": {
+      "road": "Kamper Straße",
+      "hamlet": "Bolzenbach",
+      "town": "Lindlar",
+      "county": "Oberbergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "51789",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Friedrichsring, Mannheim, Germany": {
+    "lat": 49.4924739,
+    "lon": 8.4724913,
+    "address": {
+      "road": "Friedrichsring",
+      "neighbourhood": "U3",
+      "suburb": "Innenstadt",
+      "city": "Mannheim",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "68161",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Stuttgarter Straße, Ludwigsburg, Germany": {
+    "lat": 48.8852665,
+    "lon": 9.1941702,
+    "address": {
+      "road": "Stuttgarter Straße",
+      "neighbourhood": "Karlshöhe",
+      "suburb": "Ludwigsburg - Süd",
+      "town": "Ludwigsburg",
+      "county": "Landkreis Ludwigsburg",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "71638",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Ostrower Straße, Nordhausen, Germany": {
+    "lat": 51.5007754,
+    "lon": 10.8199431,
+    "address": {
+      "road": "Ostrower Straße",
+      "suburb": "Altstadt",
+      "village": "Bielen",
+      "town": "Nordhausen",
+      "county": "Landkreis Nordhausen",
+      "state": "Thüringen",
+      "ISO3166-2-lvl4": "DE-TH",
+      "postcode": "99734",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hamburger Allee, Hannover, Germany": {
+    "lat": 52.3845256,
+    "lon": 9.735019,
+    "address": {
+      "road": "Hamburger Allee",
+      "suburb": "Vahrenwald",
+      "city_district": "Vahrenwald-List",
+      "city": "Hannover",
+      "county": "Region Hannover",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "30161",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hückeswagen, Germany": {
+    "lat": 51.1504872,
+    "lon": 7.3413999,
+    "address": {
+      "town": "Hückeswagen",
+      "county": "Oberbergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "42499",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Marktplatz, Wipperfürth, Germany": {
+    "lat": 51.1171442,
+    "lon": 7.3987084,
+    "address": {
+      "road": "Marktplatz",
+      "neighbourhood": "Leye-Siedlung",
+      "village": "Niedergaul",
+      "town": "Wipperfürth",
+      "county": "Oberbergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "51688",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bahnhofstraße, Schmalkalden, Germany": {
+    "lat": 50.7208642,
+    "lon": 10.44561,
+    "address": {
+      "road": "Bahnhofstraße",
+      "neighbourhood": "Schmalkalden",
+      "suburb": "Schmalkalden",
+      "town": "Schmalkalden",
+      "county": "Landkreis Schmalkalden-Meiningen",
+      "state": "Thüringen",
+      "ISO3166-2-lvl4": "DE-TH",
+      "postcode": "98574",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Saalburgstraße, Hofheim, Germany": null,
+  "Bruckwiesenstraße, Aalen, Germany": null,
+  "Marktstraße, Aalen, Germany": {
+    "lat": 52.7602185,
+    "lon": 9.551581,
+    "address": {
+      "road": "Marktstraße",
+      "village": "Ahlden",
+      "municipality": "Samtgemeinde Ahlden",
+      "county": "Heidekreis",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "29693",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Borgholzhausener Straße, Gütersloh, Germany": {
+    "lat": 52.0918282,
+    "lon": 8.3678084,
+    "address": {
+      "road": "Borgholzhausener Straße",
+      "village": "Theenhausen",
+      "municipality": "Werther (Westf.)",
+      "county": "Kreis Gütersloh",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "33824",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Schanzstraße, Ludwigshafen, Germany": {
+    "lat": 49.485848,
+    "lon": 8.4342825,
+    "address": {
+      "road": "Schanzstraße",
+      "suburb": "Nord-Hemshof",
+      "city": "Ludwigshafen am Rhein",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "67063",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Papenweg, Hamm-Uentrop, Germany": {
+    "lat": 51.6900098,
+    "lon": 7.8679689,
+    "address": {
+      "road": "Papenweg",
+      "suburb": "Mark",
+      "city_district": "Uentrop",
+      "city": "Hamm",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "59071",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Potthoffstrasse, Schwelm, Germany": {
+    "lat": 51.2836443,
+    "lon": 7.2861575,
+    "address": {
+      "road": "Potthoffstraße",
+      "suburb": "Loh",
+      "town": "Schwelm",
+      "county": "Ennepe-Ruhr-Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "58332",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Wiehler Straße, Nümbrecht, Germany": {
+    "lat": 50.9305362,
+    "lon": 7.5547565,
+    "address": {
+      "road": "Wiehler Straße",
+      "residential": "Bierenbachtal",
+      "neighbourhood": "Nümbrecht",
+      "hamlet": "Stockheim",
+      "village": "Bierenbachtal",
+      "town": "Nümbrecht",
+      "county": "Oberbergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "51588",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hohefuhrweg, Gummersbach, Germany": {
+    "lat": 51.041408,
+    "lon": 7.458524,
+    "address": {
+      "road": "Hohefuhrweg",
+      "neighbourhood": "Gimborn",
+      "hamlet": "Hagen",
+      "village": "Berghausen",
+      "town": "Gummersbach",
+      "county": "Oberbergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "51647",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Geranienstraße, Hamm-Mitte, Germany": {
+    "lat": 51.6726953,
+    "lon": 7.8396804,
+    "address": {
+      "road": "Geranienstraße",
+      "city_district": "Hamm-Mitte",
+      "city": "Hamm",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "59063",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Adelheidstraße, Wiesbaden, Germany": {
+    "lat": 50.0759505,
+    "lon": 8.2351952,
+    "address": {
+      "road": "Adelheidstraße",
+      "suburb": "Mitte",
+      "city": "Wiesbaden",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "65185",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hauptstraße, Freiburg, Germany": {
+    "lat": 48.0075182,
+    "lon": 7.8585397,
+    "address": {
+      "road": "Hauptstraße",
+      "residential": "Herdern-Süd",
+      "neighbourhood": "Herdern-Nord",
+      "suburb": "Herdern",
+      "city": "Freiburg im Breisgau",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "79104",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Aussichtsweg, Baden-Baden, Balg, Germany": {
+    "lat": 48.7838846,
+    "lon": 8.2175732,
+    "address": {
+      "road": "Aussichtsweg",
+      "village": "Balg",
+      "town": "Baden-Baden",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "76532",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Obergasse, Bad Schwalbach, Germany": {
+    "lat": 50.1209009,
+    "lon": 8.0087749,
+    "address": {
+      "road": "Obergasse",
+      "village": "Langenseifen",
+      "municipality": "Bad Schwalbach",
+      "county": "Rheingau-Taunus-Kreis",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "65307",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hardtweg, Freiburg, Germany": null,
+  "Bergstraße, Sögel, Germany": {
+    "lat": 52.8401034,
+    "lon": 7.5163605,
+    "address": {
+      "road": "Bergstraße",
+      "town": "Sögel",
+      "municipality": "Samtgemeinde Sögel",
+      "county": "Landkreis Emsland",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "49751",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Darmstädter Landstraße, Frankfurt, Germany": {
+    "lat": 50.0909989,
+    "lon": 8.6912793,
+    "address": {
+      "road": "Darmstädter Landstraße",
+      "quarter": "Sachsenhausen Süd",
+      "suburb": "Sachsenhausen",
+      "city_district": "Süd",
+      "city": "Frankfurt am Main",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "60598",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Untere Straße, Hückeswagen, Germany": {
+    "lat": 51.1409216,
+    "lon": 7.3541022,
+    "address": {
+      "road": "Untere Straße",
+      "residential": "Hartkopsbever",
+      "neighbourhood": "Neuhückeswagen",
+      "hamlet": "Hartkopsbever",
+      "town": "Hückeswagen",
+      "county": "Oberbergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "42499",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Rathausstraße, Siegen-Geisweid, Germany": {
+    "lat": 50.9147646,
+    "lon": 8.0119247,
+    "address": {
+      "road": "Rathausstraße",
+      "retail": "Einkaufszentrum Geisweid",
+      "suburb": "Geisweid",
+      "village": "Niedersetzen",
+      "city": "Siegen",
+      "county": "Kreis Siegen-Wittgenstein",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "57078",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Soester Straße, Medebach, Germany": {
+    "lat": 51.1914197,
+    "lon": 8.710229,
+    "address": {
+      "road": "Soester Straße",
+      "town": "Medebach",
+      "county": "Hochsauerlandkreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "59964",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Walhallastraße, Lippe, Germany": {
+    "lat": 52.0788413,
+    "lon": 8.759582,
+    "address": {
+      "road": "Walhallastraße",
+      "suburb": "Schötmar",
+      "borough": "Ehrsen-Breden",
+      "town": "Bad Salzuflen",
+      "county": "Kreis Lippe",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "32108",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Harzerstraße, VS-Schwenningen, Germany": {
+    "lat": 48.0621144,
+    "lon": 8.5319943,
+    "address": {
+      "road": "Harzerstraße",
+      "neighbourhood": "Neckarstadt",
+      "suburb": "Schwenningen",
+      "town": "Villingen-Schwenningen",
+      "municipality": "VVG der Stadt Villingen-Schwenningen",
+      "county": "Schwarzwald-Baar-Kreis",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "78054",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Wiesenstraße, Bad Homburg v.d. Höhe, Germany": {
+    "lat": 50.2181781,
+    "lon": 8.6283944,
+    "address": {
+      "road": "Wiesenstraße",
+      "suburb": "Gonzenheim",
+      "town": "Bad Homburg vor der Höhe",
+      "county": "Hochtaunuskreis",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "61352",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Saganer Straße, Lippe, Germany": {
+    "lat": 51.9375927,
+    "lon": 8.8601061,
+    "address": {
+      "road": "Saganer Straße",
+      "suburb": "Detmold-Süd",
+      "town": "Detmold",
+      "county": "Kreis Lippe",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "32756",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Dahlienweg, Paderborn, Germany": {
+    "lat": 51.7309762,
+    "lon": 8.7676912,
+    "address": {
+      "road": "Dahlienweg",
+      "suburb": "Paderborn",
+      "city": "Paderborn",
+      "county": "Kreis Paderborn",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "33100",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Rudolstädter Weg, Gütersloh, Germany": {
+    "lat": 51.9358255,
+    "lon": 8.3610812,
+    "address": {
+      "road": "Rudolstädter Weg",
+      "suburb": "Blankenhagen",
+      "city": "Gütersloh",
+      "county": "Kreis Gütersloh",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "33330",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Dürerweg, Rinteln, Germany": {
+    "lat": 52.2053997,
+    "lon": 9.0660292,
+    "address": {
+      "road": "Dürerweg",
+      "suburb": "Todenmann",
+      "town": "Rinteln",
+      "county": "Landkreis Schaumburg",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "31737",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bergstraße, Hürth, Germany": {
+    "lat": 50.8653474,
+    "lon": 6.8684386,
+    "address": {
+      "road": "Bergstraße",
+      "residential": "Alt-Hürth",
+      "suburb": "Alt-Hürth",
+      "city_district": "Alt-Hürth - Knapsack",
+      "town": "Hürth",
+      "county": "Rhein-Erft-Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "50354",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Biemser Weg, Herford, Germany": {
+    "lat": 52.0867307,
+    "lon": 8.6635953,
+    "address": {
+      "road": "Biemser Weg",
+      "suburb": "Altstädter Feldmark",
+      "town": "Herford-Stadt",
+      "county": "Kreis Herford",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "32052",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hennef, Germany": {
+    "lat": 50.7754417,
+    "lon": 7.2847945,
+    "address": {
+      "town": "Hennef (Sieg)",
+      "county": "Rhein-Sieg-Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "53773",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Rietberger Straße, Delbrück, Germany": {
+    "lat": 51.7643873,
+    "lon": 8.5546055,
+    "address": {
+      "road": "Rietberger Straße",
+      "town": "Delbrück",
+      "county": "Kreis Paderborn",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "33129",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Marktplatz, Homberg, Germany": {
+    "lat": 51.0336459,
+    "lon": 9.4058218,
+    "address": {
+      "road": "Marktplatz",
+      "neighbourhood": "Am Holzhäuser Tor",
+      "town": "Homberg (Efze)",
+      "municipality": "Homberg (Efze)",
+      "county": "Schwalm-Eder-Kreis",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "34576",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Beethovenstraße, Augsburg, Germany": {
+    "lat": 48.3639195,
+    "lon": 10.8937138,
+    "address": {
+      "road": "Beethovenstraße",
+      "neighbourhood": "Beethovenviertel",
+      "suburb": "Innenstadt",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86150",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kirchbühlstraße, Freiburg, Germany": null,
+  "Olpe, Germany": {
+    "lat": 51.0450964,
+    "lon": 7.2873649,
+    "address": {
+      "village": "Olpe",
+      "town": "Kürten",
+      "county": "Rheinisch-Bergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "51515",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Göpringhauser Straße, Nümbrecht, Germany": {
+    "lat": 50.9085218,
+    "lon": 7.5214317,
+    "address": {
+      "road": "Göpringhauser Straße",
+      "neighbourhood": "Marienberghausen",
+      "hamlet": "Erlinghausen",
+      "village": "Göpringhausen",
+      "town": "Nümbrecht",
+      "county": "Oberbergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "51588",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hessenstraße, Hofheim, Germany": {
+    "lat": 50.0668181,
+    "lon": 8.3818339,
+    "address": {
+      "road": "Hessenstraße",
+      "commercial": "Gewerbegebiet Wallau",
+      "village": "Wallau",
+      "municipality": "Hofheim am Taunus",
+      "county": "Main-Taunus-Kreis",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "65719",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bismarckring, Wiesbaden, Germany": {
+    "lat": 50.0817751,
+    "lon": 8.2292935,
+    "address": {
+      "road": "Bismarckring",
+      "suburb": "Westend / Bleichstraße",
+      "city": "Wiesbaden",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "65183",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Gisperslebener Straße, Erfurt, Germany": {
+    "lat": 51.0003817,
+    "lon": 11.0204214,
+    "address": {
+      "road": "Gisperslebener Straße",
+      "suburb": "Ilversgehofen",
+      "city": "Erfurt",
+      "state": "Thüringen",
+      "ISO3166-2-lvl4": "DE-TH",
+      "postcode": "99089",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Fraunhoferstraße, Hagen, Germany": {
+    "lat": 51.3742109,
+    "lon": 7.4667206,
+    "address": {
+      "road": "Fraunhoferstraße",
+      "suburb": "Ischeland",
+      "city_district": "Hagen-Mitte",
+      "city": "Hagen",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "58097",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bahnhofstraße, Aalen, Germany": {
+    "lat": 48.8448662,
+    "lon": 10.094976,
+    "address": {
+      "road": "Bahnhofstraße",
+      "neighbourhood": "Tännich",
+      "hamlet": "Weidenfeld",
+      "town": "Aalen",
+      "municipality": "VVG der Stadt Aalen",
+      "county": "Ostalbkreis",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "73430",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Alten Straße, Freiburg, Germany": {
+    "lat": 47.9853168,
+    "lon": 7.8512142,
+    "address": {
+      "amenity": "Kinderarzt am Alten Wiehrebahnhof",
+      "house_number": "15",
+      "road": "Urachstraße",
+      "neighbourhood": "Mittelwiehre",
+      "suburb": "Wiehre",
+      "city": "Freiburg im Breisgau",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "79102",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Talstraße, Tiefenbronn, Germany": {
+    "lat": 48.7955461,
+    "lon": 8.8222915,
+    "address": {
+      "road": "Talstraße",
+      "village": "Lehningen",
+      "municipality": "GVV Tiefenbronn",
+      "county": "Enzkreis",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "75233",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Springenweg, Neukirchen-Vluyn, Germany": {
+    "lat": 51.4395721,
+    "lon": 6.5359947,
+    "address": {
+      "road": "Springenweg",
+      "suburb": "Vluyn",
+      "town": "Neukirchen-Vluyn",
+      "county": "Kreis Wesel",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "47506",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kerschensteinerstraße, Mainz, Germany": {
+    "lat": 50.0031034,
+    "lon": 8.2366349,
+    "address": {
+      "road": "Kerschensteinerstraße",
+      "quarter": "Hartenberg",
+      "suburb": "Hartenberg-Münchfeld",
+      "city": "Mainz",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "55122",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Weizenweg, Lingen, Germany": {
+    "lat": 52.5268669,
+    "lon": 7.3114024,
+    "address": {
+      "road": "Weizenweg",
+      "suburb": "Reuschberge",
+      "town": "Lingen (Ems)",
+      "county": "Landkreis Emsland",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "49808",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Siebenbürgenstraße, Augsburg, Germany": {
+    "lat": 48.3179343,
+    "lon": 10.9055882,
+    "address": {
+      "road": "Siebenbürgenstraße",
+      "neighbourhood": "Haunstetten-Nord",
+      "suburb": "Haunstetten-Siebenbrunn",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86179",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Lange Straße, Ludwigsburg, Germany": {
+    "lat": 48.8945194,
+    "lon": 9.2321202,
+    "address": {
+      "road": "Lange Straße",
+      "suburb": "Oßweil",
+      "town": "Ludwigsburg",
+      "county": "Landkreis Ludwigsburg",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "71640",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Glückaufstraße, Unna, Germany": {
+    "lat": 51.5432128,
+    "lon": 7.6815755,
+    "address": {
+      "road": "Glückaufstraße",
+      "suburb": "Königsborn",
+      "town": "Unna",
+      "county": "Kreis Unna",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "59425",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Rotlintstraße, Frankfurt, Germany": {
+    "lat": 50.1261533,
+    "lon": 8.6936407,
+    "address": {
+      "road": "Rotlintstraße",
+      "suburb": "Nordend Ost",
+      "city_district": "Innenstadt 3",
+      "city": "Frankfurt am Main",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "60316",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Steubenstraße, Heidelberg, Germany": {
+    "lat": 49.4232797,
+    "lon": 8.6883717,
+    "address": {
+      "road": "Steubenstraße",
+      "suburb": "Handschuhsheim",
+      "city": "Heidelberg",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "69121",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Birkenfeldstraße, Augsburg, Germany": {
+    "lat": 48.369273,
+    "lon": 10.8727368,
+    "address": {
+      "road": "Birkenfeldstraße",
+      "neighbourhood": "Pfersee-Nord",
+      "suburb": "Pfersee",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86157",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Verkäufer, Frankfurt, Germany": null,
+  "Fahrradabstellplatz, Aalen, Germany": null,
+  "Dagobertsweg, Landau, Germany": {
+    "lat": 49.2120193,
+    "lon": 8.0872567,
+    "address": {
+      "road": "Dagobertsweg",
+      "suburb": "Landau-Godramstein",
+      "village": "Godramstein",
+      "town": "Landau in der Pfalz",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "76829",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Große Bäckerstraße, Lüneburg, Germany": {
+    "lat": 53.2491051,
+    "lon": 10.4088552,
+    "address": {
+      "road": "Große Bäckerstraße",
+      "suburb": "Altstadt",
+      "town": "Lüneburg",
+      "county": "Landkreis Lüneburg",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "21335",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Holzmarkt, Jena, Germany": {
+    "lat": 50.9269106,
+    "lon": 11.5854879,
+    "address": {
+      "square": "Holzmarkt",
+      "suburb": "Jena-Zentrum",
+      "city": "Jena",
+      "state": "Thüringen",
+      "ISO3166-2-lvl4": "DE-TH",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bereich Körnerstraße, Hagen, Germany": null,
+  "Insterburgstraße, Augsburg, Germany": {
+    "lat": 48.3779159,
+    "lon": 10.9265302,
+    "address": {
+      "road": "Insterburgstraße",
+      "neighbourhood": "Lechhausen-Ost",
+      "suburb": "Lechhausen",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86165",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Alpenstraße, Augsburg, Germany": {
+    "lat": 48.3563917,
+    "lon": 10.9005941,
+    "address": {
+      "road": "Alpenstraße",
+      "neighbourhood": "Bismarckviertel",
+      "suburb": "Innenstadt",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86159",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Nordfeldstraße, Cuxhaven, Germany": {
+    "lat": 53.8902142,
+    "lon": 8.6743533,
+    "address": {
+      "road": "Nordfeldstraße",
+      "suburb": "Döse",
+      "town": "Cuxhaven",
+      "county": "Landkreis Cuxhaven",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "27476",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Verbindungsweg, Landkreis Aurich, Germany": {
+    "lat": 53.5854321,
+    "lon": 7.3176323,
+    "address": {
+      "road": "Verbindungsweg",
+      "village": "Kleinheide",
+      "municipality": "Samtgemeinde Hage",
+      "county": "Landkreis Aurich",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "26524",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Fahrradabstellplatz, Augsburg, Germany": {
+    "lat": 48.3253237,
+    "lon": 10.8849822,
+    "address": {
+      "amenity": "Fahrradabstellplatz WWK ARENA",
+      "road": "Bürgermeister-Ulrich-Straße",
+      "suburb": "Universitätsviertel",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86159",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Weserstraße, Rinteln, Germany": {
+    "lat": 52.1875564,
+    "lon": 9.0800825,
+    "address": {
+      "road": "Weserstraße",
+      "suburb": "Engern",
+      "village": "Exten",
+      "town": "Rinteln",
+      "county": "Landkreis Schaumburg",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "31737",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Alleestraße, Pirmasens, Germany": {
+    "lat": 49.1983623,
+    "lon": 7.6073768,
+    "address": {
+      "road": "Alleestraße",
+      "suburb": "Ruhbank",
+      "town": "Pirmasens",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "66953",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Alten Postweg, Augsburg, Germany": {
+    "lat": 48.3502258,
+    "lon": 10.9021382,
+    "address": {
+      "allotments": "Kleingartenanlage Am Alten Postweg",
+      "suburb": "Hochfeld",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Dreescher Markt, Rostock, Schwerin, Germany": null,
+  "Pariser Straße, Kaiserslautern, Germany": {
+    "lat": 49.4358455,
+    "lon": 7.6983679,
+    "address": {
+      "road": "Pariser Straße",
+      "suburb": "Vogelweh",
+      "city": "Kaiserslautern",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "67661",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Garmischer Straße, Augsburg, Germany": {
+    "lat": 48.3389991,
+    "lon": 10.9503001,
+    "address": {
+      "road": "Garmischer Straße",
+      "neighbourhood": "Hochzoll-Süd",
+      "suburb": "Hochzoll",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86163",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Marktplatz, Hersfeld-Rotenburg, Germany": {
+    "lat": 50.9947952,
+    "lon": 9.726932,
+    "address": {
+      "road": "Marktplatz",
+      "town": "Rotenburg an der Fulda",
+      "municipality": "Rotenburg an der Fulda",
+      "county": "Landkreis Hersfeld-Rotenburg",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "36199",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Supermarkt, Ludwigshafen - West, Germany": null,
+  "Stegstraße, Augsburg, Germany": {
+    "lat": 48.3825,
+    "lon": 10.886167,
+    "address": {
+      "road": "Stegstraße",
+      "neighbourhood": "Rechts der Wertach",
+      "suburb": "Oberhausen",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86153",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Chemnitzer Straße, Augsburg, Germany": {
+    "lat": 48.3572416,
+    "lon": 10.8676777,
+    "address": {
+      "road": "Chemnitzer Straße",
+      "neighbourhood": "Adalbert-Stifter-Siedlung",
+      "suburb": "Pfersee",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86157",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Schlossplatz, Wiesbaden, Germany": {
+    "lat": 50.0821067,
+    "lon": 8.2415437,
+    "address": {
+      "road": "Schlossplatz",
+      "suburb": "Mitte",
+      "city": "Wiesbaden",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "65183",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Mühlenweg, Wilhelmshaven, Germany": {
+    "lat": 53.532283,
+    "lon": 8.125993,
+    "address": {
+      "road": "Mühlenweg",
+      "neighbourhood": "Villenviertel",
+      "suburb": "Heppens",
+      "town": "Wilhelmshaven",
+      "municipality": "Wangerland",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "26384",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Zieherser Weg, Fulda, Germany": {
+    "lat": 50.5552599,
+    "lon": 9.6875242,
+    "address": {
+      "road": "Zieherser Weg",
+      "suburb": "Nordend",
+      "town": "Fulda",
+      "county": "Landkreis Fulda",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "36037",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Uhlandstraße, Aalen, Germany": {
+    "lat": 48.8852946,
+    "lon": 10.093442,
+    "address": {
+      "road": "Uhlandstraße",
+      "hamlet": "Albanus",
+      "village": "Niederalfingen",
+      "municipality": "VVG der Stadt Aalen",
+      "county": "Ostalbkreis",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "73460",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Sängerstraße, Mudersbach, Germany": {
+    "lat": 50.8399176,
+    "lon": 7.9587163,
+    "address": {
+      "road": "Sängerstraße",
+      "suburb": "Niederschelderhütte",
+      "village": "Mudersbach",
+      "municipality": "Kirchen (Sieg)",
+      "county": "Landkreis Altenkirchen (Westerwald)",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "57555",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Verkäufer, Osburg, Germany": null,
+  "Verkäufer, Rostock, Germany": null,
+  "Rostock, Germany": {
+    "lat": 54.0886707,
+    "lon": 12.1400211,
+    "address": {
+      "city": "Rostock",
+      "state": "Mecklenburg-Vorpommern",
+      "ISO3166-2-lvl4": "DE-MV",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Dorfstraße, Wienhausen/Oppershausen, Germany": {
+    "lat": 52.5937612,
+    "lon": 10.2111007,
+    "address": {
+      "road": "Dorfstraße",
+      "village": "Oppershausen",
+      "municipality": "Samtgemeinde Flotwedel",
+      "county": "Landkreis Celle",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "29342",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Schwimmschulstraße, Augsburg, Germany": {
+    "lat": 48.375951,
+    "lon": 10.8810712,
+    "address": {
+      "road": "Schwimmschulstraße",
+      "neighbourhood": "Stadtjägerviertel",
+      "suburb": "Innenstadt",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86153",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Leitershofer Straße, Augsburg, Germany": {
+    "lat": 48.3542764,
+    "lon": 10.8580916,
+    "address": {
+      "road": "Leitershofer Straße",
+      "neighbourhood": "Adalbert-Stifter-Siedlung",
+      "suburb": "Pfersee",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86157",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bahnhofstraße, Celle, Germany": {
+    "lat": 52.6215865,
+    "lon": 10.0713018,
+    "address": {
+      "road": "Bahnhofstraße",
+      "suburb": "Neuenhäusen",
+      "town": "Celle",
+      "county": "Landkreis Celle",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "29221",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Feldweg, Hofheim, Germany": null,
+  "Ostlandring, Hildesheim, Germany": {
+    "lat": 52.1056042,
+    "lon": 10.155612,
+    "address": {
+      "road": "Ostlandring",
+      "village": "Grasdorf",
+      "town": "Holle",
+      "county": "Landkreis Hildesheim",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "31188",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bahnhofstraße, Heidekreis, Germany": {
+    "lat": 52.9872664,
+    "lon": 9.8336178,
+    "address": {
+      "road": "Bahnhofstraße",
+      "neighbourhood": "Vorsoltau",
+      "city_district": "Kernstadt Soltau",
+      "town": "Soltau",
+      "county": "Heidekreis",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "29614",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kanalweg, Wilhelmshaven, Germany": {
+    "lat": 53.5123457,
+    "lon": 8.0796874,
+    "address": {
+      "road": "Kanalweg",
+      "neighbourhood": "Bordum",
+      "hamlet": "Banter Fischerhütten",
+      "suburb": "Innenhafen",
+      "town": "Wilhelmshaven",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "26389",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Gartenstraße, Hildesheim, Germany": {
+    "lat": 52.1513697,
+    "lon": 9.9577642,
+    "address": {
+      "road": "Gartenstraße",
+      "neighbourhood": "Oststadt",
+      "suburb": "Oststadt",
+      "city_district": "Oststadt/Stadtfeld",
+      "city": "Hildesheim",
+      "county": "Landkreis Hildesheim",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "31141",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kornblumenweg, Fulda, Germany": {
+    "lat": 50.5963717,
+    "lon": 9.6479375,
+    "address": {
+      "road": "Kornblumenweg",
+      "village": "Kämmerzell",
+      "town": "Fulda",
+      "county": "Landkreis Fulda",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "36041",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Verkehrszeichen Ecke Rheinische Straße, Warendorf, Germany": null,
+  "Wilhelmstraße, Heilbad Heiligenstadt, Germany": {
+    "lat": 51.3774072,
+    "lon": 10.1396783,
+    "address": {
+      "road": "Wilhelmstraße",
+      "town": "Heilbad Heiligenstadt",
+      "county": "Landkreis Eichsfeld",
+      "state": "Thüringen",
+      "ISO3166-2-lvl4": "DE-TH",
+      "postcode": "37308",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kochstraße, Jena, Germany": {
+    "lat": 50.9255437,
+    "lon": 11.5792148,
+    "address": {
+      "road": "Kochstraße",
+      "suburb": "Jena-Süd",
+      "city": "Jena",
+      "state": "Thüringen",
+      "ISO3166-2-lvl4": "DE-TH",
+      "postcode": "07745",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Petrusstraße, Wittlich, Germany": {
+    "lat": 49.9741786,
+    "lon": 6.9321866,
+    "address": {
+      "road": "Petrusstraße",
+      "suburb": "Wengerohr",
+      "town": "Wittlich",
+      "county": "Landkreis Bernkastel-Wittlich",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "54516",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Soester Straße, Münster, Germany": {
+    "lat": 51.9541502,
+    "lon": 7.6381486,
+    "address": {
+      "road": "Soester Straße",
+      "quarter": "Hansaviertel",
+      "neighbourhood": "Hansaplatz",
+      "suburb": "Innenstadtring",
+      "city_district": "Münster-Mitte",
+      "city": "Münster",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "48155",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Ochsenberger Straße, Aalen, Germany": {
+    "lat": 48.7974305,
+    "lon": 10.1807168,
+    "address": {
+      "road": "Ochsenberger Straße",
+      "residential": "Ebnat",
+      "village": "Ebnat",
+      "town": "Aalen",
+      "municipality": "VVG der Stadt Aalen",
+      "county": "Ostalbkreis",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "73432",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bundesstraße, Aalen, Germany": null,
+  "Kaiserstraße, Stadt und Kreis Offenbach, Germany": null,
+  "Stadt und Kreis Offenbach, Germany": {
+    "lat": 50.0282211,
+    "lon": 8.8508711,
+    "address": {
+      "building": "ZWO - Zweckverband Wasserversorung Stadt und Kreis Offenbach",
+      "house_number": "1",
+      "road": "Am Wasserwerk",
+      "suburb": "Jügesheim",
+      "town": "Rodgau",
+      "county": "Landkreis Offenbach",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "63110",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Grafstraße Ecke Ebnerstraße, Augsburg, Germany": null,
+  "Röderbergweg, Frankfurt, Germany": {
+    "lat": 50.1159049,
+    "lon": 8.7099749,
+    "address": {
+      "park": "Röderbergweg",
+      "suburb": "Ostend",
+      "city_district": "Bornheim/Ostend",
+      "city": "Frankfurt am Main",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Leipziger Straße, Augsburg, Germany": {
+    "lat": 48.3817601,
+    "lon": 10.9050924,
+    "address": {
+      "road": "Leipziger Straße",
+      "neighbourhood": "Lechhausen-West",
+      "suburb": "Lechhausen",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86169",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Prießnitzweg, Landau, Germany": {
+    "lat": 49.1970215,
+    "lon": 8.1067893,
+    "address": {
+      "road": "Prießnitzweg",
+      "neighbourhood": "West",
+      "suburb": "Kernstadt",
+      "village": "Godramstein",
+      "town": "Landau in der Pfalz",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "76829",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Falkenweg, Rinteln - Exten, Germany": {
+    "lat": 52.167673,
+    "lon": 9.0911812,
+    "address": {
+      "road": "Falkenweg",
+      "suburb": "Industriegebiet Rinteln-Süd",
+      "village": "Exten",
+      "town": "Rinteln",
+      "county": "Landkreis Schaumburg",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "31737",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Lagerstraße, Düren, Germany": {
+    "lat": 50.8087007,
+    "lon": 6.4843558,
+    "address": {
+      "road": "Lagerstraße",
+      "hamlet": "Grüngürtel",
+      "town": "Düren",
+      "county": "Kreis Düren",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "52351",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Frölichstraße, Augsburg, Germany": {
+    "lat": 48.3704617,
+    "lon": 10.8903437,
+    "address": {
+      "road": "Frölichstraße",
+      "neighbourhood": "Bahnhofsviertel",
+      "suburb": "Innenstadt",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86152",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Flohmarkt, Osnabrück, Germany": null,
+  "Wentzingerstraße, Freiburg, Germany": {
+    "lat": 47.9968371,
+    "lon": 7.8391635,
+    "address": {
+      "road": "Wentzingerstraße",
+      "neighbourhood": "Alt-Stühlinger",
+      "suburb": "Stühlinger",
+      "city": "Freiburg im Breisgau",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "79106",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Wielandstraße, Münster, Germany": {
+    "lat": 51.9009675,
+    "lon": 7.6244636,
+    "address": {
+      "political": "Wielandstraße",
+      "suburb": "Münster-Hiltrup",
+      "city": "Münster",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Weilburger Straße, Limburg, Germany": {
+    "lat": 50.3944524,
+    "lon": 8.0675448,
+    "address": {
+      "road": "Weilburger Straße",
+      "suburb": "Limburg",
+      "town": "Limburg an der Lahn",
+      "county": "Landkreis Limburg-Weilburg",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "65549",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kreisstraße, Lüneburg, Germany": null,
+  "Merkurstraße, Kaiserslautern, Germany": {
+    "lat": 49.4427971,
+    "lon": 7.7162094,
+    "address": {
+      "road": "Merkurstraße",
+      "suburb": "Gewerbegebiet West",
+      "city": "Kaiserslautern",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "67663",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Koloniestraße, Augsburg, Germany": {
+    "lat": 48.3416712,
+    "lon": 10.8648656,
+    "address": {
+      "road": "Koloniestraße",
+      "neighbourhood": "Göggingen-Nordwest",
+      "suburb": "Göggingen",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86199",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Seitzstraße, Augsburg, Germany": {
+    "lat": 48.3776847,
+    "lon": 10.8774028,
+    "address": {
+      "road": "Seitzstraße",
+      "neighbourhood": "Links der Wertach Süd",
+      "suburb": "Oberhausen",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86154",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Fahrnauer Straße, Freiburg, Germany": null,
+  "Krechtinger Straße, Hamminkeln, Germany": {
+    "lat": 51.7716425,
+    "lon": 6.6164705,
+    "address": {
+      "road": "Krechtinger Straße",
+      "village": "Dingden",
+      "town": "Hamminkeln",
+      "county": "Kreis Wesel",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "46499",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Platanenstraße, Altenburger Land, Germany": {
+    "lat": 50.9816408,
+    "lon": 12.4486078,
+    "address": {
+      "road": "Platanenstraße",
+      "suburb": "Südost",
+      "city_district": "Altenburg",
+      "town": "Altenburg",
+      "county": "Altenburger Land",
+      "state": "Thüringen",
+      "ISO3166-2-lvl4": "DE-TH",
+      "postcode": "04600",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Krankenhausweg, Aalen, Germany": null,
+  "Bahnhofstraße, Neu Wulmstorf, Germany": {
+    "lat": 53.4757115,
+    "lon": 9.7875074,
+    "address": {
+      "road": "Bahnhofstraße",
+      "town": "Neuwulmstorf",
+      "city": "Neu Wulmstorf",
+      "county": "Landkreis Harburg",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "21629",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Goethestraße, Mainz, Germany": {
+    "lat": 50.0097242,
+    "lon": 8.2529105,
+    "address": {
+      "road": "Goethestraße",
+      "quarter": "Zollhafen",
+      "suburb": "Neustadt",
+      "city": "Mainz",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "55118",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Palliener Straße, Trier, Germany": {
+    "lat": 49.7648151,
+    "lon": 6.630364,
+    "address": {
+      "road": "Palliener Straße",
+      "suburb": "Pallien",
+      "city_district": "West-Pallien",
+      "city": "Trier",
+      "municipality": "Trierweiler",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "54294",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Im Stürenburgweg, Landkreis Aurich, Germany": null,
+  "Hauptstraße, Burscheid, Germany": {
+    "lat": 51.0867315,
+    "lon": 7.1011538,
+    "address": {
+      "road": "Hauptstraße",
+      "village": "Blasberg",
+      "town": "Burscheid",
+      "county": "Rheinisch-Bergischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "51399",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Berkenstraße, Iserlohn, Germany": {
+    "lat": 51.4262135,
+    "lon": 7.707093,
+    "address": {
+      "road": "Berkenstraße",
+      "suburb": "Sümmern-Rombrock",
+      "town": "Iserlohn",
+      "county": "Märkischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "58640",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kegelenstraße, Stuttgart-Bad Cannstatt, Germany": {
+    "lat": 48.8004127,
+    "lon": 9.2179092,
+    "address": {
+      "road": "Kegelenstraße",
+      "neighbourhood": "Veielbrunnen",
+      "suburb": "Bad Cannstatt",
+      "city": "Stuttgart",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "70372",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Jakoberwallstraße, Augsburg, Germany": {
+    "lat": 48.3678988,
+    "lon": 10.9094826,
+    "address": {
+      "road": "Jakoberwallstraße",
+      "neighbourhood": "Jakobervorstadt-Süd",
+      "suburb": "Innenstadt",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86153",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Waltgeristraße, Herford, Germany": {
+    "lat": 52.1243911,
+    "lon": 8.6740708,
+    "address": {
+      "road": "Waltgeristraße",
+      "neighbourhood": "MARTa-Viertel",
+      "suburb": "Radewiger Feldmark",
+      "town": "Herford",
+      "county": "Kreis Herford",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "32049",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Theaterplatz, Ludwigshafen-Mitte, Germany": {
+    "lat": 49.480009,
+    "lon": 8.4465459,
+    "address": {
+      "tourism": "Säule und Springbrunnen auf dem Theaterplatz",
+      "road": "Kaiser-Wilhelm-Straße",
+      "suburb": "Mitte",
+      "city": "Ludwigshafen am Rhein",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "67059",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Heder-Center Am Wallgraben, Salzkotten, Germany": {
+    "lat": 51.6733352,
+    "lon": 8.6044148,
+    "address": {
+      "building": "Heder Center",
+      "house_number": "14",
+      "road": "Am Wallgraben",
+      "suburb": "Salzkotten",
+      "town": "Salzkotten",
+      "county": "Kreis Paderborn",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "33154",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Marienstraße, Minden, Germany": {
+    "lat": 52.299925,
+    "lon": 8.9159088,
+    "address": {
+      "road": "Marienstraße",
+      "suburb": "Nordstadt",
+      "town": "Minden",
+      "county": "Kreis Minden-Lübbecke",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "32423",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Baarstraße, Iserlohn, Germany": {
+    "lat": 51.40431,
+    "lon": 7.6972739,
+    "address": {
+      "road": "Baarstraße",
+      "suburb": "Iserlohner Heide",
+      "town": "Iserlohn",
+      "county": "Märkischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "58636",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Schulstraße, Wittlich, Germany": {
+    "lat": 49.9737499,
+    "lon": 6.9375108,
+    "address": {
+      "road": "Schulstraße",
+      "suburb": "Wengerohr",
+      "town": "Wittlich",
+      "county": "Landkreis Bernkastel-Wittlich",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "54516",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bahnhofsplatz, Iserlohn, Germany": {
+    "lat": 51.3729629,
+    "lon": 7.6929532,
+    "address": {
+      "square": "Bahnhofsplatz",
+      "suburb": "Nußberg",
+      "town": "Iserlohn",
+      "county": "Märkischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Betzelsstraße, Mainz, Germany": {
+    "lat": 50.0006397,
+    "lon": 8.27142,
+    "address": {
+      "road": "Betzelsstraße",
+      "neighbourhood": "Regierungsviertel",
+      "quarter": "Nördliche Altstadt",
+      "suburb": "Altstadt",
+      "city": "Mainz",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "55116",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Parkplatz, Mainz, Germany": {
+    "lat": 50.0234208,
+    "lon": 8.2344093,
+    "address": {
+      "amenity": "McDonald's Parkplatz",
+      "road": "Rheinallee",
+      "suburb": "Mombach",
+      "city": "Mainz",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "55120",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bahnhofstraße, Lüneburg, Germany": {
+    "lat": 53.2501051,
+    "lon": 10.418974,
+    "address": {
+      "road": "Bahnhofstraße",
+      "suburb": "Schützenplatz",
+      "town": "Lüneburg",
+      "county": "Landkreis Lüneburg",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "21337",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Heddesdorfer Straße, Neuwied, Germany": {
+    "lat": 50.4352437,
+    "lon": 7.466445,
+    "address": {
+      "road": "Heddesdorfer Straße",
+      "quarter": "Raiffeisenring",
+      "suburb": "Heddesdorf",
+      "town": "Neuwied",
+      "county": "Landkreis Neuwied",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "56564",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Gräfstraße, Frankfurt, Germany": {
+    "lat": 50.1209153,
+    "lon": 8.6506194,
+    "address": {
+      "road": "Gräfstraße",
+      "quarter": "Bockenheim",
+      "suburb": "Bockenheim",
+      "city_district": "Innenstadt 2",
+      "city": "Frankfurt am Main",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "60487",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Schützenstraße, Hemer, Germany": {
+    "lat": 51.390123,
+    "lon": 7.7702989,
+    "address": {
+      "road": "Schützenstraße",
+      "suburb": "Niederhemer",
+      "village": "Höcklingsen",
+      "town": "Hemer",
+      "county": "Märkischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "58675",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Radweg, Menden, Germany": null,
+  "Neuen Markt, Hemer, Germany": {
+    "lat": 51.3844768,
+    "lon": 7.7657303,
+    "address": {
+      "shop": "Buchladen am Neuen Markt",
+      "road": "Hauptstraße",
+      "suburb": "Oberhemer",
+      "village": "Höcklingsen",
+      "town": "Hemer",
+      "county": "Märkischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "58675",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Supermarkt, Vogelsberg, Germany": null,
+  "Bahnsteig, Hamburg, Germany": {
+    "lat": 53.5405591,
+    "lon": 10.0077547,
+    "address": {
+      "tourism": "Lichtspiel Bahnsteig HafenCity Universität",
+      "road": "Versmannstraße",
+      "neighbourhood": "Quartier Am Lohsepark",
+      "suburb": "HafenCity",
+      "borough": "Hamburg-Mitte",
+      "city": "Hamburg",
+      "ISO3166-2-lvl4": "DE-HH",
+      "postcode": "20457",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Mackenzeller Straße, Fulda, Germany": {
+    "lat": 50.6647253,
+    "lon": 9.7796615,
+    "address": {
+      "road": "Mackenzeller Straße",
+      "village": "Mackenzell",
+      "municipality": "Hünfeld",
+      "county": "Landkreis Fulda",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "36088",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bahnhofstraße, Altena, Germany": {
+    "lat": 51.3025691,
+    "lon": 7.6664385,
+    "address": {
+      "road": "Bahnhofstraße",
+      "suburb": "Mühlendorf",
+      "town": "Altena",
+      "county": "Märkischer Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "58762",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Glanstraße, Rammelsbach (Kreis Kusel), Germany": null,
+  "Krefelder Straße, Neuss, Germany": {
+    "lat": 51.2027847,
+    "lon": 6.6843303,
+    "address": {
+      "road": "Krefelder Straße",
+      "neighbourhood": "Marienviertel",
+      "suburb": "Innenstadt",
+      "city": "Neuss",
+      "county": "Rhein-Kreis Neuss",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "41460",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Herforder Straße, Bünde, Germany": {
+    "lat": 52.1900469,
+    "lon": 8.5960779,
+    "address": {
+      "road": "Herforder Straße",
+      "suburb": "Bünde-Mitte",
+      "town": "Bünde",
+      "county": "Kreis Herford",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "32257",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Parkplatz, Tellingstedt, Germany": null,
+  "Supermarkt, Zornheim, Germany": null,
+  "Kreuzung Berliner Allee, Düsseldorf, Germany": null,
+  "Kirchplatz, Vogelsbergkreis, Germany": {
+    "lat": 50.673393,
+    "lon": 9.5604143,
+    "address": {
+      "religious": "Kirchplatz",
+      "village": "Schlitz",
+      "municipality": "Schlitz",
+      "county": "Vogelsbergkreis",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Lebensmittelmarkt, Lindhorst, Germany": null,
+  "Maternusplatz, Köln, Germany": {
+    "lat": 50.8923926,
+    "lon": 6.9935353,
+    "address": {
+      "road": "Maternusplatz",
+      "suburb": "Rodenkirchen",
+      "city_district": "Rodenkirchen",
+      "city": "Köln",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "50996",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bahnhofstraße, Bielefeld, Germany": {
+    "lat": 52.0233424,
+    "lon": 8.5325214,
+    "address": {
+      "road": "Bahnhofstraße",
+      "neighbourhood": "Bahnhofsviertel",
+      "suburb": "Mitte",
+      "city": "Bielefeld",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "33602",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Raiffeisenstraße, Delmenhorst, Germany": null,
+  "Hauptstraße, Viersen, Germany": {
+    "lat": 51.2560143,
+    "lon": 6.3907415,
+    "address": {
+      "road": "Hauptstraße",
+      "suburb": "Rintgen",
+      "village": "Hamm",
+      "town": "Viersen",
+      "county": "Kreis Viersen",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "41747",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Supermarkt, Mainz-Hartenberg-Münchfeld, Germany": null,
+  "Hatzfelder Straße, Paderborn-Schloß Neuhaus, Germany": {
+    "lat": 51.7499748,
+    "lon": 8.7209253,
+    "address": {
+      "road": "Hatzfelder Straße",
+      "suburb": "Mastbruch",
+      "village": "Schloß Neuhaus",
+      "city": "Paderborn",
+      "county": "Kreis Paderborn",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "33104",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Parkstraße, Landkreis Aurich, Germany": {
+    "lat": 53.4712107,
+    "lon": 7.4478956,
+    "address": {
+      "road": "Parkstraße",
+      "suburb": "Extum",
+      "city_district": "Extum, Haxtum, Kirchdorf und Rahe",
+      "town": "Aurich",
+      "county": "Landkreis Aurich",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "26605",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Supermarkt, Lippe, Germany": null,
+  "Baumarkt, Lüneburg, Germany": {
+    "lat": 53.290346,
+    "lon": 10.9479872,
+    "address": {
+      "shop": "Haul Baumarkt",
+      "house_number": "31c",
+      "road": "Bahnhofstraße",
+      "village": "Neuhaus",
+      "city": "Amt Neuhaus",
+      "county": "Landkreis Lüneburg",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "19273",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Supermarktparkplatz, Rotenburg (Wümme), Germany": null
 }
