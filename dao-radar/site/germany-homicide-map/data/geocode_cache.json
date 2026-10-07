@@ -7518,5 +7518,94 @@
       "country_code": "de"
     }
   },
-  "Supermarktparkplatz, Rotenburg (Wümme), Germany": null
+  "Supermarktparkplatz, Rotenburg (Wümme), Germany": null,
+  "Hochstraße, Gelsenkirchen, Germany": {
+    "lat": 51.5805792,
+    "lon": 7.0484065,
+    "address": {
+      "road": "Hochstraße",
+      "suburb": "Buer",
+      "city_district": "Gelsenkirchen-Nord",
+      "city": "Gelsenkirchen",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "45894",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Die Straße, Stade, Germany": {
+    "lat": 53.5952636,
+    "lon": 9.4739576,
+    "address": {
+      "office": "Die Autobahn GmbH des Bundes Niederlassung Nord Außenstelle Stade",
+      "house_number": "2a",
+      "road": "Harburger Straße",
+      "suburb": "Campe",
+      "town": "Stade",
+      "county": "Landkreis Stade",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "21680",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Stade, Germany": {
+    "lat": 53.599794,
+    "lon": 9.475438,
+    "address": {
+      "town": "Stade",
+      "county": "Landkreis Stade",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kreuzungsbereich Kaiserstraße, Frankfurt, Germany": null,
+  "Altenburg, Germany": {
+    "lat": 50.9852411,
+    "lon": 12.4340988,
+    "address": {
+      "town": "Altenburg",
+      "county": "Altenburger Land",
+      "state": "Thüringen",
+      "ISO3166-2-lvl4": "DE-TH",
+      "postcode": "04600",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hohenheimer Straße, Stuttgart- Mitte, Germany": {
+    "lat": 48.7678782,
+    "lon": 9.1837762,
+    "address": {
+      "road": "Hohenheimer Straße",
+      "neighbourhood": "Dobel",
+      "suburb": "Stuttgart-Mitte",
+      "city": "Stuttgart",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "70184",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Nollendorfer Straße, Bremen, Germany": {
+    "lat": 53.0511109,
+    "lon": 8.8177117,
+    "address": {
+      "road": "Nollendorfer Straße",
+      "quarter": "Huckelriede",
+      "suburb": "Neustadt",
+      "city_district": "Bremen-Süd",
+      "city": "Bremen",
+      "state": "Bremen",
+      "ISO3166-2-lvl4": "DE-HB",
+      "postcode": "28201",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  }
 }
