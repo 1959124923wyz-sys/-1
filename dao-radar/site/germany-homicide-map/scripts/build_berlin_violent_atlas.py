@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import io,json,re
+import io,json,re,time
 from datetime import datetime,timezone
 from pathlib import Path
 import requests,openpyxl
@@ -22,7 +22,25 @@ def prop(props,*names):
         if v not in (None,""):return v
     return None
 
-r=requests.get(XLSX,headers=HEAD,timeout=90);r.raise_for_status()
+def polite_get(url,*,params=None,timeout=90):
+    last=None
+    for attempt in range(6):
+        r=requests.get(url,params=params,headers=HEAD,timeout=timeout)
+        last=r
+        if r.status_code==429:
+            raw=r.headers.get("Retry-After","").strip()
+            try:wait=float(raw)
+            except ValueError:wait=min(75,8*(2**attempt))
+            wait=max(5,min(wait,90))
+            print("WARN throttled",url,"sleep",wait)
+            time.sleep(wait)
+            continue
+        if 500<=r.status_code<600:
+            wait=min(30,3*(2**attempt));time.sleep(wait);continue
+        r.raise_for_status();return r
+    last.raise_for_status()
+
+r=polite_get(XLSX)
 wb=openpyxl.load_workbook(io.BytesIO(r.content),read_only=True,data_only=True)
 
 def read_sheet(name):
@@ -72,7 +90,7 @@ for code,rec in cases.items():
     }
 print("BZR stats",len(stats))
 
-g=requests.get(WFS,params=PARAMS,headers=HEAD,timeout=90);g.raise_for_status()
+g=polite_get(WFS,params=PARAMS)
 geo=g.json();features=[]
 unmatched=[]
 for f in geo.get("features",[]):
