@@ -48,3 +48,5 @@ jobs:
           else
             echo "No data changes"
           fi
+
+# rerun after final smoke-test hardening
