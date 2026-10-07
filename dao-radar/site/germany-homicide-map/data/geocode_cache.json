@@ -297,5 +297,45 @@
       "country": "Deutschland",
       "country_code": "de"
     }
+  },
+  "Tatverdächtiger mit Bezügen nach Heilbronn gesucht Heilbronn, Germany": null,
+  "kommunalen Unterbringungseinrichtung auf der Grimpingstraße, Polizei richtet Mordkommission ein Münster, Germany": null,
+  "Polizei richtet Mordkommission ein Münster, Germany": null,
+  "Mordkommission sucht weiter nach Zeugen Düsseldorf, Germany": null,
+  "Tötungsdelikt - Anklageerhebung wegen Mordes Neuenbürg, Germany": null,
+  "Uhr war Ewa M. zu Fuß auf den Heimweg, Medieninhalte Mönchengladbach, Germany": null,
+  "Medieninhalte Mönchengladbach, Germany": null,
+  "Zwei Tatverdächtige flüchtig Dortmund, Germany": null,
+  "Marsberg Dortmund, Germany": null,
+  "Uhr war Ewa M. zu Fuß auf den Heimweg, Medieninhalte Krefeld, Germany": null,
+  "Medieninhalte Krefeld, Germany": null,
+  "kommunalen Unterbringungseinrichtung auf der Grimpingstraße, Coesfeld, Germany": null,
+  "Coesfeld, Germany": {
+    "lat": 51.9458943,
+    "lon": 7.1691108,
+    "address": {
+      "town": "Coesfeld",
+      "county": "Kreis Coesfeld",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "48653",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hammer Straße, Zuführung nach Tötungsdelikt in Hamburg-Marienthal Hamburg, Germany": null,
+  "Zuführung nach Tötungsdelikt in Hamburg-Marienthal Hamburg, Germany": null,
+  "Uhr war Ewa M. zu Fuß auf den Heimweg, Vorst Bild-Infos Download Mönchengladbach, Germany": null,
+  "Vorst Bild-Infos Download Mönchengladbach, Germany": null,
+  "Bonn, Germany": {
+    "lat": 50.7352621,
+    "lon": 7.1024635,
+    "address": {
+      "city": "Bonn",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
   }
 }
