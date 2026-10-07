@@ -1,0 +1,18 @@
+name: Diagnose crime pagination
+on:
+  push:
+    branches: [backfill-all-crime-categories]
+    paths:
+      - 'dao-radar/site/germany-homicide-map/scripts/diag_crime_pagination.py'
+permissions:
+  contents: read
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - run: python dao-radar/site/germany-homicide-map/scripts/diag_crime_pagination.py

@@ -29,10 +29,12 @@ jobs:
           pip install playwright
           python -m playwright install --with-deps chromium
 
-      - name: Validate Python scripts
+      - name: Validate Python scripts and crime data
         run: |
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/update_cases.py
+          python -m py_compile dao-radar/site/germany-homicide-map/scripts/update_crime_categories.py
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/smoke_test_ui.py
+          python dao-radar/site/germany-homicide-map/scripts/validate_crime_data.py
 
       - name: Start local map server
         run: |

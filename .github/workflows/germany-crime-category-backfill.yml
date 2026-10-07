@@ -1,0 +1,54 @@
+name: Backfill Germany crime categories
+
+on:
+  push:
+    branches: [backfill-all-crime-categories]
+    paths:
+      - 'dao-radar/site/germany-homicide-map/scripts/update_crime_categories.py'
+      - '.github/workflows/germany-crime-category-backfill.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: germany-crime-category-backfill
+  cancel-in-progress: true
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r dao-radar/site/germany-homicide-map/requirements.txt
+
+      - name: Validate updater
+        run: python -m py_compile dao-radar/site/germany-homicide-map/scripts/update_crime_categories.py
+
+      - name: Backfill last 90 days
+        env:
+          APP_CONTACT: https://github.com/1959124923wyz-sys/-1
+          CRIME_LOOKBACK_DAYS: '90'
+        run: python dao-radar/site/germany-homicide-map/scripts/update_crime_categories.py
+
+      - name: Commit expanded data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dao-radar/site/germany-homicide-map/data/
+          if ! git diff --cached --quiet; then
+            git commit -m "data: backfill robbery sexual violence and property cases"
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push
+          else
+            echo "No category data changes"
+          fi
