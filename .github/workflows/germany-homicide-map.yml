@@ -126,7 +126,12 @@ jobs:
           git add dao-radar/site/germany-homicide-map/data/
           if ! git diff --cached --quiet; then
             git commit -m "data: refresh Germany crime map"
-            git push
+            # UI/source commits may land while this updater is running.
+            # Rebase the generated-data commit before pushing instead of failing
+            # with a non-fast-forward error.
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "No map data changes"
