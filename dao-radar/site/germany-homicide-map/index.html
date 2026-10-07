@@ -43,7 +43,7 @@ aside{height:100%;min-height:0;overflow:hidden;border-left:1px solid var(--line)
 .area-title{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}.area-name{font-size:18px;font-weight:760;line-height:1.15;overflow:hidden;text-overflow:ellipsis}.risk-badge{flex:0 0 auto;border-radius:999px;padding:4px 8px;font-size:9px;font-weight:700;border:1px solid #43515e;background:#202a34}
 .risk-badge.low{color:#90d2cf}.risk-badge.mid{color:#f0cf7a}.risk-badge.high{color:#f09a7f}
 .area-metric{font-size:10px;color:#a7b5c1;margin-bottom:5px}.coverage-line{display:flex;align-items:center;gap:6px;margin:0 0 9px;font-size:9px;color:#91a0ae;min-height:18px}.coverage-pill{flex:0 0 auto;border:1px solid #3a4652;border-radius:999px;padding:2px 6px;font-size:8.5px;font-weight:700;letter-spacing:.01em;background:#1b2530}.coverage-pill.high{color:#8bd5b0;border-color:#35644f;background:#14271f}.coverage-pill.standard{color:#8fc7e8;border-color:#365b73;background:#152632}.coverage-pill.base{color:#c6b47c;border-color:#62583a;background:#2a2619}.coverage-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.area-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.area-stat{border:1px solid #2b3946;background:#18212b;border-radius:8px;padding:8px;min-width:0}.area-stat b{font-size:16px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.area-stat small{display:block;color:var(--muted);font-size:8.5px;line-height:1.25;margin-top:2px}
-.riskline{margin:10px 0 6px}.riskline-top{display:flex;justify-content:space-between;font-size:9px;color:#9dabb7}.risktrack{height:7px;border-radius:99px;background:linear-gradient(90deg,#78bcbc 0 40%,#ddb668 40% 70%,#d66550 70% 100%);margin-top:4px;position:relative}.riskpin{position:absolute;top:-3px;width:2px;height:13px;background:#fff;box-shadow:0 0 0 1px #111}
+.riskline{margin:10px 0 6px}.riskline-top{display:flex;justify-content:space-between;font-size:9px;color:#9dabb7}.risktrack{height:7px;border-radius:99px;background:linear-gradient(90deg,#78bcbc 0 40%,#ddb668 40% 70%,#d66550 70% 100%);margin-top:4px;position:relative}.riskpin{position:absolute;top:-3px;width:2px;height:13px;background:#fff;box-shadow:0 0 0 1px #111}.riskpin.hidden{display:none}.riskmarks{position:relative;height:13px;margin-top:2px;color:#6f8190;font-size:7.5px}.riskmarks span{position:absolute;transform:translateX(-50%)}.riskmarks span:nth-child(1){left:20%}.riskmarks span:nth-child(2){left:40%}.riskmarks span:nth-child(3){left:60%}.riskmarks span:nth-child(4){left:80%}
 .area-note{font-size:9.5px;color:#9caab6;line-height:1.45;margin-top:8px}
 .rank-section{margin-top:13px;padding-top:10px;border-top:1px solid #293542}.rank-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px}.rank-head strong{font-size:10px}.rank-head span{font-size:8.5px;color:var(--muted)}
 .rank-list{display:grid;gap:3px}.rank-row{width:100%;display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:7px;align-items:center;border:0;border-radius:6px;background:transparent;color:var(--text);padding:5px 6px;text-align:left;cursor:pointer}.rank-row:hover{background:#1a2530}.rank-no{font-size:9px;color:#6f8190;text-align:center}.rank-place{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10px}.rank-value{font-size:10px;font-variant-numeric:tabular-nums;color:#cbd8e2}
@@ -148,7 +148,8 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
       </div>
       <div class="riskline">
         <div class="riskline-top"><span id="riskRankLabel">同级区域相对位置</span><span id="riskRankText">—</span></div>
-        <div class="risktrack"><i class="riskpin" id="riskPin" style="left:50%"></i></div>
+        <div class="risktrack"><i class="riskpin hidden" id="riskPin" style="left:50%"></i></div>
+        <div class="riskmarks"><span>P20</span><span>P40</span><span>P60</span><span>P80</span></div>
       </div>
       <div class="area-note" id="areaNote">全国概览会显示当前指标的真实分布统计；悬停或点击地图后切换为该县/市的实际数据。</div>
       <div class="rank-section">
@@ -366,7 +367,8 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     const rates=rows.map(r=>Number(r[key].rate)).sort((a,b)=>a-b);
     const breaks=isProperty?(data?.meta?.quantile_breaks?.[key]||quantileBreaks(rates)):quantileBreaks(rates);
     const median=rates.length?rates[Math.floor((rates.length-1)/2)]:0;
-    return {key,label:meta?.label||key,de:meta?.de||key,rows,sorted,rates,breaks,median,top:sorted[0]||null};
+    const totalCases=rows.reduce((sum,r)=>sum+Number(r?.[key]?.cases||0),0);
+    return {key,label:meta?.label||key,de:meta?.de||key,rows,sorted,rates,breaks,median,totalCases,top:sorted[0]||null};
   }
 
   function renderRankList(){
@@ -397,10 +399,11 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     el.areaMetric.textContent='BKA PKS 2025 · '+s.de;
     renderCoverage(null);
     el.areaRate.textContent=fmt(Math.round(s.median));el.areaRateLabel.textContent='县/市中位数 · /10万人';
-    el.areaQuarter.textContent=fmt(Math.round(p80));el.areaQuarterLabel.textContent='P80 阈值 · /10万人';
+    el.areaQuarter.textContent=fmt(Math.round(s.totalCases));el.areaQuarterLabel.textContent='2025全国县/市汇总案件';
     el.areaRecent.textContent=top?fmt(Math.round(top[s.key].rate)):'—';el.areaRecentLabel.textContent=top?'最高值 · '+top.name:'最高值';
-    el.riskRankLabel.textContent='全国分布中位位置';el.riskRankText.textContent='P50';el.riskPin.style.left='50%';
-    el.areaNote.textContent='当前指标覆盖 '+fmt(s.rows.length)+' 个县/市。地图颜色按全国五分位分档；最高值地区为 '+(top?top.name+'（'+fmt(Math.round(top[s.key].rate))+'/10万人）':'—')+'。';
+    el.riskRankLabel.textContent='全国县/市五分位刻度';el.riskRankText.textContent='选择地区后显示其位置';
+    el.riskPin.classList.add('hidden');
+    el.areaNote.textContent='当前指标覆盖 '+fmt(s.rows.length)+' 个县/市；2025年县/市汇总 '+fmt(Math.round(s.totalCases))+' 起案件。地图按五分位着色，P80阈值为 '+fmt(Math.round(p80))+'/10万人。这里统计的是案件数，不是受害人数。';
     renderAreaOverlay(null);
   }
 
@@ -419,15 +422,15 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
       el.areaQuarter.textContent=fmt(a.bike);el.areaQuarterLabel.textContent='其中自行车盗窃';
       el.areaRecent.textContent=fmt(a.vehicle);el.areaRecentLabel.textContent='其中车辆相关';
       el.riskRankLabel.textContent='最近统计区距离';el.riskRankText.textContent=a.distance<1000?Math.round(a.distance)+' m':(a.distance/1000).toFixed(1)+' km';
-      el.riskPin.style.left='50%';el.areaNote.textContent=a.note;
+      el.riskPin.classList.add('hidden');el.areaNote.textContent=a.note;
     }else if(a.kind==='property-county'||a.kind==='violence-county'){
       const risk=riskLabel(a.pct),isProperty=a.kind==='property-county';
       el.riskBadge.textContent=risk.text;el.riskBadge.className='risk-badge '+risk.cls;
       el.areaRate.textContent=fmt(Math.round(a.rate));el.areaRateLabel.textContent='每10万人·年';
       el.areaQuarter.textContent=fmt(a.cases);el.areaQuarterLabel.textContent='2025登记案件';
       el.areaRecent.textContent=a.change;el.areaRecentLabel.textContent='较2024变化';
-      el.riskRankLabel.textContent='德国县/市相对位置';el.riskRankText.textContent='约 P'+a.pct;
-      el.riskPin.style.left=Math.max(1,Math.min(99,a.pct))+'%';el.areaNote.textContent=a.note;
+      el.riskRankLabel.textContent='该地区在全国县/市中的分位';el.riskRankText.textContent='约 P'+a.pct;
+      el.riskPin.classList.remove('hidden');el.riskPin.style.left=Math.max(1,Math.min(99,a.pct))+'%';el.areaNote.textContent=a.note;
     }else{
       const risk=riskLabel(a.pct);
       el.riskBadge.textContent=risk.text;el.riskBadge.className='risk-badge '+risk.cls;
@@ -435,7 +438,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
       el.areaQuarter.textContent=fmt(Math.round(a.cases));el.areaQuarterLabel.textContent='2025登记案件';
       el.areaRecent.textContent=fmt(a.recent);el.areaRecentLabel.textContent='90天公开通报';
       el.riskRankLabel.textContent='柏林同级分区相对位置';
-      el.riskRankText.textContent='约 P'+a.pct;el.riskPin.style.left=Math.max(1,Math.min(99,a.pct))+'%';
+      el.riskRankText.textContent='约 P'+a.pct;el.riskPin.classList.remove('hidden');el.riskPin.style.left=Math.max(1,Math.min(99,a.pct))+'%';
       el.areaNote.textContent=a.note;
     }
     renderAreaOverlay(a);
