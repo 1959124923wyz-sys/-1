@@ -2,6 +2,12 @@ name: Germany crime map updater
 
 on:
   workflow_dispatch:
+    inputs:
+      full_backfill:
+        description: 'Run a full 90-day Berlin backfill'
+        required: false
+        default: false
+        type: boolean
   schedule:
     - cron: "17 20 * * *"
   push:
@@ -23,7 +29,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 12
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -54,7 +60,7 @@ jobs:
 
       - name: Refresh direct Polizei Berlin source
         env:
-          BERLIN_LOOKBACK_DAYS: ${{ github.event_name == 'push' && '90' || '5' }}
+          BERLIN_LOOKBACK_DAYS: ${{ github.event_name == 'workflow_dispatch' && inputs.full_backfill && '90' || '5' }}
         run: python dao-radar/site/germany-homicide-map/scripts/update_berlin_categories.py
 
       - name: Refresh Berlin official theft heatmap
