@@ -47,6 +47,14 @@ jobs:
       - name: Install dependencies
         run: pip install -r dao-radar/site/germany-homicide-map/requirements.txt
 
+      - name: Ensure nationwide 2025 property heatmap data
+        run: |
+          if [ ! -f dao-radar/site/germany-homicide-map/data/pks_property_2025.json ]; then
+            python dao-radar/site/germany-homicide-map/scripts/build_pks_property_2025.py
+          else
+            echo "Property heatmap data already present; skip static annual rebuild"
+          fi
+
       - name: Refresh homicide data
         env:
           APP_CONTACT: https://github.com/1959124923wyz-sys/-1
