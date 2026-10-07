@@ -39,6 +39,21 @@
     .community-marker.selected .community-dot{stroke:var(--accent);stroke-width:4}
     .community-marker.selected .community-tag-bg{stroke:var(--accent);stroke-width:2}
     .map-grid line{stroke:#2a3139;stroke-width:1;opacity:.5;vector-effect:non-scaling-stroke}
+    .road{fill:none;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
+    .road-secondary{stroke:#4b5661;stroke-width:.75;opacity:.34}
+    .road-primary{stroke:#66727e;stroke-width:1.05;opacity:.46}
+    .road-trunk{stroke:#7c8997;stroke-width:1.35;opacity:.58}
+    .road-motorway{stroke:#98a7b7;stroke-width:1.7;opacity:.70}
+    .rail-line{fill:none;stroke:#71859a;stroke-width:1.05;stroke-dasharray:4 3;opacity:.68;vector-effect:non-scaling-stroke}
+    .road-label{fill:#8a96a2;font-size:9px;font-weight:600;text-anchor:middle;dominant-baseline:middle;paint-order:stroke;stroke:#151a20;stroke-width:3px;stroke-linejoin:round;pointer-events:none;opacity:.72}
+    .context-poi{cursor:default}
+    .context-poi-core{stroke:#101419;stroke-width:1.5;vector-effect:non-scaling-stroke}
+    .context-poi-icon{fill:#0e1216;font-size:8px;font-weight:900;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+    .context-poi-label{fill:#c8d0d9;font-size:10px;font-weight:700;dominant-baseline:middle;paint-order:stroke;stroke:#11161b;stroke-width:3px;stroke-linejoin:round;pointer-events:none}
+    .context-poi.airport .context-poi-core{fill:#74c9ff}.context-poi.rail .context-poi-core{fill:#91adff}.context-poi.port .context-poi-core,.context-poi.ferry .context-poi-core{fill:#5dd7ca}.context-poi.border .context-poi-core{fill:#d09cff}
+    .layerctl{position:absolute;z-index:460;right:16px;top:96px;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:360px}
+    .layerctl label{display:flex;align-items:center;gap:5px;background:#11161bcc;border:1px solid #2d3540;border-radius:8px;padding:6px 8px;color:#9ea8b3;font-size:10px;cursor:pointer;backdrop-filter:blur(8px)}
+    .layerctl input{accent-color:var(--accent);margin:0}
     .zoomctl{position:absolute;z-index:460;right:16px;bottom:16px;display:flex;flex-direction:column;gap:6px}
     .zoomctl button{width:36px;height:36px;border:1px solid #343b45;border-radius:9px;background:#14181d;color:#f3f5f7;font-size:18px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px #0005}
     .zoomctl button:hover{border-color:#67717d}
@@ -65,30 +80,42 @@
     <div class="legend"><span class="leg"><i class="dot" style="background:var(--green)"></i>≤50年</span><span class="leg"><i class="dot" style="background:var(--yellow)"></i>50–100</span><span class="leg"><i class="dot" style="background:var(--orange)"></i>100–200</span><span class="leg"><i class="dot" style="background:var(--red)"></i>200+</span></div>
     <div class="notice"><b>公式：</b> 年数 = 小区参考单价 × 选定面积 ÷ 每年储蓄。不计利息、工资增长、税费、装修，也不假设贷款。价格是挂牌/参考均价，不等于真实成交价。</div>
     <div class="rowhead"><h2>当前范围 · 从容易到离谱</h2><span id="sortMeta"></span></div><div id="list" class="list"></div>
-    <div class="footer">右侧地图使用仓库内置深圳行政区边界 SVG，不依赖在线地图瓦片或地图 API。边界仅用于可视化，小区坐标为近似定位。项目不构成购房或投资建议。</div>
+    <div class="footer">右侧地图使用仓库内置深圳行政区边界 SVG；主要路网、铁路与交通设施来自 OpenStreetMap contributors 的静态数据包，不依赖在线地图瓦片或地图 API。边界与坐标仅用于可视化。项目不构成购房或投资建议。</div>
   </aside>
   <main class="mapwrap">
     <div id="map" class="map">
       <svg id="citySvg" class="city-svg" viewBox="0 0 1000 720" preserveAspectRatio="xMidYMid meet" aria-label="深圳小区攒房地图">
+        <defs><clipPath id="cityClip"></clipPath></defs>
         <g id="gridLayer" class="map-grid"></g>
         <g id="districtLayer"></g>
+        <g id="roadLayer" clip-path="url(#cityClip)"></g>
+        <g id="railLayer" clip-path="url(#cityClip)"></g>
+        <g id="roadLabelLayer" clip-path="url(#cityClip)"></g>
         <g id="districtLabelLayer"></g>
+        <g id="contextPoiLayer" clip-path="url(#cityClip)"></g>
         <g id="markerLayer"></g>
       </svg>
       
     </div>
     <div class="maptop"><div class="status" id="status">正在读取数据…</div><button class="share" id="share">复制当前参数链接</button></div>
     <div class="map-hint" id="mapHint">拖动平移 · 滚轮缩放 · 点击点位看详情</div>
+    <div class="layerctl">
+      <label><input type="checkbox" id="toggleRoads" checked>主要路网</label>
+      <label><input type="checkbox" id="toggleRail" checked>铁路</label>
+      <label><input type="checkbox" id="togglePoi" checked>枢纽 / 港口 / 口岸</label>
+    </div>
     <div class="zoomctl"><button id="zoomIn" title="放大">＋</button><button id="zoomOut" title="缩小">−</button><button id="zoomHome" title="全深圳">⌂</button></div>
     <div id="mapPopup" class="map-popup" hidden></div>
   </main>
 </div>
 <script src="data/communities.js"></script>
 <script src="data/shenzhen-boundary.js"></script>
+<script src="data/transport_context.js"></script>
 <script>
 (()=>{
   const DATA=window.HOUSING_DATA||{meta:{},communities:[]};
   const GEO=window.SHENZHEN_GEO||{features:[]};
+  const TRANSPORT=window.SHENZHEN_TRANSPORT||{meta:{},roads:[],rails:[],road_labels:[],pois:[]};
   const $=s=>document.querySelector(s);
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt=n=>new Intl.NumberFormat('zh-CN').format(Math.round(n));
@@ -152,12 +179,62 @@
     for(let i=1;i<8;i++){grid.appendChild(el('line',{x1:i*125,y1:0,x2:i*125,y2:SVG_H}));}
     for(let i=1;i<6;i++){grid.appendChild(el('line',{x1:0,y1:i*120,x2:SVG_W,y2:i*120}));}
 
+    const clip=$('#cityClip');clip.replaceChildren();
     GEO.features.forEach((f,i)=>{
-      const p=el('path',{d:pathForGeometry(f.geometry),class:'district-shape','fill-rule':'evenodd','data-name':f.properties?.name||''});
+      const d=pathForGeometry(f.geometry);
+      const p=el('path',{d,class:'district-shape','fill-rule':'evenodd','data-name':f.properties?.name||''});
       p.style.fill=i%2?'#202830':'#1d252d';
       $('#districtLayer').appendChild(p);
+      clip.appendChild(el('path',{d,'fill-rule':'evenodd','clip-rule':'evenodd'}));
       const c=f.properties?.centroid||f.properties?.center;
       if(c){const [x,y]=project(c[0],c[1]);const t=el('text',{x,y,class:'district-label'});t.textContent=(f.properties.name||'').replace('区','');$('#districtLabelLayer').appendChild(t);}
+    });
+  }
+
+  function linePath(lines){
+    let d='';
+    for(const line of lines){
+      const pts=line.p||[];
+      pts.forEach((pt,i)=>{const [x,y]=project(pt[0],pt[1]);d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)});
+    }
+    return d;
+  }
+
+  function shortRoadName(name){
+    let n=String(name||'').trim();
+    if(/[\u4e00-\u9fff]/.test(n))n=n.replace(/\s+[A-Za-z].*$/,'');
+    return n.length>15?n.slice(0,14)+'…':n;
+  }
+
+  function drawTransport(){
+    const byClass={motorway:[],trunk:[],primary:[],secondary:[]};
+    for(const r of TRANSPORT.roads||[]){if(byClass[r.c])byClass[r.c].push(r)}
+    const roadLayer=$('#roadLayer');roadLayer.replaceChildren();
+    for(const cls of ['secondary','primary','trunk','motorway']){
+      if(!byClass[cls].length)continue;
+      roadLayer.appendChild(el('path',{d:linePath(byClass[cls]),class:'road road-'+cls}));
+    }
+
+    const railLayer=$('#railLayer');railLayer.replaceChildren();
+    if((TRANSPORT.rails||[]).length)railLayer.appendChild(el('path',{d:linePath(TRANSPORT.rails),class:'rail-line'}));
+
+    const rl=$('#roadLabelLayer');rl.replaceChildren();
+    (TRANSPORT.road_labels||[]).forEach((r,i)=>{
+      const [x,y]=project(r.p[0],r.p[1]);
+      const t=el('text',{x,y,class:'road-label','data-rank':i,'data-x':x,'data-y':y});
+      t.textContent=shortRoadName(r.n);rl.appendChild(t);
+    });
+
+    const pl=$('#contextPoiLayer');pl.replaceChildren();
+    const icon={airport:'✈',rail:'站',port:'⚓',ferry:'船',border:'口'};
+    (TRANSPORT.pois||[]).forEach(p=>{
+      const [x,y]=project(p.p[0],p.p[1]);
+      const g=el('g',{class:'context-poi '+p.t,'data-x':x,'data-y':y,'data-priority':p.q||50,transform:`translate(${x} ${y})`});
+      const c=el('circle',{r:7,class:'context-poi-core'});
+      const it=el('text',{x:0,y:.5,class:'context-poi-icon'});it.textContent=icon[p.t]||'•';
+      const label=el('text',{x:11,y:0,class:'context-poi-label'});label.textContent=p.n;
+      const title=el('title');title.textContent=p.n;
+      g.append(c,it,label,title);pl.appendChild(g);
     });
   }
 
@@ -228,6 +305,20 @@
     document.querySelectorAll('.district-label').forEach(t=>{
       t.style.fontSize=(13*inv)+'px';
       t.style.strokeWidth=(4*inv)+'px';
+    });
+
+    const roadLabelLimit=z<1.15?8:z<1.7?16:z<2.5?26:36;
+    document.querySelectorAll('.road-label').forEach(t=>{
+      const rank=Number(t.dataset.rank)||0;
+      t.style.display=rank<roadLabelLimit?'':'none';
+      t.style.fontSize=(9*inv)+'px';
+      t.style.strokeWidth=(3*inv)+'px';
+    });
+    document.querySelectorAll('.context-poi').forEach(g=>{
+      const x=Number(g.dataset.x),y=Number(g.dataset.y),q=Number(g.dataset.priority)||50;
+      g.setAttribute('transform',`translate(${x} ${y}) scale(${inv})`);
+      const label=g.querySelector('.context-poi-label');
+      if(label)label.style.display=(q>=90||(z>=1.35&&q>=82)||(z>=2.1&&q>=68)||(z>=3.2))?'':'none';
     });
 
     const r=svg.getBoundingClientRect();
@@ -314,6 +405,7 @@
   }
 
   drawBase();
+  drawTransport();
   setView(homeView);
 
   $('#saving').addEventListener('input',e=>{saving=Math.max(10000,Number(e.target.value)||100000);render()});
@@ -322,6 +414,10 @@
   $('#zoomIn').onclick=()=>zoomAt(.78);
   $('#zoomOut').onclick=()=>zoomAt(1.28);
   $('#zoomHome').onclick=()=>setView(homeView,true);
+  const bindLayer=(box,ids)=>{$(box).onchange=e=>ids.forEach(id=>$(id).style.display=e.target.checked?'':'none')};
+  bindLayer('#toggleRoads',['#roadLayer','#roadLabelLayer']);
+  bindLayer('#toggleRail',['#railLayer']);
+  bindLayer('#togglePoi',['#contextPoiLayer']);
   $('#share').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);$('#share').textContent='已复制 ✓';setTimeout(()=>$('#share').textContent='复制当前参数链接',1200)}catch{prompt('复制这个链接：',location.href)}};
 
   svg.addEventListener('wheel',e=>{e.preventDefault();const [x,y]=screenToSvg(e.clientX,e.clientY);zoomAt(e.deltaY>0?1.13:.885,x,y)},{passive:false});
