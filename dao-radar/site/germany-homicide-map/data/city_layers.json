@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-07",
+  "cities": [
+    {
+      "id": "hamburg",
+      "name": "Hamburg",
+      "name_zh": "汉堡",
+      "state": "Hamburg",
+      "file": "data/hamburg_local_2025.geojson",
+      "bounds": [
+        [
+          53.38,
+          9.68
+        ],
+        [
+          53.78,
+          10.36
+        ]
+      ],
+      "min_zoom": 8,
+      "source_label": "Polizei Hamburg · Stadtteilatlas PKS 2025",
+      "unit": "每10万人·年",
+      "metrics": {
+        "violence": {
+          "field": "violence",
+          "label": "暴力总体"
+        },
+        "serious_injury": {
+          "field": "serious_injury",
+          "label": "严重伤害"
+        },
+        "robbery": {
+          "field": "robbery",
+          "label": "抢劫"
+        },
+        "property_total": {
+          "field": "property_total",
+          "label": "盗窃总体"
+        },
+        "burglary": {
+          "field": "burglary",
+          "label": "入室盗窃"
+        },
+        "bicycle_theft": {
+          "field": "bicycle_theft",
+          "label": "自行车盗窃"
+        },
+        "vehicle_theft": {
+          "field": "vehicle_theft",
+          "label": "机动车盗窃"
+        },
+        "theft_from_vehicle": {
+          "field": "theft_from_vehicle",
+          "label": "车内/车上盗窃"
+        }
+      }
+    }
+  ]
+}
