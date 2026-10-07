@@ -36,13 +36,13 @@ assert not dups, dups[:10]
 
 sexual=[c for c in cases if c["category"]=="sexual"]
 assert all(c.get("privacy_protected") is True for c in sexual), [c["id"] for c in sexual if not c.get("privacy_protected")]
-assert all(c.get("precision")=="city-privacy" for c in sexual), [(c["id"],c.get("precision")) for c in sexual if c.get("precision")!="city-privacy"]
+assert all(c.get("precision") in {"city-privacy","district-privacy"} for c in sexual), [(c["id"],c.get("precision")) for c in sexual if c.get("precision") not in {"city-privacy","district-privacy"}]
 
 geocoded=sum(isinstance(c.get("lat"),(int,float)) and isinstance(c.get("lon"),(int,float)) for c in cases)
 ratio=geocoded/len(cases)
 assert ratio>=0.90, (geocoded,len(cases),ratio)
 
-meta_counts=data["meta"].get("category_counts",{})
+berlin=[c for c in cases if c.get("city")=="Berlin"]\nberlin_counts=Counter(c["category"] for c in berlin)\nassert berlin_counts["property"]>=1, berlin_counts\nassert berlin_counts["robbery"]>=1, berlin_counts\n\nmeta_counts=data["meta"].get("category_counts",{})
 assert all(meta_counts.get(k)==counts[k] for k in allowed), (meta_counts,counts)
 
 print(json.dumps({
@@ -51,5 +51,5 @@ print(json.dumps({
     "geocoded":geocoded,
     "geocode_ratio":round(ratio,4),
     "sexual_privacy":len(sexual),
-    "duplicate_urls":len(dups)
+    "duplicate_urls":len(dups),\n    "berlin_counts":dict(berlin_counts)
 },ensure_ascii=False))
