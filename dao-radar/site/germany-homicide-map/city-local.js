@@ -1,7 +1,7 @@
 (()=>{"use strict";
 const WARM=['#fff4e6','#fee2c2','#fbc48d','#f59e5b','#ea7449','#d94b3d','#ad2e32'];
 const COOL=['#eff6ff','#d9eafb','#b9d8f3','#8bbce3','#5a9bd2','#3678b8','#1f4f8f'];
-let api=null,manifest=null,active=null,layer=null,selected=null,cache=new Map();
+let api=null,manifest=null,active=null,activeKey=null,layer=null,selected=null,cache=new Map();
 
 const $=id=>document.getElementById(id);
 const fmt=n=>Number(n||0).toLocaleString('zh-CN');
@@ -60,7 +60,7 @@ function hideBase(c){const l=baseLayerFor(c);if(l)l.setStyle({color:'transparent
 function areaFor(c,data,f){
   const key=metricKey(),cfg=c.metrics[key],p=f.properties||{},m=p?.[cfg.field]||{},rate=Number(m.rate),cases=Number(m.cases||0),vals=values(data,cfg.field),pc=percentile(rate,vals);
   const recent=(api.getCaseData()?.cases||[]).filter(x=>caseMatches(x,key)&&Number.isFinite(x.lon)&&Number.isFinite(x.lat)&&geomHit(x.lon,x.lat,f.geometry)).length;
-  return {kind:'city-local-generic',name:p.name||c.name,state:c.state,metric:c.source_label+' · '+cfg.label,rate,cases,recent,pct:pc,feature:f,change:m.change||'—',city:c}
+  return {kind:'city-local-generic',name:p.name||c.name,state:c.state,metric:c.source_label+' · '+cfg.label,rate,cases,recent,pct:pc,feature:f,change:m.change||'—',city:c,note:cfg.note||''}
 }
 function showPanel(a,pin=false){
   api.showArea(a,{pin});
@@ -71,7 +71,7 @@ function showPanel(a,pin=false){
   if(ar)ar.textContent=Number.isFinite(a.rate)?fmt(Math.round(a.rate)):'—';if(arl)arl.textContent='每10万人·年';
   if(aq)aq.textContent=fmt(a.cases);if(aql)aql.textContent='2025登记案件';
   if(an)an.textContent=a.change;if(anl)anl.textContent='较2024变化';
-  if(note)note.textContent=c.source_label+' 官方城市细分数据。'+(a.recent?' 近90天匹配公开通报 '+fmt(a.recent)+' 起。':'')
+  if(note)note.textContent=(a.note?a.note+' ':c.source_label+' 官方城市细分数据。')+(a.recent?'近90天匹配公开通报 '+fmt(a.recent)+' 起。':'')
 }
 function addLegend(c,data){
   const root=$('legend');if(!root||root.querySelector('.generic-city-legend'))return;
@@ -80,10 +80,11 @@ function addLegend(c,data){
   root.insertAdjacentHTML('beforeend','<div class="legend-block generic-city-legend"><div class="legend-title">'+esc(c.name_zh||c.name)+' · 官方城市细分层</div><div>'+esc(cfg.label)+' · 每10万人/年</div><div class="scale">'+pal.map(x=>'<span style="background:'+x+'"></span>').join('')+'</div><div class="legend-labels">'+labs.map(x=>'<span>'+x+'</span>').join('')+'</div></div>')
 }
 async function rebuild(){
-  const next=matchingCity();
+  const next=matchingCity(),nextKey=next?next.id+':'+api.getMode()+':'+metricKey():null;
+  if(nextKey&&nextKey===activeKey&&layer){hideBase(next);return}
   if(layer){api.map.removeLayer(layer);layer=null;selected=null}
   if(active)restoreBase(active);
-  active=next;
+  active=next;activeKey=nextKey;
   if(!active)return;
   try{
     const data=await cityData(active),cfg=active.metrics[metricKey()],vals=values(data,cfg.field),br=quantile(vals),pal=api.getMode()==='property'?COOL:WARM;
