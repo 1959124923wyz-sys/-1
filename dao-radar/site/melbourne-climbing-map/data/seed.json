@@ -325,8 +325,8 @@
       "name": "Boulder Lab Ferntree Gully",
       "suburb": "Ferntree Gully",
       "address": "Shop 8/1821 Ferntree Gully Road, Ferntree Gully VIC 3156, Australia",
-      "lat": null,
-      "lng": null,
+      "lat": -37.8838002,
+      "lng": 145.269253,
       "kind": "gym",
       "disciplines": [
         "Bouldering",
@@ -653,8 +653,8 @@
       "name": "Industry Boulders",
       "suburb": "Grovedale / Geelong",
       "address": "Unit 39/8 Lewalan Street, Grovedale VIC 3216, Australia",
-      "lat": null,
-      "lng": null,
+      "lat": -38.197857,
+      "lng": 144.346644,
       "kind": "gym",
       "disciplines": [
         "Bouldering"
