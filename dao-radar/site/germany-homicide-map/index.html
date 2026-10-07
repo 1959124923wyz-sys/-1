@@ -73,10 +73,10 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     <div class="titleblock">
       <div class="kicker">GERMANY CRIME SITUATION MONITOR</div>
       <div class="title">德国犯罪态势地图</div>
-      <p class="subtitle">面向旅行判断：官方区域发案频率 × 季度量级 × 近90天公开通报。年度统计与近期动态分开标注，避免把不同口径混在一起。</p>
+      <p class="subtitle">德国全国县/市犯罪热力：以BKA PKS年度统计为骨架，在有官方细颗粒数据的地区叠加90天高精度热点；近期事件点仅作辅助。</p>
     </div>
     <div class="topstat">
-      <div><b id="visibleCount">—</b><small>近90天当前通报点</small></div>
+      <div><b id="visibleCount">—</b><small>全国县/市热力单元</small></div>
       <div class="vline"></div>
       <div><small id="updated">读取中…</small><small id="datasetTotal"></small></div>
     </div>
@@ -104,7 +104,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
         <strong>显示</strong>
         <label><input id="showPks" type="checkbox" checked> 全国官方底图</label>
         <label><input id="showBerlinViolence" type="checkbox" checked> 柏林细分层</label>
-        <label><input id="showNews" type="checkbox" checked> 近期事件点</label>
+        <label><input id="showNews" type="checkbox"> 近期事件点</label>
       </div>
       <details class="advanced" id="violentCats">
         <summary>筛选近期暴力通报类别</summary>
@@ -137,7 +137,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     <div id="modeNote" class="mode-note"></div>
 
     <section class="safety-panel" id="safetyPanel">
-      <div class="safety-head"><strong>区域安全速览</strong><span class="safety-hint">悬停查看 · 点击锁定</span></div>
+      <div class="safety-head"><strong>区域数据</strong><span class="safety-hint">悬停查看 · 点击锁定</span></div>
       <div class="area-title"><div class="area-name" id="areaName">在地图上选择地区</div><span class="risk-badge mid" id="riskBadge">等待选择</span></div>
       <div class="area-metric" id="areaMetric">将显示当地官方案发频率、季度量级和近90天公开通报。</div>
       <div class="coverage-line"><span class="coverage-pill base" id="coveragePill">覆盖说明</span><span class="coverage-text" id="coverageText">选择地区后显示数据覆盖等级</span></div>
@@ -162,8 +162,8 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
 </main>
 
 <footer>
-  <span>区域频率来自官方年度统计；“季度量级”如为全年÷4折算会明确标注；90天通报点并非全量案件。</span>
-  <span>90天动态层每日更新 · 柏林开放数据按官方发布刷新</span>
+  <span>全国热力以警方年度统计频率为主；局部90天高精度层与近期事件点使用独立口径，不互相冒充。</span>
+  <span>BKA PKS 2025 · 柏林开放数据按官方发布刷新</span>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -506,8 +506,8 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
       b.onclick=()=>{const m=markers.get(c.id);if(m){map.flyTo(m.getLatLng(),Math.max(map.getZoom(),11),{duration:.55});m.openPopup();}else window.open(safe(c.source_url),'_blank','noopener');};
       el.list.appendChild(b);
     }
-    el.visibleCount.textContent=fmt(cs.length);
-    el.datasetTotal.textContent='数据集 '+fmt(caseData?.cases?.length||0)+' 起';
+    el.visibleCount.textContent=fmt((mode==='property'?propertyData?.meta?.county_count:pksData?.meta?.county_count)||0);
+    el.datasetTotal.textContent='当前近期事件点 '+fmt(cs.length)+' 起';
     if(!cs.length)el.list.innerHTML='<div class="mode-note">当前筛选没有公开通报点。</div>';
     el.listTitle.textContent='近90天公开通报（'+fmt(cs.length)+'）· 次要参考';
     return cs;
@@ -545,7 +545,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   }
   function renderSummary(cs){
     if(mode==='violence'){
-      el.modeNote.textContent='游客优先视图：悬停/点击任一县市，直接读取每10万人年发案频率、季度折算量级与近90天公开通报；放大柏林后使用紫色细分图例。';
+      el.modeNote.textContent='全国县/市按BKA PKS 2025暴力犯罪频率着色；放大柏林后叠加更细的官方暴力统计层。近期事件点默认关闭，可按需查看。';
       el.officialBadge.textContent='BKA PKS 2025 + 柏林 Kriminalitätsatlas';
       if(!pinnedArea&&!hoverArea)showArea(null);
     }else{
