@@ -9,7 +9,8 @@ import requests
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"data/munich_local_2025.geojson"
 WFS="https://geoportal.muenchen.de/geoserver/gsm_wfs/ows?outputFormat=application%2Fjson&request=GetFeature&service=WFS&typeName=gsm_wfs%3Avablock_stadtbezirk&version=1.0.0"
-POP="https://opendata.muenchen.de/dataset/e3f5dbd2-39cc-40cd-bc91-4bb49a0b1802/resource/a641ce6a-4e01-4f4b-9976-1ae6a47e3762/download/bevolkerung_bezirke_neu.csv"
+POP_RESOURCE="a641ce6a-4e01-4f4b-9976-1ae6a47e3762"
+POP_API=f"https://opendata.muenchen.de/de/api/3/action/datastore_search?resource_id={POP_RESOURCE}&limit=100"
 CRIME_SOURCE="https://stadt.muenchen.de/dam/jcr:6291ac42-463d-4267-b436-c4b1a3313454/jt260904.pdf"
 HEAD={"User-Agent":"GermanyCrimeMonitor/1.0 (+https://github.com/1959124923wyz-sys/-1)"}
 
@@ -59,25 +60,27 @@ def get_text(url):
     return r.text
 
 def parse_population():
-    text=get_text(POP)
-    dialect=csv.Sniffer().sniff(text[:3000],delimiters=",;\t")
-    rows=list(csv.DictReader(io.StringIO(text),dialect=dialect))
+    payload=get_json(POP_API)
+    records=(payload.get("result") or {}).get("records") or []
     out={}
-    for row in rows:
-        vals=[str(v or "").strip() for v in row.values()]
-        joined=" ".join(vals)
+    for row in records:
+        # Find district number from any value; official table contains 25 district rows.
+        joined=" ".join(str(v or "") for v in row.values())
         m=re.search(r"\b(\d{1,2})\b",joined)
         if not m:continue
         n=int(m.group(1))
         if not 1<=n<=25:continue
         pop=None
         for k,v in row.items():
-            if "einwohner" in norm(k) and "dichte" not in norm(k):
+            nk=norm(k)
+            if "einwohner" in nk and "dichte" not in nk and "anteil" not in nk:
                 raw=re.sub(r"[^0-9]","",str(v or ""))
-                if raw:pop=int(raw);break
+                if raw:
+                    candidate=int(raw)
+                    if candidate>1000:pop=candidate;break
         if pop:out[n]=pop
     if len(out)<24:
-        raise RuntimeError(f"population join incomplete: {len(out)} districts")
+        raise RuntimeError(f"population join incomplete: {len(out)} districts; fields={list(records[0].keys()) if records else []}; sample={records[:2]}")
     return out
 
 def district_no(props):
@@ -135,7 +138,7 @@ out={
     "crime_source":"Statistisches Amt München / Polizeipräsidium München: Straftaten in den Stadtbezirken 2025",
     "crime_source_url":CRIME_SOURCE,
     "population_source":"Open Data Portal München: Bevölkerung in den Stadtbezirken (31.12.2024)",
-    "population_source_url":POP,
+    "population_source_url":POP_API,
     "geometry_source":"GeodatenService München: Stadtbezirke WFS",
     "geometry_source_url":WFS,
     "note":"Violence local layer uses 'Rohheitsdelikte und Straftaten gegen die persönliche Freiheit' as a clearly labelled local proxy; it is not identical to BKA Gewaltkriminalität."
