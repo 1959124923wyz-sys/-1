@@ -41,6 +41,9 @@ jobs:
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/update_berlin_categories.py
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/update_berlin_heatmap.py
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/validate_berlin_heatmap.py
+          python -m py_compile dao-radar/site/germany-homicide-map/scripts/build_pks_violent_2025.py
+          python -m py_compile dao-radar/site/germany-homicide-map/scripts/build_berlin_violent_atlas.py
+          python -m py_compile dao-radar/site/germany-homicide-map/scripts/validate_official_violence_layers.py
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/smoke_test_ui.py
 
       - name: Refresh Berlin official theft heatmap
@@ -52,6 +55,9 @@ jobs:
       - name: Validate expanded crime data
         run: python dao-radar/site/germany-homicide-map/scripts/validate_crime_data.py
 
+      - name: Validate official violence baselines
+        run: python dao-radar/site/germany-homicide-map/scripts/validate_official_violence_layers.py
+
       - name: Start local map server
         run: |
           python -m http.server 8765 --bind 127.0.0.1 --directory dao-radar/site/germany-homicide-map >/tmp/germany-map-server.log 2>&1 &
@@ -61,13 +67,13 @@ jobs:
       - name: Simulate blocked OSM tiles and render map
         env:
           SMOKE_URL: http://127.0.0.1:8765/
-          SMOKE_SCREENSHOT: /tmp/germany-homicide-map-smoke.png
+          SMOKE_SCREENSHOT: /tmp/germany-crime-map-national.png
         run: python dao-radar/site/germany-homicide-map/scripts/smoke_test_ui.py
 
       - name: Upload rendered screenshot
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: germany-homicide-map-smoke
-          path: /tmp/germany-homicide-map-smoke.png
+          name: germany-crime-map-smoke
+          path: /tmp/germany-crime-map-*.png
           if-no-files-found: warn
