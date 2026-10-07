@@ -1,30 +1,25 @@
 {
   "meta": {
-    "generated_at": "2026-10-07T11:58:12+08:00",
+    "generated_at": "2026-10-07T12:00:16+08:00",
     "currency": "CNY",
     "default_area_sqm": 90,
     "price_basis": "community_reference_unit_price",
     "notice": "挂牌/参考均价，不是成交价；部分点位来自公开地图坐标换算，价格与坐标均应以来源页为准。",
     "next_discovery_url": "https://sz.esf.fang.com/housing/__0_3_0_0_9_0_0_0/",
     "last_run_successes": 0,
-    "discovery_added": 0,
-    "discovery_updated": 0,
-    "last_run_failures": 1,
-    "last_run_notes": [
-      {
-        "name": "Fang index",
-        "url": "https://sz.esf.fang.com/housing/__0_3_0_0_75_0_0_0/",
-        "error": "parser got only 3 priced residential rows on page 75; stopped"
-      }
-    ],
+    "discovery_added": 22,
+    "discovery_updated": 72,
+    "last_run_failures": 0,
+    "last_run_notes": [],
     "default_annual_savings": 100000,
-    "discovery_start_page": 75,
-    "discovery_pages_ok": 0,
-    "discovery_rows_seen": 0,
-    "discovery_unmatched": 0,
+    "discovery_start_page": 1,
+    "discovery_pages_ok": 50,
+    "discovery_rows_seen": 970,
+    "discovery_unmatched": 876,
     "coordinate_cache_size": 629,
     "discovery_cursor_page": 76,
-    "last_run_stopped_reason": "parser got only 3 priced residential rows on page 75; stopped"
+    "last_run_stopped_reason": null,
+    "discovery_sort_code": 1
   },
   "communities": [
     {
@@ -172,6 +167,24 @@
       "last_success_at": "2026-10-07T11:54:33+08:00"
     },
     {
+      "id": "fang-2810318422",
+      "name": "云栖西岸阁",
+      "district": "南山",
+      "subdistrict": "前海",
+      "address": "学府路350号",
+      "lat": 22.532517033452873,
+      "lng": 113.89475494258797,
+      "unit_price": 91821,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810318422.htm",
+      "property_type": "住宅",
+      "newcode": "2810318422",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
       "id": "fang-2811092658",
       "name": "佳兆业前海广场",
       "district": "南山",
@@ -205,7 +218,7 @@
       "newcode": "2810138502",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810486382",
@@ -226,6 +239,42 @@
       "newcode": "2810486382"
     },
     {
+      "id": "fang-2810586746",
+      "name": "汉京山",
+      "district": "南山",
+      "subdistrict": "前海",
+      "address": "兴工路和东滨隧道交汇处东北角",
+      "lat": 22.508662585263995,
+      "lng": 113.91520109637608,
+      "unit_price": 80148,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810586746.htm",
+      "property_type": "住宅",
+      "newcode": "2810586746",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
+      "id": "fang-2810894904",
+      "name": "汉京确悦",
+      "district": "南山",
+      "subdistrict": "前海",
+      "address": "港前路39号",
+      "lat": 22.501166159787797,
+      "lng": 113.8876159868044,
+      "unit_price": 90096,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810894904.htm",
+      "property_type": "住宅",
+      "newcode": "2810894904",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
       "id": "fang-2810439342",
       "name": "泛海拉菲花园",
       "district": "南山",
@@ -241,7 +290,61 @@
       "newcode": "2810439342",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
+      "id": "fang-2810955544",
+      "name": "泛海拉菲花园二期",
+      "district": "南山",
+      "subdistrict": "前海",
+      "address": "南山区前海路0070号",
+      "lat": 22.49880754008828,
+      "lng": 113.88857119519996,
+      "unit_price": 86812,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810955544.htm",
+      "property_type": "住宅",
+      "newcode": "2810955544",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
+      "id": "fang-2810940498",
+      "name": "泛海拉菲花园别墅",
+      "district": "南山",
+      "subdistrict": "前海",
+      "address": "前海路南山花园南侧(大南山生态公园附近)",
+      "lat": 22.502448800008267,
+      "lng": 113.88940786088672,
+      "unit_price": 92856,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810940498.htm",
+      "property_type": "别墅",
+      "newcode": "2810940498",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
+      "id": "fang-2810876908",
+      "name": "深物业前海港湾花园",
+      "district": "南山",
+      "subdistrict": "前海",
+      "address": "月亮湾大道2007号",
+      "lat": 22.50030873193816,
+      "lng": 113.88658685425901,
+      "unit_price": 79230,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810876908.htm",
+      "property_type": "住宅",
+      "newcode": "2810876908",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810037413",
@@ -277,7 +380,7 @@
       "newcode": "2810795072",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810041693",
@@ -331,7 +434,7 @@
       "newcode": "2810888168",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:56:53+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810004761",
@@ -370,6 +473,24 @@
       "last_success_at": "2026-10-07T11:56:53+08:00"
     },
     {
+      "id": "fang-2810396184",
+      "name": "明珠花园",
+      "district": "南山",
+      "subdistrict": "华侨城",
+      "address": "新中路24号",
+      "lat": 22.546180537895648,
+      "lng": 113.917956092098,
+      "unit_price": 79225,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810396184.htm",
+      "property_type": "住宅",
+      "newcode": "2810396184",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
       "id": "fang-2810138060",
       "name": "深业鹤塘岭花园",
       "district": "南山",
@@ -385,7 +506,7 @@
       "newcode": "2810138060",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810555190",
@@ -421,7 +542,25 @@
       "newcode": "2810018379",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
+      "id": "fang-2810256510",
+      "name": "锦绣花园三期",
+      "district": "南山",
+      "subdistrict": "华侨城",
+      "address": "侨城东路与深南大道交汇西北",
+      "lat": 22.54147163514976,
+      "lng": 113.97487648035457,
+      "unit_price": 104054,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810256510.htm",
+      "property_type": "住宅",
+      "newcode": "2810256510",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810004870",
@@ -439,7 +578,7 @@
       "newcode": "2810004870",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810134744",
@@ -457,7 +596,7 @@
       "newcode": "2810134744",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810006458",
@@ -493,7 +632,7 @@
       "newcode": "2811152526",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810004571",
@@ -601,7 +740,25 @@
       "newcode": "2810029938",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:56:53+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
+      "id": "fang-2810662424",
+      "name": "荔秀华庭",
+      "district": "南山",
+      "subdistrict": "南山中心区",
+      "address": "南光路145号",
+      "lat": 22.53814153584184,
+      "lng": 113.92230685641783,
+      "unit_price": 82883,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810662424.htm",
+      "property_type": "住宅",
+      "newcode": "2810662424",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810004453",
@@ -637,7 +794,7 @@
       "newcode": "2810795058",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810559262",
@@ -655,7 +812,7 @@
       "newcode": "2810559262",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810264862",
@@ -689,7 +846,7 @@
       "source_url": "https://sz.esf.fang.com/loupan/2811225796.htm",
       "coord_source": "OpenStreetMap/Mapcarta public place data",
       "coord_quality": "approximate",
-      "last_success_at": "2026-10-07T11:54:33+08:00",
+      "last_success_at": "2026-10-07T12:00:16+08:00",
       "property_type": "住宅",
       "newcode": "2811225796"
     },
@@ -709,7 +866,7 @@
       "newcode": "2810892334",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2811225766",
@@ -727,7 +884,7 @@
       "newcode": "2811225766",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2811103594",
@@ -745,7 +902,7 @@
       "newcode": "2811103594",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2811130420",
@@ -763,7 +920,7 @@
       "newcode": "2811130420",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810930112",
@@ -781,7 +938,7 @@
       "newcode": "2810930112",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810893136",
@@ -799,7 +956,7 @@
       "newcode": "2810893136",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810205996",
@@ -817,7 +974,7 @@
       "newcode": "2810205996",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810135074",
@@ -834,7 +991,7 @@
       "fallback_url": "https://www.fang.com/xiaoqu/sz-2810135074/",
       "coord_source": "Amap GCJ-02 converted to WGS84 (华润城 complex)",
       "coord_quality": "approximate",
-      "last_success_at": "2026-10-07T11:54:33+08:00",
+      "last_success_at": "2026-10-07T12:00:16+08:00",
       "property_type": "住宅",
       "newcode": "2810135074"
     },
@@ -854,7 +1011,7 @@
       "newcode": "2810858088",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810135506",
@@ -872,7 +1029,7 @@
       "newcode": "2810135506",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810175344",
@@ -890,7 +1047,7 @@
       "newcode": "2810175344",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:56:53+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810004415",
@@ -926,7 +1083,7 @@
       "newcode": "2811126496",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810892324",
@@ -944,7 +1101,7 @@
       "newcode": "2810892324",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:56:53+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2811093454",
@@ -962,7 +1119,7 @@
       "newcode": "2811093454",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810682588",
@@ -980,7 +1137,7 @@
       "newcode": "2810682588",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2811092816",
@@ -998,7 +1155,7 @@
       "newcode": "2811092816",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810137972",
@@ -1320,7 +1477,7 @@
       "newcode": "2810072985",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810137574",
@@ -1338,7 +1495,7 @@
       "newcode": "2810137574",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810179262",
@@ -1356,7 +1513,7 @@
       "newcode": "2810179262",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810156028",
@@ -1374,7 +1531,7 @@
       "newcode": "2810156028",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810179742",
@@ -1392,7 +1549,7 @@
       "newcode": "2810179742",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2811179030",
@@ -1410,7 +1567,7 @@
       "newcode": "2811179030",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810137416",
@@ -1428,7 +1585,7 @@
       "newcode": "2810137416",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810659298",
@@ -1446,7 +1603,7 @@
       "newcode": "2810659298",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810939148",
@@ -1464,7 +1621,25 @@
       "newcode": "2810939148",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
+      "id": "fang-2810151622",
+      "name": "菁英趣庭",
+      "district": "宝安",
+      "subdistrict": "宝安中心区",
+      "address": "宝安大道与裕安路交汇处",
+      "lat": 22.5628782812789,
+      "lng": 113.88379245237849,
+      "unit_price": 81073,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810151622.htm",
+      "property_type": "住宅",
+      "newcode": "2810151622",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810092263",
@@ -1482,7 +1657,7 @@
       "newcode": "2810092263",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810860964",
@@ -1500,7 +1675,7 @@
       "newcode": "2810860964",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810156026",
@@ -1518,7 +1693,7 @@
       "newcode": "2810156026",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810137578",
@@ -1536,7 +1711,7 @@
       "newcode": "2810137578",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810066474",
@@ -1555,6 +1730,42 @@
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
       "last_success_at": "2026-10-07T11:54:33+08:00"
+    },
+    {
+      "id": "fang-2810749778",
+      "name": "金泓凯旋城二期",
+      "district": "宝安",
+      "subdistrict": "宝安中心区",
+      "address": "宝安大道与新安路交汇处",
+      "lat": 22.5508967052432,
+      "lng": 113.89333458751176,
+      "unit_price": 87064,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810749778.htm",
+      "property_type": "住宅",
+      "newcode": "2810749778",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
+      "id": "fang-2811155736",
+      "name": "勤诚达22世纪二期",
+      "district": "宝安",
+      "subdistrict": "新安",
+      "address": "创业路灵芝公园旁(地铁环中线洪浪北站A出口)",
+      "lat": 22.575380489867534,
+      "lng": 113.90467195604927,
+      "unit_price": 96340,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2811155736.htm",
+      "property_type": "住宅",
+      "newcode": "2811155736",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810288622",
@@ -1737,6 +1948,24 @@
       "last_success_at": "2026-10-07T11:54:33+08:00"
     },
     {
+      "id": "fang-2810441262",
+      "name": "中熙香缇湾",
+      "district": "宝安",
+      "subdistrict": "西乡",
+      "address": "西乡街道金海路25号",
+      "lat": 22.578845846692122,
+      "lng": 113.85488934610069,
+      "unit_price": 74645,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810441262.htm",
+      "property_type": "住宅",
+      "newcode": "2810441262",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
       "id": "fang-2811054170",
       "name": "中熙香缤山",
       "district": "宝安",
@@ -1806,7 +2035,7 @@
       "newcode": "2811179010",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810860788",
@@ -1842,7 +2071,7 @@
       "newcode": "2810085662",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2811178998",
@@ -1860,7 +2089,7 @@
       "newcode": "2811178998",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810198982",
@@ -1896,7 +2125,7 @@
       "newcode": "2810931802",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2811109766",
@@ -1917,6 +2146,24 @@
       "last_success_at": "2026-10-07T11:54:33+08:00"
     },
     {
+      "id": "fang-2810209448",
+      "name": "松茂御龙湾雅苑二期",
+      "district": "宝安",
+      "subdistrict": "西乡",
+      "address": "宝安碧海湾银田路与宝源路交汇处(恒生医院公交..",
+      "lat": 22.57689487261104,
+      "lng": 113.84841411627458,
+      "unit_price": 76222,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810209448.htm",
+      "property_type": "住宅",
+      "newcode": "2810209448",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
       "id": "fang-2810041975",
       "name": "桃源居",
       "district": "宝安",
@@ -1935,6 +2182,24 @@
       "newcode": "2810041975"
     },
     {
+      "id": "fang-2810138152",
+      "name": "榕江壹号院",
+      "district": "宝安",
+      "subdistrict": "西乡",
+      "address": "西乡街道宝源路和金海路交汇处",
+      "lat": 22.57769706972547,
+      "lng": 113.85298299930218,
+      "unit_price": 85264,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810138152.htm",
+      "property_type": "住宅",
+      "newcode": "2810138152",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
       "id": "fang-2810660904",
       "name": "泰华阳光海",
       "district": "宝安",
@@ -1950,7 +2215,7 @@
       "newcode": "2810660904",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2811275948",
@@ -2040,7 +2305,7 @@
       "newcode": "2810171791",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810004855",
@@ -2058,7 +2323,7 @@
       "newcode": "2810004855",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810968614",
@@ -2076,7 +2341,7 @@
       "newcode": "2810968614",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810137180",
@@ -2094,7 +2359,43 @@
       "newcode": "2810137180",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
+      "id": "fang-2810263184",
+      "name": "中泰燕南名庭",
+      "district": "福田",
+      "subdistrict": "华强",
+      "address": "燕南路88号(振华路与燕南路交汇处)",
+      "lat": 22.547777521384287,
+      "lng": 114.0884264215599,
+      "unit_price": 91652,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810263184.htm",
+      "property_type": "住宅",
+      "newcode": "2810263184",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
+      "id": "fang-2810015553",
+      "name": "城市绿洲花园",
+      "district": "福田",
+      "subdistrict": "华强",
+      "address": "深南中路4020号",
+      "lat": 22.545045536425164,
+      "lng": 114.07052634628322,
+      "unit_price": 96972,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810015553.htm",
+      "property_type": "住宅",
+      "newcode": "2810015553",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810135228",
@@ -2112,7 +2413,7 @@
       "newcode": "2810135228",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810020129",
@@ -2130,7 +2431,7 @@
       "newcode": "2810020129",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810892356",
@@ -2148,7 +2449,7 @@
       "newcode": "2810892356",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810287340",
@@ -2184,7 +2485,7 @@
       "newcode": "2810054216",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810252472",
@@ -2205,6 +2506,24 @@
       "newcode": "2810252472"
     },
     {
+      "id": "fang-2810341862",
+      "name": "水木澜山居",
+      "district": "福田",
+      "subdistrict": "梅林",
+      "address": "梅东三路2号",
+      "lat": 22.574147709938405,
+      "lng": 114.06627241087534,
+      "unit_price": 76676,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810341862.htm",
+      "property_type": "住宅",
+      "newcode": "2810341862",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
       "id": "fang-2811122756",
       "name": "笔架山公馆",
       "district": "福田",
@@ -2220,7 +2539,7 @@
       "newcode": "2811122756",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810093221",
@@ -2256,7 +2575,25 @@
       "newcode": "2810972640",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
+      "id": "fang-2810263142",
+      "name": "恒冠豪园",
+      "district": "福田",
+      "subdistrict": "石厦",
+      "address": "福民路石厦北二街4号",
+      "lat": 22.528397164178962,
+      "lng": 114.04898388652012,
+      "unit_price": 84314,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810263142.htm",
+      "property_type": "住宅",
+      "newcode": "2810263142",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810005145",
@@ -2274,7 +2611,7 @@
       "newcode": "2810005145",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810004472",
@@ -2310,7 +2647,7 @@
       "newcode": "2810028633",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810031133",
@@ -2328,7 +2665,25 @@
       "newcode": "2810031133",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
+      "id": "fang-2810240382",
+      "name": "佳泰兴苑",
+      "district": "福田",
+      "subdistrict": "竹子林",
+      "address": "农林路55号",
+      "lat": 22.54488578192335,
+      "lng": 114.00879270382245,
+      "unit_price": 116384,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810240382.htm",
+      "property_type": "住宅",
+      "newcode": "2810240382",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810259182",
@@ -2346,7 +2701,7 @@
       "newcode": "2810259182",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810033254",
@@ -2364,7 +2719,7 @@
       "newcode": "2810033254",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:56:53+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810066914",
@@ -2382,7 +2737,7 @@
       "newcode": "2810066914",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810085879",
@@ -2400,7 +2755,7 @@
       "newcode": "2810085879",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810171243",
@@ -2436,7 +2791,7 @@
       "newcode": "2810004739",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810026433",
@@ -2454,7 +2809,7 @@
       "newcode": "2810026433",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810452902",
@@ -2472,7 +2827,7 @@
       "newcode": "2810452902",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810894426",
@@ -2490,7 +2845,7 @@
       "newcode": "2810894426",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810021612",
@@ -2506,7 +2861,7 @@
       "source_url": "https://sz.esf.fang.com/loupan/2810021612.htm",
       "coord_source": "Amap GCJ-02 converted to WGS84",
       "coord_quality": "approximate",
-      "last_success_at": "2026-10-07T11:54:33+08:00",
+      "last_success_at": "2026-10-07T12:00:16+08:00",
       "property_type": "住宅",
       "newcode": "2810021612"
     },
@@ -2563,6 +2918,24 @@
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
       "last_success_at": "2026-10-07T11:54:33+08:00"
+    },
+    {
+      "id": "fang-2811138488",
+      "name": "天玺1号",
+      "district": "罗湖",
+      "subdistrict": "东门",
+      "address": "东门童乐路2号",
+      "lat": 22.554581290471443,
+      "lng": 114.11879389391514,
+      "unit_price": 79292,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2811138488.htm",
+      "property_type": "住宅",
+      "newcode": "2811138488",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810264342",
@@ -3016,6 +3389,24 @@
       "last_success_at": "2026-10-07T11:54:33+08:00"
     },
     {
+      "id": "fang-2810632422",
+      "name": "万科金域华府别墅",
+      "district": "龙华",
+      "subdistrict": "民治",
+      "address": "区 宝安龙华梅林关口",
+      "lat": 22.601259781098793,
+      "lng": 114.03791324095636,
+      "unit_price": 82530,
+      "price_period": "2026-10-07",
+      "price_source": "房天下小区列表",
+      "source_url": "https://sz.esf.fang.com/loupan/2810632422.htm",
+      "property_type": "别墅",
+      "newcode": "2810632422",
+      "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
+      "coord_quality": "historical-cache",
+      "last_success_at": "2026-10-07T12:00:16+08:00"
+    },
+    {
       "id": "fang-2811087154",
       "name": "卓越皇后道",
       "district": "龙华",
@@ -3049,7 +3440,7 @@
       "newcode": "2811146580",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2811150514",
@@ -3103,7 +3494,7 @@
       "newcode": "2810139336",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2810102122",
@@ -3157,7 +3548,7 @@
       "newcode": "2811179014",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-07T12:00:16+08:00"
     },
     {
       "id": "fang-2811182618",
