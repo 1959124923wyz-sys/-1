@@ -40,6 +40,34 @@ def save(p,x):
 def clean(s):
     return re.sub(r"\s+"," ",s or "").strip()
 
+def polite_get(session,url,*,timeout=30):
+    """Fetch Berlin.de gently and retry transient throttling/server errors."""
+    last=None
+    for attempt in range(5):
+        r=session.get(url,headers=HEAD,timeout=timeout)
+        last=r
+        if r.status_code==404:
+            return r
+        if r.status_code==429:
+            raw=r.headers.get("Retry-After","").strip()
+            try:wait=float(raw)
+            except ValueError:wait=min(30,4*(2**attempt))
+            wait=max(3,min(wait,45))
+            print("WARN throttled",url,"sleep",wait)
+            time.sleep(wait)
+            continue
+        if 500<=r.status_code<600:
+            wait=min(20,2*(2**attempt))
+            print("WARN server",r.status_code,url,"sleep",wait)
+            time.sleep(wait)
+            continue
+        r.raise_for_status()
+        time.sleep(.22)
+        return r
+    if last is not None:
+        last.raise_for_status()
+    raise RuntimeError(f"failed to fetch {url}")
+
 def classify_title(title):
     if TRAFFIC.search(title) or NON_EVENT.search(title):return None
     if ROB.search(title):return ("robbery","Raub/Überfall",4)
@@ -125,14 +153,21 @@ seen=set()
 # Archive has ~20 items/page. Scan until listing dates are older than the requested lookback.
 for page_no in range(1,36):
     url=f"{ARCHIVE}?page_at_1_0={page_no}"
-    r=session.get(url,headers=HEAD,timeout=30)
+    r=polite_get(session,url)
     if r.status_code==404:
         break
-    r.raise_for_status()
     soup=BeautifulSoup(r.text,"html.parser")
     anchors=soup.find_all("a",href=ARTICLE_RE)
     if not anchors:break
     page_dates=[]
+    # Page-level dates let short daily runs stop after the first old page instead
+    # of walking the whole annual archive.
+    for dm in DATE_RE.finditer(clean(soup.get_text(" ",strip=True))):
+        try:
+            pd=date(int(dm.group(3)),int(dm.group(2)),int(dm.group(1)))
+            if pd.year==TODAY.year: page_dates.append(pd)
+        except ValueError:
+            pass
     for a in anchors:
         href=urljoin(url,a.get("href"))
         title=clean(a.get_text(" ",strip=True))
@@ -156,7 +191,7 @@ added=[]
 last=0.0
 for href,title,pub,seed in candidates:
     try:
-        r=session.get(href,headers=HEAD,timeout=30);r.raise_for_status()
+        r=polite_get(session,href)
         soup=BeautifulSoup(r.text,"html.parser")
         main=soup.find("article") or soup.find("main") or soup.body or soup
         for t in main(["script","style","nav","footer","form","svg","noscript"]):t.decompose()
