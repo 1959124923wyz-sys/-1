@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'dao-radar/site/germany-homicide-map/scripts/update_brandenburg.py'
+      - 'dao-radar/site/germany-homicide-map/scripts/audit_brandenburg.py'
       - '.github/workflows/germany-brandenburg-probe.yml'
 
 permissions:
@@ -33,5 +34,5 @@ jobs:
       - name: Install dependencies
         run: pip install -r dao-radar/site/germany-homicide-map/requirements.txt
 
-      - name: Probe 14 days of official Brandenburg police releases
-        run: python dao-radar/site/germany-homicide-map/scripts/update_brandenburg.py --lookback 14 --max-pages 40
+      - name: Audit 14 days of Brandenburg events and geocodes
+        run: python dao-radar/site/germany-homicide-map/scripts/audit_brandenburg.py
