@@ -70,18 +70,27 @@ def col(rec,*needles):
         if all(n in nk for n in needles):return v
     return None
 
+def num(v):
+    if v in (None,"","-","–","—"):return 0.0
+    try:return float(v)
+    except Exception:
+        t=str(v).strip().replace(".","").replace(",",".")
+        t=re.sub(r"[^0-9.\-]","",t)
+        try:return float(t) if t not in ("","-",".") else 0.0
+        except Exception:return 0.0
+
 # Bezirksregion rows: district summary codes end 0000; BZR rows do not.
 stats={}
 for code,rec in cases.items():
     if code.endswith("0000"):continue
     rr=rates.get(code,{})
     name=col(rec,"bezeichnung","bezirksregion") or code
-    robbery=int(col(rec,"raub") or 0)
-    serious=int(col(rec,"gefährl.","schwere","körper") or 0)
-    injury=int(col(rec,"körper","insgesamt") or 0)
-    robbery_hz=float(col(rr,"raub") or 0)
-    serious_hz=float(col(rr,"gefährl.","schwere","körper") or 0)
-    injury_hz=float(col(rr,"körper","insgesamt") or 0)
+    robbery=int(num(col(rec,"raub")))
+    serious=int(num(col(rec,"gefährl.","schwere","körper")))
+    injury=int(num(col(rec,"körper","insgesamt")))
+    robbery_hz=num(col(rr,"raub"))
+    serious_hz=num(col(rr,"gefährl.","schwere","körper"))
+    injury_hz=num(col(rr,"körper","insgesamt"))
     stats[code]={
       "bZR":code,"name":str(name),"robbery_cases":robbery,"robbery_rate":robbery_hz,
       "serious_injury_cases":serious,"serious_injury_rate":serious_hz,
