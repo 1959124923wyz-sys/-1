@@ -9,7 +9,8 @@
       "zoom": 10
     },
     "updated": "2026-10-07",
-    "methodology": "Official venue pages are the primary source. OpenStreetMap/Nominatim is used only for geocoding and candidate discovery; public-wall coordinates may use climbing/community references. Prices and hours are not inferred when an official source is unavailable."
+    "methodology": "Official venue pages are the primary source. OpenStreetMap/Nominatim is used only for geocoding and candidate discovery; public-wall coordinates may use climbing/community references. Prices and hours are not inferred when an official source is unavailable.",
+    "experienced_view": "V2 adds venue scale, route/problem richness, reset cadence, training boards and long-term pass pricing. Quantitative fields are only filled where an official venue source publishes them."
   },
   "venues": [
     {
@@ -41,7 +42,27 @@
       "hours_note": "Official regular hours; public-holiday/special-event hours may differ.",
       "website": "https://www.hardrock.com.au/",
       "verified_at": "2026-10-07",
-      "note": "CBD rope-focused gym with top-rope, lead and limited auto-belay."
+      "note": "CBD rope-focused gym with top-rope, lead and limited auto-belay.",
+      "climber": {
+        "scale_text": "100+ 条线路；44 个 top-rope 墙位；28 个 lead 墙位；最高约 16m",
+        "route_count_min": 100,
+        "max_wall_m": 16,
+        "freshness_text": "官网未公布固定换线周期",
+        "training": [
+          "绳索技术训练",
+          "Lead assessment"
+        ],
+        "passes": {
+          "day_text": "$25 日票",
+          "day": 25,
+          "ten_text": "10次 $210",
+          "ten": 210,
+          "weekly_text": "$33/周（Direct Debit）",
+          "weekly": 33,
+          "other_text": "合作俱乐部会员 $31/周；周付最低 4 周"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "cliffhanger-altona",
@@ -72,7 +93,25 @@
       "hours_note": "School-holiday weekday hours expand to 10:00-22:00.",
       "website": "https://cliffhanger.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Ropes-first venue with 30 top-rope walls, 24 lead lines and a 19 m wall."
+      "note": "Ropes-first venue with 30 top-rope walls, 24 lead lines and a 19 m wall.",
+      "climber": {
+        "scale_text": "100+ 条线路；30 个 top-rope 墙位；24 条 lead line；最高 19m",
+        "route_count_min": 100,
+        "max_wall_m": 19,
+        "freshness_text": "每周都会新增线路",
+        "training": [
+          "MoonBoard 2016",
+          "Spray Wall",
+          "Circuit Wall",
+          "Hangboards",
+          "Weights"
+        ],
+        "passes": {
+          "day_text": "官网当前公开页未抓到成人日票",
+          "other_text": "价格待下一轮人工核对"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "gravity-worx",
@@ -105,7 +144,30 @@
       "hours_note": "Regular published hours.",
       "website": "https://gravityworx.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Mixed-discipline gym with 120+ routes, speed wall and 15 auto-belays."
+      "note": "Mixed-discipline gym with 120+ routes, speed wall and 15 auto-belays.",
+      "climber": {
+        "scale_text": "120+ 条线路；15 个 auto-belay；Lead / Speed / Boulder 三项齐全；15m IFSC 速度墙",
+        "route_count_min": 120,
+        "max_wall_m": 15,
+        "freshness_text": "官方称几乎每周持续上新线路",
+        "training": [
+          "Lead",
+          "Top Rope",
+          "Bouldering",
+          "15m IFSC Speed"
+        ],
+        "passes": {
+          "day_text": "$25 日票",
+          "day": 25,
+          "ten_text": "10次 $225",
+          "ten": 225,
+          "weekly_text": "2月 $37/周 · 6月 $34/周 · 12月 $32/周",
+          "weekly": 37,
+          "best_weekly": 32,
+          "other_text": "6月预付 $875；12月预付 $1,650"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "urban-collingwood",
@@ -121,7 +183,7 @@
         "Yoga"
       ],
       "status": "active",
-      "day_pass_aud": null,
+      "day_pass_aud": 26,
       "price_note": "Official page advertises memberships from $31/week; check casual pricing before visiting.",
       "age_note": "Bouldering facility is 13+.",
       "hours": {
@@ -136,7 +198,27 @@
       "hours_note": "Public-holiday hours differ.",
       "website": "https://www.urbanclimb.au/locations/collingwood/",
       "verified_at": "2026-10-07",
-      "note": "Large bouldering venue with training boards, fitness/yoga and co-working."
+      "note": "Large bouldering venue with training boards, fitness/yoga and co-working.",
+      "climber": {
+        "scale_text": "大型抱石馆；官方未公布单馆墙面㎡；设独立 Atelier 测试/创作墙",
+        "freshness_text": "官网公开逐区域 reset 日历，通常一周多次换区",
+        "training": [
+          "Kilter Board",
+          "Spray Wall",
+          "Atelier",
+          "Fitness Studio",
+          "Yoga"
+        ],
+        "network_access": 2,
+        "passes": {
+          "day_text": "$26 日票",
+          "day": 26,
+          "weekly_text": "会员 $31/周起",
+          "weekly": 31,
+          "trial_text": "首次付费后送 2 周"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "urban-blackburn",
@@ -154,7 +236,7 @@
         "Training"
       ],
       "status": "active",
-      "day_pass_aud": null,
+      "day_pass_aud": 26,
       "price_note": "Official page advertises memberships from $31/week; check casual pricing before visiting.",
       "age_note": "Ropes all ages; bouldering 13+.",
       "hours": {
@@ -169,7 +251,28 @@
       "hours_note": "Public-holiday hours differ.",
       "website": "https://urbanclimb.com.au/locations/blackburn/",
       "verified_at": "2026-10-07",
-      "note": "Full-service venue with walls up to 17 m, bouldering, speed climbing, yoga and sauna."
+      "note": "Full-service venue with walls up to 17 m, bouldering, speed climbing, yoga and sauna.",
+      "climber": {
+        "scale_text": "绳索区 114 条 line；最高 17m；另有抱石馆与 Speed 区",
+        "rope_lines": 114,
+        "max_wall_m": 17,
+        "freshness_text": "官网公开 Rope/Boulder 分区 reset 日历，持续分区换线",
+        "training": [
+          "Bouldering training space",
+          "Speed Climbing",
+          "Yoga",
+          "Sauna"
+        ],
+        "network_access": 2,
+        "passes": {
+          "day_text": "$26 日票",
+          "day": 26,
+          "weekly_text": "会员 $31/周起",
+          "weekly": 31,
+          "trial_text": "首次付费后送 2 周"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "northside-brunswick",
@@ -184,7 +287,7 @@
         "Yoga"
       ],
       "status": "active",
-      "day_pass_aud": null,
+      "day_pass_aud": 24,
       "price_note": "New-climber 2-week trial advertised at $39 including shoe hire and yoga.",
       "age_note": "Check supervision rules for minors.",
       "hours": {
@@ -199,7 +302,28 @@
       "hours_note": "Regular published hours.",
       "website": "https://northsideboulders.com/",
       "verified_at": "2026-10-07",
-      "note": "One of Northside's three Melbourne bouldering locations."
+      "note": "One of Northside's three Melbourne bouldering locations.",
+      "climber": {
+        "scale_text": "Northside 三馆通用；单馆墙面面积未公开",
+        "freshness_text": "Brunswick 固定周一上新 set",
+        "training": [
+          "Yoga",
+          "多馆轮换"
+        ],
+        "network_access": 3,
+        "passes": {
+          "day_text": "$24 日票",
+          "day": 24,
+          "ten_text": "10次 $200",
+          "ten": 200,
+          "monthly_text": "月卡 $160",
+          "monthly": 160,
+          "weekly_text": "Direct Debit $34/周（含鞋）",
+          "weekly": 34,
+          "trial_text": "新客 2 周 $39（含鞋+Yoga）"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "northside-northcote",
@@ -214,7 +338,7 @@
         "Yoga"
       ],
       "status": "active",
-      "day_pass_aud": null,
+      "day_pass_aud": 24,
       "price_note": "New-climber 2-week trial advertised at $39 including shoe hire and yoga.",
       "age_note": "Check supervision rules for minors.",
       "hours": {
@@ -229,7 +353,28 @@
       "hours_note": "Regular published hours.",
       "website": "https://northsideboulders.com/",
       "verified_at": "2026-10-07",
-      "note": "Northside bouldering location in Northcote."
+      "note": "Northside bouldering location in Northcote.",
+      "climber": {
+        "scale_text": "Northside 三馆通用；单馆墙面面积未公开",
+        "freshness_text": "官方持续公布活动/换线信息；固定换线日未在当前页面明确",
+        "training": [
+          "Yoga",
+          "多馆轮换"
+        ],
+        "network_access": 3,
+        "passes": {
+          "day_text": "$24 日票",
+          "day": 24,
+          "ten_text": "10次 $200",
+          "ten": 200,
+          "monthly_text": "月卡 $160",
+          "monthly": 160,
+          "weekly_text": "Direct Debit $34/周（含鞋）",
+          "weekly": 34,
+          "trial_text": "新客 2 周 $39（含鞋+Yoga）"
+        },
+        "evidence_level": "B"
+      }
     },
     {
       "id": "northside-abbotsford",
@@ -243,7 +388,7 @@
         "Bouldering"
       ],
       "status": "active",
-      "day_pass_aud": null,
+      "day_pass_aud": 24,
       "price_note": "New-climber 2-week trial advertised at $39 including shoe hire and yoga.",
       "age_note": "Check supervision rules for minors.",
       "hours": {
@@ -258,7 +403,27 @@
       "hours_note": "Regular published hours.",
       "website": "https://northsideboulders.com/",
       "verified_at": "2026-10-07",
-      "note": "The Lactic Factory / Northside's Abbotsford bouldering venue."
+      "note": "The Lactic Factory / Northside's Abbotsford bouldering venue.",
+      "climber": {
+        "scale_text": "The Lactic Factory；Northside 三馆通用",
+        "freshness_text": "Abbotsford 固定周五上新 set",
+        "training": [
+          "多馆轮换"
+        ],
+        "network_access": 3,
+        "passes": {
+          "day_text": "$24 日票",
+          "day": 24,
+          "ten_text": "10次 $200",
+          "ten": 200,
+          "monthly_text": "月卡 $160",
+          "monthly": 160,
+          "weekly_text": "Direct Debit $34/周（含鞋）",
+          "weekly": 34,
+          "trial_text": "新客 2 周 $39（含鞋+Yoga）"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "boulderlab-brunswick",
@@ -273,7 +438,7 @@
         "Training"
       ],
       "status": "active",
-      "day_pass_aud": null,
+      "day_pass_aud": 22,
       "price_note": "Check official site for current casual pricing.",
       "age_note": "12+ age restriction; weights gym 16+.",
       "hours": {
@@ -288,7 +453,29 @@
       "hours_note": "Regular published hours.",
       "website": "https://boulderlab.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Bouldering facility with early-bird openings on selected days."
+      "note": "Bouldering facility with early-bird openings on selected days.",
+      "climber": {
+        "scale_text": "Boulder Lab 三馆合计 2200m²+ 墙面；官方未拆分单馆面积",
+        "freshness_text": "持续分区换线；会员覆盖三馆，可跨馆追新线",
+        "training": [
+          "Weights gym",
+          "Cardio",
+          "三馆通用"
+        ],
+        "network_access": 3,
+        "network_wall_area_m2": 2200,
+        "passes": {
+          "day_text": "$22 日票",
+          "day": 22,
+          "ten_text": "10次 $190",
+          "ten": 190,
+          "weekly_text": "无锁定 $34.50/周 · 6月 $29.50/周 · 12月 $27.50/周",
+          "weekly": 34.5,
+          "best_weekly": 27.5,
+          "other_text": "EFT 有 $39 一次性 initiation fee"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "boulderlab-clayton",
@@ -303,7 +490,7 @@
         "Training"
       ],
       "status": "active",
-      "day_pass_aud": null,
+      "day_pass_aud": 22,
       "price_note": "Check official site for current casual pricing.",
       "age_note": "12+ main facility; Kinder Lab has separate access rules.",
       "hours": {
@@ -318,7 +505,29 @@
       "hours_note": "Regular published hours.",
       "website": "https://boulderlab.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Boulder Lab's south-east location."
+      "note": "Boulder Lab's south-east location.",
+      "climber": {
+        "scale_text": "Boulder Lab 三馆合计 2200m²+ 墙面；Clayton 另设 Kinder Lab",
+        "freshness_text": "持续分区换线；会员覆盖三馆，可跨馆追新线",
+        "training": [
+          "Weights gym",
+          "Youth/High Performance programs",
+          "三馆通用"
+        ],
+        "network_access": 3,
+        "network_wall_area_m2": 2200,
+        "passes": {
+          "day_text": "$22 日票",
+          "day": 22,
+          "ten_text": "10次 $190",
+          "ten": 190,
+          "weekly_text": "无锁定 $34.50/周 · 6月 $29.50/周 · 12月 $27.50/周",
+          "weekly": 34.5,
+          "best_weekly": 27.5,
+          "other_text": "EFT 有 $39 一次性 initiation fee"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "boulderlab-ferntree",
@@ -333,7 +542,7 @@
         "Training"
       ],
       "status": "active",
-      "day_pass_aud": null,
+      "day_pass_aud": 22,
       "price_note": "Check official site for current casual pricing.",
       "age_note": "12+ age restriction; weights gym 16+.",
       "hours": {
@@ -348,7 +557,28 @@
       "hours_note": "Regular published hours.",
       "website": "https://boulderlab.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Boulder Lab's outer-east location."
+      "note": "Boulder Lab's outer-east location.",
+      "climber": {
+        "scale_text": "Boulder Lab 三馆合计 2200m²+ 墙面；官方未拆分单馆面积",
+        "freshness_text": "持续分区换线；会员覆盖三馆，可跨馆追新线",
+        "training": [
+          "Weights gym",
+          "三馆通用"
+        ],
+        "network_access": 3,
+        "network_wall_area_m2": 2200,
+        "passes": {
+          "day_text": "$22 日票",
+          "day": 22,
+          "ten_text": "10次 $190",
+          "ten": 190,
+          "weekly_text": "无锁定 $34.50/周 · 6月 $29.50/周 · 12月 $27.50/周",
+          "weekly": 34.5,
+          "best_weekly": 27.5,
+          "other_text": "EFT 有 $39 一次性 initiation fee"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "boulderlab-heidelberg",
@@ -370,7 +600,17 @@
       "hours_note": "Official site says Coming 2026; exact opening date and site details not yet confirmed.",
       "website": "https://boulderlab.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Upcoming venue; shown in the list but intentionally not pinned until an exact site is published."
+      "note": "Upcoming venue; shown in the list but intentionally not pinned until an exact site is published.",
+      "climber": {
+        "scale_text": "Coming 2026；规模与定价尚未正式公布",
+        "freshness_text": "未开业",
+        "training": [],
+        "network_access": 4,
+        "passes": {
+          "other_text": "未开业，价格待公布"
+        },
+        "evidence_level": "B"
+      }
     },
     {
       "id": "blochaus-port",
@@ -400,7 +640,32 @@
       "hours_note": "Closed Christmas and New Year's Day.",
       "website": "https://mlb.blochaus.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Dedicated bouldering gym with training boards and fitness facilities."
+      "note": "Dedicated bouldering gym with training boards and fitness facilities.",
+      "climber": {
+        "scale_text": "850m² 攀爬墙面",
+        "wall_area_m2": 850,
+        "freshness_text": "每周二、周四各重置 2 个 sector；约 6 周整馆换一轮",
+        "training": [
+          "LED MoonBoard",
+          "40° Woodie",
+          "Campus Board",
+          "Peg Board",
+          "Fitness area"
+        ],
+        "passes": {
+          "day_text": "$26 日票",
+          "day": 26,
+          "ten_text": "10次 $234",
+          "ten": 234,
+          "monthly_text": "1月 $145",
+          "monthly": 145,
+          "weekly_text": "Port Melbourne $29/周；All-Haus $38/周",
+          "weekly": 29,
+          "trial_text": "新客 2 周 $49（含鞋）",
+          "other_text": "3月 $420 · 6月 $835 · 12月 $1,510"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "flow-cheltenham",
@@ -415,7 +680,7 @@
         "Classes"
       ],
       "status": "active",
-      "day_pass_aud": null,
+      "day_pass_aud": 22,
       "price_note": "Official site offers day passes; check current checkout price.",
       "age_note": "Beginner-friendly; check minor supervision rules.",
       "hours": {
@@ -430,7 +695,24 @@
       "hours_note": "Regular published hours.",
       "website": "https://flowclimbing.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Bouldering gym with classes, café and family options."
+      "note": "Bouldering gym with classes, café and family options.",
+      "climber": {
+        "scale_text": "官方未公布墙面㎡或现役问题总数",
+        "freshness_text": "官网未公布固定换线周期",
+        "training": [
+          "Classes",
+          "Youth Squad"
+        ],
+        "passes": {
+          "day_text": "$22 日票",
+          "day": 22,
+          "ten_text": "10次 $200",
+          "ten": 200,
+          "trial_text": "2 周试用 $75（含鞋）",
+          "other_text": "3月 $395 · 6月 $765 · 12月 $1,455"
+        },
+        "evidence_level": "B"
+      }
     },
     {
       "id": "laroca-oakleigh",
@@ -446,7 +728,7 @@
         "Cafe"
       ],
       "status": "active",
-      "day_pass_aud": null,
+      "day_pass_aud": 23,
       "price_note": "Check official site for current casual pricing.",
       "age_note": "Check official access and supervision rules.",
       "hours": {
@@ -461,7 +743,32 @@
       "hours_note": "Staffed hours shown; official site advertises 24/7 climbing access, which may require eligible membership/access conditions.",
       "website": "https://laroca.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Bouldering and espresso venue; distinguishes staffed hours from 24/7 member-style access."
+      "note": "Bouldering and espresso venue; distinguishes staffed hours from 24/7 member-style access.",
+      "climber": {
+        "scale_text": "约 300m² 墙面；70+ 条问题；角度从 slab 到 45° / cave",
+        "wall_area_m2": 300,
+        "route_count_min": 70,
+        "max_wall_m": 5,
+        "freshness_text": "官网未公布固定主墙换线周期；Annex 可用 STŌKT 自建/追踪问题",
+        "training": [
+          "MoonBoard 2016",
+          "3-angle Spray Wall",
+          "Campus Board",
+          "Beastmaker 1000/2000",
+          "Strength gym"
+        ],
+        "passes": {
+          "day_text": "$23 日票",
+          "day": 23,
+          "ten_text": "10次 $195",
+          "ten": 195,
+          "weekly_text": "$34/周（最低 1 月）",
+          "weekly": 34,
+          "trial_text": "2 周试用 $59（含鞋）",
+          "other_text": "3月 $395 · 6月 $695 · 12月 $1,235；预付会员含 24/7 key"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "onsight-glen",
@@ -475,7 +782,7 @@
         "Bouldering"
       ],
       "status": "active",
-      "day_pass_aud": null,
+      "day_pass_aud": 19,
       "price_note": "First day pass unlocks a week of climbing; check checkout for current amount.",
       "age_note": "Children 5-15 require supervision ratios; 16+ no supervision required.",
       "hours": {
@@ -490,7 +797,25 @@
       "hours_note": "Official published hours.",
       "website": "https://www.onsightclimbing.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Community-focused bouldering gym in Glen Waverley."
+      "note": "Community-focused bouldering gym in Glen Waverley.",
+      "climber": {
+        "scale_text": "单馆问题总数/墙面㎡未公开",
+        "freshness_text": "官网未公布固定换线周期",
+        "training": [
+          "Bouldering"
+        ],
+        "passes": {
+          "day_text": "周一–四 $19；周五–日 $23",
+          "day": 19,
+          "day_max": 23,
+          "ten_text": "10次 $200",
+          "ten": 200,
+          "weekly_text": "成人会员 $31/周",
+          "weekly": 31,
+          "trial_text": "首次日票直接解锁 7 天；付两张日票等价可得 14 天"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "up-balaclava",
@@ -521,7 +846,25 @@
       "hours_note": "Public holidays 08:00-20:00.",
       "website": "https://upclimbing.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Inner-south bouldering gym next to Balaclava station with training board and café."
+      "note": "Inner-south bouldering gym next to Balaclava station with training board and café.",
+      "climber": {
+        "scale_text": "500m²+ 攀爬墙面",
+        "wall_area_m2": 500,
+        "freshness_text": "官网未公布固定换线周期",
+        "training": [
+          "Australia’s first Decoy Board",
+          "Strength & Conditioning gym"
+        ],
+        "passes": {
+          "day_text": "$25 日票（鞋 $5；日票+鞋 $30）",
+          "day": 25,
+          "weekly_text": "Full $35/周",
+          "weekly": 35,
+          "trial_text": "新客前 6 周 $19/周，unlimited + 鞋",
+          "other_text": "Light $19/周=每周 1 次，可累积/转赠；Full 另有 monthly / prepaid billing"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "rocket-footscray",
@@ -537,7 +880,7 @@
         "Cafe"
       ],
       "status": "active",
-      "day_pass_aud": null,
+      "day_pass_aud": 24,
       "price_note": "Check official site for current casual entry; shoe rental $7.",
       "age_note": "Suitable for ages 8+; ages 8-15 require guardian supervision.",
       "hours": {
@@ -552,7 +895,25 @@
       "hours_note": "Regular published hours.",
       "website": "https://www.rocket-climbing.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Footscray bouldering venue with Kilter/spray/campus training and café."
+      "note": "Footscray bouldering venue with Kilter/spray/campus training and café.",
+      "climber": {
+        "scale_text": "官方未公布墙面㎡或现役问题总数",
+        "freshness_text": "官网未公布固定换线周期",
+        "training": [
+          "Kilter Board",
+          "Spray Board (STŌKT)",
+          "Campus Board",
+          "Weights gym"
+        ],
+        "passes": {
+          "day_text": "$24 日票",
+          "day": 24,
+          "ten_text": "10次 $210",
+          "ten": 210,
+          "other_text": "公开网页未抓到长期会员价格"
+        },
+        "evidence_level": "B"
+      }
     },
     {
       "id": "climb-west",
@@ -582,7 +943,26 @@
       "hours_note": "Official pages currently show slightly inconsistent weekday opening times; use venue site for same-day confirmation.",
       "website": "https://climbwestmelbourne.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Dedicated west-side bouldering gym; first paid climb includes a week of unlimited climbing."
+      "note": "Dedicated west-side bouldering gym; first paid climb includes a week of unlimited climbing.",
+      "climber": {
+        "scale_text": "官方未公布墙面㎡或现役问题总数",
+        "freshness_text": "官网未公布固定换线周期",
+        "training": [
+          "Training walls",
+          "Youth squad"
+        ],
+        "passes": {
+          "day_text": "$24 成人日票",
+          "day": 24,
+          "ten_text": "10次 $216",
+          "ten": 216,
+          "weekly_text": "$35/周（会员含鞋）",
+          "weekly": 35,
+          "trial_text": "首次付费入场可获 1 周 unlimited；另有 2 周 $50",
+          "other_text": "另有 3/6/12 月预付会员"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "bayside-rock",
@@ -614,7 +994,26 @@
       "hours_note": "Regular published hours.",
       "website": "https://baysiderock.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Large mixed climbing/auto-belay facility in Melbourne's south-east."
+      "note": "Large mixed climbing/auto-belay facility in Melbourne's south-east.",
+      "climber": {
+        "scale_text": "Top Rope 约 11m；另有 Bouldering / Auto-belay / Lead；老版官方资料曾列 50+ Top Ropes，现页未重复该数字",
+        "max_wall_m": 11,
+        "freshness_text": "官网未公布固定换线周期",
+        "training": [
+          "Top Rope",
+          "Lead",
+          "Bouldering",
+          "Auto-belay"
+        ],
+        "passes": {
+          "day_text": "$23 成人（Top Rope/Boulder 同票价）",
+          "day": 23,
+          "monthly_text": "月付 EFT $109/月",
+          "monthly": 109,
+          "other_text": "会员 unlimited 全区域；另有 10 Visit Pass，现页未公开金额"
+        },
+        "evidence_level": "B"
+      }
     },
     {
       "id": "the-crux",
@@ -646,7 +1045,30 @@
       "hours_note": "Official site currently publishes regular hours.",
       "website": "https://www.thecrux.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Status flag: a July 2026 closure announcement was later superseded by an update saying the gym would remain open past Aug 2; the current official website is active. Verify before a long trip."
+      "note": "Status flag: a July 2026 closure announcement was later superseded by an update saying the gym would remain open past Aug 2; the current official website is active. Verify before a long trip.",
+      "climber": {
+        "scale_text": "高密度抱石；Olympic-height walls；官方未公布总墙面㎡",
+        "freshness_text": "每周二、周四上新，官方称每周新增 20+ 条问题",
+        "new_problems_per_week_min": 20,
+        "training": [
+          "4.5×5m Spray Wall",
+          "Grasshopper Board 15–60°",
+          "Hangboard",
+          "Campus Board",
+          "Weights",
+          "Yoga"
+        ],
+        "passes": {
+          "day_text": "$23 日票",
+          "day": 23,
+          "ten_text": "10次 $200",
+          "ten": 200,
+          "weekly_text": "Gold $32/周，无 lock-in，含鞋",
+          "weekly": 32,
+          "trial_text": "新客 2 周 $49（含鞋）"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "industry-geelong",
@@ -675,7 +1097,25 @@
       "hours_note": "Regular published hours.",
       "website": "https://www.industryboulders.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Geelong-region bouldering gym; included as the western fringe of the wider map."
+      "note": "Geelong-region bouldering gym; included as the western fringe of the wider map.",
+      "climber": {
+        "scale_text": "抱石墙高约 4.3m；官方未公布墙面㎡或问题总数",
+        "max_wall_m": 4.3,
+        "freshness_text": "官网未公布固定换线周期",
+        "training": [
+          "Bouldering"
+        ],
+        "passes": {
+          "day_text": "$23 日票",
+          "day": 23,
+          "ten_text": "10次 $207",
+          "ten": 207,
+          "monthly_text": "1月 $130",
+          "monthly": 130,
+          "other_text": "3月 $360 · 6月 $660 · 12月 $1,200；会员每月 1 张 guest pass"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "rock-geelong",
@@ -692,7 +1132,7 @@
       ],
       "status": "closing",
       "closing_date": "2026-11-07",
-      "day_pass_aud": null,
+      "day_pass_aud": 22,
       "price_note": "See official site for current entry.",
       "age_note": "Belayers must be 13+.",
       "hours": {
@@ -707,7 +1147,23 @@
       "hours_note": "School-holiday hours differ. Official site states final closing date is 7 Nov 2026.",
       "website": "https://rockadventures.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Still open at verification date, but officially scheduled to close on 7 Nov 2026."
+      "note": "Still open at verification date, but officially scheduled to close on 7 Nov 2026.",
+      "climber": {
+        "scale_text": "绳索 + 抱石综合；官方当前页未公布现役线路总数",
+        "freshness_text": "将在 2026-11-07 最终闭馆，不建议办长期卡",
+        "training": [
+          "Top Rope",
+          "Bouldering"
+        ],
+        "passes": {
+          "day_text": "$22 成人日票",
+          "day": 22,
+          "ten_text": "10次 $200",
+          "ten": 200,
+          "other_text": "即将关闭，不建议长期预付"
+        },
+        "evidence_level": "A"
+      }
     },
     {
       "id": "clipnclimb-berwick",
@@ -738,7 +1194,20 @@
       "hours_note": "School-holiday hours differ; Monday public climbing may be closed/outside holiday periods.",
       "website": "https://clipnclimbberwick.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Family-focused climbing theme park, separated from sport-climbing gyms in filters."
+      "note": "Family-focused climbing theme park, separated from sport-climbing gyms in filters.",
+      "climber": {
+        "scale_text": "亲子娱乐攀爬，非资深训练型场馆",
+        "freshness_text": "不以竞技线路换线为主要卖点",
+        "training": [
+          "Auto-belay",
+          "High ropes"
+        ],
+        "passes": {
+          "day_text": "$24 session",
+          "day": 24
+        },
+        "evidence_level": "B"
+      }
     },
     {
       "id": "climbnplay-maidstone",
@@ -768,7 +1237,19 @@
       "hours_note": "Venue opening hours; individual climbing sessions have booking slots.",
       "website": "https://climbnplay.com.au/",
       "verified_at": "2026-10-07",
-      "note": "Family indoor adventure venue; mapped separately from traditional climbing gyms."
+      "note": "Family indoor adventure venue; mapped separately from traditional climbing gyms.",
+      "climber": {
+        "scale_text": "亲子娱乐攀爬，非资深训练型场馆",
+        "freshness_text": "不以竞技线路换线为主要卖点",
+        "training": [
+          "Auto-belay"
+        ],
+        "passes": {
+          "day_text": "$21 climbing session",
+          "day": 21
+        },
+        "evidence_level": "B"
+      }
     },
     {
       "id": "burnley-wall",
@@ -789,7 +1270,19 @@
       "hours_note": "Outdoor/public space; access, lighting and maintenance conditions can change.",
       "website": "https://www.outdooractive.com/en/climbingspot/artificial-area/burnley-bouldering-wall/227334638/",
       "verified_at": "2026-10-07",
-      "note": "Sheltered artificial bouldering walls under the freeway by the Yarra."
+      "note": "Sheltered artificial bouldering walls under the freeway by the Yarra.",
+      "climber": {
+        "scale_text": "公共免费人工抱石墙；无人值守",
+        "freshness_text": "不存在商业馆式定期换线",
+        "training": [
+          "Outdoor/public bouldering"
+        ],
+        "passes": {
+          "day_text": "免费",
+          "day": 0
+        },
+        "evidence_level": "B"
+      }
     },
     {
       "id": "wilson-wall",
@@ -810,7 +1303,19 @@
       "hours_note": "Outdoor/public space; access and maintenance conditions can change.",
       "website": "https://www.thecrag.com/en/climbing/australia/inner-melbourne/area/982344321",
       "verified_at": "2026-10-07",
-      "note": "Council-built public bouldering wall beside Jewell station / Wilson Avenue."
+      "note": "Council-built public bouldering wall beside Jewell station / Wilson Avenue.",
+      "climber": {
+        "scale_text": "公共免费人工抱石墙；无人值守",
+        "freshness_text": "不存在商业馆式定期换线",
+        "training": [
+          "Outdoor/public bouldering"
+        ],
+        "passes": {
+          "day_text": "免费",
+          "day": 0
+        },
+        "evidence_level": "B"
+      }
     }
   ]
 }
