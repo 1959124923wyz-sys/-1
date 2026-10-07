@@ -9,7 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"data/berlin_violent_2025.geojson"
 XLSX="https://www.berlin.de/polizei/_assets/dienststellen/lka/fallzahlen_hz-2016-2025.xlsx?ts=1790656142"
 WFS="https://gdi.berlin.de/services/wfs/lor_2021"
-PARAMS={"service":"wfs","version":"2.0.0","request":"GetFeature","typeNames":"lor_2021:a_lor_bzr_2021","outputFormat":"application/json","srsName":"EPSG:4326"}
+PARAMS={"service":"wfs","version":"2.0.0","request":"GetFeature","typeNames":"lor_2021:a_lor_plr_2021","outputFormat":"application/json","srsName":"EPSG:4326"}
 HEAD={"User-Agent":"GermanyCrimeMonitor/1.0 (+https://github.com/1959124923wyz-sys/-1)"}
 
 def norm(s):
@@ -101,20 +101,24 @@ print("BZR stats",len(stats))
 
 g=polite_get(WFS,params=PARAMS)
 geo=g.json();features=[]
-unmatched=[]
+unmatched=[];matched_bzr=set()
 for f in geo.get("features",[]):
     props=f.get("properties") or {}
-    raw=prop(props,"BZR_ID","BZR","RAUMID")
+    raw=prop(props,"BZR","BZR_ID")
     digits=re.sub(r"\D","",str(raw or ""))
     code=digits[-6:].zfill(6) if digits else ""
     st=stats.get(code)
     if not st:
         unmatched.append((code,props));continue
-    features.append({"type":"Feature","id":code,"properties":st,"geometry":f.get("geometry")})
+    plr_raw=prop(props,"PLR","PLR_ID","RAUMID")
+    p=dict(st)
+    p["plr"]=str(plr_raw or "")
+    features.append({"type":"Feature","id":str(plr_raw or code),"properties":p,"geometry":f.get("geometry")})
+    matched_bzr.add(code)
 
-if len(features)<135:
+if len(features)<530 or len(matched_bzr)<140:
     sample_keys=list((geo.get("features") or [{}])[0].get("properties",{}).keys())
-    raise RuntimeError(f"matched only {len(features)} Berlin BZR; unmatched={len(unmatched)} sample WFS keys={sample_keys}")
+    raise RuntimeError(f"matched only {len(features)} PLR / {len(matched_bzr)} BZR; unmatched={len(unmatched)} sample WFS keys={sample_keys}")
 
 vals=sorted(f["properties"]["combined_rate"] for f in features)
 def q(p):
@@ -128,6 +132,7 @@ out={
    "year":2025,
    "scope":"Berlin Bezirksregionen",
    "feature_count":len(features),
+   "bzr_count":len(matched_bzr),
    "metric":"Raub + gefährliche/schwere Körperverletzung",
    "unit":"Fälle je 100.000 Einwohner",
    "quantile_breaks":breaks,
@@ -138,4 +143,4 @@ out={
  "features":features
 }
 OUT.write_text(json.dumps(out,ensure_ascii=False,separators=(",",":"))+"\n",encoding="utf-8")
-print(json.dumps({"features":len(features),"breaks":breaks,"unmatched":len(unmatched),"max":max(vals)},ensure_ascii=False))
+print(json.dumps({"features":len(features),"bzr_count":len(matched_bzr),"breaks":breaks,"unmatched":len(unmatched),"max":max(vals)},ensure_ascii=False))
