@@ -18,8 +18,8 @@
     areaNote:$('areaNote'),rankList:$('rankList'),
     listTitle:$('listTitle'),list:$('list')
   };
-  const NATIONAL_VIOLENCE_2025=212335;
-  const cats={homicide:{label:'凶杀',color:'#d6534f'},violence:{label:'严重暴力',color:'#df8a45'},robbery:{label:'抢劫',color:'#4f95bd'},sexual:{label:'性犯罪',color:'#9e76c8'},property:{label:'盗窃/财产',color:'#5a82d3'}};
+  const {NATIONAL_VIOLENCE_2025,categories:cats,palettes,propertyMetrics,violenceMetrics}=window.CrimeMapConfig;
+  const {national:nationalPalette,berlin:berlinPalette,property:propertyPalette,berlinProperty:berlinPropertyPalette}=palettes;
   let mode='violence',caseData=null,pksData=null,propertyData=null,countyGeo=null,berlinViolence=null,heatData=null,stateGeo=null;
   let countyLayer=null,berlinLayer=null,heatLayer=null,stateLayer=null,selectedCountyLayer=null;
   let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false,activeStateFilter=null,selectedStateName=null,stateReturnView=null,stateDrag=null;
@@ -48,24 +48,6 @@
   const pd=s=>{const [y,m,d]=String(s||'').split('-');return y&&m&&d?d+'.'+m+'.'+y:String(s||'')};
   const safe=u=>/^https:\/\//i.test(String(u||''))?u:'#';
   const {scaleColor,pointInGeometry,percentile,riskLabel,quantileBreaks}=window.CrimeMapUtils;
-  const nationalPalette=['#fff4e6','#fee2c2','#fbc48d','#f59e5b','#ea7449','#d94b3d','#ad2e32'];
-  const berlinPalette=['#f5effa','#e6d7f2','#d2b7e5','#bb92d5','#9c68c1','#7c47a6','#5d2d83'];
-  const propertyPalette=['#eff6ff','#d9eafb','#b9d8f3','#8bbce3','#5a9bd2','#3678b8','#1f4f8f'];
-  const berlinPropertyPalette=['#edf4ff','#d5e6fb','#b8d3f2','#8eb8e4','#629bd2','#3e78b7','#24528f'];
-  const propertyMetrics={
-    property_total:{label:'盗窃总体',de:'Diebstahl insgesamt'},
-    burglary:{label:'入室盗窃',de:'Wohnungseinbruchdiebstahl'},
-    bicycle_theft:{label:'自行车盗窃',de:'Fahrraddiebstahl'},
-    vehicle_theft:{label:'机动车盗窃',de:'Diebstahl von Kraftwagen'},
-    theft_from_vehicle:{label:'车内/车上盗窃',de:'Diebstahl an/aus Kraftfahrzeugen'}
-  };
-  const violenceMetrics={
-    violence:{label:'暴力总体',de:'Gewaltkriminalität',news:['homicide','violence','robbery','sexual']},
-    serious_injury:{label:'严重伤害',de:'Gefährliche und schwere Körperverletzung',news:['violence']},
-    robbery:{label:'抢劫',de:'Raub',news:['robbery']},
-    sexual:{label:'性犯罪',de:'Vergewaltigung und sexuelle Übergriffe',news:['sexual']},
-    homicide:{label:'凶杀',de:'Mord und Totschlag',news:['homicide']}
-  };
 
   function violentRecentCount(feature,metric=currentViolenceMetric()){
     if(!caseData||!feature?.geometry)return 0;
@@ -95,50 +77,17 @@
     return stateGeo?.features?.find(f=>f.properties?.name===name)||null;
   }
   function caseMatchesCurrentMetric(c){
-    if(mode==='violence'){
-      return new Set(violenceMetrics[currentViolenceMetric()]?.news||[]).has(c.category);
-    }
-    if(c.category!=='property')return false;
-    const key=currentPropertyMetric();
-    if(key==='property_total')return true;
-    const t=((c.subcategory||'')+' '+(c.offense||'')+' '+(c.summary||'')).toLowerCase();
-    if(key==='burglary')return /wohnungseinbruch/.test(t);
-    if(key==='bicycle_theft')return /fahrrad|pedelec|e-bike|ebike/.test(t);
-    if(key==='vehicle_theft')return /autodiebstahl|fahrzeug-\/autodiebstahl|fahrzeugdiebstahl|kraftwagen.*diebstahl/.test(t);
-    if(key==='theft_from_vehicle')return /diebstahl.*(?:aus|an).*fahrzeug|fahrzeugaufbruch|kfz.*aufbruch/.test(t);
-    return true;
+    const key=mode==='property'?currentPropertyMetric():currentViolenceMetric();
+    return window.CrimeDataModel.caseMatchesMetric(mode,key,c,violenceMetrics);
   }
-  function caseInState(c,feature){
-    const name=feature?.properties?.name||'';
-    if(c.state&&c.state===name)return true;
-    return Number.isFinite(c.lon)&&Number.isFinite(c.lat)&&pointInGeometry(c.lon,c.lat,feature?.geometry);
-  }
+  function caseInState(c,feature){return window.CrimeDataModel.caseInFeature(c,feature);}
   function stateRecentCases(feature){
     if(!caseData||!feature)return[];
     return caseData.cases.filter(c=>caseMatchesCurrentMetric(c)&&caseInState(c,feature)).sort((a,b)=>String(b.event_date).localeCompare(String(a.event_date)));
   }
-  function populationForAgs(ags){
-    const vr=pksData?.records?.[ags]?.violence;
-    return vr&&Number(vr.rate)>0?Number(vr.cases)/Number(vr.rate)*100000:0;
-  }
-  function stateBaseStats(feature){
-    const name=feature?.properties?.name||'';
-    const key=mode==='property'?currentPropertyMetric():currentViolenceMetric();
-    const data=mode==='property'?propertyData:pksData;
-    const rows=Object.values(data?.records||{}).filter(r=>r.state===name&&r?.[key]&&Number.isFinite(Number(r[key].rate)));
-    const cases=rows.reduce((s,r)=>s+Number(r[key].cases||0),0);
-    const pop=rows.reduce((s,r)=>s+populationForAgs(r.ags),0);
-    const rate=pop>0?cases/pop*100000:0;
-    return {name,key,rows,cases,pop,rate};
-  }
-  function allStateStats(){
-    return (stateGeo?.features||[]).map(f=>({feature:f,...stateBaseStats(f)})).filter(x=>x.rows.length).sort((a,b)=>b.rate-a.rate);
-  }
   function stateStats(feature){
-    const base=stateBaseStats(feature),all=allStateStats();
-    const rank=Math.max(1,all.findIndex(x=>x.name===base.name)+1);
-    const news=stateRecentCases(feature);
-    return {...base,rank,news,topCounties:base.rows.slice().sort((a,b)=>Number(b[base.key].rate)-Number(a[base.key].rate)).slice(0,5)};
+    const key=mode==='property'?currentPropertyMetric():currentViolenceMetric();
+    return window.CrimeDataModel.stateStats({feature,stateGeo,mode,key,propertyData,pksData,caseData,violenceMetrics});
   }
   function stateTooltipHtml(feature){
     const s=stateStats(feature);
@@ -290,17 +239,8 @@
   }
 
   function currentNationalSummary(){
-    const isProperty=mode==='property';
-    const key=isProperty?currentPropertyMetric():currentViolenceMetric();
-    const meta=isProperty?propertyMetrics[key]:violenceMetrics[key];
-    const data=isProperty?propertyData:pksData;
-    const rows=Object.values(data?.records||{}).filter(r=>r?.[key]&&Number.isFinite(Number(r[key].rate)));
-    const sorted=rows.slice().sort((a,b)=>Number(b[key].rate)-Number(a[key].rate));
-    const rates=rows.map(r=>Number(r[key].rate)).sort((a,b)=>a-b);
-    const breaks=quantileBreaks(rates);
-    const median=rates.length?rates[Math.floor((rates.length-1)/2)]:0;
-    const totalCases=rows.reduce((sum,r)=>sum+Number(r?.[key]?.cases||0),0);
-    return {key,label:meta?.label||key,de:meta?.de||key,rows,sorted,rates,breaks,median,totalCases,top:sorted[0]||null};
+    const key=mode==='property'?currentPropertyMetric():currentViolenceMetric();
+    return window.CrimeDataModel.nationalSummary({mode,key,propertyData,pksData,propertyMetrics,violenceMetrics});
   }
 
   function renderRankList(){
