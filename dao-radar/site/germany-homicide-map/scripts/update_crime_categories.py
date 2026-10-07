@@ -41,7 +41,7 @@ TEXTDATE=re.compile(r"(?<!\d)(\d{1,2})\.\s*(Januar|Februar|März|Maerz|April|Mai
 STREET_COMBINED=re.compile(r"\b((?:[A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9.'’\-]*\s+){0,2}[A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9.'’\-]*(?:straße|strasse|allee|weg|platz|gasse|damm|ring|ufer|chaussee|markt|stieg|graben|wall|steig))\b")
 STREET_SEPARATE=re.compile(r"\b((?:[A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9.'’\-]*\s+){1,3}(?:Straße|Strasse|Allee|Weg|Platz|Gasse|Damm|Ring|Ufer|Chaussee|Markt|Stieg|Graben|Wall|Steig))\b")
 FOLLOWUP=re.compile(r"Öffentlichkeitsfahndung|Haftbefehl|Tatverdächtig\w+\s+ermittelt|Ermittlungserfolg|Nachtrag|Folgemeldung|Anklage|Urteil",re.I)
-NON_EVENT=re.compile(r"Prävention|Präventions|Tipps|Aktionstag|Aktionswoche|sensibilis|Statistik|Bilanz|Sicherheitsbericht|Kontrollaktion|Schwerpunktkontrolle|Warnung vor|Polizei warnt",re.I)
+NON_EVENT=re.compile(r"Prävention|Präventions|Tipps|Aktionstag|Aktionswoche|sensibilis|Statistik|Bilanz|Sicherheitsbericht|Kontrollaktion|Schwerpunktkontrolle|Warnung vor|Polizei warnt|^Achtung[,! ]|Taschendiebe.*aktiv",re.I)
 TRAFFIC=re.compile(r"Verkehrsunfall|Unfall|Zusammenstoß|Sturz|E-Scooter|Motorrad|Pedelec",re.I)
 HOMICIDE=re.compile(r"Tötungsdelikt|Totschlag|Mordkommission|\bMord\b|tödlich verletzt|verstarb|verstorben|\bstarb\b",re.I)
 
