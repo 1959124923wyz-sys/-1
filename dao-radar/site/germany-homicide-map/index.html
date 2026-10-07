@@ -44,7 +44,7 @@ aside{min-width:0;min-height:0;height:100%;overflow:hidden;border-left:1px solid
 .meta{margin-top:3px;color:var(--muted);font-size:10px}.summary{font-size:11.5px;margin:5px 0 0;line-height:1.35}
 
 .legend,.mapstatus{position:absolute;z-index:700;background:rgba(13,17,23,.92);border:1px solid #394451;box-shadow:0 2px 10px rgba(0,0,0,.14);backdrop-filter:blur(4px)}
-.legend{left:12px;bottom:12px;border-radius:8px;padding:7px 9px;font-size:10px;color:#dce3ea}.legend div{margin:2px 0}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:0}.dot.h{background:var(--homicide)}.dot.v{background:var(--violence)}
+.legend{left:12px;bottom:12px;border-radius:8px;padding:7px 9px;font-size:10px;color:#dce3ea}.legend div{margin:2px 0}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:0}.dot.h{background:var(--homicide)}.dot.v{background:var(--violence)}.dot.rb{background:var(--robbery)}.dot.sx{background:var(--sexual)}.dot.pr{background:var(--property)}
 .mapstatus{right:12px;top:12px;border-radius:999px;padding:5px 9px;font-size:10px;color:#dce3ea}.mapstatus.ok:before,.mapstatus.fallback:before,.mapstatus.loading:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px}.mapstatus.ok:before{background:#4cab6d}.mapstatus.fallback:before{background:#e0a43a}.mapstatus.loading:before{background:#7c8a99}
 .state-label{font-weight:600;color:#526575;text-shadow:0 1px 0 rgba(255,255,255,.9);font-size:10px;white-space:nowrap;pointer-events:none}
 .city-ref{font-size:10px;color:#334652;text-shadow:0 1px 0 rgba(255,255,255,.95);white-space:nowrap;pointer-events:none}.city-ref:before{content:"•";font-size:14px;margin-right:3px}
@@ -66,7 +66,7 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
     <div class="titleblock">
       <div class="kicker">PUBLIC-SOURCE CRIME MONITOR · GERMANY</div>
       <h1>德国近3个月犯罪事件地图</h1>
-      <p class="sub">Germany crime monitor · 当前已接入凶杀与致死暴力；“0 / 待接入”表示该类别尚未纳入数据源，并非零犯罪。</p>
+      <p class="sub">Germany crime monitor · 近90天公开警方/检察机关通报；分类数据并非德国官方穷尽式犯罪统计。</p>
     </div>
     <div class="stat">
       <div><b id="count">—</b><small>当前显示案件</small></div>
@@ -77,7 +77,7 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
 
   <div class="categorybar" id="categoryBar" aria-label="犯罪分类筛选">
     <span class="category-title">分类筛选</span>
-    <label class="cat-all"><input id="allCategories" type="checkbox" checked> 全部已接入</label>
+    <label class="cat-all"><input id="allCategories" type="checkbox" checked> 全部类别</label>
     <label class="cat-chip homicide" data-category-wrap="homicide">
       <input class="cat-check" type="checkbox" data-category="homicide" checked>
       <span class="swatch"></span><span>凶杀</span><span class="cat-count" id="catCount-homicide">—</span>
@@ -95,8 +95,8 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
       <span class="swatch"></span><span>性犯罪</span><span class="cat-count" id="catCount-sexual">—</span>
     </label>
     <label class="cat-chip property" data-category-wrap="property">
-      <input class="cat-check" type="checkbox" data-category="property" checked>
-      <span class="swatch"></span><span>财产犯罪</span><span class="cat-count" id="catCount-property">—</span>
+      <input class="cat-check" type="checkbox" data-category="property">
+      <span class="swatch"></span><span>盗窃/财产</span><span class="cat-count" id="catCount-property">—</span>
     </label>
   </div>
 </header>
@@ -106,9 +106,9 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
     <div id="map"></div>
     <div id="basemapStatus" class="mapstatus loading">底图加载中…</div>
     <div class="legend">
-      <div><i class="dot h"></i>凶杀 / 疑似凶杀</div>
-      <div><i class="dot v"></i>其他严重致死暴力</div>
-      <div>半透明 = suspected；白圈 = Fundort / 遗体发现位置</div>
+      <div><i class="dot h"></i>凶杀　<i class="dot v"></i>严重暴力　<i class="dot rb"></i>抢劫</div>
+      <div><i class="dot sx"></i>性犯罪　<i class="dot pr"></i>盗窃/财产</div>
+      <div>半透明 = suspected；白圈 = Fundort；性犯罪位置已做隐私降级</div>
     </div>
   </section>
 
@@ -124,7 +124,7 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
       <label><input id="confirmed" type="checkbox" checked> confirmed</label>
       <label><input id="suspected" type="checkbox" checked> suspected</label>
     </div>
-    <div class="note">顶部分类可多选并与时间/案件状态联动。点位采用公开通报中能确认的最精确位置；“Fundort”仅代表遗体发现位置，不必然是案发地点。</div>
+    <div class="note">顶部分类可多选并与时间/案件状态联动。盗窃/财产案件数量较大，默认不勾选以保持总览清晰；性犯罪位置自动降至城市级以保护受害者隐私。</div>
     <div id="list"></div>
   </aside>
 </main>
@@ -271,13 +271,15 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
       const key=categoryOf(c),meta=CAT[key]||{label:key,color:'#667785'};
       if(Number.isFinite(c.lat)&&Number.isFinite(c.lon)){
         const fund=String(c.location_type||'').includes('Fundort'),suspected=c.status==='suspected';
+        const baseRadius={homicide:7,violence:6,robbery:5.5,sexual:5.5,property:3.8}[key]||5;
+        const baseOpacity={homicide:.90,violence:.84,robbery:.78,sexual:.72,property:.48}[key]||.75;
         const m=L.circleMarker([c.lat,c.lon],{
-          radius:fund?8.5:7,
-          weight:fund?3:(suspected?2.3:1.5),
+          radius:fund?8.5:baseRadius,
+          weight:fund?3:(suspected?2.1:1.35),
           color:fund?'#fff':meta.color,
           dashArray:suspected&&!fund?'3 2':null,
           fillColor:meta.color,
-          fillOpacity:suspected?.52:.90
+          fillOpacity:suspected?Math.max(.30,baseOpacity-.24):baseOpacity
         }).bindPopup(popup(c),{maxWidth:360}).addTo(casesLayer);
         markers.set(c.id,m);
       }
