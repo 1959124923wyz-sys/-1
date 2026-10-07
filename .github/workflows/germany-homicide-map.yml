@@ -17,6 +17,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: germany-homicide-map-update
@@ -26,6 +28,9 @@ jobs:
   update:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -46,6 +51,7 @@ jobs:
         run: python dao-radar/site/germany-homicide-map/scripts/update_cases.py
 
       - name: Commit refreshed data
+        id: save
         if: github.event_name != 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
@@ -54,8 +60,23 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "data: refresh Germany homicide map"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "No map data changes"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
 
-# validation: no-op stability v3
+      - name: Setup Pages
+        if: github.event_name != 'pull_request' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || steps.save.outputs.changed == 'true')
+        uses: actions/configure-pages@v5
+
+      - name: Upload complete site
+        if: github.event_name != 'pull_request' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || steps.save.outputs.changed == 'true')
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dao-radar/site
+
+      - name: Deploy Pages
+        id: deployment
+        if: github.event_name != 'pull_request' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch' || steps.save.outputs.changed == 'true')
+        uses: actions/deploy-pages@v4
