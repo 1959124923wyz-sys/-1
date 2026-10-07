@@ -1,0 +1,23 @@
+name: Diagnose PKS 2025 workbook
+
+on:
+  push:
+    branches: [violent-crime-overview-90d]
+    paths:
+      - 'dao-radar/site/germany-homicide-map/scripts/diag_pks_2025.py'
+      - '.github/workflows/germany-pks-diag.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install -r dao-radar/site/germany-homicide-map/requirements.txt
+      - run: python dao-radar/site/germany-homicide-map/scripts/diag_pks_2025.py
