@@ -86,7 +86,7 @@ SERIOUS = re.compile(
     re.I,
 )
 PROPERTY_RULES = [
-    ("Wohnungseinbruch", re.compile(r"Wohnungseinbruch|Einbruch\s+(?:in|in eine|in ein)\s+(?:Wohnung|Wohnhaus|Haus)|Einbruch.*Wohn", re.I)),
+    ("Wohnungseinbruch", re.compile(r"Wohnungseinbruch|Einbruch.{0,55}(?:Wohnung|Wohnhaus|Einfamilienhaus|Wohngebäude)", re.I)),
     ("Fahrraddiebstahl", re.compile(r"Fahrrad|Pedelec|E-Bike", re.I)),
     ("Fahrzeugdiebstahl", re.compile(r"(?:PKW|Pkw|Auto|Fahrzeug).*?(?:entwendet|gestohlen)", re.I)),
     ("Diebstahl aus Fahrzeug", re.compile(r"(?:PKW|Pkw|Auto|Fahrzeug).*?(?:aufgebrochen|eingebrochen)|aus (?:einem|dem) Fahrzeug entwendet", re.I)),
