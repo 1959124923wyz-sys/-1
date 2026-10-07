@@ -85,13 +85,27 @@ SERIOUS = re.compile(
     r"stationär|Notoperation|gefährliche Körperverletzung|schwere Körperverletzung",
     re.I,
 )
+ASSAULT = re.compile(r"angegriffen|attackiert|verletzt|zugestochen|geschlagen|bedroht|Auseinandersetzung|Streit", re.I)
+TRAFFIC_ACTOR = re.compile(r"Radfahrer(?:in)?|Fahrradfahrer(?:in)?|E-Scooter|Motorradfahrer(?:in)?", re.I)
+TRAFFIC_EVENT = re.compile(r"Unfall|kollid|Sturz|gestürzt|Verkehr|angefahren|überfahren|verletzt|verstarb|tödlich", re.I)
 PROPERTY_RULES = [
     ("Wohnungseinbruch", re.compile(r"Wohnungseinbruch|Einbruch.{0,55}(?:Wohnung|Wohnhaus|Einfamilienhaus|Wohngebäude)", re.I)),
-    ("Fahrraddiebstahl", re.compile(r"Fahrrad|Pedelec|E-Bike", re.I)),
-    ("Fahrzeugdiebstahl", re.compile(r"(?:PKW|Pkw|Auto|Fahrzeug).*?(?:entwendet|gestohlen)", re.I)),
-    ("Diebstahl aus Fahrzeug", re.compile(r"(?:PKW|Pkw|Auto|Fahrzeug).*?(?:aufgebrochen|eingebrochen)|aus (?:einem|dem) Fahrzeug entwendet", re.I)),
+    ("Diebstahl aus Fahrzeug", re.compile(
+        r"(?:Lenkrad|Navigationsgerät|Airbag|Werkzeug|Wertsachen).{0,50}(?:aus|von).{0,35}(?:PKW|Pkw|Auto|Fahrzeug)|"
+        r"(?:aus|in)\s+(?:einem|dem|einen)?\s*(?:PKW|Pkw|Auto|Fahrzeug).{0,70}(?:entwendet|gestohlen|Diebstahl|aufgebrochen)",
+        re.I,
+    )),
+    ("Fahrzeugdiebstahl", re.compile(
+        r"(?:PKW|Pkw|Auto|Fahrzeug).{0,45}(?:komplett\s+)?(?:entwendet|gestohlen)|"
+        r"(?:entwendet|gestohlen).{0,35}(?:PKW|Pkw|Auto|Fahrzeug)",
+        re.I,
+    )),
+    ("Fahrraddiebstahl", re.compile(
+        r"(?:Fahrrad|Pedelec|E-Bike).{0,70}(?:entwendet|gestohlen|Diebstahl)|"
+        r"(?:entwendet|gestohlen|Diebstahl).{0,55}(?:Fahrrad|Pedelec|E-Bike)",
+        re.I,
+    )),
     ("Taschendiebstahl", re.compile(r"Taschendieb|Taschendiebstahl", re.I)),
-    ("Einbruch", re.compile(r"Einbruch|Einbrecher|eingebrochen|aufgebrochen", re.I)),
 ]
 WEEKDAYS = {
     "montag": 0, "dienstag": 1, "mittwoch": 2, "donnerstag": 3,
@@ -219,7 +233,13 @@ def event_date_from_text(text: str, published: date) -> tuple[date, str]:
 
 def classify(title: str, body: str):
     joined = clean(title + " " + body[:4500])
-    if TRAFFIC.search(title) or NON_EVENT.search(title) or FOLLOWUP.search(title):
+    early = clean(title + " " + body[:1400])
+    if (
+        TRAFFIC.search(title)
+        or (TRAFFIC_ACTOR.search(title) and TRAFFIC_EVENT.search(early))
+        or NON_EVENT.search(title)
+        or FOLLOWUP.search(title)
+    ):
         return None
 
     labels = []
@@ -229,18 +249,21 @@ def classify(title: str, body: str):
         labels.append(("sexual", "Sexualdelikt", 4))
     if ROBBERY.search(joined):
         labels.append(("robbery", "Raub/Überfall", 4))
-    if (WEAPON.search(joined) and SERIOUS.search(joined)) or re.search(
-        r"gefährliche Körperverletzung|schwere Körperverletzung|versuchter Totschlag|versuchtes Tötungsdelikt",
-        joined, re.I
+    if (
+        (WEAPON.search(early) and (SERIOUS.search(early) or ASSAULT.search(early)))
+        or re.search(
+            r"gefährliche Körperverletzung|schwere Körperverletzung|versuchter Totschlag|versuchtes Tötungsdelikt",
+            early, re.I
+        )
     ):
         labels.append(("violence", "Schwere Gewalttat", 4))
 
+    # The point layer intentionally keeps only travel-relevant property events.
+    # Broad property-crime volume comes from the official statistical surface,
+    # not from counting every police press release.
+    property_text = clean(title + " " + body[:1800])
     for sub, rx in PROPERTY_RULES:
-        if rx.search(joined):
-            # Keep the recent-point layer travel-relevant: ordinary shoplifting,
-            # minor unspecified theft and fraud are intentionally excluded.
-            if sub == "Einbruch" and re.search(r"Gartenlaube|Schuppen|Container|Vereinsheim|Gewerbeobjekt", joined, re.I):
-                continue
+        if rx.search(property_text):
             labels.append(("property", sub, 2))
             break
 
