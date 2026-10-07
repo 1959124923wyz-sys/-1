@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 import io,json,re
-from datetime import datetime,timezone
 from pathlib import Path
 import requests
 from pypdf import PdfReader
@@ -87,8 +86,8 @@ if len(seen)!=63:
     raise RuntimeError(f"Leipzig geometry join incomplete: {len(seen)}/63 missing={sorted(set(rows)-seen)}")
 
 out={"type":"FeatureCollection","meta":{
-    "generated_at":datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),
-    "year":2025,"scope":"Leipzig Ortsteile","feature_count":len(features),"district_count":len(seen),
+    "schema_version":1,
+        "year":2025,"scope":"Leipzig Ortsteile","feature_count":len(features),"district_count":len(seen),
     "crime_source":"Polizei Sachsen: Kriminalitätsatlas 2025 – Großstädte",
     "crime_source_url":PDF,
     "geometry_source":"Stadt Leipzig Open Data: Geodaten der Ortsteile",
