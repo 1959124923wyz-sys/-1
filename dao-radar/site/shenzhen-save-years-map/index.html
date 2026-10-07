@@ -7,7 +7,8 @@
   <title>深圳 · 攒房地图</title>
   <meta name="description" content="把深圳小区参考房价换算成：每月存下一定金额，需要攒多少年才能付清整套房款。" />
   <link rel="preconnect" href="https://unpkg.com" crossorigin>
-  <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
+  <link rel="preconnect" href="https://server.arcgisonline.com" crossorigin>
+  <link rel="preconnect" href="https://basemaps.cartocdn.com" crossorigin>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ynWI7gqjMZFVQXNkLVeZB1iGQWJk=" crossorigin="" />
   <style>
     :root{--bg:#0d0f12;--panel:#15181d;--panel2:#1b1f25;--text:#f5f7fa;--muted:#a9b0bb;--line:#2a3038;--accent:#e7ff59;--green:#46d685;--yellow:#ffd557;--orange:#ff9955;--red:#ff6464;--pink:#ff79b8}
@@ -21,7 +22,7 @@
     .notice{font-size:10.5px;line-height:1.55;color:#aeb5be;border-left:2px solid #3c424d;padding-left:8px;margin:14px 0}.notice b{color:#e4e8ed}.rowhead{display:flex;align-items:center;justify-content:space-between;margin:17px 0 7px}.rowhead h2{font-size:12px;margin:0}.rowhead span{font-size:10px;color:var(--muted)}
     .list{display:flex;flex-direction:column;gap:7px;padding-bottom:18px}.card{border:1px solid var(--line);background:#111419;border-radius:11px;padding:10px 11px;cursor:pointer;transition:.15s}.card:hover{border-color:#4b535f;transform:translateY(-1px)}.cardtop{display:flex;justify-content:space-between;gap:10px}.name{font-size:12px;font-weight:700}.years{font-weight:900;font-size:14px}.tiny{font-size:10px;color:var(--muted);margin-top:5px;line-height:1.45}
     .footer{font-size:10px;color:#737b86;padding:4px 0 20px}.footer a{color:#a8b08f}.mapwrap{position:relative;min-width:0}.map{height:100%;width:100%;background:#17191e}.maptop{position:absolute;z-index:450;top:15px;left:15px;right:15px;display:flex;gap:8px;pointer-events:none}.maptop>*{pointer-events:auto}.status{background:rgba(14,16,20,.92);backdrop-filter:blur(8px);border:1px solid #2a3038;border-radius:10px;padding:8px 10px;font-size:11px;color:#d8dde4;box-shadow:0 4px 20px #0005}.status strong{color:var(--accent)}.share{margin-left:auto;border:1px solid #343b45;border-radius:10px;background:#14171c;color:#edf0f4;padding:8px 11px;cursor:pointer}
-    .year-marker{display:flex;align-items:center;justify-content:center;min-width:44px;height:28px;padding:0 6px;border-radius:8px;border:2px solid #fff9;color:#111;font-size:11px;font-weight:900;box-shadow:0 2px 10px #0008;white-space:nowrap}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#11151a;color:#eef1f5}.leaflet-popup-content{margin:13px 14px;min-width:220px}.pop h3{font-size:14px;margin:0 0 8px}.popgrid{display:grid;grid-template-columns:1fr auto;gap:5px 12px;font-size:11px}.popgrid span:nth-child(odd){color:#929aa5}.pop a{display:inline-block;margin-top:9px;color:var(--accent);font-size:10px}.stale{color:#ffb56b}.fresh{color:#70df9a}
+    .leaflet-container{background:#17191e}.leaflet-tile{image-rendering:auto}.year-tooltip{border:0!important;background:#11151a!important;color:#f5f7fa!important;border-radius:8px!important;padding:5px 7px!important;font-size:11px!important;font-weight:900!important;box-shadow:0 2px 10px #0008!important}.year-tooltip:before{display:none!important}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#11151a;color:#eef1f5}.leaflet-popup-content{margin:13px 14px;min-width:220px}.pop h3{font-size:14px;margin:0 0 8px}.popgrid{display:grid;grid-template-columns:1fr auto;gap:5px 12px;font-size:11px}.popgrid span:nth-child(odd){color:#929aa5}.pop a{display:inline-block;margin-top:9px;color:var(--accent);font-size:10px}.stale{color:#ffb56b}.fresh{color:#70df9a}
     @media(max-width:760px){body{overflow:auto}.app{display:block;height:auto}.sidebar{height:auto;border-right:0;border-bottom:1px solid var(--line);padding:15px}.mapwrap{height:63vh}.maptop{top:10px;left:10px;right:10px}.status{max-width:73%;font-size:10px}.share{font-size:10px}.hero{margin-top:13px}}
   </style>
 </head>
@@ -36,7 +37,7 @@
     <div class="legend"><span class="leg"><i class="dot" style="background:var(--green)"></i>≤50年</span><span class="leg"><i class="dot" style="background:var(--yellow)"></i>50–100</span><span class="leg"><i class="dot" style="background:var(--orange)"></i>100–200</span><span class="leg"><i class="dot" style="background:var(--red)"></i>200+</span></div>
     <div class="notice"><b>公式：</b> 年数 = 小区参考单价 × 选定面积 ÷（每月储蓄 × 12）。不计利息、工资增长、税费、装修，也不假设贷款。价格是挂牌/参考均价，不等于真实成交价。</div>
     <div class="rowhead"><h2>当前范围 · 从容易到离谱</h2><span id="sortMeta"></span></div><div id="list" class="list"></div>
-    <div class="footer">地图底图 © OpenStreetMap contributors。项目只做信息可视化，不构成购房或投资建议。</div>
+    <div class="footer">地图底图由 Esri / CARTO / OpenStreetMap 自动容灾切换；具体署名见地图右下角。项目只做信息可视化，不构成购房或投资建议。</div>
   </aside>
   <main class="mapwrap">
     <div id="map" class="map"></div>
@@ -53,7 +54,36 @@
   const qs=new URLSearchParams(location.search); let area=Math.max(20,Math.min(300,Number(qs.get('area'))||DATA.meta.default_area_sqm||90)); let saving=Math.max(500,Number(qs.get('saving'))||DATA.meta.default_monthly_savings||5000);
   $('#saving').value=saving; const preset=[...document.querySelectorAll('#areaSeg button')]; preset.forEach(b=>b.classList.toggle('active',Number(b.dataset.v)===area));
   const districts=[...new Set(DATA.communities.map(x=>x.district).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'zh-CN')); districts.forEach(d=>$('#district').insertAdjacentHTML('beforeend',`<option>${esc(d)}</option>`));
-  let map,layer=[]; if(window.L){map=L.map('map',{zoomControl:false,preferCanvas:true}).setView([22.61,114.04],11); L.control.zoom({position:'bottomright'}).addTo(map); L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);} else $('#status').innerHTML='<span class="stale">地图组件加载失败；请检查网络/CDN。</span>';
+  let map,layer=[],baseLayer=null,baseProvider=0,didFit=false;
+  const BASEMAPS=[
+    {name:'Esri',url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',opts:{maxZoom:19,attribution:'Tiles &copy; Esri'}},
+    {name:'CARTO',url:'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',opts:{subdomains:'abcd',maxZoom:20,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}},
+    {name:'OpenStreetMap',url:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',opts:{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}}
+  ];
+  function mountBaseMap(i){
+    if(!map||i>=BASEMAPS.length)return;
+    baseProvider=i;
+    if(baseLayer) map.removeLayer(baseLayer);
+    const p=BASEMAPS[i]; let errors=0,settled=false;
+    baseLayer=L.tileLayer(p.url,{...p.opts,keepBuffer:4,updateWhenIdle:false}).addTo(map);
+    const maybeFailover=()=>{
+      if(settled||i!==baseProvider)return;
+      errors++;
+      if(errors>=3&&i<BASEMAPS.length-1){
+        settled=true;
+        mountBaseMap(i+1);
+      }
+    };
+    baseLayer.on('tileerror',maybeFailover);
+    baseLayer.on('load',()=>{settled=true});
+  }
+  if(window.L){
+    map=L.map('map',{zoomControl:false,preferCanvas:true,zoomAnimation:true,fadeAnimation:true}).setView([22.61,114.04],11);
+    L.control.zoom({position:'bottomright'}).addTo(map);
+    mountBaseMap(0);
+    setTimeout(()=>map.invalidateSize(true),120);
+    window.addEventListener('resize',()=>map.invalidateSize(false));
+  } else $('#status').innerHTML='<span class="stale">地图组件加载失败；请检查网络/CDN。</span>';
   function years(c){return c.unit_price*area/(saving*12)} function color(y){return y<=50?'#46d685':y<=100?'#ffd557':y<=200?'#ff9955':'#ff6464'}
   function filters(){const q=$('#search').value.trim().toLowerCase(),d=$('#district').value;return DATA.communities.filter(c=>(!d||c.district===d)&&(!q||[c.name,c.district,c.subdistrict,c.address].join(' ').toLowerCase().includes(q))&&Number.isFinite(c.lat)&&Number.isFinite(c.lng)&&Number(c.unit_price)>0)}
   function ageClass(c){if(!c.last_success_at)return 'stale';const age=(Date.now()-Date.parse(c.last_success_at))/86400000;return age<45?'fresh':'stale'}
@@ -63,8 +93,9 @@
     const ys=rows.map(years).sort((a,b)=>a-b); const med=ys.length?(ys[Math.floor((ys.length-1)/2)]+ys[Math.floor(ys.length/2)])/2:0; $('#cityMedian').textContent=ys.length?med.toFixed(1)+' 年':'— 年';
     layer.forEach(m=>map&&m.remove()); layer=[];
     rows.forEach(c=>{const y=years(c),total=c.unit_price*area,html=`<div class="pop"><h3>${esc(c.name)}</h3><div class="popgrid"><span>折算年数</span><b style="color:${color(y)}">${y.toFixed(1)} 年</b><span>参考单价</span><b>¥${fmt(c.unit_price)}/㎡</b><span>假设面积</span><b>${area}㎡</b><span>估算总价</span><b>¥${(total/10000).toFixed(0)}万</b><span>每月储蓄</span><b>¥${fmt(saving)}</b><span>数据期</span><b class="${ageClass(c)}">${esc(c.price_period||'未知')}</b><span>区域</span><b>${esc(c.district||'')} · ${esc(c.subdistrict||'')}</b></div>${c.source_url?`<a href="${encodeURI(c.source_url)}" target="_blank" rel="noopener noreferrer">查看价格来源 ↗</a>`:''}</div>`;
-      if(map){const icon=L.divIcon({className:'',html:`<div class="year-marker" style="background:${color(y)}">${y.toFixed(y<100?1:0)}年</div>`,iconSize:[52,28],iconAnchor:[26,14]}); const m=L.marker([c.lat,c.lng],{icon}).addTo(map).bindPopup(html); m._community=c; layer.push(m);}
+      if(map){const m=L.circleMarker([c.lat,c.lng],{radius:7,color:'#fff',weight:2,fillColor:color(y),fillOpacity:1}).addTo(map).bindPopup(html).bindTooltip(`${y.toFixed(y<100?1:0)}年`,{permanent:true,direction:'top',offset:[0,-8],className:'year-tooltip'}); m._community=c; layer.push(m);}
     });
+    if(map&&rows.length&&!didFit){const bounds=L.latLngBounds(rows.map(c=>[c.lat,c.lng]));map.fitBounds(bounds.pad(.08),{maxZoom:12,animate:false});didFit=true;setTimeout(()=>map.invalidateSize(true),80);}
     $('#list').innerHTML=rows.slice(0,30).map(c=>{const y=years(c),total=c.unit_price*area;return `<div class="card" data-id="${esc(c.id)}"><div class="cardtop"><span class="name">${esc(c.name)}</span><span class="years" style="color:${color(y)}">${y.toFixed(1)} 年</span></div><div class="tiny">${esc(c.district)} · ${esc(c.subdistrict||'')}　¥${fmt(c.unit_price)}/㎡　≈ ${(total/10000).toFixed(0)} 万</div></div>`}).join('')||'<div class="tiny">没有匹配的小区。</div>';
     document.querySelectorAll('.card').forEach(el=>el.onclick=()=>{const m=layer.find(x=>x._community.id===el.dataset.id);if(m&&map){map.setView(m.getLatLng(),15,{animate:true});m.openPopup();}});
     const gen=DATA.meta.generated_at?new Date(DATA.meta.generated_at).toLocaleString('zh-CN',{hour12:false}):'未知'; const failures=DATA.meta.last_run_failures||0; $('#status').innerHTML=`数据包生成：<strong>${esc(gen)}</strong> · ${DATA.communities.length} 个点${failures?` · <span class="stale">${failures} 个刷新失败，沿用旧值</span>`:''}`;
