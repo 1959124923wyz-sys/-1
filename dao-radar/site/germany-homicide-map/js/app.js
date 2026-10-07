@@ -22,8 +22,7 @@
   const {national:nationalPalette,berlin:berlinPalette,property:propertyPalette,berlinProperty:berlinPropertyPalette}=palettes;
   let mode='violence',caseData=null,pksData=null,propertyData=null,countyGeo=null,berlinViolence=null,heatData=null,stateGeo=null;
   let countyLayer=null,berlinLayer=null,heatLayer=null,stateLayer=null,selectedCountyLayer=null;
-  let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false,statePanel=null;
-  const newsLayer=L.layerGroup(),markers=new Map();
+  let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false,statePanel=null,eventLayer=null;
   const stateDrawerDrag=window.CrimeDrawerDrag.create({drawer:el.stateDrawer,handle:el.stateDragHandle});
 
   const map=L.map('map',{minZoom:5,maxZoom:17,zoomControl:true,preferCanvas:true,worldCopyJump:false});
@@ -35,7 +34,6 @@
   map.createPane('berlinPane');map.getPane('berlinPane').style.zIndex=260;
   map.createPane('newsPane');map.getPane('newsPane').style.zIndex=460;
   map.getPane('tilePane').style.filter='saturate(.45) contrast(.86) brightness(1.06)';
-  newsLayer.addTo(map);
 
   let tileOk=false,tileErrors=0;
   const tiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,opacity:.52,attribution:'© OpenStreetMap contributors',crossOrigin:true,updateWhenIdle:true});
@@ -383,32 +381,8 @@
     if(mode==='property')return showPropertyNews?rows:[];
     return showViolenceNews?rows:[];
   }
-  function markerFor(c){
-    const meta=cats[c.category]||{label:c.category,color:'#667'};
-    const fund=String(c.location_type||'').includes('Fundort'),sus=c.status==='suspected';
-    return L.circleMarker([c.lat,c.lon],{pane:'newsPane',radius:c.category==='homicide'?7.5:c.category==='property'?4.5:6.2,weight:fund?3:(sus?2.2:1.5),color:fund?'#fff':meta.color,dashArray:sus&&!fund?'3 2':null,fillColor:meta.color,fillOpacity:sus?.55:.92});
-  }
-  function popup(c){
-    const meta=cats[c.category]||{label:c.category};
-    return '<h3>'+esc(c.city)+' · '+pd(c.event_date)+'</h3><p><b>'+esc(meta.label)+'</b> · '+esc(c.offense||'')+' · '+esc(c.status||'')+'</p><p>'+esc(c.location||'')+'</p><p>'+esc(c.summary||'')+'</p><p><a target="_blank" rel="noopener noreferrer" href="'+esc(safe(c.source_url))+'">查看原始通报 ↗</a></p>';
-  }
   function renderNews(){
-    newsLayer.clearLayers();markers.clear();el.list.innerHTML='';
-    const cs=visibleCases().sort((a,b)=>b.event_date.localeCompare(a.event_date)||String(a.city).localeCompare(String(b.city)));
-    for(const c of cs){
-      if(Number.isFinite(c.lat)&&Number.isFinite(c.lon)){
-        const m=markerFor(c).bindPopup(popup(c),{maxWidth:360}).addTo(newsLayer);markers.set(c.id,m);
-      }
-      const meta=cats[c.category]||{label:c.category};
-      const b=document.createElement('button');b.className='card';
-      b.innerHTML='<div class="cardtop"><b>'+esc(c.city)+' · '+pd(c.event_date)+'</b><span class="badges"><span class="badge '+esc(c.category)+'">'+esc(meta.label)+'</span><span class="badge status">'+esc(c.status||'')+'</span></span></div><div class="cardmeta">'+esc(c.location||'')+'</div><div class="cardsum">'+esc(c.summary||'')+'</div>';
-      b.onclick=()=>{const m=markers.get(c.id);if(m){map.flyTo(m.getLatLng(),Math.max(map.getZoom(),11),{duration:.55});m.openPopup();}else window.open(safe(c.source_url),'_blank','noopener');};
-      el.list.appendChild(b);
-    }
-    if(!cs.length)el.list.innerHTML='<div class="mode-note">当前筛选没有公开通报点。</div>';
-    const stateFilter=statePanel?.filterName;
-    el.listTitle.textContent=(stateFilter?stateFilter+' · ':'')+'近90天公开通报（'+fmt(cs.length)+'）· 次要参考';
-    return cs;
+    return eventLayer.render(visibleCases(),{titlePrefix:statePanel?.filterName||''});
   }
 
   function scaleHtml(palette,breaks){
@@ -466,6 +440,17 @@
     const stateFilter=statePanel?.filterName;if(stateFilter){const f=stateFeatureByName(stateFilter);if(f)statePanel.render(f);}
   }
 
+  eventLayer=window.CrimeRecentEvents.create({
+    map,
+    listElement:el.list,
+    titleElement:el.listTitle,
+    categories:cats,
+    formatNumber:fmt,
+    formatDate:pd,
+    escapeHtml:esc,
+    safeUrl:safe
+  });
+
   statePanel=window.CrimeStatePanel.create({
     elements:{
       stateDrawer:el.stateDrawer,stateName:el.stateName,stateMetric:el.stateMetric,
@@ -487,11 +472,7 @@
         if(layer.getBounds)map.fitBounds(layer.getBounds(),{padding:[30,30],maxZoom:9});
       }
     },
-    onNewsSelect:item=>{
-      const marker=markers.get(item.id);
-      if(marker){map.flyTo(marker.getLatLng(),Math.max(map.getZoom(),10),{duration:.45});marker.openPopup();}
-      else window.open(safe(item.source_url),'_blank','noopener');
-    },
+    onNewsSelect:item=>eventLayer.open(item,{minZoom:10,duration:.45}),
     onStateChanged:()=>renderNews(),
     formatNumber:fmt,formatDate:pd,escapeHtml:esc
   });
