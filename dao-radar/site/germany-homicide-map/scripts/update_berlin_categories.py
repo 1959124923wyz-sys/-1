@@ -210,3 +210,5 @@ payload["meta"].update({
 })
 save(CASES,payload)
 print("SUMMARY","lookback",LOOKBACK,"candidates",len(candidates),"added",len(added),"berlin_added", {k:sum(1 for c in added if c["category"]==k) for k in ("violence","robbery","sexual","property")},"total",len(cases),"geocoded",payload["meta"]["geocoded_count"])
+
+# backfill trigger
