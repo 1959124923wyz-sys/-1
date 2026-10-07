@@ -36,6 +36,7 @@ def parse_city_page(text):
                 j=i;break
         if j is None or len(toks)-j<10: continue
         name=" ".join(toks[:j])
+        if "Stadtteile" in name or "insgesamt" in name.lower(): continue
         total=nint(toks[j])
         tail=toks[-9:]
         if not re.fullmatch(r"[\d.]+",tail[0]): continue
