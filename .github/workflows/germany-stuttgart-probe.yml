@@ -1,0 +1,56 @@
+name: Stuttgart city crime data probe
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/germany-stuttgart-probe.yml'
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Inspect official Stuttgart crime CSV and city geometry
+        run: |
+          python - <<'PY'
+          import csv, io, json, requests, sqlite3, tempfile, zipfile, pathlib
+          H={'User-Agent':'GermanyCrimeMonitor/1.0'}
+          csv_url='https://opendata.stuttgart.de/dataset/e9d73a82-2fa3-4797-8c62-c31e089c11ae/resource/e7604538-ab7d-45d4-ade8-527d9b15b16e/download/komunis-9902-v1-kriminalitat__ausgewahlte_delikte_seit_2008.csv'
+          geo_url='https://www.stuttgart.de/medien/ibs/OpenData-KLGL-Generalsisiert.zip'
+          r=requests.get(csv_url,headers=H,timeout=90);r.raise_for_status()
+          text=r.content.decode('utf-8-sig',errors='replace')
+          print('CSV bytes',len(r.content),'head',repr(text[:1000]))
+          sample=text[:5000]
+          dialect=csv.Sniffer().sniff(sample,delimiters=';,\t')
+          rows=list(csv.reader(io.StringIO(text),dialect))
+          print('CSV rows',len(rows),'cols',max(map(len,rows)),'delimiter',repr(dialect.delimiter))
+          for row in rows[:12]: print('ROW',row)
+          print('TAIL')
+          for row in rows[-12:]: print('ROW',row)
+
+          z=requests.get(geo_url,headers=H,timeout=120);z.raise_for_status()
+          print('ZIP bytes',len(z.content))
+          with zipfile.ZipFile(io.BytesIO(z.content)) as zz:
+              print('ZIP names',zz.namelist())
+              gp=[n for n in zz.namelist() if n.lower().endswith('.gpkg')]
+              if not gp: raise SystemExit('no gpkg')
+              with tempfile.TemporaryDirectory() as td:
+                  p=pathlib.Path(td)/'x.gpkg';p.write_bytes(zz.read(gp[0]))
+                  db=sqlite3.connect(p)
+                  print('TABLES',db.execute("select table_name,data_type,identifier,srs_id from gpkg_contents").fetchall())
+                  print('GEOM',db.execute("select table_name,column_name,geometry_type_name,srs_id from gpkg_geometry_columns").fetchall())
+                  for table,data_type,identifier,srs in db.execute("select table_name,data_type,identifier,srs_id from gpkg_contents").fetchall():
+                      if data_type!='features': continue
+                      cols=db.execute(f'pragma table_info("{table}")').fetchall()
+                      print('FEATURE_TABLE',table,'cols',[(x[1],x[2]) for x in cols])
+                      vals=db.execute(f'select * from "{table}" limit 3').fetchall()
+                      print('SAMPLE',table,[tuple("<BLOB>" if isinstance(v,bytes) else v for v in row) for row in vals])
+                  db.close()
+          PY
