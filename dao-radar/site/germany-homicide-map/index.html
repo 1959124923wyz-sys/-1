@@ -22,7 +22,12 @@ h1{font-size:clamp(21px,2.2vw,31px);line-height:1.12;margin:3px 0 3px}.sub{margi
 .stat{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:8px 11px;white-space:nowrap}
 .stat b{font-size:25px;line-height:1}.stat small{display:block;color:var(--muted);font-size:10px}.stat .sep{width:1px;height:30px;background:var(--line)}
 
-.categorybar{margin-top:8px;padding-top:8px;border-top:1px solid #222a33;display:flex;align-items:center;gap:7px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.modebar{margin-top:8px;padding-top:8px;border-top:1px solid #222a33;display:flex;align-items:center;gap:7px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.modebar::-webkit-scrollbar{display:none}.mode-title{font-size:10px;color:var(--muted);letter-spacing:.08em;margin-right:2px}
+.mode-btn{border:1px solid #35404b;background:#121820;color:#d7e0e8;border-radius:999px;padding:5px 11px;font-size:11px;cursor:pointer}
+.mode-btn.active{background:#26313d;border-color:#6d8498;color:white;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
+.mode-note{font-size:10px;color:#7f8d9c;margin-left:3px}
+.categorybar{margin-top:6px;display:flex;align-items:center;gap:7px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
 .categorybar::-webkit-scrollbar{display:none}.category-title{font-size:10px;color:var(--muted);letter-spacing:.08em;margin-right:2px}
 .cat-chip{--cat:#7e8994;display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border:1px solid #35404b;border-radius:999px;background:#121820;font-size:11px;cursor:pointer;user-select:none;transition:.15s}
 .cat-chip:hover{background:#1b232d}.cat-chip input{margin:0;accent-color:var(--cat)}.cat-chip .swatch{width:7px;height:7px;border-radius:50%;background:var(--cat);box-shadow:0 0 0 2px color-mix(in srgb,var(--cat) 18%,transparent)}
@@ -47,10 +52,13 @@ aside{min-width:0;min-height:0;height:100%;overflow:hidden;border-left:1px solid
 .cat-badge{background:var(--cat,#65717c)}.cat-badge.homicide{--cat:#a93e3d}.cat-badge.violence{--cat:#ad632c}.cat-badge.robbery{--cat:#35799b}.cat-badge.sexual{--cat:#75549a}.cat-badge.property{--cat:#4965aa}
 .meta{margin-top:3px;color:var(--muted);font-size:10px}.summary{font-size:11.5px;margin:5px 0 0;line-height:1.35}
 
-.legend,.mapstatus,.heatinfo{position:absolute;z-index:700;background:rgba(13,17,23,.92);border:1px solid #394451;box-shadow:0 2px 10px rgba(0,0,0,.14);backdrop-filter:blur(4px)}
+.legend,.mapstatus,.heatinfo,.officialinfo{position:absolute;z-index:700;background:rgba(13,17,23,.92);border:1px solid #394451;box-shadow:0 2px 10px rgba(0,0,0,.14);backdrop-filter:blur(4px)}
 .legend{left:12px;bottom:12px;border-radius:8px;padding:7px 9px;font-size:10px;color:#dce3ea}.legend div{margin:2px 0}
-.heatinfo{right:12px;bottom:12px;border-radius:8px;padding:7px 9px;max-width:310px;color:#dce3ea;font-size:10px;line-height:1.35}
-.heatinfo b{display:block;font-size:10.5px;margin-bottom:2px}.heatinfo .heatnums{font-variant-numeric:tabular-nums}.heatinfo small{color:#93a1af}
+.heatinfo,.officialinfo{right:12px;bottom:12px;border-radius:8px;padding:8px 10px;max-width:340px;color:#dce3ea;font-size:10px;line-height:1.38}
+.heatinfo b,.officialinfo b{display:block;font-size:10.5px;margin-bottom:3px}.heatinfo .heatnums,.officialinfo .officialnums{font-variant-numeric:tabular-nums}.heatinfo small,.officialinfo small{color:#93a1af}
+.official-scale{height:7px;width:92px;border-radius:99px;margin:5px 0 3px;background:linear-gradient(90deg,#fff0d2,#f9c56b,#ee8249,#c94d42,#802d36)}
+.official-range{display:flex;justify-content:space-between;gap:10px;font-size:9px;color:#9eabb7}
+.control-group{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.control-group[hidden]{display:none!important}
 .heat-swatch{display:inline-block;width:30px;height:7px;border-radius:99px;margin-right:6px;vertical-align:1px;background:linear-gradient(90deg,#2a5fff,#00d4ff,#7cff5b,#ffe54a,#ff3b2f)}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:0}.dot.h{background:var(--homicide)}.dot.v{background:var(--violence)}.dot.rb{background:var(--robbery)}.dot.sx{background:var(--sexual)}.dot.pr{background:var(--property)}
 .mapstatus{right:12px;top:12px;border-radius:999px;padding:5px 9px;font-size:10px;color:#dce3ea}.mapstatus.ok:before,.mapstatus.fallback:before,.mapstatus.loading:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px}.mapstatus.ok:before{background:#4cab6d}.mapstatus.fallback:before{background:#e0a43a}.mapstatus.loading:before{background:#7c8a99}
 .state-label{font-weight:600;color:#526575;text-shadow:0 1px 0 rgba(255,255,255,.9);font-size:10px;white-space:nowrap;pointer-events:none}
@@ -63,7 +71,7 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
   body{overflow:auto;display:block}header{padding:10px 12px}.header-main{align-items:flex-start}.stat{padding:7px 9px}.stat .sep{display:none}.stat>div:last-child{display:none}
   .categorybar{padding-bottom:2px}.category-title{display:none}
   main{height:auto;display:block;overflow:visible}.mapwrap{height:58vh;min-height:430px}aside{height:auto;overflow:visible;border-left:0;border-top:1px solid var(--line);max-height:none}#list{max-height:55vh}
-  footer{height:auto;padding:8px 14px;white-space:normal;display:block}.mapstatus{top:10px;right:10px}.heatinfo{right:10px;bottom:10px;max-width:260px}.layerbar{padding:7px 10px}
+  footer{height:auto;padding:8px 14px;white-space:normal;display:block}.mapstatus{top:10px;right:10px}.heatinfo,.officialinfo{right:10px;bottom:10px;max-width:280px}.layerbar{padding:7px 10px}
 }
 </style>
 </head>
@@ -80,6 +88,13 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
       <div class="sep"></div>
       <div><small id="updated">正在读取数据…</small><small id="total"></small></div>
     </div>
+  </div>
+
+  <div class="modebar" aria-label="地图主模式">
+    <span class="mode-title">主视图</span>
+    <button class="mode-btn active" id="modeViolence" type="button">暴力犯罪</button>
+    <button class="mode-btn" id="modeProperty" type="button">财产犯罪</button>
+    <span class="mode-note">近期事件固定为最近90天；官方统计底图标注其统计年度</span>
   </div>
 
   <div class="categorybar" id="categoryBar" aria-label="犯罪分类筛选">
@@ -112,51 +127,56 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
   <section class="mapwrap">
     <div id="map"></div>
     <div id="basemapStatus" class="mapstatus loading">底图加载中…</div>
+    <div id="officialInfo" class="officialinfo">
+      <b>德国官方暴力犯罪背景 · PKS 2025</b>
+      <div class="officialnums" id="officialNumbers">正在读取…</div>
+      <div class="official-scale"></div>
+      <div class="official-range"><span id="officialMin">低</span><span id="officialMax">高</span></div>
+      <small>州级颜色 = Gewaltkriminalität 每10万人案件数（HZ）；年度结构背景，不是90天实时数。</small>
+    </div>
     <div id="heatInfo" class="heatinfo" hidden>
-      <b><span class="heat-swatch"></span>柏林官方 Open Data 热力</b>
+      <b><span class="heat-swatch"></span>柏林官方 Open Data 盗窃热力</b>
       <div class="heatnums" id="heatNumbers">正在读取…</div>
-      <small>结构化警方记录 · 与新闻通报点叠加</small>
+      <small>最近90天结构化警方记录 · 与新闻通报点叠加</small>
     </div>
-    <div class="legend">
-      <div><i class="dot h"></i>凶杀　<i class="dot v"></i>严重暴力　<i class="dot rb"></i>抢劫</div>
-      <div><i class="dot sx"></i>性犯罪　<i class="dot pr"></i>盗窃/财产</div>
-      <div><span class="heat-swatch"></span>柏林官方盗窃热力（自行车 + 车内/车上）</div>
-      <div>圆点 = 新闻/警方通报；热力 = 结构化警方记录；两层可叠加</div>
-      <div>半透明 = suspected；白圈 = Fundort；性犯罪位置已做隐私降级</div>
-    </div>
+    <div class="legend"><div id="legendContent"></div></div>
   </section>
 
   <aside>
     <div class="layerbar">
       <span class="layer-title">地图图层</span>
-      <label><input id="heatEnabled" type="checkbox" checked> 柏林官方盗窃热力</label>
-      <select id="heatType" aria-label="柏林热力类型">
-        <option value="total" selected>自行车 + 车辆</option>
-        <option value="bike">仅自行车盗窃</option>
-        <option value="vehicle">仅车内/车上盗窃</option>
-      </select>
+      <div class="control-group" id="violenceControls">
+        <label><input id="officialNationalEnabled" type="checkbox" checked> 德国官方暴力犯罪底图</label>
+        <label><input id="berlinViolenceEnabled" type="checkbox" checked> 柏林官方暴力区层</label>
+        <select id="berlinViolenceMetric" aria-label="柏林暴力指标">
+          <option value="violence_proxy_hz" selected>抢劫 + 危险/严重伤害</option>
+          <option value="severe_injury_hz">危险/严重伤害</option>
+          <option value="robbery_hz">抢劫</option>
+        </select>
+      </div>
+      <div class="control-group" id="propertyControls" hidden>
+        <label><input id="heatEnabled" type="checkbox" checked> 柏林官方盗窃热力</label>
+        <select id="heatType" aria-label="柏林热力类型">
+          <option value="total" selected>自行车 + 车辆</option>
+          <option value="bike">仅自行车盗窃</option>
+          <option value="vehicle">仅车内/车上盗窃</option>
+        </select>
+      </div>
       <button id="focusBerlin" type="button">聚焦柏林</button>
-      <span class="source-badge">Polizei Berlin Open Data</span>
     </div>
     <div class="filters">
-      <label>时间
-        <select id="days">
-          <option value="30">30天</option>
-          <option value="60">60天</option>
-          <option value="90" selected>90天</option>
-        </select>
-      </label>
+      <span class="source-badge">近期事件：固定90天</span>
       <label><input id="confirmed" type="checkbox" checked> confirmed</label>
       <label><input id="suspected" type="checkbox" checked> suspected</label>
     </div>
-    <div class="note">圆点层来自公开新闻/警方通报；柏林热力层来自 Polizei Berlin 日更结构化 Open Data，两者统计口径不同。热力目前覆盖自行车盗窃与车辆上/车辆内盗窃，并不等于柏林全部财产犯罪。</div>
+    <div class="note" id="layerNote">暴力模式：州级底图来自 BKA PKS 2025 年度 Gewaltkriminalität；柏林细分层来自 Polizei Berlin Kriminalitätsatlas 2025；圆点是最近90天公开警方/检察机关通报。</div>
     <div id="list"></div>
   </aside>
 </main>
 
 <footer>
   <span>本地州界：deutschlandGeoJSON（Unlicense） · 街道底图（可用时）：© OpenStreetMap contributors</span>
-  <span>滚动保留90天 · 每天检查一次 · 优先降低误报</span>
+  <span>近期事件固定90天 · 官方年度背景与90天动态图层分开标注 · 每天检查一次</span>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -165,11 +185,18 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
 (() => {
   const $ = id => document.getElementById(id);
   const el = {
-    count:$('count'),updated:$('updated'),total:$('total'),days:$('days'),
+    count:$('count'),updated:$('updated'),total:$('total'),
     confirmed:$('confirmed'),suspected:$('suspected'),list:$('list'),
     basemapStatus:$('basemapStatus'),allCategories:$('allCategories'),
+    modeViolence:$('modeViolence'),modeProperty:$('modeProperty'),
+    officialNationalEnabled:$('officialNationalEnabled'),
+    berlinViolenceEnabled:$('berlinViolenceEnabled'),berlinViolenceMetric:$('berlinViolenceMetric'),
+    violenceControls:$('violenceControls'),propertyControls:$('propertyControls'),
     heatEnabled:$('heatEnabled'),heatType:$('heatType'),focusBerlin:$('focusBerlin'),
-    heatInfo:$('heatInfo'),heatNumbers:$('heatNumbers')
+    heatInfo:$('heatInfo'),heatNumbers:$('heatNumbers'),
+    officialInfo:$('officialInfo'),officialNumbers:$('officialNumbers'),
+    officialMin:$('officialMin'),officialMax:$('officialMax'),
+    legendContent:$('legendContent'),layerNote:$('layerNote')
   };
   const CAT = {
     homicide:{label:'凶杀',color:'#c84645'},
@@ -186,9 +213,11 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
   M.setMaxBounds([[45.3,3.2],[57.0,18.0]]);
 
   M.createPane('statesPane');M.getPane('statesPane').style.zIndex=250;
+  M.createPane('berlinOfficialPane');M.getPane('berlinOfficialPane').style.zIndex=285;
   M.createPane('labelsPane');M.getPane('labelsPane').style.zIndex=320;M.getPane('labelsPane').style.pointerEvents='none';
 
-  let stateLayer=null,caseData=null,heatData=null,heatLayer=null,tileOk=false,tileErrors=0,fallbackMode=true,userMoved=false;
+  let stateLayer=null,caseData=null,heatData=null,heatLayer=null,officialNationalData=null,berlinViolenceData=null,berlinViolenceLayer=null;
+  let tileOk=false,tileErrors=0,fallbackMode=true,userMoved=false,currentMode='violence';
   const casesLayer=L.layerGroup().addTo(M),fallbackLabels=L.layerGroup(),markers=new Map();
   const berlinBounds=L.latLngBounds([[52.3284,13.0790],[52.6877,13.7701]]);
 
@@ -202,19 +231,56 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
     L.marker([lat,lon],{pane:'labelsPane',interactive:false,icon:L.divIcon({className:'city-ref',html:name,iconSize:null,iconAnchor:[0,0]})}).addTo(fallbackLabels);
   }
 
-  function stateStyle(){
+  const NATIONAL_COLORS=['#fff0d2','#f9c56b','#ee924d','#d45a45','#8e3440'];
+  const BERLIN_COLORS=['#ffe8cf','#f8ba6a','#ee7c47','#d44e42','#812e38'];
+
+  function quantileColor(value,values,colors){
+    if(!Number.isFinite(value)||!values.length)return '#dce6ed';
+    const sorted=[...values].filter(Number.isFinite).sort((a,b)=>a-b);
+    const rank=sorted.length<=1?0:sorted.filter(x=>x<=value).length/sorted.length;
+    return colors[Math.min(colors.length-1,Math.max(0,Math.ceil(rank*colors.length)-1))];
+  }
+  function nationalValues(){
+    return officialNationalData?Object.values(officialNationalData.states||{}).map(x=>Number(x.hz)).filter(Number.isFinite):[];
+  }
+  function stateStat(feature){
+    const name=feature?.properties?.name;
+    return officialNationalData?.states?.[name]||null;
+  }
+  function stateStyle(feature){
+    const showOfficial=currentMode==='violence'&&el.officialNationalEnabled?.checked&&officialNationalData;
+    const st=showOfficial?stateStat(feature):null;
+    if(st){
+      return {pane:'statesPane',color:'#6f4c4d',weight:1.05,fillColor:quantileColor(Number(st.hz),nationalValues(),NATIONAL_COLORS),fillOpacity:fallbackMode?.82:.58};
+    }
     return fallbackMode
       ? {pane:'statesPane',color:'#71899a',weight:1.15,fillColor:'#dce6ed',fillOpacity:.93}
       : {pane:'statesPane',color:'#61798c',weight:.85,fillColor:'#dce6ed',fillOpacity:.10};
   }
+  function stateTooltip(feature){
+    const name=feature?.properties?.name||'';
+    const st=stateStat(feature);
+    if(currentMode==='violence'&&st&&el.officialNationalEnabled?.checked){
+      return '<b>'+esc(name)+'</b><br>PKS 2025 Gewaltkriminalität<br><b>'+Number(st.hz).toLocaleString(undefined,{maximumFractionDigits:1})+'</b> /10万人 · '+Number(st.cases).toLocaleString()+' 起';
+    }
+    return '<b>'+esc(name)+'</b>';
+  }
   function addStateLabel(feature,layer){
+    layer.bindTooltip(()=>stateTooltip(feature),{sticky:true,direction:'top'});
     if(!feature?.properties?.name||['Berlin','Bremen','Hamburg'].includes(feature.properties.name))return;
     const c=layer.getBounds().getCenter();
     L.marker(c,{pane:'labelsPane',interactive:false,icon:L.divIcon({className:'state-label',html:feature.properties.name,iconSize:null,iconAnchor:[0,0]})}).addTo(fallbackLabels);
   }
+  function refreshStateLayer(){
+    if(!stateLayer)return;
+    stateLayer.setStyle(stateStyle);
+    stateLayer.eachLayer(layer=>{
+      if(layer.feature&&layer.getTooltip())layer.setTooltipContent(stateTooltip(layer.feature));
+    });
+  }
   function setBasemapMode(mode){
     fallbackMode=mode!=='street';
-    if(stateLayer)stateLayer.setStyle(stateStyle());
+    refreshStateLayer();
     if(fallbackMode){
       if(!M.hasLayer(fallbackLabels))fallbackLabels.addTo(M);
       el.basemapStatus.className='mapstatus fallback';
@@ -223,6 +289,52 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
       if(M.hasLayer(fallbackLabels))M.removeLayer(fallbackLabels);
       el.basemapStatus.className='mapstatus ok';
       el.basemapStatus.textContent='OSM 街道底图 + 本地州界';
+    }
+  }
+
+  function berlinMetricValues(){
+    if(!berlinViolenceData)return[];
+    const k=el.berlinViolenceMetric?.value||'violence_proxy_hz';
+    return berlinViolenceData.features.map(f=>Number(f.properties?.[k])).filter(Number.isFinite);
+  }
+  function berlinStyle(feature){
+    const k=el.berlinViolenceMetric?.value||'violence_proxy_hz';
+    const v=Number(feature?.properties?.[k]);
+    return {pane:'berlinOfficialPane',color:'#7c3f43',weight:.75,fillColor:quantileColor(v,berlinMetricValues(),BERLIN_COLORS),fillOpacity:.58};
+  }
+  function berlinPopup(feature){
+    const p=feature.properties||{};
+    return '<b>'+esc(p.bzg_name||'Berlin Bezirksregion')+'</b>'+
+      '<br>PKS 2025 年度背景'+
+      '<br>危险/严重伤害 HZ：<b>'+Number(p.severe_injury_hz||0).toLocaleString(undefined,{maximumFractionDigits:1})+'</b>'+
+      '<br>抢劫 HZ：<b>'+Number(p.robbery_hz||0).toLocaleString(undefined,{maximumFractionDigits:1})+'</b>'+
+      '<br>两项合计 HZ：<b>'+Number(p.violence_proxy_hz||0).toLocaleString(undefined,{maximumFractionDigits:1})+'</b>'+
+      '<br><small>HZ = 每10万人案件数；合计为透明派生指标，并非 BKA“Gewaltkriminalität”同一口径。</small>';
+  }
+  function buildBerlinViolenceLayer(){
+    if(berlinViolenceLayer){M.removeLayer(berlinViolenceLayer);berlinViolenceLayer=null;}
+    if(!berlinViolenceData)return;
+    berlinViolenceLayer=L.geoJSON(berlinViolenceData,{
+      pane:'berlinOfficialPane',style:berlinStyle,
+      onEachFeature:(feature,layer)=>layer.bindTooltip(()=>berlinPopup(feature),{sticky:true,direction:'top'})
+    });
+  }
+  function renderOfficialLayers(){
+    refreshStateLayer();
+    const showBerlin=currentMode==='violence'&&el.berlinViolenceEnabled?.checked&&berlinViolenceLayer;
+    if(berlinViolenceLayer){
+      if(showBerlin&&!M.hasLayer(berlinViolenceLayer))berlinViolenceLayer.addTo(M);
+      if(!showBerlin&&M.hasLayer(berlinViolenceLayer))M.removeLayer(berlinViolenceLayer);
+      if(showBerlin)berlinViolenceLayer.setStyle(berlinStyle);
+    }
+    const vals=nationalValues();
+    if(currentMode==='violence'&&el.officialNationalEnabled.checked&&vals.length){
+      el.officialInfo.hidden=false;
+      el.officialNumbers.textContent='16州 · Gewaltkriminalität · HZ（每10万人）';
+      el.officialMin.textContent='低 '+Math.min(...vals).toFixed(0);
+      el.officialMax.textContent='高 '+Math.max(...vals).toFixed(0);
+    }else{
+      el.officialInfo.hidden=true;
     }
   }
 
@@ -245,8 +357,8 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
   }
   function timeWindowCases(){
     if(!caseData)return[];
-    const n=+el.days.value,today=new Date().toISOString().slice(0,10);
-    return caseData.cases.filter(c=>{const age=diff(today,c.event_date);return age>=0&&age<=n;});
+    const today=new Date().toISOString().slice(0,10);
+    return caseData.cases.filter(c=>{const age=diff(today,c.event_date);return age>=0&&age<=90;});
   }
   function updateCategoryControls(){
     if(!caseData)return;
@@ -275,7 +387,7 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
 
   function currentHeatWindow(){
     if(!heatData)return null;
-    return heatData.windows?.[String(el.days.value)]||heatData.windows?.["90"]||null;
+    return heatData.windows?.["90"]||null;
   }
   function renderHeat(){
     if(heatLayer){
@@ -283,7 +395,7 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
       heatLayer=null;
     }
     const w=currentHeatWindow();
-    if(!w||!el.heatEnabled.checked||typeof L.heatLayer!=='function'){
+    if(currentMode!=='property'||!w||!el.heatEnabled.checked||typeof L.heatLayer!=='function'){
       if(el.heatInfo)el.heatInfo.hidden=true;
       return;
     }
@@ -302,7 +414,7 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
     const label=field==='bike'?'自行车盗窃':field==='vehicle'?'车辆上/车辆内盗窃':'自行车 + 车辆盗窃';
     const fieldTotal=field==='bike'?w.bike:field==='vehicle'?w.vehicle:w.total;
     el.heatInfo.hidden=false;
-    el.heatNumbers.textContent=el.days.value+'天 · '+label+' '+Number(fieldTotal||0).toLocaleString()+' 起｜覆盖 '+Number(w.active_lor||0).toLocaleString()+' 个 Planungsraum';
+    el.heatNumbers.textContent='90天 · '+label+' '+Number(fieldTotal||0).toLocaleString()+' 起｜覆盖 '+Number(w.active_lor||0).toLocaleString()+' 个 Planungsraum';
   }
   function setHeatAvailability(ok){
     el.heatEnabled.disabled=!ok;
@@ -310,6 +422,39 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
     if(!ok){
       el.heatEnabled.checked=false;
       el.heatInfo.hidden=true;
+    }
+  }
+
+  function setMode(mode){
+    currentMode=mode==='property'?'property':'violence';
+    el.modeViolence.classList.toggle('active',currentMode==='violence');
+    el.modeProperty.classList.toggle('active',currentMode==='property');
+    el.violenceControls.hidden=currentMode!=='violence';
+    el.propertyControls.hidden=currentMode!=='property';
+    for(const input of catChecks){
+      const k=input.dataset.category;
+      input.checked=currentMode==='violence'?['homicide','violence','robbery','sexual'].includes(k):k==='property';
+    }
+    el.layerNote.textContent=currentMode==='violence'
+      ? '暴力模式：州级底图来自 BKA PKS 2025 年度 Gewaltkriminalität；柏林细分层来自 Polizei Berlin Kriminalitätsatlas 2025；圆点是最近90天公开警方/检察机关通报。'
+      : '财产模式：柏林热力来自 Polizei Berlin 日更结构化自行车及车辆上/车辆内盗窃数据，固定最近90天；圆点是最近90天公开通报，热力并不代表全部财产犯罪。';
+    syncAllCategories();
+    render();
+  }
+  function renderLegend(){
+    if(currentMode==='violence'){
+      el.legendContent.innerHTML=
+        '<div><b>暴力犯罪总览</b></div>'+
+        '<div>州面色 = BKA PKS 2025 Gewaltkriminalität HZ</div>'+
+        '<div>柏林细面 = 2025 抢劫 + 危险/严重伤害 HZ</div>'+
+        '<div><i class="dot h"></i>凶杀　<i class="dot v"></i>严重暴力　<i class="dot rb"></i>抢劫　<i class="dot sx"></i>性犯罪</div>'+
+        '<div>圆点 = 最近90天公开通报；半透明 = suspected</div>';
+    }else{
+      el.legendContent.innerHTML=
+        '<div><b>财产犯罪总览</b></div>'+
+        '<div><span class="heat-swatch"></span>柏林官方90天盗窃热力</div>'+
+        '<div><i class="dot pr"></i>最近90天盗窃/财产公开通报点</div>'+
+        '<div>热力目前覆盖自行车 + 车辆上/车辆内盗窃</div>';
     }
   }
 
@@ -370,25 +515,34 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
     el.total.textContent='已接入数据 '+(caseData?.cases?.length||0)+' 起';
     if(!cs.length)el.list.innerHTML='<div class="note">当前筛选条件下没有已接入案件。</div>';
     renderHeat();
+    renderOfficialLayers();
+    renderLegend();
   }
 
   M.on('dragstart zoomstart',()=>{userMoved=true;});
 
-  const heatPromise=fetch('data/berlin_heatmap.json',{cache:'no-store'})
-    .then(r=>{if(!r.ok)throw new Error('heat '+r.status);return r.json();})
-    .catch(err=>{console.warn('Berlin heat layer unavailable',err);return null;});
+  const optionalJson=(url,label)=>fetch(url,{cache:'no-store'})
+    .then(r=>{if(!r.ok)throw new Error(label+' '+r.status);return r.json();})
+    .catch(err=>{console.warn(label+' unavailable',err);return null;});
+  const heatPromise=optionalJson('data/berlin_heatmap.json','Berlin theft heat');
+  const nationalPromise=optionalJson('data/germany_official_violence.json','Germany official violence');
+  const berlinViolencePromise=optionalJson('data/berlin_official_violence.geojson','Berlin official violence');
   Promise.all([
     fetch('data/germany-states.geojson',{cache:'force-cache'}).then(r=>{if(!r.ok)throw new Error('states '+r.status);return r.json();}),
     fetch('data/cases.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('cases '+r.status);return r.json();}),
-    heatPromise
-  ]).then(([states,data,heat])=>{
+    heatPromise,nationalPromise,berlinViolencePromise
+  ]).then(([states,data,heat,national,berlinViolence])=>{
+    officialNationalData=national;
+    berlinViolenceData=berlinViolence;
     stateLayer=L.geoJSON(states,{pane:'statesPane',style:stateStyle,onEachFeature:addStateLabel}).addTo(M);
+    buildBerlinViolenceLayer();
     if(!tileOk)setBasemapMode('fallback');
     if(!userMoved)M.fitBounds(stateLayer.getBounds(),{padding:[15,15]});
 
     caseData=data;
     heatData=heat;
     setHeatAvailability(!!heatData);
+    currentMode='violence';
     const t=data.meta?.generated_at?new Date(data.meta.generated_at):null;
     el.updated.textContent=t&&!Number.isNaN(+t)?'数据更新 '+t.toLocaleString():'更新时间未知';
     render();
@@ -404,7 +558,12 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
     render();
   });
   for(const input of catChecks)input.addEventListener('change',()=>{syncAllCategories();render();});
-  [el.days,el.confirmed,el.suspected].forEach(x=>x.addEventListener('change',render));
+  [el.confirmed,el.suspected].forEach(x=>x.addEventListener('change',render));
+  el.modeViolence.addEventListener('click',()=>setMode('violence'));
+  el.modeProperty.addEventListener('click',()=>setMode('property'));
+  el.officialNationalEnabled.addEventListener('change',renderOfficialLayers);
+  el.berlinViolenceEnabled.addEventListener('change',renderOfficialLayers);
+  el.berlinViolenceMetric.addEventListener('change',renderOfficialLayers);
   el.heatEnabled.addEventListener('change',renderHeat);
   el.heatType.addEventListener('change',renderHeat);
   el.focusBerlin.addEventListener('click',()=>M.fitBounds(berlinBounds,{padding:[30,30],maxZoom:11}));
@@ -417,7 +576,12 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
     getHeatData:()=>heatData,
     getHeatLayer:()=>heatLayer,
     getHeatEnabled:()=>!!el.heatEnabled.checked,
-    getHeatWindow:()=>currentHeatWindow()
+    getHeatWindow:()=>currentHeatWindow(),
+    getCurrentMode:()=>currentMode,
+    getOfficialNationalData:()=>officialNationalData,
+    getBerlinViolenceData:()=>berlinViolenceData,
+    getBerlinViolenceLayer:()=>berlinViolenceLayer,
+    getOfficialEnabled:()=>!!el.officialNationalEnabled.checked
   };
 })();
 </script>
