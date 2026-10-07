@@ -1,0 +1,316 @@
+{
+  "meta": {
+    "schema_version": 1,
+    "generated_at": "2026-10-07",
+    "purpose": "Germany-wide crime map source registry and coverage contract",
+    "current_level_definition": {
+      "high": "高覆盖：全国年度统计 + 州/城市细分官方统计或开放数据 + 直接警方近期通报",
+      "standard": "标准覆盖：全国年度统计 + 州级直接警方通报适配器",
+      "base": "基础覆盖：全国年度统计 + 全国公开警方通报抓取；近期点位不是全量案件"
+    },
+    "rule": "缺少近期点位只表示公开通报覆盖不足，不表示零犯罪。"
+  },
+  "states": {
+    "Baden-Württemberg": {
+      "code": "DE-BW",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 6,
+      "current_detail": "BKA PKS 县/市年度面 + 全国警方公开通报点",
+      "verified_sources": [
+        {
+          "kind": "statistics",
+          "name": "Polizei Baden-Württemberg Sicherheitsbericht 2025",
+          "url": "https://www.polizei-bw.de/sicherheitsbericht-2025/"
+        }
+      ],
+      "adapter_plan": "按 Polizeipräsidium/警方发布源建立直接通报适配器；保留 Presseportal 作为补充。"
+    },
+    "Bayern": {
+      "code": "DE-BY",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 4,
+      "current_detail": "BKA PKS 县/市年度面 + 全国警方公开通报点",
+      "verified_sources": [
+        {
+          "kind": "incidents",
+          "name": "Bayerische Polizei RSS",
+          "url": "https://www.polizei.bayern.de/aktuelles/001127/index.html"
+        },
+        {
+          "kind": "statistics",
+          "name": "Bayern PKS 2025",
+          "url": "https://www.stmi.bayern.de/news/detail/?tx_news_pi1%5Bnews%5D=3010"
+        }
+      ],
+      "adapter_plan": "按各 Polizeipräsidium RSS/新闻归档抓取，RSS 仅最新条目时用归档补足90天。"
+    },
+    "Berlin": {
+      "code": "DE-BE",
+      "current_level": "high",
+      "current_label": "高覆盖",
+      "target_level": "high",
+      "priority": 0,
+      "current_detail": "BKA PKS + Berlin Bezirksregion 暴力细分 + 90天官方盗窃热力 + Polizei Berlin 直接通报",
+      "verified_sources": [
+        {
+          "kind": "incidents",
+          "name": "Polizei Berlin Meldungen",
+          "url": "https://www.berlin.de/polizei/polizeimeldungen/"
+        },
+        {
+          "kind": "statistics",
+          "name": "Polizei Berlin PKS",
+          "url": "https://www.berlin.de/polizei/verschiedenes/polizeiliche-kriminalstatistik/"
+        }
+      ],
+      "adapter_plan": "现有高覆盖模板；作为其他州适配器的数据契约参考。"
+    },
+    "Brandenburg": {
+      "code": "DE-BB",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 1,
+      "current_detail": "BKA PKS 县/市年度面 + 全国警方公开通报点；当前90天点位明显不足",
+      "verified_sources": [
+        {
+          "kind": "incidents",
+          "name": "Polizei Brandenburg RSS",
+          "url": "https://polizei.brandenburg.de/rss/"
+        },
+        {
+          "kind": "statistics",
+          "name": "Polizei Brandenburg Kriminalstatistik",
+          "url": "https://polizei.brandenburg.de/liste/statistiken-zur-kriminalitaetslage-im-la/71666"
+        }
+      ],
+      "adapter_plan": "优先接入按县/市拆分的官方 RSS；适合作为第一个非柏林州适配器。"
+    },
+    "Bremen": {
+      "code": "DE-HB",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 7,
+      "current_detail": "BKA PKS + 全国警方公开通报点",
+      "verified_sources": [
+        {
+          "kind": "incidents",
+          "name": "Polizei Bremen Pressestelle",
+          "url": "https://www.polizei.bremen.de/news/pressestelle-60902"
+        },
+        {
+          "kind": "statistics",
+          "name": "Bremen PKS",
+          "url": "https://www.inneres.bremen.de/dokumente/pks-2496"
+        }
+      ],
+      "adapter_plan": "直接解析官方新闻归档；正文通常明确 Ort / Zeit，地理定位质量较高。"
+    },
+    "Hamburg": {
+      "code": "DE-HH",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 5,
+      "current_detail": "BKA PKS + 全国警方公开通报点",
+      "verified_sources": [
+        {
+          "kind": "incidents",
+          "name": "Polizei Hamburg Newsroom",
+          "url": "https://www.polizei.hamburg/newsroom-polizei-hamburg/"
+        },
+        {
+          "kind": "statistics",
+          "name": "Hamburg PKS 2025",
+          "url": "https://www.polizei.hamburg/polizeiliche-kriminalstatistik-fuer-das-jahr-2025-1144300"
+        }
+      ],
+      "adapter_plan": "直接抓取 Newsroom；年度 Stadtteilatlas 可作为后续街区级结构层。"
+    },
+    "Hessen": {
+      "code": "DE-HE",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 8,
+      "current_detail": "BKA PKS 县/市年度面 + 全国警方公开通报点；凶杀已有州警方 RSS 补充",
+      "verified_sources": [
+        {
+          "kind": "incidents",
+          "name": "Polizei Hessen Presse-Feed",
+          "url": "https://polizei.hessen.de/presse-feed/all"
+        },
+        {
+          "kind": "statistics",
+          "name": "Polizei Hessen Statistik",
+          "url": "https://www.polizei.hessen.de/Themen-A-Z/statistik"
+        }
+      ],
+      "adapter_plan": "把现有 homicide RSS 复用到抢劫、严重暴力、财产类别。"
+    },
+    "Mecklenburg-Vorpommern": {
+      "code": "DE-MV",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 9,
+      "current_detail": "BKA PKS 县/市年度面 + 全国警方公开通报点",
+      "verified_sources": [
+        {
+          "kind": "incidents",
+          "name": "Landespolizei Mecklenburg-Vorpommern",
+          "url": "https://www.polizei.mvnet.de/"
+        },
+        {
+          "kind": "statistics",
+          "name": "PKS 2025 Mecklenburg-Vorpommern",
+          "url": "https://www.regierung-mv.de/Landesregierung/im/Blickpunkte/"
+        }
+      ],
+      "adapter_plan": "解析 Landespolizei 当前/归档发布；必要时以各发布机构 Presseportal 页面补足。"
+    },
+    "Niedersachsen": {
+      "code": "DE-NI",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 11,
+      "current_detail": "BKA PKS 县/市年度面 + 全国警方公开通报点",
+      "verified_sources": [
+        {
+          "kind": "statistics",
+          "name": "Niedersachsen PKS 2025",
+          "url": "https://www.mi.niedersachsen.de/startseite/aktuelles/presseinformationen/polizeiliche-kriminalstatistik-2025-erneut-weniger-taten-und-geringere-kriminalitatsbelastung-bei-weiterhin-hoher-aufklarungsquote-249477.html"
+        }
+      ],
+      "adapter_plan": "按警察局/警署发布机构建立来源白名单并从 Presseportal/官方站抓取，避免单纯关键词漏报。"
+    },
+    "Nordrhein-Westfalen": {
+      "code": "DE-NW",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 12,
+      "current_detail": "BKA PKS 县/市年度面 + 全国警方公开通报点；当前公开通报点数量较多",
+      "verified_sources": [
+        {
+          "kind": "statistics",
+          "name": "NRW PKS 2025",
+          "url": "https://www.im.nrw/polizeiliche-kriminalstatistik-2025-kriminalitaet-sinkt-weniger-gewalt-und-diebstahl-mehr"
+        }
+      ],
+      "adapter_plan": "按 Kreispolizeibehörde 建立来源白名单；现有 Presseportal 覆盖较多，优先级低于当前空白州。"
+    },
+    "Rheinland-Pfalz": {
+      "code": "DE-RP",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 10,
+      "current_detail": "BKA PKS 县/市年度面 + 全国警方公开通报点",
+      "verified_sources": [
+        {
+          "kind": "statistics",
+          "name": "Polizei Rheinland-Pfalz Kriminalstatistik",
+          "url": "https://www.polizei.rlp.de/service/statistiken/kriminalstatistik"
+        }
+      ],
+      "adapter_plan": "按 Polizeipräsidium 建立官方来源白名单，直接覆盖 Mainz/Koblenz/Trier/Kaiserslautern/Ludwigshafen 等区域。"
+    },
+    "Saarland": {
+      "code": "DE-SL",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 13,
+      "current_detail": "BKA PKS + 全国警方公开通报点",
+      "verified_sources": [
+        {
+          "kind": "incidents",
+          "name": "Polizei Saarland Presseportal/RSS",
+          "url": "https://www.saarland.de/polizei/DE/aktuelles/rss-feed"
+        }
+      ],
+      "adapter_plan": "官方明确以 Presseportal 发布全州警情；按 Saarland 警务机构白名单直接抓取而非关键词搜索。"
+    },
+    "Sachsen": {
+      "code": "DE-SN",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 2,
+      "current_detail": "BKA PKS 县/市年度面 + 全国警方公开通报点；当前90天点位明显不足",
+      "verified_sources": [
+        {
+          "kind": "incidents",
+          "name": "Polizei Sachsen Medieninformationen",
+          "url": "https://www.polizei.sachsen.de/de/presseinfo_aktuell.asp"
+        },
+        {
+          "kind": "statistics",
+          "name": "Sachsen Kriminalitätsatlas 2025",
+          "url": "https://www.polizei.sachsen.de/de/polizeiliche-kriminalstatistik-2025-41049.html"
+        }
+      ],
+      "adapter_plan": "通过 Medienservice Sachsen 各 Polizeidirektion RSS/归档抓取；年度 atlas 后续可下钻到 Gemeinde。"
+    },
+    "Sachsen-Anhalt": {
+      "code": "DE-ST",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 3,
+      "current_detail": "BKA PKS 县/市年度面 + 全国警方公开通报点；当前90天点位明显不足",
+      "verified_sources": [
+        {
+          "kind": "incidents",
+          "name": "Polizei Sachsen-Anhalt Pressemeldungen",
+          "url": "https://polizei.sachsen-anhalt.de/bs/pressemitteilungen/polizei"
+        },
+        {
+          "kind": "statistics",
+          "name": "Sachsen-Anhalt PKS 2025",
+          "url": "https://polizei.sachsen-anhalt.de/fileadmin/Bibliothek/Politik_und_Verwaltung/MI/Polizei/Praevention/Kriminalpraevention/PKS_und_PMK/033_2026_PKS_2025.pdf"
+        }
+      ],
+      "adapter_plan": "直接解析官方大型新闻归档，按 Polizeiinspektion/Polizeirevier 归一化地点。"
+    },
+    "Schleswig-Holstein": {
+      "code": "DE-SH",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 14,
+      "current_detail": "BKA PKS 县/市年度面 + 全国警方公开通报点",
+      "verified_sources": [
+        {
+          "kind": "statistics",
+          "name": "Schleswig-Holstein LKA Kriminalstatistik",
+          "url": "https://www.schleswig-holstein.de/DE/landesregierung/ministerien-behoerden/POLIZEI/DasSindWir/LKA/Ermittlungen_Auswertung/kriminalstatistik/kriminalstatistik"
+        }
+      ],
+      "adapter_plan": "年度统计已有 XLS；近期事件按警方发布机构白名单补强。"
+    },
+    "Thüringen": {
+      "code": "DE-TH",
+      "current_level": "base",
+      "current_label": "基础覆盖",
+      "target_level": "standard",
+      "priority": 15,
+      "current_detail": "BKA PKS 县/市年度面 + 全国警方公开通报点",
+      "verified_sources": [
+        {
+          "kind": "incidents",
+          "name": "Thüringer Landespolizei / LPI Presseportal",
+          "url": "https://www.presseportal.de/blaulicht/d/polizei/l/thueringen/dokument"
+        }
+      ],
+      "adapter_plan": "按 Landespolizeiinspektion 来源白名单抓取；后续补充州 PKS/地区表。"
+    }
+  }
+}
