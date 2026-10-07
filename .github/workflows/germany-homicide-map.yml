@@ -41,10 +41,16 @@ jobs:
       - name: Install dependencies
         run: pip install -r dao-radar/site/germany-homicide-map/requirements.txt
 
-      - name: Refresh rolling 90-day crime data
+      - name: Refresh homicide data
         env:
           APP_CONTACT: https://github.com/1959124923wyz-sys/-1
         run: python dao-radar/site/germany-homicide-map/scripts/update_cases.py
+
+      - name: Refresh robbery, sexual, violence and property data
+        env:
+          APP_CONTACT: https://github.com/1959124923wyz-sys/-1
+          CRIME_LOOKBACK_DAYS: '4'
+        run: python dao-radar/site/germany-homicide-map/scripts/update_crime_categories.py
 
       - name: Commit refreshed data
         id: save
