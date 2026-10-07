@@ -40,8 +40,16 @@ jobs:
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/update_crime_categories.py
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/update_berlin_categories.py
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/update_berlin_heatmap.py
+          python -m py_compile dao-radar/site/germany-homicide-map/scripts/update_official_crime_layers.py
+          python -m py_compile dao-radar/site/germany-homicide-map/scripts/validate_official_crime_layers.py
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/validate_berlin_heatmap.py
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/smoke_test_ui.py
+
+      - name: Build official violence background layers
+        run: python dao-radar/site/germany-homicide-map/scripts/update_official_crime_layers.py
+
+      - name: Validate official violence background layers
+        run: python dao-radar/site/germany-homicide-map/scripts/validate_official_crime_layers.py
 
       - name: Refresh Berlin official theft heatmap
         run: python dao-radar/site/germany-homicide-map/scripts/update_berlin_heatmap.py
