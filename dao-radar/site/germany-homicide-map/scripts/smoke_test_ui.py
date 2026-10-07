@@ -94,7 +94,9 @@ with sync_playwright() as p:
       heat:!!window.__CRIME_MAP__.getHeatLayer(),
       visible:window.__CRIME_MAP__.getVisibleCases().length,
       propertyCount:window.__CRIME_MAP__.getCaseData().cases.filter(c=>c.category==="property").length,
-      info:document.getElementById("layerInfo").textContent
+      info:document.getElementById("layerInfo").textContent,
+      violenceControlsHidden:document.getElementById("violenceLayers").hidden,
+      propertyControlsHidden:document.getElementById("propertyLayers").hidden
     })""")
     assert prop["mode"]=="property",prop
     assert prop["heat"] is True,prop
