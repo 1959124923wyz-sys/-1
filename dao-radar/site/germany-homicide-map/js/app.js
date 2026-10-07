@@ -22,8 +22,9 @@
   const {national:nationalPalette,berlin:berlinPalette,property:propertyPalette,berlinProperty:berlinPropertyPalette}=palettes;
   let mode='violence',caseData=null,pksData=null,propertyData=null,countyGeo=null,berlinViolence=null,heatData=null,stateGeo=null;
   let countyLayer=null,berlinLayer=null,heatLayer=null,stateLayer=null,selectedCountyLayer=null;
-  let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false,activeStateFilter=null,selectedStateName=null,stateReturnView=null,stateDrag=null;
+  let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false,activeStateFilter=null,selectedStateName=null,stateReturnView=null;
   const newsLayer=L.layerGroup(),markers=new Map();
+  const stateDrawerDrag=window.CrimeDrawerDrag.create({drawer:el.stateDrawer,handle:el.stateDragHandle});
 
   const map=L.map('map',{minZoom:5,maxZoom:17,zoomControl:true,preferCanvas:true,worldCopyJump:false});
   const germanyBounds=L.latLngBounds([[47.05,5.45],[55.15,15.65]]);
@@ -140,39 +141,6 @@
     buildStateLayer();
     if(restore&&rv)map.setView(rv.center,rv.zoom,{animate:true});
   }
-  function resetStateDrawerPosition(){
-    el.stateDrawer.style.left='58px';el.stateDrawer.style.top='12px';el.stateDrawer.style.right='auto';
-  }
-  function clampStateDrawer(left,top){
-    const host=document.querySelector('.mapwrap')?.getBoundingClientRect(),box=el.stateDrawer.getBoundingClientRect();
-    if(!host)return {left,top};
-    const maxLeft=Math.max(8,host.width-box.width-8),maxTop=Math.max(8,host.height-box.height-8);
-    return {left:Math.max(8,Math.min(left,maxLeft)),top:Math.max(8,Math.min(top,maxTop))};
-  }
-  function beginStateDrag(e){
-    if(e.button!=null&&e.button!==0)return;
-    if(e.target.closest('.state-close'))return;
-    const host=document.querySelector('.mapwrap')?.getBoundingClientRect(),box=el.stateDrawer.getBoundingClientRect();
-    if(!host)return;
-    stateDrag={id:e.pointerId,dx:e.clientX-box.left,dy:e.clientY-box.top,hostLeft:host.left,hostTop:host.top};
-    el.stateDragHandle.classList.add('dragging');
-    el.stateDragHandle.setPointerCapture?.(e.pointerId);
-    e.preventDefault();
-  }
-  function moveStateDrag(e){
-    if(!stateDrag||e.pointerId!==stateDrag.id)return;
-    const rawLeft=e.clientX-stateDrag.hostLeft-stateDrag.dx,rawTop=e.clientY-stateDrag.hostTop-stateDrag.dy;
-    const p=clampStateDrawer(rawLeft,rawTop);
-    el.stateDrawer.style.left=p.left+'px';el.stateDrawer.style.top=p.top+'px';el.stateDrawer.style.right='auto';
-    e.preventDefault();
-  }
-  function endStateDrag(e){
-    if(!stateDrag||e.pointerId!==stateDrag.id)return;
-    el.stateDragHandle.classList.remove('dragging');
-    try{el.stateDragHandle.releasePointerCapture?.(e.pointerId);}catch(_){}
-    stateDrag=null;
-  }
-
   function berlinRates(){
     const seen=new Map();
     for(const f of berlinViolence?.features||[]){
@@ -548,10 +516,10 @@
   el.modeProperty.onclick=()=>{mode='property';pinnedArea=null;hoverArea=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');render();showArea(null);};
   el.stateClose.onclick=e=>{e.stopPropagation();closeStateDrawer({restore:true});};
   el.stateClose.onpointerdown=e=>e.stopPropagation();
-  el.stateDragHandle.addEventListener('pointerdown',beginStateDrag);
-  el.stateDragHandle.addEventListener('pointermove',moveStateDrag);
-  el.stateDragHandle.addEventListener('pointerup',endStateDrag);
-  el.stateDragHandle.addEventListener('pointercancel',endStateDrag);
+  el.stateDragHandle.addEventListener('pointerdown',stateDrawerDrag.begin);
+  el.stateDragHandle.addEventListener('pointermove',stateDrawerDrag.move);
+  el.stateDragHandle.addEventListener('pointerup',stateDrawerDrag.end);
+  el.stateDragHandle.addEventListener('pointercancel',stateDrawerDrag.end);
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&el.stateDrawer.classList.contains('open'))closeStateDrawer({restore:true});});
   el.toggleViolenceNews.onclick=()=>{showViolenceNews=!showViolenceNews;render();};
   el.togglePropertyNews.onclick=()=>{showPropertyNews=!showPropertyNews;render();};
@@ -560,9 +528,9 @@
   el.viewGermany.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');render();showArea(null);map.fitBounds(germanyBounds,{padding:[14,14]});};
   el.focusBerlin.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');renderNews();showArea(null);map.fitBounds(berlinBounds,{padding:[25,25],maxZoom:10});};
   map.on('zoomend',()=>{buildStateLayer();if(mode==='violence')buildBerlinLayer();if(mode==='property')buildHeat();renderLegend();});
-  map.on('moveend',()=>{if(!stateLayer)buildStateLayer();if(el.stateDrawer.classList.contains('open')){const b=el.stateDrawer.getBoundingClientRect(),h=document.querySelector('.mapwrap')?.getBoundingClientRect();if(h){const p=clampStateDrawer(b.left-h.left,b.top-h.top);el.stateDrawer.style.left=p.left+'px';el.stateDrawer.style.top=p.top+'px';el.stateDrawer.style.right='auto';}}});
+  map.on('moveend',()=>{if(!stateLayer)buildStateLayer();if(el.stateDrawer.classList.contains('open'))stateDrawerDrag.keepInside();});
 
-  window.addEventListener('resize',()=>{if(el.stateDrawer.classList.contains('open')){const b=el.stateDrawer.getBoundingClientRect(),h=document.querySelector('.mapwrap')?.getBoundingClientRect();if(h){const p=clampStateDrawer(b.left-h.left,b.top-h.top);el.stateDrawer.style.left=p.left+'px';el.stateDrawer.style.top=p.top+'px';el.stateDrawer.style.right='auto';}}});
+  window.addEventListener('resize',()=>{if(el.stateDrawer.classList.contains('open'))stateDrawerDrag.keepInside();});
   Promise.all([
     fetch('data/cases.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('cases '+r.status);return r.json()}),
     fetch('data/germany-counties.geojson',{cache:'force-cache'}).then(r=>{if(!r.ok)throw new Error('counties '+r.status);return r.json()}),
