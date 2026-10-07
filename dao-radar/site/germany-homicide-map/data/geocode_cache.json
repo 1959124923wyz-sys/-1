@@ -7607,5 +7607,20 @@
       "country": "Deutschland",
       "country_code": "de"
     }
+  },
+  "Bromberger Straße, Herne, Germany": {
+    "lat": 51.5385854,
+    "lon": 7.2651829,
+    "address": {
+      "road": "Bromberger Straße",
+      "suburb": "Börnig",
+      "city_district": "Sodingen",
+      "city": "Herne",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "44627",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
   }
 }
