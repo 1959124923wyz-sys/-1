@@ -209,10 +209,11 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   map.createPane('statePane');map.getPane('statePane').style.zIndex=245;
   map.createPane('berlinPane');map.getPane('berlinPane').style.zIndex=260;
   map.createPane('newsPane');map.getPane('newsPane').style.zIndex=460;
+  map.getPane('tilePane').style.filter='saturate(.45) contrast(.86) brightness(1.06)';
   newsLayer.addTo(map);
 
   let tileOk=false,tileErrors=0;
-  const tiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap contributors',crossOrigin:true,updateWhenIdle:true});
+  const tiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,opacity:.52,attribution:'© OpenStreetMap contributors',crossOrigin:true,updateWhenIdle:true});
   tiles.on('tileload',()=>{if(!tileOk){tileOk=true;el.mapStatus.className='mapstatus ok';el.mapStatus.textContent='OSM街道底图 + 本地统计图层';}});
   tiles.on('tileerror',()=>{tileErrors++;if(tileErrors>=6&&!tileOk){if(map.hasLayer(tiles))map.removeLayer(tiles);el.mapStatus.className='mapstatus fallback';el.mapStatus.textContent='本地统计底图（OSM当前不可用）';}});
   tiles.addTo(map);
@@ -564,26 +565,26 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     if(mode==='property'){
       const key=currentPropertyMetric(),rec=propertyRecord(feature),breaks=quantileBreaks(propertyRates(key));
       const val=rec?.[key]?.rate;
-      return {pane:'countyPane',color:'#667985',weight:.36,opacity:.78,fillColor:rec?scaleColor(val,breaks,propertyPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.60:0.07};
+      return {pane:'countyPane',color:'#718390',weight:.28,opacity:.58,fillColor:rec?scaleColor(val,breaks,propertyPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.68:0.07};
     }
     const key=currentViolenceMetric(),rec=pksRecord(feature),breaks=quantileBreaks(nationalRates(key)),val=rec?.[key]?.rate;
-    return {pane:'countyPane',color:'#6b7378',weight:.36,opacity:.78,fillColor:rec?scaleColor(val,breaks,nationalPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.60:0.07};
+    return {pane:'countyPane',color:'#7c7f82',weight:.28,opacity:.56,fillColor:rec?scaleColor(val,breaks,nationalPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.68:0.07};
   }
   function berlinStyle(feature){
     const v=Number(feature?.properties?.combined_rate||0),breaks=quantileBreaks(berlinRates());
-    return {pane:'berlinPane',color:'#694d77',weight:.35,opacity:.42,fillColor:scaleColor(v,breaks,berlinPalette),fillOpacity:.64};
+    return {pane:'berlinPane',color:'#76558a',weight:.30,opacity:.46,fillColor:scaleColor(v,breaks,berlinPalette),fillOpacity:.70};
   }
   function selectCountyLayer(layer){
     if(!countyLayer||!layer)return;
     if(selectedCountyLayer&&selectedCountyLayer!==layer)countyLayer.resetStyle(selectedCountyLayer);
     selectedCountyLayer=layer;
     countyLayer.resetStyle(layer);
-    layer.setStyle({color:'#111820',weight:2.2,opacity:1,fillOpacity:.72});
+    layer.setStyle({color:'#ffffff',weight:2.65,opacity:1,fillOpacity:.78});
     if(layer.bringToFront)layer.bringToFront();
   }
   function hoverCountyLayer(layer){
     if(!layer||layer===selectedCountyLayer)return;
-    layer.setStyle({color:'#ffffff',weight:1.45,opacity:.95,fillOpacity:.68});
+    layer.setStyle({color:'#d8f2ff',weight:1.45,opacity:1,fillOpacity:.74});
     if(layer.bringToFront)layer.bringToFront();
   }
   function unhoverCountyLayer(layer){
@@ -614,7 +615,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   }
   function stateStyle(feature){
     const selected=feature?.properties?.name===selectedStateName;
-    return {pane:'statePane',color:selected?'#f5f8fa':'#284052',weight:selected?2.8:1.75,opacity:selected?1:.96,fillColor:'#dce7ee',fillOpacity:selected?.035:.008};
+    return {pane:'statePane',color:selected?'#ffffff':'#20384b',weight:selected?3.1:2.0,opacity:selected?1:.98,fillColor:'#dce7ee',fillOpacity:selected?.045:.006};
   }
   function buildStateLayer(){
     if(stateLayer){map.removeLayer(stateLayer);stateLayer=null;}
@@ -625,7 +626,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
       onEachFeature:(feature,layer)=>{
         if(!interactive)return;
         layer.bindTooltip(()=>stateTooltipHtml(feature),{sticky:true,direction:'top',className:'state-tip'});
-        layer.on('mouseover',()=>{if(feature.properties?.name!==selectedStateName)layer.setStyle({color:'#eef7ff',weight:2.25,fillOpacity:.045});});
+        layer.on('mouseover',()=>{if(feature.properties?.name!==selectedStateName)layer.setStyle({color:'#f4fbff',weight:2.65,fillOpacity:.055});});
         layer.on('mouseout',()=>stateLayer&&stateLayer.resetStyle(layer));
         layer.on('click',()=>{
           selectedStateName=feature.properties?.name||null;activeStateFilter=selectedStateName;
