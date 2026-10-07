@@ -10,3 +10,5 @@ for a in s.find_all("a",href=True):
     href=urljoin(u,a["href"])
     if label.isdigit() or "Nächste" in label or "Weiter" in label:
         print(repr(label),href)
+
+# trigger
