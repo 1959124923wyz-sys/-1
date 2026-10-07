@@ -1,0 +1,3262 @@
+{
+  "meta": {
+    "generated_at": "2026-10-07T08:47:35Z",
+    "source": "Berlin Open Data / LOR 2021 WFS",
+    "source_url": "https://daten.berlin.de/datensaetze/lebensweltlich-orientierte-raume-lor-01-01-2021-wfs-34c86848",
+    "feature_count": 542
+  },
+  "centroids": {
+    "01100101": {
+      "lat": 52.506444,
+      "lon": 13.347491,
+      "name": "Stülerstraße",
+      "district": ""
+    },
+    "01100102": {
+      "lat": 52.512503,
+      "lon": 13.358221,
+      "name": "Großer Tiergarten",
+      "district": ""
+    },
+    "01100103": {
+      "lat": 52.503613,
+      "lon": 13.358802,
+      "name": "Lützowstraße",
+      "district": ""
+    },
+    "01100104": {
+      "lat": 52.502107,
+      "lon": 13.368218,
+      "name": "Körnerstraße",
+      "district": ""
+    },
+    "01100205": {
+      "lat": 52.511029,
+      "lon": 13.381887,
+      "name": "Wilhelmstraße",
+      "district": ""
+    },
+    "01100206": {
+      "lat": 52.517243,
+      "lon": 13.390617,
+      "name": "Unter den Linden",
+      "district": ""
+    },
+    "01100207": {
+      "lat": 52.511521,
+      "lon": 13.397902,
+      "name": "Leipziger Straße",
+      "district": ""
+    },
+    "01100308": {
+      "lat": 52.527877,
+      "lon": 13.377961,
+      "name": "Charitéviertel",
+      "district": ""
+    },
+    "01100309": {
+      "lat": 52.525893,
+      "lon": 13.398084,
+      "name": "Oranienburger Straße",
+      "district": ""
+    },
+    "01100310": {
+      "lat": 52.520977,
+      "lon": 13.410249,
+      "name": "Alexanderplatzviertel",
+      "district": ""
+    },
+    "01100311": {
+      "lat": 52.518953,
+      "lon": 13.42155,
+      "name": "Karl-Marx-Allee",
+      "district": ""
+    },
+    "01100312": {
+      "lat": 52.510609,
+      "lon": 13.410597,
+      "name": "Heine-Viertel West",
+      "district": ""
+    },
+    "01100313": {
+      "lat": 52.508348,
+      "lon": 13.420611,
+      "name": "Heine-Viertel Ost",
+      "district": ""
+    },
+    "01100414": {
+      "lat": 52.535525,
+      "lon": 13.381075,
+      "name": "Nordbahnhof",
+      "district": ""
+    },
+    "01100415": {
+      "lat": 52.532053,
+      "lon": 13.392267,
+      "name": "Invalidenstraße",
+      "district": ""
+    },
+    "01100416": {
+      "lat": 52.535078,
+      "lon": 13.402392,
+      "name": "Arkonaplatz",
+      "district": ""
+    },
+    "01200517": {
+      "lat": 52.533841,
+      "lon": 13.3303,
+      "name": "Huttenkiez",
+      "district": ""
+    },
+    "01200518": {
+      "lat": 52.528716,
+      "lon": 13.326667,
+      "name": "Beusselkiez",
+      "district": ""
+    },
+    "01200519": {
+      "lat": 52.530095,
+      "lon": 13.332632,
+      "name": "Emdener Straße",
+      "district": ""
+    },
+    "01200520": {
+      "lat": 52.530074,
+      "lon": 13.340009,
+      "name": "Bremer Straße",
+      "district": ""
+    },
+    "01200521": {
+      "lat": 52.525634,
+      "lon": 13.332318,
+      "name": "Zwinglistraße",
+      "district": ""
+    },
+    "01200522": {
+      "lat": 52.521649,
+      "lon": 13.335258,
+      "name": "Elberfelder Straße",
+      "district": ""
+    },
+    "01200623": {
+      "lat": 52.531444,
+      "lon": 13.35426,
+      "name": "Stephankiez",
+      "district": ""
+    },
+    "01200624": {
+      "lat": 52.531819,
+      "lon": 13.365308,
+      "name": "Heidestraße",
+      "district": ""
+    },
+    "01200625": {
+      "lat": 52.52825,
+      "lon": 13.348194,
+      "name": "Lübecker Straße",
+      "district": ""
+    },
+    "01200626": {
+      "lat": 52.523434,
+      "lon": 13.350264,
+      "name": "Thomasiusstraße",
+      "district": ""
+    },
+    "01200627": {
+      "lat": 52.525572,
+      "lon": 13.360943,
+      "name": "Zillesiedlung",
+      "district": ""
+    },
+    "01200628": {
+      "lat": 52.521869,
+      "lon": 13.362698,
+      "name": "Lüneburger Straße",
+      "district": ""
+    },
+    "01200629": {
+      "lat": 52.518565,
+      "lon": 13.341884,
+      "name": "Hansaviertel",
+      "district": ""
+    },
+    "01300730": {
+      "lat": 52.558472,
+      "lon": 13.376618,
+      "name": "Drontheimer Straße",
+      "district": ""
+    },
+    "01300731": {
+      "lat": 52.563542,
+      "lon": 13.384396,
+      "name": "Koloniestraße",
+      "district": ""
+    },
+    "01300732": {
+      "lat": 52.559001,
+      "lon": 13.391773,
+      "name": "Soldiner Straße",
+      "district": ""
+    },
+    "01300733": {
+      "lat": 52.55266,
+      "lon": 13.389962,
+      "name": "Gesundbrunnen",
+      "district": ""
+    },
+    "01300834": {
+      "lat": 52.544854,
+      "lon": 13.395601,
+      "name": "Brunnenstraße",
+      "district": ""
+    },
+    "01300835": {
+      "lat": 52.541133,
+      "lon": 13.386708,
+      "name": "Humboldthain Süd",
+      "district": ""
+    },
+    "01300836": {
+      "lat": 52.543202,
+      "lon": 13.373091,
+      "name": "Humboldthain Nordwest",
+      "district": ""
+    },
+    "01400937": {
+      "lat": 52.552666,
+      "lon": 13.324609,
+      "name": "Afrikanische Straße",
+      "district": ""
+    },
+    "01400938": {
+      "lat": 52.546119,
+      "lon": 13.341673,
+      "name": "Kameruner Straße",
+      "district": ""
+    },
+    "01400939": {
+      "lat": 52.554769,
+      "lon": 13.348888,
+      "name": "Glasgower Straße",
+      "district": ""
+    },
+    "01400940": {
+      "lat": 52.558389,
+      "lon": 13.35505,
+      "name": "Schillerpark",
+      "district": ""
+    },
+    "01400941": {
+      "lat": 52.561277,
+      "lon": 13.340154,
+      "name": "Londoner Straße",
+      "district": ""
+    },
+    "01400942": {
+      "lat": 52.546375,
+      "lon": 13.351164,
+      "name": "Westliche Müllerstraße",
+      "district": ""
+    },
+    "01401043": {
+      "lat": 52.547437,
+      "lon": 13.365117,
+      "name": "Antonstraße",
+      "district": ""
+    },
+    "01401044": {
+      "lat": 52.550645,
+      "lon": 13.37293,
+      "name": "Uferstraße",
+      "district": ""
+    },
+    "01401045": {
+      "lat": 52.554974,
+      "lon": 13.377974,
+      "name": "Schwedenstraße",
+      "district": ""
+    },
+    "01401046": {
+      "lat": 52.540859,
+      "lon": 13.352331,
+      "name": "Nordufer",
+      "district": ""
+    },
+    "01401047": {
+      "lat": 52.543047,
+      "lon": 13.360093,
+      "name": "Sparrplatz",
+      "district": ""
+    },
+    "01401048": {
+      "lat": 52.550847,
+      "lon": 13.358611,
+      "name": "Leopoldplatz",
+      "district": ""
+    },
+    "01401049": {
+      "lat": 52.554355,
+      "lon": 13.366423,
+      "name": "Schulstraße",
+      "district": ""
+    },
+    "02100101": {
+      "lat": 52.502917,
+      "lon": 13.38235,
+      "name": "Askanischer Platz",
+      "district": ""
+    },
+    "02100102": {
+      "lat": 52.503497,
+      "lon": 13.392195,
+      "name": "Mehringplatz",
+      "district": ""
+    },
+    "02100103": {
+      "lat": 52.503859,
+      "lon": 13.399481,
+      "name": "Am Berlin Museum",
+      "district": ""
+    },
+    "02100104": {
+      "lat": 52.504121,
+      "lon": 13.40885,
+      "name": "Moritzplatz",
+      "district": ""
+    },
+    "02100105": {
+      "lat": 52.50032,
+      "lon": 13.406152,
+      "name": "Prinzenstraße",
+      "district": ""
+    },
+    "02100106": {
+      "lat": 52.497369,
+      "lon": 13.410613,
+      "name": "Wassertorplatz",
+      "district": ""
+    },
+    "02200207": {
+      "lat": 52.496924,
+      "lon": 13.374407,
+      "name": "Gleisdreieck",
+      "district": ""
+    },
+    "02200208": {
+      "lat": 52.495815,
+      "lon": 13.384272,
+      "name": "Rathaus Yorckstraße",
+      "district": ""
+    },
+    "02200209": {
+      "lat": 52.488648,
+      "lon": 13.380945,
+      "name": "Viktoriapark",
+      "district": ""
+    },
+    "02200210": {
+      "lat": 52.493837,
+      "lon": 13.398537,
+      "name": "Urbanstraße",
+      "district": ""
+    },
+    "02200211": {
+      "lat": 52.487588,
+      "lon": 13.396914,
+      "name": "Chamissokiez",
+      "district": ""
+    },
+    "02200212": {
+      "lat": 52.489412,
+      "lon": 13.414598,
+      "name": "Graefekiez Süd",
+      "district": ""
+    },
+    "02200213": {
+      "lat": 52.493035,
+      "lon": 13.416003,
+      "name": "Graefekiez Nord",
+      "district": ""
+    },
+    "02300314": {
+      "lat": 52.502397,
+      "lon": 13.420226,
+      "name": "Oranienplatz",
+      "district": ""
+    },
+    "02300315": {
+      "lat": 52.501052,
+      "lon": 13.429219,
+      "name": "Lausitzer Platz",
+      "district": ""
+    },
+    "02300316": {
+      "lat": 52.503766,
+      "lon": 13.43479,
+      "name": "Köpenicker Straße",
+      "district": ""
+    },
+    "02300417": {
+      "lat": 52.496905,
+      "lon": 13.425874,
+      "name": "Reichenberger Straße West",
+      "district": ""
+    },
+    "02300418": {
+      "lat": 52.494406,
+      "lon": 13.436549,
+      "name": "Reichenberger Straße Ost",
+      "district": ""
+    },
+    "02300419": {
+      "lat": 52.498053,
+      "lon": 13.443759,
+      "name": "Wrangelkiez",
+      "district": ""
+    },
+    "02400520": {
+      "lat": 52.526309,
+      "lon": 13.433549,
+      "name": "Barnimkiez",
+      "district": ""
+    },
+    "02400521": {
+      "lat": 52.52064,
+      "lon": 13.436614,
+      "name": "Friedenstraße",
+      "district": ""
+    },
+    "02400522": {
+      "lat": 52.520325,
+      "lon": 13.44727,
+      "name": "Richard-Sorge-Viertel",
+      "district": ""
+    },
+    "02400623": {
+      "lat": 52.513511,
+      "lon": 13.431967,
+      "name": "Andreasviertel",
+      "district": ""
+    },
+    "02400624": {
+      "lat": 52.513044,
+      "lon": 13.446997,
+      "name": "Weberwiese",
+      "district": ""
+    },
+    "02400625": {
+      "lat": 52.507202,
+      "lon": 13.441536,
+      "name": "Wriezener Bahnhof",
+      "district": ""
+    },
+    "02500726": {
+      "lat": 52.523646,
+      "lon": 13.451924,
+      "name": "Hausburgviertel",
+      "district": ""
+    },
+    "02500727": {
+      "lat": 52.51805,
+      "lon": 13.457481,
+      "name": "Forckenbeckplatz",
+      "district": ""
+    },
+    "02500728": {
+      "lat": 52.517366,
+      "lon": 13.465307,
+      "name": "Samariterviertel",
+      "district": ""
+    },
+    "02500729": {
+      "lat": 52.516638,
+      "lon": 13.472108,
+      "name": "Pettenkofer Straße",
+      "district": ""
+    },
+    "02500830": {
+      "lat": 52.513983,
+      "lon": 13.458332,
+      "name": "Niederbarnimstraße",
+      "district": ""
+    },
+    "02500831": {
+      "lat": 52.512124,
+      "lon": 13.466132,
+      "name": "Wismarplatz",
+      "district": ""
+    },
+    "02500832": {
+      "lat": 52.509869,
+      "lon": 13.471675,
+      "name": "Traveplatz",
+      "district": ""
+    },
+    "02500833": {
+      "lat": 52.510725,
+      "lon": 13.458717,
+      "name": "Boxhagener Platz",
+      "district": ""
+    },
+    "02500834": {
+      "lat": 52.507174,
+      "lon": 13.459682,
+      "name": "Revaler Straße",
+      "district": ""
+    },
+    "02500835": {
+      "lat": 52.501433,
+      "lon": 13.458382,
+      "name": "Stralauer Kiez",
+      "district": ""
+    },
+    "02500836": {
+      "lat": 52.492919,
+      "lon": 13.476039,
+      "name": "Stralauer Halbinsel",
+      "district": ""
+    },
+    "03100101": {
+      "lat": 52.640411,
+      "lon": 13.464649,
+      "name": "Bucher Forst",
+      "district": ""
+    },
+    "03100102": {
+      "lat": 52.637507,
+      "lon": 13.510022,
+      "name": "Klinikum Buch",
+      "district": ""
+    },
+    "03100103": {
+      "lat": 52.627757,
+      "lon": 13.495658,
+      "name": "Karower Chaussee",
+      "district": ""
+    },
+    "03200204": {
+      "lat": 52.62358,
+      "lon": 13.398644,
+      "name": "Blankenfelde",
+      "district": ""
+    },
+    "03200205": {
+      "lat": 52.593888,
+      "lon": 13.393744,
+      "name": "Uhlandstraße",
+      "district": ""
+    },
+    "03200206": {
+      "lat": 52.580203,
+      "lon": 13.396246,
+      "name": "Pastor-Niemöller-Platz",
+      "district": ""
+    },
+    "03200207": {
+      "lat": 52.591696,
+      "lon": 13.414063,
+      "name": "Herthaplatz",
+      "district": ""
+    },
+    "03200308": {
+      "lat": 52.600582,
+      "lon": 13.424114,
+      "name": "Nisbléstraße",
+      "district": ""
+    },
+    "03200309": {
+      "lat": 52.605495,
+      "lon": 13.438993,
+      "name": "Eddastraße",
+      "district": ""
+    },
+    "03200310": {
+      "lat": 52.613109,
+      "lon": 13.423172,
+      "name": "Krugpfuhl",
+      "district": ""
+    },
+    "03300411": {
+      "lat": 52.618258,
+      "lon": 13.490892,
+      "name": "Karow Nord",
+      "district": ""
+    },
+    "03300412": {
+      "lat": 52.612802,
+      "lon": 13.470324,
+      "name": "Karow Bahnhof",
+      "district": ""
+    },
+    "03300413": {
+      "lat": 52.605689,
+      "lon": 13.484836,
+      "name": "Karow Ost",
+      "district": ""
+    },
+    "03300514": {
+      "lat": 52.595226,
+      "lon": 13.457021,
+      "name": "Blankenburg",
+      "district": ""
+    },
+    "03300515": {
+      "lat": 52.583699,
+      "lon": 13.455356,
+      "name": "Blankenburger Süden",
+      "district": ""
+    },
+    "03300516": {
+      "lat": 52.570787,
+      "lon": 13.4411,
+      "name": "Heinersdorf",
+      "district": ""
+    },
+    "03300517": {
+      "lat": 52.582913,
+      "lon": 13.477756,
+      "name": "Märchenland",
+      "district": ""
+    },
+    "03400618": {
+      "lat": 52.597332,
+      "lon": 13.37767,
+      "name": "Rosenthal",
+      "district": ""
+    },
+    "03400619": {
+      "lat": 52.587402,
+      "lon": 13.369547,
+      "name": "Wilhelmsruh",
+      "district": ""
+    },
+    "03400620": {
+      "lat": 52.576142,
+      "lon": 13.383292,
+      "name": "Schönholz",
+      "district": ""
+    },
+    "03400721": {
+      "lat": 52.565255,
+      "lon": 13.398735,
+      "name": "Florakiez",
+      "district": ""
+    },
+    "03400722": {
+      "lat": 52.574236,
+      "lon": 13.404217,
+      "name": "Parkstraße",
+      "district": ""
+    },
+    "03400723": {
+      "lat": 52.570572,
+      "lon": 13.413413,
+      "name": "Garbátyplatz",
+      "district": ""
+    },
+    "03400724": {
+      "lat": 52.576813,
+      "lon": 13.41906,
+      "name": "Wolfshagener Straße",
+      "district": ""
+    },
+    "03400725": {
+      "lat": 52.583161,
+      "lon": 13.421806,
+      "name": "Schlosspark",
+      "district": ""
+    },
+    "03400826": {
+      "lat": 52.561179,
+      "lon": 13.407877,
+      "name": "Tiroler Viertel",
+      "district": ""
+    },
+    "03400827": {
+      "lat": 52.556681,
+      "lon": 13.418826,
+      "name": "Trelleborger Viertel",
+      "district": ""
+    },
+    "03400828": {
+      "lat": 52.556474,
+      "lon": 13.426228,
+      "name": "Spiekermann Straße",
+      "district": ""
+    },
+    "03400829": {
+      "lat": 52.561917,
+      "lon": 13.420794,
+      "name": "Arnold-Zweig-Straße",
+      "district": ""
+    },
+    "03400830": {
+      "lat": 52.567021,
+      "lon": 13.421522,
+      "name": "Kissingenviertel",
+      "district": ""
+    },
+    "03400831": {
+      "lat": 52.574188,
+      "lon": 13.42521,
+      "name": "Pankower Tor",
+      "district": ""
+    },
+    "03500932": {
+      "lat": 52.559179,
+      "lon": 13.445775,
+      "name": "Bühringstraße",
+      "district": ""
+    },
+    "03500933": {
+      "lat": 52.555039,
+      "lon": 13.458121,
+      "name": "Weißer See",
+      "district": ""
+    },
+    "03500934": {
+      "lat": 52.553463,
+      "lon": 13.436462,
+      "name": "Weißenseer Spitze",
+      "district": ""
+    },
+    "03500935": {
+      "lat": 52.550311,
+      "lon": 13.448438,
+      "name": "Behaimstraße",
+      "district": ""
+    },
+    "03500936": {
+      "lat": 52.545652,
+      "lon": 13.461073,
+      "name": "Komponistenviertel Weißensee",
+      "district": ""
+    },
+    "03501037": {
+      "lat": 52.561245,
+      "lon": 13.466891,
+      "name": "Rathaus Weißensee",
+      "district": ""
+    },
+    "03501038": {
+      "lat": 52.555252,
+      "lon": 13.481737,
+      "name": "Hansastraße",
+      "district": ""
+    },
+    "03601139": {
+      "lat": 52.556175,
+      "lon": 13.405951,
+      "name": "Norweger Viertel",
+      "district": ""
+    },
+    "03601140": {
+      "lat": 52.552453,
+      "lon": 13.40208,
+      "name": "Malmöer Straße",
+      "district": ""
+    },
+    "03601141": {
+      "lat": 52.551978,
+      "lon": 13.410237,
+      "name": "Arnimplatz",
+      "district": ""
+    },
+    "03601142": {
+      "lat": 52.545575,
+      "lon": 13.406407,
+      "name": "Falkplatz",
+      "district": ""
+    },
+    "03601243": {
+      "lat": 52.551099,
+      "lon": 13.418767,
+      "name": "Rodenbergstraße",
+      "district": ""
+    },
+    "03601244": {
+      "lat": 52.548782,
+      "lon": 13.425337,
+      "name": "Humannplatz",
+      "district": ""
+    },
+    "03601245": {
+      "lat": 52.54618,
+      "lon": 13.435656,
+      "name": "Ostseestraße",
+      "district": ""
+    },
+    "03601346": {
+      "lat": 52.54593,
+      "lon": 13.415328,
+      "name": "Gethsemanekirche",
+      "district": ""
+    },
+    "03601347": {
+      "lat": 52.543477,
+      "lon": 13.41828,
+      "name": "Helmholtzplatz",
+      "district": ""
+    },
+    "03601348": {
+      "lat": 52.542065,
+      "lon": 13.422844,
+      "name": "Senefelderstraße",
+      "district": ""
+    },
+    "03601449": {
+      "lat": 52.541829,
+      "lon": 13.447863,
+      "name": "Michelangelostraße",
+      "district": ""
+    },
+    "03601450": {
+      "lat": 52.535557,
+      "lon": 13.458483,
+      "name": "Volkspark Prenzlauer Berg",
+      "district": ""
+    },
+    "03601451": {
+      "lat": 52.536311,
+      "lon": 13.44026,
+      "name": "Anton-Saefkow-Park",
+      "district": ""
+    },
+    "03601452": {
+      "lat": 52.53084,
+      "lon": 13.448469,
+      "name": "Velodrom",
+      "district": ""
+    },
+    "03601453": {
+      "lat": 52.523225,
+      "lon": 13.461183,
+      "name": "Alter Schlachthof",
+      "district": ""
+    },
+    "03701554": {
+      "lat": 52.535517,
+      "lon": 13.409342,
+      "name": "Teutoburger Platz",
+      "district": ""
+    },
+    "03701555": {
+      "lat": 52.538102,
+      "lon": 13.417809,
+      "name": "Sredzkistraße",
+      "district": ""
+    },
+    "03701556": {
+      "lat": 52.532263,
+      "lon": 13.416214,
+      "name": "Kollwitzplatz",
+      "district": ""
+    },
+    "03701657": {
+      "lat": 52.540007,
+      "lon": 13.430091,
+      "name": "Thälmannpark",
+      "district": ""
+    },
+    "03701658": {
+      "lat": 52.535896,
+      "lon": 13.427106,
+      "name": "Christburger Straße",
+      "district": ""
+    },
+    "03701659": {
+      "lat": 52.5305,
+      "lon": 13.422369,
+      "name": "Immanuelkirchstraße",
+      "district": ""
+    },
+    "03701660": {
+      "lat": 52.531427,
+      "lon": 13.433117,
+      "name": "Bötzowstraße",
+      "district": ""
+    },
+    "04100101": {
+      "lat": 52.541472,
+      "lon": 13.296638,
+      "name": "Jungfernheide/Plötzensee",
+      "district": ""
+    },
+    "04100102": {
+      "lat": 52.537145,
+      "lon": 13.298928,
+      "name": "Paul-Hertz-Siedlung",
+      "district": ""
+    },
+    "04200203": {
+      "lat": 52.518483,
+      "lon": 13.234859,
+      "name": "Olympiagelände",
+      "district": ""
+    },
+    "04200204": {
+      "lat": 52.510301,
+      "lon": 13.221815,
+      "name": "Angerburger Allee",
+      "district": ""
+    },
+    "04200205": {
+      "lat": 52.510576,
+      "lon": 13.244943,
+      "name": "Flatowallee",
+      "district": ""
+    },
+    "04200206": {
+      "lat": 52.505959,
+      "lon": 13.229818,
+      "name": "Kranzallee",
+      "district": ""
+    },
+    "04200207": {
+      "lat": 52.488048,
+      "lon": 13.22579,
+      "name": "Eichkamp",
+      "district": ""
+    },
+    "04200308": {
+      "lat": 52.522441,
+      "lon": 13.268994,
+      "name": "Branitzer Platz",
+      "district": ""
+    },
+    "04200309": {
+      "lat": 52.517388,
+      "lon": 13.256875,
+      "name": "Neu Westend",
+      "district": ""
+    },
+    "04200310": {
+      "lat": 52.510641,
+      "lon": 13.267448,
+      "name": "Fürstenplatz",
+      "district": ""
+    },
+    "04200311": {
+      "lat": 52.50682,
+      "lon": 13.276586,
+      "name": "Königin-Elisabeth-Straße",
+      "district": ""
+    },
+    "04300412": {
+      "lat": 52.524057,
+      "lon": 13.290207,
+      "name": "Schlossgarten",
+      "district": ""
+    },
+    "04300413": {
+      "lat": 52.516135,
+      "lon": 13.290363,
+      "name": "Klausenerplatz",
+      "district": ""
+    },
+    "04300414": {
+      "lat": 52.513581,
+      "lon": 13.295217,
+      "name": "Schloßstraße",
+      "district": ""
+    },
+    "04300415": {
+      "lat": 52.505816,
+      "lon": 13.287133,
+      "name": "Lietzensee",
+      "district": ""
+    },
+    "04300416": {
+      "lat": 52.506745,
+      "lon": 13.297458,
+      "name": "Amtsgerichtsplatz",
+      "district": ""
+    },
+    "04300517": {
+      "lat": 52.527186,
+      "lon": 13.301218,
+      "name": "Tegeler Weg",
+      "district": ""
+    },
+    "04300518": {
+      "lat": 52.527798,
+      "lon": 13.308001,
+      "name": "Kaiserin-Augusta-Allee",
+      "district": ""
+    },
+    "04300619": {
+      "lat": 52.518468,
+      "lon": 13.309971,
+      "name": "Alt-Lietzow",
+      "district": ""
+    },
+    "04300620": {
+      "lat": 52.519191,
+      "lon": 13.326293,
+      "name": "Spreestadt",
+      "district": ""
+    },
+    "04300621": {
+      "lat": 52.514358,
+      "lon": 13.306875,
+      "name": "Richard-Wagner-Straße",
+      "district": ""
+    },
+    "04300622": {
+      "lat": 52.512298,
+      "lon": 13.324501,
+      "name": "Ernst-Reuter-Platz",
+      "district": ""
+    },
+    "04300623": {
+      "lat": 52.508385,
+      "lon": 13.308459,
+      "name": "Karl-August-Platz",
+      "district": ""
+    },
+    "04300624": {
+      "lat": 52.508034,
+      "lon": 13.319819,
+      "name": "Savignyplatz",
+      "district": ""
+    },
+    "04400725": {
+      "lat": 52.494809,
+      "lon": 13.272855,
+      "name": "Güterbahnhof Grunewald",
+      "district": ""
+    },
+    "04400726": {
+      "lat": 52.490556,
+      "lon": 13.280123,
+      "name": "Bismarckallee",
+      "district": ""
+    },
+    "04400727": {
+      "lat": 52.485525,
+      "lon": 13.29003,
+      "name": "Flinsberger Platz",
+      "district": ""
+    },
+    "04400728": {
+      "lat": 52.483231,
+      "lon": 13.273475,
+      "name": "Hagenplatz",
+      "district": ""
+    },
+    "04400729": {
+      "lat": 52.474808,
+      "lon": 13.261174,
+      "name": "Hundekehle",
+      "district": ""
+    },
+    "04400830": {
+      "lat": 52.480189,
+      "lon": 13.297885,
+      "name": "Forckenbeckstraße",
+      "district": ""
+    },
+    "04400831": {
+      "lat": 52.472815,
+      "lon": 13.283894,
+      "name": "Messelpark",
+      "district": ""
+    },
+    "04400832": {
+      "lat": 52.472088,
+      "lon": 13.296577,
+      "name": "Breite Straße",
+      "district": ""
+    },
+    "04400833": {
+      "lat": 52.473118,
+      "lon": 13.305219,
+      "name": "Schlangenbader Straße",
+      "district": ""
+    },
+    "04400834": {
+      "lat": 52.473666,
+      "lon": 13.310847,
+      "name": "Binger Straße",
+      "district": ""
+    },
+    "04400835": {
+      "lat": 52.472176,
+      "lon": 13.316369,
+      "name": "Rüdesheimer Platz",
+      "district": ""
+    },
+    "04500936": {
+      "lat": 52.501602,
+      "lon": 13.302002,
+      "name": "Droysenstraße",
+      "district": ""
+    },
+    "04500937": {
+      "lat": 52.49925,
+      "lon": 13.290536,
+      "name": "Halensee",
+      "district": ""
+    },
+    "04500938": {
+      "lat": 52.495936,
+      "lon": 13.297468,
+      "name": "Hochmeisterplatz",
+      "district": ""
+    },
+    "04500939": {
+      "lat": 52.491979,
+      "lon": 13.30458,
+      "name": "Eisenzahnstraße",
+      "district": ""
+    },
+    "04501040": {
+      "lat": 52.502809,
+      "lon": 13.309613,
+      "name": "Hindemithplatz",
+      "district": ""
+    },
+    "04501041": {
+      "lat": 52.50227,
+      "lon": 13.319123,
+      "name": "George-Grosz-Platz",
+      "district": ""
+    },
+    "04501042": {
+      "lat": 52.5034,
+      "lon": 13.332461,
+      "name": "Breitscheidplatz",
+      "district": ""
+    },
+    "04501043": {
+      "lat": 52.495918,
+      "lon": 13.313276,
+      "name": "Preußenpark",
+      "district": ""
+    },
+    "04501044": {
+      "lat": 52.495865,
+      "lon": 13.320894,
+      "name": "Ludwigkirchplatz",
+      "district": ""
+    },
+    "04501045": {
+      "lat": 52.497489,
+      "lon": 13.33098,
+      "name": "Schaperstraße",
+      "district": ""
+    },
+    "04501146": {
+      "lat": 52.486157,
+      "lon": 13.311944,
+      "name": "Barstraße",
+      "district": ""
+    },
+    "04501147": {
+      "lat": 52.489744,
+      "lon": 13.319666,
+      "name": "Leon-Jessel-Platz",
+      "district": ""
+    },
+    "04501148": {
+      "lat": 52.48097,
+      "lon": 13.315195,
+      "name": "Brabanter Platz",
+      "district": ""
+    },
+    "04501149": {
+      "lat": 52.490503,
+      "lon": 13.326714,
+      "name": "Nikolsburger Platz",
+      "district": ""
+    },
+    "04501150": {
+      "lat": 52.484845,
+      "lon": 13.325822,
+      "name": "Wilhelmsaue",
+      "district": ""
+    },
+    "04501151": {
+      "lat": 52.480284,
+      "lon": 13.324458,
+      "name": "Hildegardstraße",
+      "district": ""
+    },
+    "04501152": {
+      "lat": 52.491464,
+      "lon": 13.333704,
+      "name": "Prager Platz",
+      "district": ""
+    },
+    "04501153": {
+      "lat": 52.482386,
+      "lon": 13.333179,
+      "name": "Babelsberger Straße",
+      "district": ""
+    },
+    "05100101": {
+      "lat": 52.578687,
+      "lon": 13.179989,
+      "name": "Hakenfelde Nord",
+      "district": ""
+    },
+    "05100102": {
+      "lat": 52.56411,
+      "lon": 13.20214,
+      "name": "Am Forstacker",
+      "district": ""
+    },
+    "05100103": {
+      "lat": 52.56369,
+      "lon": 13.21697,
+      "name": "Mertensstraße",
+      "district": ""
+    },
+    "05100104": {
+      "lat": 52.558116,
+      "lon": 13.213905,
+      "name": "Maselake",
+      "district": ""
+    },
+    "05100105": {
+      "lat": 52.557475,
+      "lon": 13.189149,
+      "name": "Amorbacher Weg",
+      "district": ""
+    },
+    "05100206": {
+      "lat": 52.559484,
+      "lon": 13.157686,
+      "name": "Griesingerstraße",
+      "district": ""
+    },
+    "05100207": {
+      "lat": 52.550569,
+      "lon": 13.135771,
+      "name": "An der Tränke",
+      "district": ""
+    },
+    "05100208": {
+      "lat": 52.549564,
+      "lon": 13.15849,
+      "name": "Im Spektefeld",
+      "district": ""
+    },
+    "05100209": {
+      "lat": 52.549388,
+      "lon": 13.178228,
+      "name": "Westerwaldstraße",
+      "district": ""
+    },
+    "05100210": {
+      "lat": 52.546399,
+      "lon": 13.187246,
+      "name": "Germersheimer Platz",
+      "district": ""
+    },
+    "05100211": {
+      "lat": 52.543613,
+      "lon": 13.168094,
+      "name": "An der Kappe",
+      "district": ""
+    },
+    "05100312": {
+      "lat": 52.55136,
+      "lon": 13.196508,
+      "name": "Eckschanze",
+      "district": ""
+    },
+    "05100313": {
+      "lat": 52.551992,
+      "lon": 13.214273,
+      "name": "Eiswerder",
+      "district": ""
+    },
+    "05100314": {
+      "lat": 52.545945,
+      "lon": 13.20621,
+      "name": "Kurstraße",
+      "district": ""
+    },
+    "05100315": {
+      "lat": 52.545255,
+      "lon": 13.198892,
+      "name": "Ackerstraße",
+      "district": ""
+    },
+    "05100316": {
+      "lat": 52.538903,
+      "lon": 13.195767,
+      "name": "Carl-Schurz-Straße",
+      "district": ""
+    },
+    "05100317": {
+      "lat": 52.530356,
+      "lon": 13.224734,
+      "name": "Freiheit",
+      "district": ""
+    },
+    "05200418": {
+      "lat": 52.543246,
+      "lon": 13.133875,
+      "name": "Isenburger Weg",
+      "district": ""
+    },
+    "05200419": {
+      "lat": 52.541266,
+      "lon": 13.146611,
+      "name": "Am Heideberg",
+      "district": ""
+    },
+    "05200420": {
+      "lat": 52.533814,
+      "lon": 13.166381,
+      "name": "Staakener Straße",
+      "district": ""
+    },
+    "05200421": {
+      "lat": 52.535638,
+      "lon": 13.144102,
+      "name": "Spandauer Straße",
+      "district": ""
+    },
+    "05200422": {
+      "lat": 52.532941,
+      "lon": 13.129769,
+      "name": "Werkstraße",
+      "district": ""
+    },
+    "05200423": {
+      "lat": 52.531222,
+      "lon": 13.153592,
+      "name": "Magistratsweg",
+      "district": ""
+    },
+    "05200524": {
+      "lat": 52.523981,
+      "lon": 13.128868,
+      "name": "Döberitzer Weg",
+      "district": ""
+    },
+    "05200525": {
+      "lat": 52.52254,
+      "lon": 13.146251,
+      "name": "Pillnitzer Weg",
+      "district": ""
+    },
+    "05200526": {
+      "lat": 52.521621,
+      "lon": 13.157836,
+      "name": "Rudolf-Wissell-Großsiedlung",
+      "district": ""
+    },
+    "05200527": {
+      "lat": 52.522154,
+      "lon": 13.173827,
+      "name": "Maulbeerallee",
+      "district": ""
+    },
+    "05200528": {
+      "lat": 52.510507,
+      "lon": 13.170297,
+      "name": "Weinmeisterhornweg",
+      "district": ""
+    },
+    "05200629": {
+      "lat": 52.531423,
+      "lon": 13.190111,
+      "name": "Borkumer Straße",
+      "district": ""
+    },
+    "05200630": {
+      "lat": 52.522965,
+      "lon": 13.191296,
+      "name": "Wilhelmstadt West",
+      "district": ""
+    },
+    "05200631": {
+      "lat": 52.521219,
+      "lon": 13.200488,
+      "name": "Wilhelmstadt Ost",
+      "district": ""
+    },
+    "05200632": {
+      "lat": 52.523004,
+      "lon": 13.212199,
+      "name": "Tiefwerder",
+      "district": ""
+    },
+    "05200633": {
+      "lat": 52.516941,
+      "lon": 13.188637,
+      "name": "Graetschelsteig",
+      "district": ""
+    },
+    "05200634": {
+      "lat": 52.508454,
+      "lon": 13.19727,
+      "name": "Börnicker Straße",
+      "district": ""
+    },
+    "05300735": {
+      "lat": 52.555696,
+      "lon": 13.229713,
+      "name": "Haveleck",
+      "district": ""
+    },
+    "05300736": {
+      "lat": 52.541382,
+      "lon": 13.224997,
+      "name": "Zitadellenweg",
+      "district": ""
+    },
+    "05300737": {
+      "lat": 52.542883,
+      "lon": 13.240049,
+      "name": "Gartenfelder Straße",
+      "district": ""
+    },
+    "05300838": {
+      "lat": 52.550536,
+      "lon": 13.245945,
+      "name": "Gartenfeld",
+      "district": ""
+    },
+    "05300839": {
+      "lat": 52.544222,
+      "lon": 13.263621,
+      "name": "Rohrdamm",
+      "district": ""
+    },
+    "05300840": {
+      "lat": 52.534428,
+      "lon": 13.257384,
+      "name": "Nonnendammallee",
+      "district": ""
+    },
+    "05300841": {
+      "lat": 52.53701,
+      "lon": 13.270177,
+      "name": "Siemensdamm",
+      "district": ""
+    },
+    "05400942": {
+      "lat": 52.482389,
+      "lon": 13.167221,
+      "name": "Alt-Gatow",
+      "district": ""
+    },
+    "05400943": {
+      "lat": 52.467341,
+      "lon": 13.133546,
+      "name": "Jägerallee",
+      "district": ""
+    },
+    "05400944": {
+      "lat": 52.454342,
+      "lon": 13.151594,
+      "name": "Kladower Damm",
+      "district": ""
+    },
+    "05400945": {
+      "lat": 52.449241,
+      "lon": 13.124963,
+      "name": "Kafkastraße",
+      "district": ""
+    },
+    "06100101": {
+      "lat": 52.459477,
+      "lon": 13.311736,
+      "name": "Fichtenberg",
+      "district": ""
+    },
+    "06100102": {
+      "lat": 52.459511,
+      "lon": 13.320294,
+      "name": "Schloßstraße",
+      "district": ""
+    },
+    "06100103": {
+      "lat": 52.464473,
+      "lon": 13.32119,
+      "name": "Markelstraße",
+      "district": ""
+    },
+    "06100204": {
+      "lat": 52.453632,
+      "lon": 13.348387,
+      "name": "Munsterdamm",
+      "district": ""
+    },
+    "06100205": {
+      "lat": 52.446996,
+      "lon": 13.350843,
+      "name": "Südende",
+      "district": ""
+    },
+    "06100206": {
+      "lat": 52.447807,
+      "lon": 13.333489,
+      "name": "Stadtpark",
+      "district": ""
+    },
+    "06100207": {
+      "lat": 52.450985,
+      "lon": 13.323569,
+      "name": "Mittelstraße",
+      "district": ""
+    },
+    "06100208": {
+      "lat": 52.455885,
+      "lon": 13.332601,
+      "name": "Bergstraße",
+      "district": ""
+    },
+    "06100209": {
+      "lat": 52.462236,
+      "lon": 13.334076,
+      "name": "Feuerbachstraße",
+      "district": ""
+    },
+    "06100210": {
+      "lat": 52.461105,
+      "lon": 13.3424,
+      "name": "Bismarckstraße",
+      "district": ""
+    },
+    "06200311": {
+      "lat": 52.438659,
+      "lon": 13.358333,
+      "name": "Alt-Lankwitz",
+      "district": ""
+    },
+    "06200312": {
+      "lat": 52.440633,
+      "lon": 13.336133,
+      "name": "Komponistenviertel Lankwitz",
+      "district": ""
+    },
+    "06200313": {
+      "lat": 52.437328,
+      "lon": 13.346968,
+      "name": "Lankwitz Kirche",
+      "district": ""
+    },
+    "06200314": {
+      "lat": 52.43073,
+      "lon": 13.337703,
+      "name": "Kaiser-Wilhelm-Straße",
+      "district": ""
+    },
+    "06200315": {
+      "lat": 52.426684,
+      "lon": 13.346421,
+      "name": "Gallwitzallee",
+      "district": ""
+    },
+    "06200316": {
+      "lat": 52.430456,
+      "lon": 13.359635,
+      "name": "Belßstraße",
+      "district": ""
+    },
+    "06200317": {
+      "lat": 52.422739,
+      "lon": 13.354809,
+      "name": "Lankwitz Süd",
+      "district": ""
+    },
+    "06200418": {
+      "lat": 52.406038,
+      "lon": 13.315652,
+      "name": "Landweg",
+      "district": ""
+    },
+    "06200419": {
+      "lat": 52.413108,
+      "lon": 13.315138,
+      "name": "Thermometersiedlung",
+      "district": ""
+    },
+    "06200420": {
+      "lat": 52.415292,
+      "lon": 13.305583,
+      "name": "Lichterfelde Süd",
+      "district": ""
+    },
+    "06200421": {
+      "lat": 52.430771,
+      "lon": 13.319552,
+      "name": "Königsberger Straße",
+      "district": ""
+    },
+    "06200422": {
+      "lat": 52.422707,
+      "lon": 13.327907,
+      "name": "Oberhofer Platz",
+      "district": ""
+    },
+    "06200423": {
+      "lat": 52.413398,
+      "lon": 13.329224,
+      "name": "Schütte-Lanz-Straße",
+      "district": ""
+    },
+    "06300524": {
+      "lat": 52.42631,
+      "lon": 13.241393,
+      "name": "Berlepschstraße",
+      "district": ""
+    },
+    "06300525": {
+      "lat": 52.410663,
+      "lon": 13.256749,
+      "name": "Zehlendorf Süd",
+      "district": ""
+    },
+    "06300526": {
+      "lat": 52.43237,
+      "lon": 13.254535,
+      "name": "Zehlendorf Mitte",
+      "district": ""
+    },
+    "06300527": {
+      "lat": 52.435425,
+      "lon": 13.273825,
+      "name": "Sundgauer Straße",
+      "district": ""
+    },
+    "06300528": {
+      "lat": 52.421439,
+      "lon": 13.264931,
+      "name": "Teltower Damm",
+      "district": ""
+    },
+    "06300629": {
+      "lat": 52.449914,
+      "lon": 13.301166,
+      "name": "Botanischer Garten",
+      "district": ""
+    },
+    "06300630": {
+      "lat": 52.442131,
+      "lon": 13.318239,
+      "name": "Hindenburgdamm",
+      "district": ""
+    },
+    "06300631": {
+      "lat": 52.414762,
+      "lon": 13.28715,
+      "name": "Goerzwerke",
+      "district": ""
+    },
+    "06300632": {
+      "lat": 52.424731,
+      "lon": 13.288266,
+      "name": "Schweizer Viertel",
+      "district": ""
+    },
+    "06300633": {
+      "lat": 52.44172,
+      "lon": 13.308388,
+      "name": "Augustaplatz",
+      "district": ""
+    },
+    "06300634": {
+      "lat": 52.436772,
+      "lon": 13.293347,
+      "name": "Lichterfelde West",
+      "district": ""
+    },
+    "06400735": {
+      "lat": 52.419837,
+      "lon": 13.141232,
+      "name": "Wannsee",
+      "district": ""
+    },
+    "06400736": {
+      "lat": 52.420839,
+      "lon": 13.20732,
+      "name": "Düppel",
+      "district": ""
+    },
+    "06400737": {
+      "lat": 52.447159,
+      "lon": 13.196706,
+      "name": "Nikolassee",
+      "district": ""
+    },
+    "06400838": {
+      "lat": 52.449779,
+      "lon": 13.230694,
+      "name": "Krumme Lanke",
+      "district": ""
+    },
+    "06400839": {
+      "lat": 52.439011,
+      "lon": 13.244401,
+      "name": "Fischerhüttenstraße",
+      "district": ""
+    },
+    "06400840": {
+      "lat": 52.44972,
+      "lon": 13.254613,
+      "name": "Fischtal",
+      "district": ""
+    },
+    "06400841": {
+      "lat": 52.4405,
+      "lon": 13.265176,
+      "name": "Zehlendorf Eiche",
+      "district": ""
+    },
+    "06400842": {
+      "lat": 52.459886,
+      "lon": 13.263141,
+      "name": "Hüttenweg",
+      "district": ""
+    },
+    "06400843": {
+      "lat": 52.449269,
+      "lon": 13.28507,
+      "name": "Thielallee",
+      "district": ""
+    },
+    "06400844": {
+      "lat": 52.461264,
+      "lon": 13.287841,
+      "name": "Dahlem",
+      "district": ""
+    },
+    "07100101": {
+      "lat": 52.499211,
+      "lon": 13.342248,
+      "name": "Wittenbergplatz",
+      "district": ""
+    },
+    "07100102": {
+      "lat": 52.498349,
+      "lon": 13.350204,
+      "name": "Kalckreuthstraße",
+      "district": ""
+    },
+    "07100103": {
+      "lat": 52.497935,
+      "lon": 13.357921,
+      "name": "Frobenstraße",
+      "district": ""
+    },
+    "07100204": {
+      "lat": 52.492189,
+      "lon": 13.352562,
+      "name": "Barbarossaplatz",
+      "district": ""
+    },
+    "07100205": {
+      "lat": 52.496349,
+      "lon": 13.365094,
+      "name": "Alvenslebenstraße",
+      "district": ""
+    },
+    "07100206": {
+      "lat": 52.490776,
+      "lon": 13.367778,
+      "name": "Großgörschenstraße",
+      "district": ""
+    },
+    "07200307": {
+      "lat": 52.489975,
+      "lon": 13.341267,
+      "name": "Bayerischer Platz",
+      "district": ""
+    },
+    "07200308": {
+      "lat": 52.481687,
+      "lon": 13.343015,
+      "name": "Volkspark (Rudolph-Wilde-Park)",
+      "district": ""
+    },
+    "07200409": {
+      "lat": 52.487024,
+      "lon": 13.351212,
+      "name": "Belziger Straße",
+      "district": ""
+    },
+    "07200410": {
+      "lat": 52.483516,
+      "lon": 13.354174,
+      "name": "Feurigstraße",
+      "district": ""
+    },
+    "07200411": {
+      "lat": 52.487978,
+      "lon": 13.360392,
+      "name": "Julius-Leber-Brücke",
+      "district": ""
+    },
+    "07200412": {
+      "lat": 52.47705,
+      "lon": 13.36036,
+      "name": "Schöneberger Linse",
+      "district": ""
+    },
+    "07200413": {
+      "lat": 52.480997,
+      "lon": 13.363274,
+      "name": "Cheruskerstraße",
+      "district": ""
+    },
+    "07200414": {
+      "lat": 52.486499,
+      "lon": 13.368136,
+      "name": "Hohenfriedbergstraße",
+      "district": ""
+    },
+    "07300515": {
+      "lat": 52.47438,
+      "lon": 13.324312,
+      "name": "Taunusstraße",
+      "district": ""
+    },
+    "07300516": {
+      "lat": 52.468448,
+      "lon": 13.32581,
+      "name": "Odenwaldstraße",
+      "district": ""
+    },
+    "07300517": {
+      "lat": 52.47465,
+      "lon": 13.334277,
+      "name": "Perelsplatz",
+      "district": ""
+    },
+    "07300618": {
+      "lat": 52.471642,
+      "lon": 13.339176,
+      "name": "Ceciliengärten",
+      "district": ""
+    },
+    "07300619": {
+      "lat": 52.468489,
+      "lon": 13.351338,
+      "name": "Grazer Platz",
+      "district": ""
+    },
+    "07400720": {
+      "lat": 52.478136,
+      "lon": 13.375424,
+      "name": "Gontermannstraße",
+      "district": ""
+    },
+    "07400721": {
+      "lat": 52.474926,
+      "lon": 13.396844,
+      "name": "Paradestraße",
+      "district": ""
+    },
+    "07400822": {
+      "lat": 52.463519,
+      "lon": 13.364348,
+      "name": "Lindenhofsiedlung",
+      "district": ""
+    },
+    "07400823": {
+      "lat": 52.463416,
+      "lon": 13.373784,
+      "name": "Wittekindstraße",
+      "district": ""
+    },
+    "07400824": {
+      "lat": 52.464812,
+      "lon": 13.381705,
+      "name": "Bosepark",
+      "district": ""
+    },
+    "07400825": {
+      "lat": 52.456195,
+      "lon": 13.380315,
+      "name": "Friedrich-Karl-Straße",
+      "district": ""
+    },
+    "07400826": {
+      "lat": 52.451734,
+      "lon": 13.36615,
+      "name": "Marienhöhe",
+      "district": ""
+    },
+    "07400927": {
+      "lat": 52.459455,
+      "lon": 13.399169,
+      "name": "Rathaus Tempelhof",
+      "district": ""
+    },
+    "07400928": {
+      "lat": 52.460976,
+      "lon": 13.417591,
+      "name": "Germaniagarten",
+      "district": ""
+    },
+    "07501029": {
+      "lat": 52.442993,
+      "lon": 13.373045,
+      "name": "Ringstraße",
+      "district": ""
+    },
+    "07501030": {
+      "lat": 52.446398,
+      "lon": 13.382804,
+      "name": "Machonstraße",
+      "district": ""
+    },
+    "07501031": {
+      "lat": 52.447788,
+      "lon": 13.394379,
+      "name": "Eisenacher Straße",
+      "district": ""
+    },
+    "07501032": {
+      "lat": 52.44557,
+      "lon": 13.407615,
+      "name": "Imbrosweg",
+      "district": ""
+    },
+    "07501133": {
+      "lat": 52.432515,
+      "lon": 13.381914,
+      "name": "Fritz-Werner-Straße",
+      "district": ""
+    },
+    "07501134": {
+      "lat": 52.432067,
+      "lon": 13.399608,
+      "name": "Hundsteinweg",
+      "district": ""
+    },
+    "07501135": {
+      "lat": 52.42198,
+      "lon": 13.392339,
+      "name": "Birnhornweg",
+      "district": ""
+    },
+    "07601236": {
+      "lat": 52.419073,
+      "lon": 13.362127,
+      "name": "Marienfelder Allee Nordwest",
+      "district": ""
+    },
+    "07601237": {
+      "lat": 52.415268,
+      "lon": 13.37261,
+      "name": "Kirchstraße",
+      "district": ""
+    },
+    "07601238": {
+      "lat": 52.417861,
+      "lon": 13.38415,
+      "name": "Marienfelde Nordost",
+      "district": ""
+    },
+    "07601339": {
+      "lat": 52.410608,
+      "lon": 13.346753,
+      "name": "Tirschenreuther Ring West",
+      "district": ""
+    },
+    "07601340": {
+      "lat": 52.41104,
+      "lon": 13.355044,
+      "name": "Tirschenreuther Ring Ost",
+      "district": ""
+    },
+    "07601341": {
+      "lat": 52.401651,
+      "lon": 13.370395,
+      "name": "Diedersdorfer Weg",
+      "district": ""
+    },
+    "07601442": {
+      "lat": 52.404967,
+      "lon": 13.397858,
+      "name": "Kettinger Straße",
+      "district": ""
+    },
+    "07601443": {
+      "lat": 52.403434,
+      "lon": 13.412892,
+      "name": "Töpchiner Weg",
+      "district": ""
+    },
+    "07601544": {
+      "lat": 52.390759,
+      "lon": 13.400036,
+      "name": "John-Locke-Straße",
+      "district": ""
+    },
+    "07601545": {
+      "lat": 52.391296,
+      "lon": 13.416478,
+      "name": "Nahariyastraße",
+      "district": ""
+    },
+    "07601546": {
+      "lat": 52.387743,
+      "lon": 13.390517,
+      "name": "Franziusweg",
+      "district": ""
+    },
+    "07601547": {
+      "lat": 52.380892,
+      "lon": 13.408188,
+      "name": "Horstwalder Straße",
+      "district": ""
+    },
+    "07601548": {
+      "lat": 52.383562,
+      "lon": 13.419453,
+      "name": "Wittelsbacherstraße",
+      "district": ""
+    },
+    "08100101": {
+      "lat": 52.484334,
+      "lon": 13.415766,
+      "name": "Hasenheide",
+      "district": ""
+    },
+    "08100102": {
+      "lat": 52.478943,
+      "lon": 13.416834,
+      "name": "Schillerpromenade Nord",
+      "district": ""
+    },
+    "08100103": {
+      "lat": 52.474172,
+      "lon": 13.419672,
+      "name": "Schillerpromenade Süd",
+      "district": ""
+    },
+    "08100104": {
+      "lat": 52.469257,
+      "lon": 13.42336,
+      "name": "Wartheplatz",
+      "district": ""
+    },
+    "08100105": {
+      "lat": 52.464496,
+      "lon": 13.427318,
+      "name": "Silbersteinstraße",
+      "district": ""
+    },
+    "08100206": {
+      "lat": 52.481303,
+      "lon": 13.429335,
+      "name": "Flughafenstraße",
+      "district": ""
+    },
+    "08100207": {
+      "lat": 52.476546,
+      "lon": 13.433582,
+      "name": "Rollberg",
+      "district": ""
+    },
+    "08100208": {
+      "lat": 52.471634,
+      "lon": 13.434915,
+      "name": "Körnerpark",
+      "district": ""
+    },
+    "08100209": {
+      "lat": 52.466179,
+      "lon": 13.439891,
+      "name": "Glasower Straße",
+      "district": ""
+    },
+    "08100310": {
+      "lat": 52.492575,
+      "lon": 13.427298,
+      "name": "Maybachufer",
+      "district": ""
+    },
+    "08100311": {
+      "lat": 52.489051,
+      "lon": 13.428695,
+      "name": "Reuterplatz",
+      "district": ""
+    },
+    "08100312": {
+      "lat": 52.486291,
+      "lon": 13.437421,
+      "name": "Weichselplatz",
+      "district": ""
+    },
+    "08100313": {
+      "lat": 52.487344,
+      "lon": 13.443974,
+      "name": "Bouchéstraße",
+      "district": ""
+    },
+    "08100314": {
+      "lat": 52.484064,
+      "lon": 13.431731,
+      "name": "Donaustraße",
+      "district": ""
+    },
+    "08100415": {
+      "lat": 52.478845,
+      "lon": 13.442858,
+      "name": "Ganghoferstraße",
+      "district": ""
+    },
+    "08100416": {
+      "lat": 52.475064,
+      "lon": 13.443705,
+      "name": "Alt-Rixdorf",
+      "district": ""
+    },
+    "08100417": {
+      "lat": 52.472282,
+      "lon": 13.449357,
+      "name": "Braunschweiger Straße",
+      "district": ""
+    },
+    "08100418": {
+      "lat": 52.479359,
+      "lon": 13.450418,
+      "name": "Hertzbergplatz",
+      "district": ""
+    },
+    "08100419": {
+      "lat": 52.483743,
+      "lon": 13.452298,
+      "name": "Treptower Straße Nord",
+      "district": ""
+    },
+    "08100520": {
+      "lat": 52.475734,
+      "lon": 13.463436,
+      "name": "Weiße Siedlung",
+      "district": ""
+    },
+    "08100521": {
+      "lat": 52.465081,
+      "lon": 13.463066,
+      "name": "Schulenburgpark",
+      "district": ""
+    },
+    "08200622": {
+      "lat": 52.461468,
+      "lon": 13.444325,
+      "name": "Jahnstraße",
+      "district": ""
+    },
+    "08200623": {
+      "lat": 52.455781,
+      "lon": 13.448968,
+      "name": "Park am Buschkrug",
+      "district": ""
+    },
+    "08200624": {
+      "lat": 52.456254,
+      "lon": 13.429135,
+      "name": "Tempelhofer Weg",
+      "district": ""
+    },
+    "08200725": {
+      "lat": 52.446418,
+      "lon": 13.423455,
+      "name": "Mohriner Allee Nord",
+      "district": ""
+    },
+    "08200726": {
+      "lat": 52.448483,
+      "lon": 13.444407,
+      "name": "Hufeisensiedlung",
+      "district": ""
+    },
+    "08200727": {
+      "lat": 52.441809,
+      "lon": 13.445881,
+      "name": "Parchimer Allee Süd",
+      "district": ""
+    },
+    "08200728": {
+      "lat": 52.44596,
+      "lon": 13.464856,
+      "name": "Ortolanweg",
+      "district": ""
+    },
+    "08200729": {
+      "lat": 52.432865,
+      "lon": 13.422015,
+      "name": "Britzer Garten",
+      "district": ""
+    },
+    "08200730": {
+      "lat": 52.432132,
+      "lon": 13.441309,
+      "name": "Handwerker-Siedlung",
+      "district": ""
+    },
+    "08200831": {
+      "lat": 52.418332,
+      "lon": 13.410012,
+      "name": "Buckow West",
+      "district": ""
+    },
+    "08200832": {
+      "lat": 52.418847,
+      "lon": 13.427677,
+      "name": "Buckow Mitte",
+      "district": ""
+    },
+    "08200833": {
+      "lat": 52.420735,
+      "lon": 13.446338,
+      "name": "Buckow Ost",
+      "district": ""
+    },
+    "08300934": {
+      "lat": 52.430328,
+      "lon": 13.460596,
+      "name": "Gropiusstadt Nord-West",
+      "district": ""
+    },
+    "08300935": {
+      "lat": 52.426392,
+      "lon": 13.453758,
+      "name": "Gropiusstadt Süd-West",
+      "district": ""
+    },
+    "08301036": {
+      "lat": 52.424757,
+      "lon": 13.469298,
+      "name": "Gropiusstadt Mitte",
+      "district": ""
+    },
+    "08301037": {
+      "lat": 52.423001,
+      "lon": 13.478162,
+      "name": "Gropiusstadt Süd-Ost",
+      "district": ""
+    },
+    "08401138": {
+      "lat": 52.442826,
+      "lon": 13.460198,
+      "name": "Goldhähnchenweg",
+      "district": ""
+    },
+    "08401139": {
+      "lat": 52.435767,
+      "lon": 13.460246,
+      "name": "Vogelviertel Süd",
+      "district": ""
+    },
+    "08401140": {
+      "lat": 52.438913,
+      "lon": 13.466468,
+      "name": "Vogelviertel Nord",
+      "district": ""
+    },
+    "08401241": {
+      "lat": 52.433183,
+      "lon": 13.482624,
+      "name": "Blumenviertel",
+      "district": ""
+    },
+    "08401242": {
+      "lat": 52.414662,
+      "lon": 13.480455,
+      "name": "Zittauer Straße",
+      "district": ""
+    },
+    "08401243": {
+      "lat": 52.424342,
+      "lon": 13.50181,
+      "name": "Alt-Rudow",
+      "district": ""
+    },
+    "08401244": {
+      "lat": 52.406103,
+      "lon": 13.492328,
+      "name": "Waßmannsdorfer Chaussee",
+      "district": ""
+    },
+    "08401245": {
+      "lat": 52.402694,
+      "lon": 13.506468,
+      "name": "Frauenviertel",
+      "district": ""
+    },
+    "08401246": {
+      "lat": 52.412736,
+      "lon": 13.513036,
+      "name": "Waltersdorfer Chaussee Ost",
+      "district": ""
+    },
+    "09100101": {
+      "lat": 52.490024,
+      "lon": 13.460462,
+      "name": "Alt-Treptow",
+      "district": ""
+    },
+    "09100202": {
+      "lat": 52.482004,
+      "lon": 13.467484,
+      "name": "Plänterwald West",
+      "district": ""
+    },
+    "09100203": {
+      "lat": 52.478644,
+      "lon": 13.484511,
+      "name": "Plänterwald Ost",
+      "district": ""
+    },
+    "09100304": {
+      "lat": 52.46407,
+      "lon": 13.485516,
+      "name": "Baumschulenweg West",
+      "district": ""
+    },
+    "09100305": {
+      "lat": 52.470212,
+      "lon": 13.490956,
+      "name": "Baumschulenweg Ost",
+      "district": ""
+    },
+    "09100306": {
+      "lat": 52.450496,
+      "lon": 13.476528,
+      "name": "Späthsfelde",
+      "district": ""
+    },
+    "09100407": {
+      "lat": 52.449075,
+      "lon": 13.495298,
+      "name": "Johannisthal West",
+      "district": ""
+    },
+    "09100408": {
+      "lat": 52.445017,
+      "lon": 13.508246,
+      "name": "Johannisthal Ost",
+      "district": ""
+    },
+    "09100409": {
+      "lat": 52.438662,
+      "lon": 13.515461,
+      "name": "Landschaftspark Adlershof",
+      "district": ""
+    },
+    "09200510": {
+      "lat": 52.47159,
+      "lon": 13.50564,
+      "name": "Helmholtz-Kiez",
+      "district": ""
+    },
+    "09200511": {
+      "lat": 52.460643,
+      "lon": 13.522175,
+      "name": "Griechischer Park",
+      "district": ""
+    },
+    "09200512": {
+      "lat": 52.463621,
+      "lon": 13.540736,
+      "name": "Wuhlheide",
+      "district": ""
+    },
+    "09200613": {
+      "lat": 52.456479,
+      "lon": 13.519776,
+      "name": "Bahnhof Schöneweide",
+      "district": ""
+    },
+    "09200614": {
+      "lat": 52.448967,
+      "lon": 13.537047,
+      "name": "Oberspree",
+      "district": ""
+    },
+    "09200715": {
+      "lat": 52.431343,
+      "lon": 13.534347,
+      "name": "Wista",
+      "district": ""
+    },
+    "09200716": {
+      "lat": 52.437278,
+      "lon": 13.543875,
+      "name": "Dörpfeldstraße West",
+      "district": ""
+    },
+    "09200717": {
+      "lat": 52.439945,
+      "lon": 13.551969,
+      "name": "Dörpfeldstraße Ost",
+      "district": ""
+    },
+    "09200818": {
+      "lat": 52.449039,
+      "lon": 13.564131,
+      "name": "Spindlersfeld",
+      "district": ""
+    },
+    "09200819": {
+      "lat": 52.437001,
+      "lon": 13.566489,
+      "name": "Köllnische Vorstadt",
+      "district": ""
+    },
+    "09300920": {
+      "lat": 52.416907,
+      "lon": 13.536314,
+      "name": "Dorf Altglienicke",
+      "district": ""
+    },
+    "09300921": {
+      "lat": 52.412991,
+      "lon": 13.557977,
+      "name": "Preußen Siedlung",
+      "district": ""
+    },
+    "09300922": {
+      "lat": 52.40382,
+      "lon": 13.526714,
+      "name": "Kosmos Viertel",
+      "district": ""
+    },
+    "09300923": {
+      "lat": 52.404195,
+      "lon": 13.539266,
+      "name": "Kölner Viertel",
+      "district": ""
+    },
+    "09301024": {
+      "lat": 52.406949,
+      "lon": 13.565268,
+      "name": "Falkenberg",
+      "district": ""
+    },
+    "09301025": {
+      "lat": 52.396394,
+      "lon": 13.563989,
+      "name": "Alt-Bohnsdorf",
+      "district": ""
+    },
+    "09301126": {
+      "lat": 52.405509,
+      "lon": 13.595732,
+      "name": "Grünau",
+      "district": ""
+    },
+    "09301227": {
+      "lat": 52.39246,
+      "lon": 13.633427,
+      "name": "Karolinenhof",
+      "district": ""
+    },
+    "09301228": {
+      "lat": 52.372299,
+      "lon": 13.657385,
+      "name": "Schmöckwitz/Rauchfangswerder",
+      "district": ""
+    },
+    "09401329": {
+      "lat": 52.425283,
+      "lon": 13.625314,
+      "name": "Kietzer Feld/Nachtheide",
+      "district": ""
+    },
+    "09401330": {
+      "lat": 52.418374,
+      "lon": 13.589962,
+      "name": "Wendenschloß",
+      "district": ""
+    },
+    "09401431": {
+      "lat": 52.444796,
+      "lon": 13.588937,
+      "name": "Allende I",
+      "district": ""
+    },
+    "09401432": {
+      "lat": 52.445011,
+      "lon": 13.602003,
+      "name": "Siedlung Kämmereiheide",
+      "district": ""
+    },
+    "09401433": {
+      "lat": 52.437822,
+      "lon": 13.609861,
+      "name": "Allende II",
+      "district": ""
+    },
+    "09401534": {
+      "lat": 52.442697,
+      "lon": 13.577983,
+      "name": "Altstadt Köpenick",
+      "district": ""
+    },
+    "09401635": {
+      "lat": 52.40701,
+      "lon": 13.683631,
+      "name": "Müggelheim",
+      "district": ""
+    },
+    "09501736": {
+      "lat": 52.455385,
+      "lon": 13.612256,
+      "name": "Hirschgarten",
+      "district": ""
+    },
+    "09501737": {
+      "lat": 52.458579,
+      "lon": 13.644436,
+      "name": "Alt-Friedrichshagen",
+      "district": ""
+    },
+    "09501838": {
+      "lat": 52.444149,
+      "lon": 13.702956,
+      "name": "Rahnsdorf",
+      "district": ""
+    },
+    "09501939": {
+      "lat": 52.454238,
+      "lon": 13.570409,
+      "name": "Bahnhofstraße",
+      "district": ""
+    },
+    "09501940": {
+      "lat": 52.456655,
+      "lon": 13.587607,
+      "name": "Güterbahnhof Köpenick",
+      "district": ""
+    },
+    "09501941": {
+      "lat": 52.45102,
+      "lon": 13.584915,
+      "name": "Friedrichshagener Straße",
+      "district": ""
+    },
+    "09502042": {
+      "lat": 52.465577,
+      "lon": 13.601467,
+      "name": "Mittelheide",
+      "district": ""
+    },
+    "09502043": {
+      "lat": 52.469532,
+      "lon": 13.573475,
+      "name": "Dammheide",
+      "district": ""
+    },
+    "10100101": {
+      "lat": 52.567665,
+      "lon": 13.556512,
+      "name": "Marzahn West",
+      "district": ""
+    },
+    "10100102": {
+      "lat": 52.571013,
+      "lon": 13.571022,
+      "name": "Rosenbecker Straße",
+      "district": ""
+    },
+    "10100103": {
+      "lat": 52.565057,
+      "lon": 13.566604,
+      "name": "Wittenberger Straße",
+      "district": ""
+    },
+    "10100104": {
+      "lat": 52.565339,
+      "lon": 13.578149,
+      "name": "Golliner Straße",
+      "district": ""
+    },
+    "10100205": {
+      "lat": 52.554167,
+      "lon": 13.540337,
+      "name": "Gewerbegebiet Bitterfelder Straße",
+      "district": ""
+    },
+    "10100206": {
+      "lat": 52.558521,
+      "lon": 13.565347,
+      "name": "Wuhletalstraße",
+      "district": ""
+    },
+    "10100207": {
+      "lat": 52.55383,
+      "lon": 13.579925,
+      "name": "Ahrensfelder Berge",
+      "district": ""
+    },
+    "10100208": {
+      "lat": 52.552899,
+      "lon": 13.557758,
+      "name": "Bürgerpark",
+      "district": ""
+    },
+    "10100209": {
+      "lat": 52.550086,
+      "lon": 13.56795,
+      "name": "Lea-Grundig-Straße",
+      "district": ""
+    },
+    "10100210": {
+      "lat": 52.545787,
+      "lon": 13.55067,
+      "name": "Marzahner Promenade",
+      "district": ""
+    },
+    "10100311": {
+      "lat": 52.524181,
+      "lon": 13.530442,
+      "name": "Marzahner Chaussee",
+      "district": ""
+    },
+    "10100312": {
+      "lat": 52.527917,
+      "lon": 13.543357,
+      "name": "Springpfuhl",
+      "district": ""
+    },
+    "10100313": {
+      "lat": 52.539615,
+      "lon": 13.549391,
+      "name": "Alt-Marzahn",
+      "district": ""
+    },
+    "10100314": {
+      "lat": 52.537653,
+      "lon": 13.55635,
+      "name": "Auersbergstraße",
+      "district": ""
+    },
+    "10100315": {
+      "lat": 52.539488,
+      "lon": 13.565599,
+      "name": "Bärenstein",
+      "district": ""
+    },
+    "10100316": {
+      "lat": 52.539554,
+      "lon": 13.577727,
+      "name": "Landsberger Tor",
+      "district": ""
+    },
+    "10200417": {
+      "lat": 52.546623,
+      "lon": 13.593821,
+      "name": "Zossener Straße",
+      "district": ""
+    },
+    "10200418": {
+      "lat": 52.542639,
+      "lon": 13.587998,
+      "name": "Kyritzer Straße",
+      "district": ""
+    },
+    "10200419": {
+      "lat": 52.54218,
+      "lon": 13.600264,
+      "name": "Havelländer Ring",
+      "district": ""
+    },
+    "10200420": {
+      "lat": 52.537358,
+      "lon": 13.593205,
+      "name": "Gut Hellersdorf",
+      "district": ""
+    },
+    "10200421": {
+      "lat": 52.537871,
+      "lon": 13.604602,
+      "name": "Helle Mitte",
+      "district": ""
+    },
+    "10200422": {
+      "lat": 52.542344,
+      "lon": 13.607428,
+      "name": "Hellersdorfer Promenade",
+      "district": ""
+    },
+    "10200423": {
+      "lat": 52.541535,
+      "lon": 13.622821,
+      "name": "Böhlener Straße",
+      "district": ""
+    },
+    "10200524": {
+      "lat": 52.535313,
+      "lon": 13.618186,
+      "name": "Adele-Sandrock-Straße",
+      "district": ""
+    },
+    "10200525": {
+      "lat": 52.529494,
+      "lon": 13.615274,
+      "name": "Schleipfuhl",
+      "district": ""
+    },
+    "10200526": {
+      "lat": 52.532076,
+      "lon": 13.603102,
+      "name": "Boulevard Kastanienallee",
+      "district": ""
+    },
+    "10200627": {
+      "lat": 52.528654,
+      "lon": 13.586354,
+      "name": "Am Kienberg",
+      "district": ""
+    },
+    "10200628": {
+      "lat": 52.528642,
+      "lon": 13.594063,
+      "name": "Neue Grottkauer Straße",
+      "district": ""
+    },
+    "10200629": {
+      "lat": 52.519089,
+      "lon": 13.581585,
+      "name": "Teterower Ring",
+      "district": ""
+    },
+    "10200630": {
+      "lat": 52.521504,
+      "lon": 13.592223,
+      "name": "Cecilienplatz",
+      "district": ""
+    },
+    "10300731": {
+      "lat": 52.523266,
+      "lon": 13.556395,
+      "name": "Oberfeldstraße",
+      "district": ""
+    },
+    "10300732": {
+      "lat": 52.523981,
+      "lon": 13.5715,
+      "name": "Buckower Ring",
+      "district": ""
+    },
+    "10300733": {
+      "lat": 52.506979,
+      "lon": 13.550672,
+      "name": "Alt-Biesdorf",
+      "district": ""
+    },
+    "10300734": {
+      "lat": 52.492682,
+      "lon": 13.560066,
+      "name": "Biesdorf Süd",
+      "district": ""
+    },
+    "10400835": {
+      "lat": 52.519977,
+      "lon": 13.602411,
+      "name": "Kaulsdorf Nord",
+      "district": ""
+    },
+    "10400836": {
+      "lat": 52.509069,
+      "lon": 13.588175,
+      "name": "Alt-Kaulsdorf",
+      "district": ""
+    },
+    "10400837": {
+      "lat": 52.49176,
+      "lon": 13.580469,
+      "name": "Kaulsdorf Süd",
+      "district": ""
+    },
+    "10400938": {
+      "lat": 52.521959,
+      "lon": 13.632007,
+      "name": "Mahlsdorf Nord",
+      "district": ""
+    },
+    "10400939": {
+      "lat": 52.508959,
+      "lon": 13.617635,
+      "name": "Alt-Mahlsdorf",
+      "district": ""
+    },
+    "10400940": {
+      "lat": 52.491332,
+      "lon": 13.600382,
+      "name": "Elsensee",
+      "district": ""
+    },
+    "10400941": {
+      "lat": 52.488285,
+      "lon": 13.614264,
+      "name": "Pilgramer Straße",
+      "district": ""
+    },
+    "11100101": {
+      "lat": 52.582615,
+      "lon": 13.512025,
+      "name": "Dörfer Malchow-Wartenberg",
+      "district": ""
+    },
+    "11100102": {
+      "lat": 52.575746,
+      "lon": 13.549633,
+      "name": "Dorf Falkenberg",
+      "district": ""
+    },
+    "11100203": {
+      "lat": 52.565344,
+      "lon": 13.531148,
+      "name": "Falkenberg Ost",
+      "district": ""
+    },
+    "11100204": {
+      "lat": 52.562776,
+      "lon": 13.522206,
+      "name": "Falkenberg West",
+      "district": ""
+    },
+    "11100205": {
+      "lat": 52.570242,
+      "lon": 13.517874,
+      "name": "Wartenberg Süd",
+      "district": ""
+    },
+    "11100206": {
+      "lat": 52.573946,
+      "lon": 13.50755,
+      "name": "Wartenberg Nord",
+      "district": ""
+    },
+    "11100307": {
+      "lat": 52.569726,
+      "lon": 13.502502,
+      "name": "Zingster Straße Ost",
+      "district": ""
+    },
+    "11100308": {
+      "lat": 52.566791,
+      "lon": 13.493898,
+      "name": "Zingster Straße West",
+      "district": ""
+    },
+    "11100309": {
+      "lat": 52.561241,
+      "lon": 13.513439,
+      "name": "Mühlengrund",
+      "district": ""
+    },
+    "11200410": {
+      "lat": 52.556349,
+      "lon": 13.505251,
+      "name": "Malchower Weg",
+      "district": ""
+    },
+    "11200411": {
+      "lat": 52.54604,
+      "lon": 13.515835,
+      "name": "Hauptstraße",
+      "district": ""
+    },
+    "11200512": {
+      "lat": 52.544689,
+      "lon": 13.481248,
+      "name": "Orankesee",
+      "district": ""
+    },
+    "11200513": {
+      "lat": 52.540909,
+      "lon": 13.491645,
+      "name": "Große-Leege-Straße",
+      "district": ""
+    },
+    "11200514": {
+      "lat": 52.536211,
+      "lon": 13.490632,
+      "name": "Landsberger Allee",
+      "district": ""
+    },
+    "11200515": {
+      "lat": 52.539019,
+      "lon": 13.511275,
+      "name": "Weiße Taube",
+      "district": ""
+    },
+    "11300616": {
+      "lat": 52.534524,
+      "lon": 13.469143,
+      "name": "Hohenschönhauser Straße",
+      "district": ""
+    },
+    "11300617": {
+      "lat": 52.529658,
+      "lon": 13.471807,
+      "name": "Fennpfuhlpark",
+      "district": ""
+    },
+    "11300618": {
+      "lat": 52.526899,
+      "lon": 13.462905,
+      "name": "Storkower Bogen",
+      "district": ""
+    },
+    "11300619": {
+      "lat": 52.525148,
+      "lon": 13.473366,
+      "name": "Rudolf-Seiffert-Park",
+      "district": ""
+    },
+    "11300620": {
+      "lat": 52.528939,
+      "lon": 13.481819,
+      "name": "Fennpfuhl Ost",
+      "district": ""
+    },
+    "11300721": {
+      "lat": 52.52669,
+      "lon": 13.504237,
+      "name": "Herzbergstraße",
+      "district": ""
+    },
+    "11300722": {
+      "lat": 52.518701,
+      "lon": 13.479677,
+      "name": "Rathaus Lichtenberg",
+      "district": ""
+    },
+    "11300723": {
+      "lat": 52.520067,
+      "lon": 13.495588,
+      "name": "Bornitzstraße",
+      "district": ""
+    },
+    "11300724": {
+      "lat": 52.51528,
+      "lon": 13.489515,
+      "name": "Roedeliusplatz",
+      "district": ""
+    },
+    "11300725": {
+      "lat": 52.51553,
+      "lon": 13.500836,
+      "name": "Nibelungenviertel",
+      "district": ""
+    },
+    "11300826": {
+      "lat": 52.508979,
+      "lon": 13.484961,
+      "name": "Frankfurter Allee Süd",
+      "district": ""
+    },
+    "11400927": {
+      "lat": 52.504286,
+      "lon": 13.476338,
+      "name": "Victoriastadt",
+      "district": ""
+    },
+    "11400928": {
+      "lat": 52.49934,
+      "lon": 13.489581,
+      "name": "Nöldnerplatz",
+      "district": ""
+    },
+    "11400929": {
+      "lat": 52.505165,
+      "lon": 13.495895,
+      "name": "Weitlingkiez",
+      "district": ""
+    },
+    "11400930": {
+      "lat": 52.505146,
+      "lon": 13.506485,
+      "name": "Zachertstraße",
+      "district": ""
+    },
+    "11400931": {
+      "lat": 52.508356,
+      "lon": 13.513091,
+      "name": "Massower Straße",
+      "district": ""
+    },
+    "11401032": {
+      "lat": 52.512248,
+      "lon": 13.510547,
+      "name": "Rosenfelder Ring",
+      "district": ""
+    },
+    "11401033": {
+      "lat": 52.512,
+      "lon": 13.528174,
+      "name": "Gensinger Straße",
+      "district": ""
+    },
+    "11401034": {
+      "lat": 52.503214,
+      "lon": 13.529145,
+      "name": "Tierpark",
+      "district": ""
+    },
+    "11401135": {
+      "lat": 52.494532,
+      "lon": 13.505929,
+      "name": "Dolgenseestraße",
+      "district": ""
+    },
+    "11401136": {
+      "lat": 52.499987,
+      "lon": 13.508782,
+      "name": "Volkradstraße",
+      "district": ""
+    },
+    "11401137": {
+      "lat": 52.498481,
+      "lon": 13.51912,
+      "name": "Erieseering",
+      "district": ""
+    },
+    "11501238": {
+      "lat": 52.491783,
+      "lon": 13.492941,
+      "name": "Rummelsburg",
+      "district": ""
+    },
+    "11501339": {
+      "lat": 52.488643,
+      "lon": 13.520309,
+      "name": "Karlshorst West",
+      "district": ""
+    },
+    "11501340": {
+      "lat": 52.485616,
+      "lon": 13.53849,
+      "name": "Karlshorst Nord",
+      "district": ""
+    },
+    "11501341": {
+      "lat": 52.477981,
+      "lon": 13.520161,
+      "name": "Karlshorst Süd",
+      "district": ""
+    },
+    "12100101": {
+      "lat": 52.563708,
+      "lon": 13.37106,
+      "name": "Letteplatz",
+      "district": ""
+    },
+    "12100102": {
+      "lat": 52.569738,
+      "lon": 13.376764,
+      "name": "Hausotterplatz",
+      "district": ""
+    },
+    "12100103": {
+      "lat": 52.573031,
+      "lon": 13.366042,
+      "name": "Breitkopfbecken",
+      "district": ""
+    },
+    "12100204": {
+      "lat": 52.564879,
+      "lon": 13.352445,
+      "name": "Schäfersee",
+      "district": ""
+    },
+    "12100205": {
+      "lat": 52.576163,
+      "lon": 13.349531,
+      "name": "Teichstraße",
+      "district": ""
+    },
+    "12100206": {
+      "lat": 52.574937,
+      "lon": 13.338575,
+      "name": "Humboldtstraße",
+      "district": ""
+    },
+    "12200307": {
+      "lat": 52.575045,
+      "lon": 13.327202,
+      "name": "Reinickes Hof",
+      "district": ""
+    },
+    "12200308": {
+      "lat": 52.573304,
+      "lon": 13.31994,
+      "name": "Meller Bogen",
+      "district": ""
+    },
+    "12200309": {
+      "lat": 52.567314,
+      "lon": 13.321686,
+      "name": "Scharnweberstraße",
+      "district": ""
+    },
+    "12200310": {
+      "lat": 52.571912,
+      "lon": 13.308744,
+      "name": "Klixstraße",
+      "district": ""
+    },
+    "12200411": {
+      "lat": 52.562598,
+      "lon": 13.317154,
+      "name": "Schumacher-Quartier",
+      "district": ""
+    },
+    "12200412": {
+      "lat": 52.568398,
+      "lon": 13.274839,
+      "name": "Waldidyll/Flughafensee",
+      "district": ""
+    },
+    "12200413": {
+      "lat": 52.577774,
+      "lon": 13.281141,
+      "name": "Tegel Süd",
+      "district": ""
+    },
+    "12200414": {
+      "lat": 52.556813,
+      "lon": 13.282779,
+      "name": "TXL",
+      "district": ""
+    },
+    "12200515": {
+      "lat": 52.589059,
+      "lon": 13.279308,
+      "name": "Alt-Tegel",
+      "district": ""
+    },
+    "12400616": {
+      "lat": 52.581611,
+      "lon": 13.226163,
+      "name": "Konradshöhe/Tegelort",
+      "district": ""
+    },
+    "12400617": {
+      "lat": 52.608869,
+      "lon": 13.221258,
+      "name": "Alt-Heiligensee",
+      "district": ""
+    },
+    "12400618": {
+      "lat": 52.621142,
+      "lon": 13.249262,
+      "name": "Heiligensee Nord",
+      "district": ""
+    },
+    "12400619": {
+      "lat": 52.595149,
+      "lon": 13.255374,
+      "name": "Heiligensee",
+      "district": ""
+    },
+    "12400720": {
+      "lat": 52.632453,
+      "lon": 13.277203,
+      "name": "Frohnau West",
+      "district": ""
+    },
+    "12400721": {
+      "lat": 52.644302,
+      "lon": 13.295912,
+      "name": "Frohnau Ost",
+      "district": ""
+    },
+    "12400722": {
+      "lat": 52.614066,
+      "lon": 13.2973,
+      "name": "Hermsdorf West",
+      "district": ""
+    },
+    "12400723": {
+      "lat": 52.620729,
+      "lon": 13.317243,
+      "name": "Hermsdorf Ost/Waldsee",
+      "district": ""
+    },
+    "12500824": {
+      "lat": 52.596628,
+      "lon": 13.295047,
+      "name": "Ziekowstraße/Freie Scholle",
+      "district": ""
+    },
+    "12500825": {
+      "lat": 52.583887,
+      "lon": 13.307533,
+      "name": "Borsigwalde",
+      "district": ""
+    },
+    "12500926": {
+      "lat": 52.591174,
+      "lon": 13.334771,
+      "name": "Wittenau Mitte",
+      "district": ""
+    },
+    "12500927": {
+      "lat": 52.595163,
+      "lon": 13.318107,
+      "name": "Wittenau Nord",
+      "district": ""
+    },
+    "12500928": {
+      "lat": 52.606633,
+      "lon": 13.316345,
+      "name": "Waidmannslust",
+      "district": ""
+    },
+    "12500929": {
+      "lat": 52.615228,
+      "lon": 13.354296,
+      "name": "Lübars",
+      "district": ""
+    },
+    "12500930": {
+      "lat": 52.582703,
+      "lon": 13.331058,
+      "name": "Wittenau Süd",
+      "district": ""
+    },
+    "12601031": {
+      "lat": 52.602952,
+      "lon": 13.336704,
+      "name": "Lübarser Straße",
+      "district": ""
+    },
+    "12601032": {
+      "lat": 52.607787,
+      "lon": 13.331364,
+      "name": "Rollbergesiedlung",
+      "district": ""
+    },
+    "12601133": {
+      "lat": 52.601689,
+      "lon": 13.3654,
+      "name": "Treuenbrietzener Straße",
+      "district": ""
+    },
+    "12601134": {
+      "lat": 52.601772,
+      "lon": 13.351739,
+      "name": "Märkisches Zentrum",
+      "district": ""
+    },
+    "12601235": {
+      "lat": 52.594261,
+      "lon": 13.357106,
+      "name": "Dannenwalder Weg",
+      "district": ""
+    },
+    "12601236": {
+      "lat": 52.59449,
+      "lon": 13.347543,
+      "name": "Schorfheidestraße",
+      "district": ""
+    }
+  }
+}

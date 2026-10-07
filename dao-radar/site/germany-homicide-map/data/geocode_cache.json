@@ -7773,5 +7773,21 @@
       "country": "Deutschland",
       "country_code": "de"
     }
+  },
+  "Karlsruher Ring, Karlsruhe, Germany": {
+    "lat": 49.0988725,
+    "lon": 8.4698428,
+    "address": {
+      "road": "Karlsruher Ring",
+      "neighbourhood": "Schöneichenjagen",
+      "village": "Friedrichstal",
+      "municipality": "Stutensee",
+      "county": "Landkreis Karlsruhe",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "76297",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
   }
 }

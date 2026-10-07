@@ -1,16 +1,16 @@
 {
   "meta": {
-    "generated_at": "2026-10-07T08:25:34Z",
+    "generated_at": "2026-10-07T08:47:31Z",
     "window_days": 90,
     "scope": "Germany",
-    "case_count": 578,
-    "geocoded_count": 578,
+    "case_count": 579,
+    "geocoded_count": 579,
     "category_counts": {
       "homicide": 42,
       "violence": 73,
       "robbery": 79,
       "sexual": 7,
-      "property": 377
+      "property": 378
     },
     "schema_version": 4,
     "coverage_note": "Public-source monitor. Includes targeted Presseportal police releases plus direct Polizei Berlin archive coverage. Sexual-crime locations are privacy-reduced.",
@@ -18,6 +18,31 @@
     "disclaimer": "Public-source monitor, not an official or exhaustive crime register. Locations reflect the most precise place publicly reported; Fundort means body-discovery location and may not be the crime scene."
   },
   "cases": [
+    {
+      "id": "2026-10-07-property-acc9dac601",
+      "event_date": "2026-10-07",
+      "publication_date": "2026-10-07",
+      "city": "Karlsruhe",
+      "state": "Baden-Württemberg",
+      "location": "Karlsruher Ring",
+      "geocode_address": "Karlsruher Ring, Karlsruhe, Germany",
+      "precision": "street",
+      "location_type": "Tatort / reported location",
+      "status": "confirmed",
+      "offense": "Wohnungseinbruch",
+      "subcategory": "Wohnungseinbruch",
+      "category": "property",
+      "category_label": "盗窃/财产犯罪",
+      "severity": 2,
+      "summary": "警方公开通报的Wohnungseinbruch案件：(KA) Stutensee - Tresor und hochwertige Gegenstände bei Wohnungseinbruch entwendet",
+      "source_agency": "Presseportal police release",
+      "source_url": "https://www.presseportal.de/blaulicht/pm/110972/6366485",
+      "lat": 49.0988725,
+      "lon": 8.4698428,
+      "date_confidence": "high",
+      "privacy_protected": false,
+      "geocode_precision": "street"
+    },
     {
       "id": "2026-10-06-property-6a9ae4d493",
       "event_date": "2026-10-06",
