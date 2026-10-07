@@ -112,3 +112,14 @@ try:
             if "json" in (rr.headers.get("content-type") or "").lower():
                 jj=rr.json();print("DRESDEN_SAMPLE",n,(jj.get("features") or [{}])[0].get("properties"))
 except Exception as e: print("DRESDEN_DIRECT_ERR",repr(e))
+
+
+print("\n===== DRESDEN DEFAULT GML SAMPLE =====")
+try:
+    rr=requests.get("https://kommisdd.dresden.de/net3/public/ogc.ashx",headers=H,params={
+      "NODEID":"188","SERVICE":"WFS","VERSION":"2.0.0","REQUEST":"GetFeature",
+      "TYPENAMES":"cls:L137","COUNT":"2","SRSNAME":"EPSG:4326"
+    },timeout=90)
+    print("DRESDEN_GML",rr.status_code,rr.headers.get("content-type"),len(rr.content))
+    print(rr.text[:7000].replace("\n"," "))
+except Exception as e: print("DRESDEN_GML_ERR",repr(e))
