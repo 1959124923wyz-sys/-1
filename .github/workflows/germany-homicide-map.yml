@@ -53,6 +53,7 @@ jobs:
 
       - name: Validate map JavaScript syntax
         run: |
+          node --check dao-radar/site/germany-homicide-map/js/core/geo-stats.js
           node --check dao-radar/site/germany-homicide-map/js/app.js
           node --check dao-radar/site/germany-homicide-map/js/layers/city-detail.js
 
