@@ -39,6 +39,7 @@ jobs:
           git add dao-radar/site/germany-homicide-map/data/
           if ! git diff --cached --quiet; then
             git commit -m "data: build official violence layers"
+            git pull --rebase origin violent-crime-overview-90d
             git push origin HEAD:violent-crime-overview-90d
           else
             echo "No generated data changes"
