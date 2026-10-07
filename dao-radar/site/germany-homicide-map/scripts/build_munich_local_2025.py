@@ -99,18 +99,34 @@ def district_no(props):
 
 pop=parse_population()
 geo=get_json(WFS)
-features=[]
-seen=set()
+
+# The WFS can return a district as several polygon records. Collapse those
+# parts into one stable Feature per Stadtbezirk so IDs remain unique and the
+# browser treats each district as one selectable unit.
+parts={n:[] for n in RAW}
 for f in geo.get("features",[]):
     props=f.get("properties") or {}
     n=district_no(props)
     if n is None or n not in RAW:continue
+    geom=f.get("geometry") or {}
+    if geom.get("type")=="Polygon":
+        parts[n].append(geom.get("coordinates") or [])
+    elif geom.get("type")=="MultiPolygon":
+        parts[n].extend(geom.get("coordinates") or [])
+
+features=[]
+seen=set()
+for n in sorted(RAW):
+    polygons=[p for p in parts.get(n,[]) if p]
+    if not polygons:continue
     name,vals=RAW[n]
     total,life,sexual,violent_broad,theft_simple,theft_aggravated,fraud,adjusted=vals
     population=pop.get(n)
     if not population:continue
+
     def metric(cases):
         return {"cases":int(cases),"rate":round(cases/population*100000,1)}
+
     p={
         "city":"München","state":"Bayern","district_no":n,"name":name,"population":population,
         "crime_total":metric(total),
@@ -123,12 +139,13 @@ for f in geo.get("features",[]):
         "fraud":metric(fraud),
         "adjusted_total":metric(adjusted),
     }
-    features.append({"type":"Feature","id":f"munich-{n:02d}","properties":p,"geometry":f.get("geometry")})
+    geometry={"type":"Polygon","coordinates":polygons[0]} if len(polygons)==1 else {"type":"MultiPolygon","coordinates":polygons}
+    features.append({"type":"Feature","id":f"munich-{n:02d}","properties":p,"geometry":geometry})
     seen.add(n)
 
 missing=sorted(set(RAW)-seen)
-if missing or len(seen)!=25:
-    raise RuntimeError(f"expected all 25 Munich districts; unique={len(seen)} features={len(features)} missing={missing}")
+if missing or len(features)!=25:
+    raise RuntimeError(f"expected 25 Munich district features; features={len(features)} missing={missing}")
 
 out={
   "type":"FeatureCollection",
