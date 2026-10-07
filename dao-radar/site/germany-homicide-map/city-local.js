@@ -92,7 +92,7 @@ async function rebuild(){
     layer=L.geoJSON(data,{pane:'berlinPane',filter:f=>Number.isFinite(Number(f?.properties?.[cfg.field]?.rate)),style:f=>({pane:'berlinPane',color:api.getMode()==='property'?'#486783':'#8a563b',weight:.34,opacity:.62,fillColor:color(Number(f.properties[cfg.field].rate),br,pal),fillOpacity:.84}),onEachFeature:(f,l)=>{
       l.bindTooltip(()=>{const a=areaFor(active,data,f);return '<b>'+esc(a.name)+'</b><br>'+esc(cfg.label)+' '+fmt(Math.round(a.rate))+'/10万人 · '+risk(a.pct)[0]},{sticky:true});
       l.on('mouseover',()=>{if(l!==selected)l.setStyle({color:'#fff',weight:1.35,opacity:1,fillOpacity:.89});showPanel(areaFor(active,data,f))});
-      l.on('mouseout',()=>{if(l!==selected)layer?.resetStyle(l);api.showArea(api.getPinnedArea?.())});
+      l.on('mouseout',()=>{if(l!==selected)layer?.resetStyle(l);const p=api.getPinnedArea?.();if(p?.kind==='city-local-generic')showPanel(p,false);else api.showArea(p)});
       l.on('click',()=>{if(selected&&selected!==l)layer?.resetStyle(selected);selected=l;layer?.resetStyle(l);l.setStyle({color:'#fff',weight:2.1,opacity:1,fillOpacity:.91});showPanel(areaFor(active,data,f),true)})
     }}).addTo(api.map);
     setTimeout(()=>addLegend(active,data),0)
