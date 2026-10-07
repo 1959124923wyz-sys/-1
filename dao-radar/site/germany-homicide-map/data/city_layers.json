@@ -55,6 +55,84 @@
           "label": "车内/车上盗窃"
         }
       }
+    },
+    {
+      "id": "leipzig",
+      "name": "Leipzig",
+      "name_zh": "莱比锡",
+      "state": "Sachsen",
+      "file": "data/leipzig_local_2025.geojson",
+      "bounds": [
+        [
+          51.2,
+          12.18
+        ],
+        [
+          51.46,
+          12.58
+        ]
+      ],
+      "min_zoom": 8,
+      "source_label": "Polizei Sachsen · Kriminalitätsatlas 2025",
+      "unit": "每10万人·年",
+      "metrics": {
+        "violence": {
+          "field": "violence_proxy",
+          "label": "暴力代理",
+          "note": "使用 Rohheitsdelikte und Straftaten gegen die persönliche Freiheit 作为城市内部暴力代理，不等同于BKA完整 Gewaltkriminalität 口径。"
+        },
+        "sexual": {
+          "field": "sexual",
+          "label": "性犯罪"
+        },
+        "homicide": {
+          "field": "homicide",
+          "label": "凶杀/生命犯罪"
+        },
+        "property_total": {
+          "field": "property_total",
+          "label": "盗窃总体"
+        }
+      }
+    },
+    {
+      "id": "chemnitz",
+      "name": "Chemnitz",
+      "name_zh": "开姆尼茨",
+      "state": "Sachsen",
+      "file": "data/chemnitz_local_2025.geojson",
+      "bounds": [
+        [
+          50.7,
+          12.68
+        ],
+        [
+          50.96,
+          13.09
+        ]
+      ],
+      "min_zoom": 8,
+      "source_label": "Polizei Sachsen · Kriminalitätsatlas 2025",
+      "unit": "每10万人·年",
+      "metrics": {
+        "violence": {
+          "field": "violence_proxy",
+          "label": "暴力代理",
+          "note": "使用 Rohheitsdelikte und Straftaten gegen die persönliche Freiheit 作为城市内部暴力代理，不等同于BKA完整 Gewaltkriminalität 口径。"
+        },
+        "sexual": {
+          "field": "sexual",
+          "label": "性犯罪"
+        },
+        "homicide": {
+          "field": "homicide",
+          "label": "凶杀/生命犯罪"
+        },
+        "property_total": {
+          "field": "property_total",
+          "label": "盗窃总体"
+        }
+      }
     }
   ]
 }
