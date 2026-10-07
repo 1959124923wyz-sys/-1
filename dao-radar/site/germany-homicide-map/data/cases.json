@@ -5,8 +5,6 @@
     "scope": "Germany",
     "case_count": 44,
     "geocoded_count": 44,
-    "method": "Verified 90-day seed/backfill set plus automated monitoring of public police RSS sources; strict death+homicide filter with follow-up-date and contact-address guards.",
-    "disclaimer": "Public-source monitor, not an official or exhaustive crime register. Locations reflect the most precise place publicly reported; Fundort means body-discovery location and may not be the crime scene.",
     "category_counts": {
       "homicide": 42,
       "violence": 2,
@@ -15,7 +13,9 @@
       "property": 0
     },
     "schema_version": 2,
-    "coverage_note": "Current dataset includes homicide/suspected homicide and fatal serious violence. Other category controls are reserved for future source coverage; zero does not mean zero crime."
+    "coverage_note": "Current dataset includes homicide/suspected homicide and fatal serious violence. Other category controls are reserved for future source coverage; zero does not mean zero crime.",
+    "method": "Verified 90-day seed/backfill set plus automated monitoring of public police RSS sources; strict death+homicide filter with follow-up-date and contact-address guards.",
+    "disclaimer": "Public-source monitor, not an official or exhaustive crime register. Locations reflect the most precise place publicly reported; Fundort means body-discovery location and may not be the crime scene."
   },
   "cases": [
     {
