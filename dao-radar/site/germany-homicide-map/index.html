@@ -44,7 +44,9 @@ aside{height:100%;min-height:0;overflow:hidden;border-left:1px solid var(--line)
 .risk-badge.low{color:#90d2cf}.risk-badge.mid{color:#f0cf7a}.risk-badge.high{color:#f09a7f}
 .area-metric{font-size:10px;color:#a7b5c1;margin-bottom:5px}.coverage-line{display:flex;align-items:center;gap:6px;margin:0 0 9px;font-size:9px;color:#91a0ae;min-height:18px}.coverage-pill{flex:0 0 auto;border:1px solid #3a4652;border-radius:999px;padding:2px 6px;font-size:8.5px;font-weight:700;letter-spacing:.01em;background:#1b2530}.coverage-pill.high{color:#8bd5b0;border-color:#35644f;background:#14271f}.coverage-pill.standard{color:#8fc7e8;border-color:#365b73;background:#152632}.coverage-pill.base{color:#c6b47c;border-color:#62583a;background:#2a2619}.coverage-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.area-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.area-stat{border:1px solid #2b3946;background:#18212b;border-radius:8px;padding:8px;min-width:0}.area-stat b{font-size:16px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.area-stat small{display:block;color:var(--muted);font-size:8.5px;line-height:1.25;margin-top:2px}
 .riskline{margin:10px 0 6px}.riskline-top{display:flex;justify-content:space-between;font-size:9px;color:#9dabb7}.risktrack{height:7px;border-radius:99px;background:linear-gradient(90deg,#78bcbc 0 40%,#ddb668 40% 70%,#d66550 70% 100%);margin-top:4px;position:relative}.riskpin{position:absolute;top:-3px;width:2px;height:13px;background:#fff;box-shadow:0 0 0 1px #111}
-.area-note{font-size:9.5px;color:#9caab6;line-height:1.45;margin-top:8px}.travel-tip{margin-top:9px;border-left:3px solid #6aa8ce;background:#17222c;padding:7px 8px;font-size:10px;line-height:1.45}.travel-tip b{color:#dfeaf1}
+.area-note{font-size:9.5px;color:#9caab6;line-height:1.45;margin-top:8px}
+.rank-section{margin-top:13px;padding-top:10px;border-top:1px solid #293542}.rank-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px}.rank-head strong{font-size:10px}.rank-head span{font-size:8.5px;color:var(--muted)}
+.rank-list{display:grid;gap:3px}.rank-row{width:100%;display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:7px;align-items:center;border:0;border-radius:6px;background:transparent;color:var(--text);padding:5px 6px;text-align:left;cursor:pointer}.rank-row:hover{background:#1a2530}.rank-no{font-size:9px;color:#6f8190;text-align:center}.rank-place{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10px}.rank-value{font-size:10px;font-variant-numeric:tabular-nums;color:#cbd8e2}
 .incident-drawer{flex:0 0 auto;border-top:1px solid var(--line);background:#10171f}.incident-drawer>summary{cursor:pointer;padding:8px 11px;color:#aab8c4;font-size:10px;display:flex;justify-content:space-between;gap:8px;list-style:none}.incident-drawer>summary::-webkit-details-marker{display:none}.incident-drawer>summary:after{content:'展开';color:#718292}.incident-drawer[open]>summary:after{content:'收起'}
 .incident-drawer[open] #list{max-height:32vh;border-top:1px solid #26313c}#list{overflow:auto;overscroll-behavior:contain}
 .card{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid #26313c;background:transparent;color:var(--text);padding:9px 11px;cursor:pointer}.card:hover{background:#1b2631}
@@ -136,9 +138,9 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
 
     <section class="safety-panel" id="safetyPanel">
       <div class="safety-head"><strong>区域数据</strong><span class="safety-hint">悬停查看 · 点击锁定</span></div>
-      <div class="area-title"><div class="area-name" id="areaName">在地图上选择地区</div><span class="risk-badge mid" id="riskBadge">等待选择</span></div>
-      <div class="area-metric" id="areaMetric">将显示当地官方案发频率、季度量级和近90天公开通报。</div>
-      <div class="coverage-line"><span class="coverage-pill base" id="coveragePill">覆盖说明</span><span class="coverage-text" id="coverageText">选择地区后显示数据覆盖等级</span></div>
+      <div class="area-title"><div class="area-name" id="areaName">德国全国</div><span class="risk-badge mid" id="riskBadge">全国概览</span></div>
+      <div class="area-metric" id="areaMetric">正在读取当前指标…</div>
+      <div class="coverage-line"><span class="coverage-pill standard" id="coveragePill">全国覆盖</span><span class="coverage-text" id="coverageText">读取中…</span></div>
       <div class="area-grid">
         <div class="area-stat"><b id="areaRate">—</b><small id="areaRateLabel">每10万人·年</small></div>
         <div class="area-stat"><b id="areaQuarter">—</b><small id="areaQuarterLabel">季度量级</small></div>
@@ -148,8 +150,11 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
         <div class="riskline-top"><span id="riskRankLabel">同级区域相对位置</span><span id="riskRankText">—</span></div>
         <div class="risktrack"><i class="riskpin" id="riskPin" style="left:50%"></i></div>
       </div>
-      <div class="area-note" id="areaNote">季度量级会明确标注是否为年度数据折算；不会把年度统计伪装成实时季度数据。</div>
-      <div class="travel-tip" id="travelTip"><b>旅行提示：</b>先看区域频率，再结合90天事件点判断近期异常；公开通报并非全量案件。</div>
+      <div class="area-note" id="areaNote">全国概览会显示当前指标的真实分布统计；悬停或点击地图后切换为该县/市的实际数据。</div>
+      <div class="rank-section">
+        <div class="rank-head"><strong>当前指标高值地区</strong><span>每10万人·年</span></div>
+        <div class="rank-list" id="rankList"></div>
+      </div>
     </section>
 
     <details class="incident-drawer">
@@ -181,12 +186,12 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     coveragePill:$('coveragePill'),coverageText:$('coverageText'),
     areaRate:$('areaRate'),areaRateLabel:$('areaRateLabel'),areaQuarter:$('areaQuarter'),areaQuarterLabel:$('areaQuarterLabel'),
     areaRecent:$('areaRecent'),areaRecentLabel:$('areaRecentLabel'),riskRankLabel:$('riskRankLabel'),riskRankText:$('riskRankText'),
-    riskPin:$('riskPin'),areaNote:$('areaNote'),travelTip:$('travelTip'),
+    riskPin:$('riskPin'),areaNote:$('areaNote'),rankList:$('rankList'),
     listTitle:$('listTitle'),list:$('list')
   };
   const NATIONAL_VIOLENCE_2025=212335;
   const cats={homicide:{label:'凶杀',color:'#d6534f'},violence:{label:'严重暴力',color:'#df8a45'},robbery:{label:'抢劫',color:'#4f95bd'},sexual:{label:'性犯罪',color:'#9e76c8'},property:{label:'盗窃/财产',color:'#5a82d3'}};
-  let mode='violence',caseData=null,pksData=null,propertyData=null,countyGeo=null,berlinViolence=null,heatData=null,stateGeo=null,sourceRegistry=null;
+  let mode='violence',caseData=null,pksData=null,propertyData=null,countyGeo=null,berlinViolence=null,heatData=null,stateGeo=null;
   let countyLayer=null,berlinLayer=null,heatLayer=null,stateLayer=null;
   let pinnedArea=null,hoverArea=null;
   const newsLayer=L.layerGroup(),markers=new Map();
@@ -307,14 +312,14 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   }
   function countyArea(feature,rec){
     const key=currentViolenceMetric(),m=rec?.[key]||{},rate=Number(m.rate||0),cases=Number(m.cases||0),pct=percentile(rate,nationalRates(key));
-    return {kind:'violence-county',name:rec?.name||'未知县/市',state:rec?.state||'',metric:'BKA PKS 2025 · '+(violenceMetrics[key]?.de||key),
+    return {kind:'violence-county',ags:rec?.ags||'',name:rec?.name||'未知县/市',state:rec?.state||'',metric:'BKA PKS 2025 · '+(violenceMetrics[key]?.de||key),
       rate,cases,change:m.change||'—',recent:violentRecentCount(feature,key),pct,feature,metricKey:key,
       note:'2025年警方记录的县/市级年度数据。颜色按德国县/市同一指标的相对分位着色；未报案事件不在PKS中。'};
   }
   function propertyCountyArea(feature,rec){
     const key=currentPropertyMetric(),m=rec?.[key]||{},rate=Number(m.rate||0),cases=Number(m.cases||0),pct=percentile(rate,propertyRates(key));
     const recent=caseData?.cases?.filter(c=>c.category==='property'&&Number.isFinite(c.lon)&&Number.isFinite(c.lat)&&pointInGeometry(c.lon,c.lat,feature.geometry)).length||0;
-    return {kind:'property-county',name:rec?.name||'未知县/市',state:rec?.state||'',metric:'BKA PKS 2025 · '+(propertyMetrics[key]?.de||key),
+    return {kind:'property-county',ags:rec?.ags||'',name:rec?.name||'未知县/市',state:rec?.state||'',metric:'BKA PKS 2025 · '+(propertyMetrics[key]?.de||key),
       rate,cases,change:m.change||'—',recent,pct,feature,metricKey:key,
       note:'2025年警方记录的县/市级年度数据。颜色按德国县/市同一指标的相对分位着色；未报案事件不在PKS中。'};
   }
@@ -340,22 +345,63 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
       distance:bestD,bike:Number(best.bike||0),vehicle:Number(best.vehicle||0),
       note:'按最近的 Planungsraum 统计中心近似选择；显示的是最近90天自行车盗窃 + 车辆上/车辆内盗窃记录，不含全部财产犯罪。'};
   }
-  function coverageFor(a){
-    const state=a?.state||'';
-    const rec=sourceRegistry?.states?.[state];
-    if(rec)return rec;
-    if(a?.kind==='berlin'||a?.kind==='property-local')return {current_level:'high',current_label:'高覆盖',current_detail:'柏林细分官方数据 + 90天警方通报'};
-    return {current_level:'base',current_label:'基础覆盖',current_detail:'全国PKS + 公开通报；近期点位非全量案件'};
-  }
   function renderCoverage(a){
-    if(!a){
-      el.coveragePill.textContent='覆盖说明';el.coveragePill.className='coverage-pill base';
-      el.coverageText.textContent='选择地区后显示数据覆盖等级';return;
+    if(a?.kind==='property-local'||a?.kind==='berlin'){
+      el.coveragePill.textContent='细分数据';el.coveragePill.className='coverage-pill high';
+      el.coverageText.textContent=a.kind==='property-local'?'Polizei Berlin Open Data · 90天':'Polizei Berlin Kriminalitätsatlas';
+      return;
     }
-    const x=coverageFor(a),level=x.current_level||'base';
-    el.coveragePill.textContent=x.current_label||'基础覆盖';
-    el.coveragePill.className='coverage-pill '+(level==='high'?'high':level==='standard'?'standard':'base');
-    el.coverageText.textContent=x.current_detail||'全国PKS + 公开通报；近期点位非全量案件';
+    const count=mode==='property'?(propertyData?.meta?.county_count||0):(pksData?.meta?.county_count||0);
+    el.coveragePill.textContent='全国覆盖';el.coveragePill.className='coverage-pill standard';
+    el.coverageText.textContent='BKA PKS 2025 · '+fmt(count)+'/400 县/市';
+  }
+
+  function currentNationalSummary(){
+    const isProperty=mode==='property';
+    const key=isProperty?currentPropertyMetric():currentViolenceMetric();
+    const meta=isProperty?propertyMetrics[key]:violenceMetrics[key];
+    const data=isProperty?propertyData:pksData;
+    const rows=Object.values(data?.records||{}).filter(r=>r?.[key]&&Number.isFinite(Number(r[key].rate)));
+    const sorted=rows.slice().sort((a,b)=>Number(b[key].rate)-Number(a[key].rate));
+    const rates=rows.map(r=>Number(r[key].rate)).sort((a,b)=>a-b);
+    const breaks=isProperty?(data?.meta?.quantile_breaks?.[key]||quantileBreaks(rates)):quantileBreaks(rates);
+    const median=rates.length?rates[Math.floor((rates.length-1)/2)]:0;
+    return {key,label:meta?.label||key,de:meta?.de||key,rows,sorted,rates,breaks,median,top:sorted[0]||null};
+  }
+
+  function renderRankList(){
+    const s=currentNationalSummary();
+    el.rankList.innerHTML='';
+    for(const [i,r] of s.sorted.slice(0,8).entries()){
+      const b=document.createElement('button');b.className='rank-row';b.type='button';
+      b.innerHTML='<span class="rank-no">'+(i+1)+'</span><span class="rank-place">'+esc(r.name)+'</span><span class="rank-value">'+fmt(Math.round(r[s.key].rate))+'</span>';
+      b.onclick=()=>{
+        const layer=countyLayer?.getLayers().find(x=>{
+          const rec=mode==='property'?propertyRecord(x.feature):pksRecord(x.feature);
+          return rec?.ags===r.ags;
+        });
+        if(layer){
+          const a=mode==='property'?propertyCountyArea(layer.feature,r):countyArea(layer.feature,r);
+          showArea(a,{pin:true});
+          if(layer.getBounds)map.fitBounds(layer.getBounds(),{padding:[30,30],maxZoom:8});
+        }
+      };
+      el.rankList.appendChild(b);
+    }
+  }
+
+  function renderNationalOverview(){
+    const s=currentNationalSummary(),p80=s.breaks?.[3]||0,top=s.top;
+    el.areaName.textContent='德国全国 · '+s.label;
+    el.riskBadge.textContent=fmt(s.rows.length)+' 县/市';el.riskBadge.className='risk-badge mid';
+    el.areaMetric.textContent='BKA PKS 2025 · '+s.de;
+    renderCoverage(null);
+    el.areaRate.textContent=fmt(Math.round(s.median));el.areaRateLabel.textContent='县/市中位数 · /10万人';
+    el.areaQuarter.textContent=fmt(Math.round(p80));el.areaQuarterLabel.textContent='P80 阈值 · /10万人';
+    el.areaRecent.textContent=top?fmt(Math.round(top[s.key].rate)):'—';el.areaRecentLabel.textContent=top?'最高值 · '+top.name:'最高值';
+    el.riskRankLabel.textContent='全国分布中位位置';el.riskRankText.textContent='P50';el.riskPin.style.left='50%';
+    el.areaNote.textContent='当前指标覆盖 '+fmt(s.rows.length)+' 个县/市。地图颜色按全国五分位分档；最高值地区为 '+(top?top.name+'（'+fmt(Math.round(top[s.key].rate))+'/10万人）':'—')+'。';
+    renderAreaOverlay(null);
   }
 
   function showArea(area,{pin=false}={}){
@@ -363,14 +409,8 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     hoverArea=pin?null:area;
     const a=area||pinnedArea;
     if(!a){
-      el.areaName.textContent='在地图上选择地区';
-      el.riskBadge.textContent='等待选择';el.riskBadge.className='risk-badge mid';
-      el.areaMetric.textContent='悬停或点击任一县/市；放大柏林后可查看更细的 Bezirksregion。';
-      el.areaRate.textContent='—';el.areaQuarter.textContent='—';el.areaRecent.textContent='—';
-      el.riskRankText.textContent='—';el.riskPin.style.left='50%';
-      el.areaNote.textContent='季度量级会明确标注是否为年度数据折算；不会把年度统计伪装成实时季度数据。';
-      el.travelTip.innerHTML='<b>旅行提示：</b>先看区域频率，再结合90天事件点判断近期异常；公开通报并非全量案件。';
-      renderCoverage(null);renderAreaOverlay(null);return;
+      renderNationalOverview();
+      return;
     }
     el.areaName.textContent=a.name;el.areaMetric.textContent=a.metric;renderCoverage(a);
     if(a.kind==='property-local'){
@@ -380,7 +420,6 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
       el.areaRecent.textContent=fmt(a.vehicle);el.areaRecentLabel.textContent='其中车辆相关';
       el.riskRankLabel.textContent='最近统计区距离';el.riskRankText.textContent=a.distance<1000?Math.round(a.distance)+' m':(a.distance/1000).toFixed(1)+' km';
       el.riskPin.style.left='50%';el.areaNote.textContent=a.note;
-      el.travelTip.innerHTML='<b>提示：</b>柏林细分层用于观察90天内的局部盗窃热点，不代表所有财产犯罪。';
     }else if(a.kind==='property-county'||a.kind==='violence-county'){
       const risk=riskLabel(a.pct),isProperty=a.kind==='property-county';
       el.riskBadge.textContent=risk.text;el.riskBadge.className='risk-badge '+risk.cls;
@@ -389,7 +428,6 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
       el.areaRecent.textContent=a.change;el.areaRecentLabel.textContent='较2024变化';
       el.riskRankLabel.textContent='德国县/市相对位置';el.riskRankText.textContent='约 P'+a.pct;
       el.riskPin.style.left=Math.max(1,Math.min(99,a.pct))+'%';el.areaNote.textContent=a.note;
-      el.travelTip.innerHTML='<b>提示：</b>'+(isProperty?'全国财产热力用于比较地区间警方记录频率；放大柏林后可叠加匹配的90天官方细分热力。':'全国暴力热力用于比较地区间警方记录频率；近期事件点仅用于补充近期动态。');
     }else{
       const risk=riskLabel(a.pct);
       el.riskBadge.textContent=risk.text;el.riskBadge.className='risk-badge '+risk.cls;
@@ -399,15 +437,11 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
       el.riskRankLabel.textContent=a.kind==='berlin'?'柏林同级分区相对位置':'德国县/市相对位置';
       el.riskRankText.textContent='约 P'+a.pct;el.riskPin.style.left=Math.max(1,Math.min(99,a.pct))+'%';
       el.areaNote.textContent=a.note;
-      el.travelTip.innerHTML='<b>旅行提示：</b>'+((a.pct>=80)?'该区域在同级统计区中处于较高一档，建议提高日常警觉，并结合地图上的近90天事件点判断近期情况。':'该指标用于比较区域案发频率；仍应结合具体街区、时间段与近90天事件点，不宜仅凭颜色判断个人风险。');
     }
     renderAreaOverlay(a);
   }
   function renderAreaOverlay(a){
-    if(!a){
-      el.layerInfo.innerHTML='<b>游客优先信息</b><div>悬停地图区域即可查看：</div><div class="mini-grid"><span><b>年频率</b><small>/10万人</small></span><span><b>季度量级</b><small>明确口径</small></span><span><b>90天</b><small>公开通报</small></span></div>';
-      return;
-    }
+    if(!a){el.layerInfo.innerHTML='';return;}
     if(a.kind==='property-local'){
       el.layerInfo.innerHTML='<b>'+esc(a.name)+'</b><div class="mini-grid"><span><b>'+fmt(a.cases)+'</b><small>90天盗窃</small></span><span><b>'+fmt(a.bike)+'</b><small>自行车</small></span><span><b>'+fmt(a.vehicle)+'</b><small>车辆相关</small></span></div><small>最近统计区近似</small>';
     }else{
@@ -570,7 +604,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     el.modeViolence.classList.toggle('active',mode==='violence');el.modeProperty.classList.toggle('active',mode==='property');
     el.violenceLayers.hidden=mode!=='violence';el.propertyLayers.hidden=mode!=='property';
     buildCountyLayer();buildStateLayer();buildBerlinLayer();buildHeat();
-    const cs=renderNews();renderLegend();renderLayerInfo(cs);renderSummary(cs);
+    const cs=renderNews();renderLegend();renderLayerInfo(cs);renderSummary(cs);renderRankList();
   }
 
   el.modeViolence.onclick=()=>{mode='violence';pinnedArea=null;hoverArea=null;render();showArea(null);};
@@ -590,10 +624,9 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     fetch('data/pks_violent_2025.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('pks '+r.status);return r.json()}),
     fetch('data/pks_property_2025.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('property pks '+r.status);return r.json()}),
     fetch('data/berlin_violent_2025.geojson',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('berlin violence '+r.status);return r.json()}),
-    fetch('data/berlin_heatmap.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('heat '+r.status);return r.json()}),
-    fetch('data/source_registry.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('sources '+r.status);return r.json()})
-  ]).then(([cases,counties,states,pks,propertyPks,berlinV,heat,sources])=>{
-    caseData=cases;countyGeo=counties;stateGeo=states;pksData=pks;propertyData=propertyPks;berlinViolence=berlinV;heatData=heat;sourceRegistry=sources;
+    fetch('data/berlin_heatmap.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('heat '+r.status);return r.json()})
+  ]).then(([cases,counties,states,pks,propertyPks,berlinV,heat])=>{
+    caseData=cases;countyGeo=counties;stateGeo=states;pksData=pks;propertyData=propertyPks;berlinViolence=berlinV;heatData=heat;
     const t=caseData.meta?.generated_at?new Date(caseData.meta.generated_at):null;
     el.updated.textContent=t&&!Number.isNaN(+t)?'通报更新 '+t.toLocaleString():'通报更新时间未知';
     render();showArea(null);
