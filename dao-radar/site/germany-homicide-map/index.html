@@ -312,6 +312,11 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     if(metric==='theft_from_vehicle')return 'vehicle';
     return null;
   }
+  function berlinLocalActive(){
+    if(map.getZoom()<7.5)return false;
+    if(mode==='violence')return currentViolenceMetric()==='violence'&&!!berlinViolence;
+    return !!propertyHeatField()&&!!heatData&&!!berlinViolence;
+  }
   function stateFeatureByName(name){
     return stateGeo?.features?.find(f=>f.properties?.name===name)||null;
   }
@@ -614,14 +619,16 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     if(mode==='property'){
       const key=currentPropertyMetric(),rec=propertyRecord(feature),breaks=quantileBreaks(propertyRates(key));
       const val=rec?.[key]?.rate;
+      if(rec?.name==='Berlin'&&berlinLocalActive())return {pane:'countyPane',color:'transparent',weight:0,opacity:0,fillColor:'transparent',fillOpacity:0};
       return {pane:'countyPane',color:'#718390',weight:.28,opacity:.58,fillColor:rec?scaleColor(val,breaks,propertyPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.68:0.07};
     }
     const key=currentViolenceMetric(),rec=pksRecord(feature),breaks=quantileBreaks(nationalRates(key)),val=rec?.[key]?.rate;
+    if(rec?.name==='Berlin'&&berlinLocalActive())return {pane:'countyPane',color:'transparent',weight:0,opacity:0,fillColor:'transparent',fillOpacity:0};
     return {pane:'countyPane',color:'#7c7f82',weight:.28,opacity:.56,fillColor:rec?scaleColor(val,breaks,nationalPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.68:0.07};
   }
   function berlinStyle(feature){
     const v=Number(feature?.properties?.combined_rate||0),breaks=quantileBreaks(berlinRates());
-    return {pane:'berlinPane',color:'#76558a',weight:.30,opacity:.46,fillColor:scaleColor(v,breaks,berlinPalette),fillOpacity:.70};
+    return {pane:'berlinPane',color:'#76558a',weight:.34,opacity:.58,fillColor:scaleColor(v,breaks,berlinPalette),fillOpacity:.84};
   }
   function selectCountyLayer(layer){
     if(!countyLayer||!layer)return;
@@ -669,6 +676,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   function buildStateLayer(){
     if(stateLayer){map.removeLayer(stateLayer);stateLayer=null;}
     if(!stateGeo)return;
+    if(map.getZoom()>=7.5)return;
     const interactive=map.getZoom()<=7.15;
     stateLayer=L.geoJSON(stateGeo,{
       pane:'statePane',style:stateStyle,interactive,
@@ -712,7 +720,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
       filter:feature=>byPlr.has(normPlr(feature?.properties?.plr)),
       style:feature=>{
         const point=byPlr.get(normPlr(feature?.properties?.plr)),v=Number(point?.[field]||0);
-        return {pane:'berlinPane',color:'#486783',weight:.34,opacity:.56,fillColor:scaleColor(v,breaks,berlinPropertyPalette),fillOpacity:.76};
+        return {pane:'berlinPane',color:'#486783',weight:.34,opacity:.58,fillColor:scaleColor(v,breaks,berlinPropertyPalette),fillOpacity:.84};
       },
       onEachFeature:(feature,layer)=>{
         const point=byPlr.get(normPlr(feature?.properties?.plr));if(!point)return;
