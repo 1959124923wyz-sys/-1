@@ -310,6 +310,7 @@ def scan(lookback: int, max_pages: int):
     s = session()
     seen = set()
     listing_rows = []
+    raw_anchor_sample = []
     pages_scanned = 0
 
     for page_no in range(1, max_pages + 1):
@@ -332,6 +333,13 @@ def scan(lookback: int, max_pages: int):
             seen.add(href)
             title = clean(a.get_text(" ", strip=True))
             context = listing_context(a)
+            if len(raw_anchor_sample) < 5:
+                raw_anchor_sample.append({
+                    "title": title[:180],
+                    "href": href,
+                    "context": context[:600],
+                    "parent_html": str(a.parent)[:1200],
+                })
             published = parse_date(context)
             if not published:
                 # Heading itself normally starts with the publication date.
@@ -426,6 +434,7 @@ def scan(lookback: int, max_pages: int):
     return {
         "today": today, "cutoff": cutoff, "pages_scanned": pages_scanned,
         "prefiltered": len(listing_rows), "events": events,
+        "raw_anchor_sample": raw_anchor_sample,
     }
 
 
@@ -503,6 +512,7 @@ def main():
         "selected_events": len(result["events"]),
         "by_category": dict(counts),
         "top_districts": districts.most_common(10),
+        "raw_anchor_sample": result.get("raw_anchor_sample", []),
         "sample": [
             {
                 "date": e["event_date"], "category": e["category"],
