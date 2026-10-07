@@ -90,64 +90,78 @@ print("geo member",member,"features",len(geo.get("features",[])))
 
 all_names=set()
 for rows in tables.values(): all_names.update(rows.keys())
+all_names.discard("tatortunbekannt")
 
-def match_name(props):
-    # First, exact normalized value match to a crime-atlas Stadtteil.
-    for v in props.values():
-        if isinstance(v,str) and norm(v) in all_names:
-            return norm(v),v
-    # Then common key names.
-    for k,v in props.items():
-        nk=norm(k)
-        if isinstance(v,str) and ("stadtteil" in nk or nk in ("name","bezirkname")):
-            nv=norm(v)
-            if nv in all_names:return nv,v
-    return None,None
-
-def population(props):
-    cand=[]
-    for k,v in props.items():
-        nk=norm(k)
-        if not any(x in nk for x in ("einwohner","bevolkerung","bevoelkerung")):continue
-        try:
-            num=float(str(v).replace(".","").replace(",","."))
-        except:continue
-        if not 1<=num<=300000:continue
-        score=0
-        if "2025" in nk:score+=5
-        elif "2024" in nk:score+=4
-        if "gesamt" in nk:score+=2
-        if "dichte" in nk or "anteil" in nk:score-=10
-        cand.append((score,num,k))
-    if not cand:return None,None
-    cand.sort(reverse=True)
-    return int(round(cand[0][1])),cand[0][2]
-
-features=[];matched=set();pop_keys={}
+# Regional-statistical geometry contains one record per Stadtteil per year.
+# Keep exactly the latest record for each Stadtteil, and use the explicit
+# population field instead of heuristically scanning demographic attributes.
+latest={}
 for f in geo.get("features",[]):
     props=f.get("properties") or {}
-    nk,display=match_name(props)
-    if not nk:continue
-    pop,popkey=population(props)
-    if not pop:
-        continue
-    p={"city":"Hamburg","state":"Hamburg","name":tables["crime_total"].get(nk,{}).get("name",display),"population":pop}
+    raw_name=str(props.get("stadtteil") or "").strip()
+    if not raw_name:continue
+    try:year=int(str(props.get("jahr") or "0")[:4])
+    except:year=0
+    key=norm(raw_name)
+    prev=latest.get(key)
+    if prev is None or year>prev[0]:
+        latest[key]=(year,f)
+
+ALIASES={
+  "hamburgaltstadt":"altstadt",
+  "neuwerk":"inselneuwerk",
+}
+
+def crime_key_for_geo(name):
+    n=norm(name)
+    candidates=[n,ALIASES.get(n)]
+    if n.startswith("hamburg"):candidates.append(n[len("hamburg"):])
+    for k in candidates:
+        if k and k in all_names:return k
+    return None
+
+features=[];matched=set();geo_unmatched=[]
+for _,(_,f) in sorted(latest.items()):
+    props=f.get("properties") or {}
+    raw_name=str(props.get("stadtteil") or "").strip()
+    nk=crime_key_for_geo(raw_name)
+    if not nk:
+        geo_unmatched.append(raw_name);continue
+
+    raw_pop=props.get("bev_insgesamt")
+    try:pop=int(round(float(str(raw_pop).replace(".","").replace(",",".")))) if raw_pop not in (None,"","-") else 0
+    except:pop=0
+
+    p={"city":"Hamburg","state":"Hamburg","name":tables["crime_total"].get(nk,{}).get("name",raw_name),"population":pop}
     found=False
     for key in METRIC_PAGES:
         row=tables[key].get(nk)
         if row:
             cases=row["cases"]
-            p[key]={"cases":cases,"rate":round(cases/pop*100000,1),"change":row["change"]}
+            p[key]={
+              "cases":cases,
+              "rate":round(cases/pop*100000,1) if pop>0 else None,
+              "change":row["change"]
+            }
             found=True
     if not found:continue
-    p["source_population_field"]=popkey
+    p["source_population_field"]="bev_insgesamt"
+    p["population_year"]=props.get("jahr")
     features.append({"type":"Feature","id":"hamburg-"+nk,"properties":p,"geometry":f.get("geometry")})
-    matched.add(nk);pop_keys[popkey]=pop_keys.get(popkey,0)+1
+    matched.add(nk)
 
-if len(matched)<95:
-    missing=sorted(all_names-matched)
+missing=sorted(all_names-matched)
+# Some port / industrial Stadtteile are absent from the regional-statistical
+# population geometry because they have no or almost no residents. We retain
+# only areas with official geometry; require that essentially all populated
+# Stadtteile are present.
+if len(matched)<94 or len(features)<94:
     sample=(geo.get("features") or [{}])[0].get("properties",{})
-    raise RuntimeError(f"Hamburg join too small: matched={len(matched)} features={len(features)} missing_sample={missing[:25]} geo_keys={list(sample)[:60]} pop_keys={pop_keys}")
+    raise RuntimeError(
+      f"Hamburg join too small: matched={len(matched)} latest_geo={len(latest)} "
+      f"missing={missing[:25]} geo_unmatched={geo_unmatched[:25]} geo_keys={list(sample)[:40]}"
+    )
+
 
 out={
  "type":"FeatureCollection",
@@ -159,9 +173,9 @@ out={
    "geometry_population_source":"Statistikamt Nord / Hamburg Transparenzportal: Regionalstatistische Daten der Stadtteile",
    "geometry_population_source_url":GEOZIP,
    "metrics":METRIC_LABELS,
-   "note":"Local rates are computed from official 2025 police case counts and the official Stadtteil population attribute from the Hamburg geodata snapshot."
+   "note":"Local rates are computed from official 2025 police case counts and the latest official Stadtteil population attribute. Port/industrial areas without usable resident-population geometry are omitted from rate shading."
  },
  "features":features
 }
 OUT.write_text(json.dumps(out,ensure_ascii=False,separators=(",",":"))+"\n",encoding="utf-8")
-print(json.dumps({"features":len(features),"stadtteile":len(matched),"metric_rows":{k:len(v) for k,v in tables.items()},"pop_keys":pop_keys},ensure_ascii=False,indent=2))
+print(json.dumps({"features":len(features),"stadtteile":len(matched),"latest_geo":len(latest),"missing":missing,"geo_unmatched":geo_unmatched,"metric_rows":{k:len(v) for k,v in tables.items()}},ensure_ascii=False,indent=2))
