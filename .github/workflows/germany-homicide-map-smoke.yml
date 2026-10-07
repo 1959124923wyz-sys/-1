@@ -45,6 +45,7 @@ jobs:
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/build_berlin_violent_atlas.py
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/validate_official_violence_layers.py
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/smoke_test_ui.py
+          python -m py_compile dao-radar/site/germany-homicide-map/scripts/build_city_layers.py
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/validate_city_layers.py
           node --check dao-radar/site/germany-homicide-map/js/core/geo-stats.js
           node --check dao-radar/site/germany-homicide-map/js/core/config.js
