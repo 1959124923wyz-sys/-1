@@ -57,6 +57,12 @@ jobs:
           BERLIN_LOOKBACK_DAYS: ${{ github.event_name == 'push' && '90' || '5' }}
         run: python dao-radar/site/germany-homicide-map/scripts/update_berlin_categories.py
 
+      - name: Refresh Berlin official theft heatmap
+        run: python dao-radar/site/germany-homicide-map/scripts/update_berlin_heatmap.py
+
+      - name: Validate Berlin official heatmap
+        run: python dao-radar/site/germany-homicide-map/scripts/validate_berlin_heatmap.py
+
       - name: Commit refreshed data
         id: save
         if: github.event_name != 'pull_request'
