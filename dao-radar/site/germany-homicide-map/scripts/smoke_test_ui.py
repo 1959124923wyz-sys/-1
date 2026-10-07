@@ -131,7 +131,7 @@ with sync_playwright() as p:
     # Property mode: the same side panel becomes a local 90-day theft card.
     page.click("#modeProperty")
     page.wait_for_timeout(1000)
-    page.evaluate("""() => window.__CRIME_MAP__.map.fire('click',{latlng:L.latLng(52.52,13.405)})""")
+    page.evaluate("""() => { window.__CRIME_MAP__.map.fire('click',{latlng:L.latLng(52.52,13.405)}); return true; }""")
     page.wait_for_timeout(150)
     prop=page.evaluate("""() => ({
       mode:window.__CRIME_MAP__.getMode(),
