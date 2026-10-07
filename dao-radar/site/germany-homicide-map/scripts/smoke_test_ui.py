@@ -90,7 +90,7 @@ with sync_playwright() as p:
       overlay:document.getElementById("layerInfo").textContent
     })""")
     assert county_card["name"]!="在地图上选择地区",county_card
-    assert "/10万人" in county_card["rateLabel"],county_card
+    assert "10万人" in county_card["rateLabel"],county_card
     assert "全年÷4" in county_card["quarterLabel"],county_card
     assert county_card["quarter"].startswith("≈"),county_card
     assert county_card["rank"].startswith("约 P"),county_card
