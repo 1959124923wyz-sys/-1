@@ -91,7 +91,7 @@ TRAFFIC_EVENT = re.compile(r"Unfall|kollid|Sturz|gestürzt|Verkehr|angefahren|ü
 PROPERTY_RULES = [
     ("Wohnungseinbruch", re.compile(r"Wohnungseinbruch|Einbruch.{0,55}(?:Wohnung|Wohnhaus|Einfamilienhaus|Wohngebäude)", re.I)),
     ("Diebstahl aus Fahrzeug", re.compile(
-        r"(?:Lenkrad|Navigationsgerät|Airbag|Werkzeug|Wertsachen).{0,50}(?:aus|von).{0,35}(?:PKW|Pkw|Auto|Fahrzeug)|"
+        r"(?:Lenkrad|Navigationsgerät|Airbag|Werkzeug|Wertsachen|Hinterrad|Vorderrad|Reifen|Felgen).{0,50}(?:aus|von|vom).{0,35}(?:PKW|Pkw|Auto|Fahrzeug)|"
         r"(?:aus|in)\s+(?:einem|dem|einen)?\s*(?:PKW|Pkw|Auto|Fahrzeug).{0,70}(?:entwendet|gestohlen|Diebstahl|aufgebrochen)",
         re.I,
     )),
@@ -492,6 +492,13 @@ def write_events(events):
             if state and "brandenburg" not in state:
                 event["lat"] = event["lon"] = None
                 event["geocode_rejected"] = "state-mismatch"
+            else:
+                resolved_county = clean(addr.get("county") or addr.get("state_district") or "")
+                if resolved_county:
+                    source_region = clean(event.get("district") or "")
+                    if source_region and source_region != resolved_county:
+                        event["source_region"] = source_region
+                    event["district"] = resolved_county
         cases.append(event)
         existing_urls.add(event["source_url"])
         added.append(event)
