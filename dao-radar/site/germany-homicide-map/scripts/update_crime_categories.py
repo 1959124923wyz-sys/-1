@@ -35,8 +35,9 @@ SOURCES=[
 MONTHS={"januar":1,"februar":2,"märz":3,"maerz":3,"april":4,"mai":5,"juni":6,"juli":7,"august":8,"september":9,"oktober":10,"november":11,"dezember":12}
 NUMDATE=re.compile(r"(?<!\d)(\d{1,2})\.(\d{1,2})\.(20\d{2})(?!\d)")
 TEXTDATE=re.compile(r"(?<!\d)(\d{1,2})\.\s*(Januar|Februar|März|Maerz|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)(?:\s+(20\d{2}))?",re.I)
-STREET=re.compile(r"\b([A-ZÄÖÜ][A-Za-zÄÖÜäöüß\-.' ]{1,58}?(?:straße|strasse|allee|weg|platz|gasse|damm|ring|ufer|chaussee|markt|stieg|graben|wall|steig))\b",re.I)
-FOLLOWUP=re.compile(r"Öffentlichkeitsfahndung|Festnahme|festgenommen|Haftbefehl|Untersuchungshaft|Tatverdächtig\w+\s+ermittelt|Ermittlungserfolg|Nachtrag|Folgemeldung|Anklage|Urteil",re.I)
+STREET_COMBINED=re.compile(r"\b((?:[A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9.'’\-]*\s+){0,2}[A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9.'’\-]*(?:straße|strasse|allee|weg|platz|gasse|damm|ring|ufer|chaussee|markt|stieg|graben|wall|steig))\b")
+STREET_SEPARATE=re.compile(r"\b((?:[A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9.'’\-]*\s+){1,3}(?:Straße|Strasse|Allee|Weg|Platz|Gasse|Damm|Ring|Ufer|Chaussee|Markt|Stieg|Graben|Wall|Steig))\b")
+FOLLOWUP=re.compile(r"Öffentlichkeitsfahndung|Haftbefehl|Tatverdächtig\w+\s+ermittelt|Ermittlungserfolg|Nachtrag|Folgemeldung|Anklage|Urteil",re.I)
 NON_EVENT=re.compile(r"Prävention|Präventions|Tipps|Aktionstag|Aktionswoche|sensibilis|Statistik|Bilanz|Sicherheitsbericht|Kontrollaktion|Schwerpunktkontrolle|Warnung vor|Polizei warnt",re.I)
 TRAFFIC=re.compile(r"Verkehrsunfall|Unfall|Zusammenstoß|Sturz|E-Scooter|Motorrad|Pedelec",re.I)
 HOMICIDE=re.compile(r"Tötungsdelikt|Totschlag|Mordkommission|\bMord\b|tödlich verletzt|verstarb|verstorben|\bstarb\b",re.I)
@@ -107,39 +108,48 @@ def core_text(text):
     return re.split(r"Rückfragen|Pressekontakt|Pressestelle|Original-Content|Kontakt:",text,maxsplit=1,flags=re.I)[0]
 
 def street_from(text):
-    m=STREET.search(core_text(text))
-    return m.group(1).strip() if m else ""
+    core=core_text(text)
+    matches=[]
+    for rx in (STREET_COMBINED,STREET_SEPARATE):
+        for m in rx.finditer(core):
+            v=m.group(1).strip(" ,.-")
+            if len(v)>=4:
+                matches.append((m.start(),v))
+    if not matches:return ""
+    matches.sort(key=lambda x:x[0])
+    return matches[0][1]
 
 def classify(category,title,text):
     head=(title+" "+text[:1800]).strip()
-    if NON_EVENT.search(title):return None
+    if NON_EVENT.search(title) or FOLLOWUP.search(title):return None
     if category=="robbery":
-        if not re.search(r"\bRaub(?:überfall|delikt)?\b|\bschwerer Raub\b|\bberaubt\b",head,re.I):return None
+        if not re.search(r"\bRaub(?:überfall|delikt)?\b|\bschwerer Raub\b|\bberaubt\b|\bÜberfall\b",title,re.I):return None
         if re.search(r"angeblich\w*\s+Raubüberfall|erfundene\w*\s+Raubüberfall",head,re.I):return None
         return ("Raub/Überfall","robbery",4)
     if category=="sexual":
-        if re.search(r"Vergewaltigung",head,re.I):
+        if re.search(r"Vergewaltigung",title,re.I):
             return ("Vergewaltigung","sexual",4)
-        if re.search(r"sexuell\w*\s+Nötigung",head,re.I):
+        if re.search(r"sexuell\w*\s+Nötigung",title,re.I):
             return ("Sexuelle Nötigung","sexual",4)
         return None
     if category=="violence":
-        if HOMICIDE.search(head):return None
-        if TRAFFIC.search(title):return None
+        if HOMICIDE.search(head) or TRAFFIC.search(title):return None
+        if not re.search(r"Messer|Stich|Angriff|Gewalttat|gefährliche Körperverletzung|schwere Körperverletzung",title,re.I):return None
         weapon=bool(re.search(r"Messer|Stichverletz|Schuss|Schusswaffe|gefährliche Körperverletzung|schwere Körperverletzung",head,re.I))
         serious=bool(re.search(r"schwer verletzt|lebensgefährlich|erheblich verletzt|stationär|Notoperation|Stichverletz|Messerstich|Schussverletz",head,re.I))
         if not (weapon and serious):return None
         sub="Messer-/Waffenangriff" if re.search(r"Messer|Stich|Schuss",head,re.I) else "Schwere Körperverletzung"
         return (sub,"violence",4)
     if category=="property":
-        if re.search(r"Pressemeldungen|Wochenend|Einbrüche aus dem Kreisgebiet|mehrere (?:Einbrüche|Diebstähle)|und mehr",title,re.I):return None
-        if re.search(r"Wohnungseinbruch|Einbruchdiebstahl",head,re.I):
+        if re.search(r"Pressemeldungen|Meldungen der Polizei|Polizeibericht|Wochenend|Kreisgebiet|mehrere (?:Einbrüche|Diebstähle)|und mehr|Sammelmeldung",title,re.I):return None
+        if re.search(r"Wohnungseinbruch|Einbruchdiebstahl|\bEinbruch\b|Einbrecher",title,re.I):
             return ("Wohnungseinbruch","property",2)
-        if re.search(r"Fahrraddiebstahl|Fahrrad\s+gestohlen|Pedelec\s+gestohlen|E-Bike\s+gestohlen",head,re.I):
+        if re.search(r"Fahrraddiebstahl|Fahrraddieb|Fahrrad.*(?:gestohlen|entwendet)|Pedelec.*(?:gestohlen|entwendet)|E-Bike.*(?:gestohlen|entwendet)",title,re.I):
             return ("Fahrraddiebstahl","property",2)
-        if re.search(r"Autodiebstahl|Pkw-Diebstahl|Fahrzeugdiebstahl|Auto\s+gestohlen|Pkw\s+gestohlen",head,re.I):
+        if re.search(r"entpuppt sich|vermeintlich",title,re.I):return None
+        if re.search(r"Autodiebstahl|Autodieb|Pkw-Diebstahl|Fahrzeugdiebstahl|(?:Auto|Pkw|Fahrzeug).*gestohlen",title,re.I):
             return ("Autodiebstahl","property",2)
-        if re.search(r"Taschendiebstahl|Taschendieb",head,re.I):
+        if re.search(r"Taschendiebstahl|Taschendieb",title,re.I):
             return ("Taschendiebstahl","property",2)
         return None
     return None
