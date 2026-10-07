@@ -16,7 +16,8 @@ on:
       - '.github/workflows/germany-homicide-map.yml'
       - 'dao-radar/site/germany-homicide-map/scripts/**'
       - 'dao-radar/site/germany-homicide-map/index.html'
-      - 'dao-radar/site/germany-homicide-map/city-local.js'
+      - 'dao-radar/site/germany-homicide-map/css/**'
+      - 'dao-radar/site/germany-homicide-map/js/**'
       - 'dao-radar/site/germany-homicide-map/data/city_layers.json'
       - 'dao-radar/site/germany-homicide-map/requirements.txt'
 
@@ -50,17 +51,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r dao-radar/site/germany-homicide-map/requirements.txt
 
-      - name: Validate inline map JavaScript syntax
+      - name: Validate map JavaScript syntax
         run: |
-          node <<'NODE'
-          const fs=require('fs');
-          const html=fs.readFileSync('dao-radar/site/germany-homicide-map/index.html','utf8');
-          const blocks=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)]
-            .map(m=>m[1]).filter(x=>x.trim());
-          if(!blocks.length) throw new Error('no inline script found');
-          for(const code of blocks) new Function(code);
-          console.log('Inline JavaScript syntax OK:',blocks.length,'block(s)');
-          NODE
+          node --check dao-radar/site/germany-homicide-map/js/app.js
+          node --check dao-radar/site/germany-homicide-map/js/layers/city-detail.js
 
       - name: Validate generic city-layer JavaScript syntax
         run: |
