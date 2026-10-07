@@ -1,34 +1,14 @@
 {
   "meta": {
-    "generated_at": "2026-10-07T03:40:05Z",
+    "generated_at": "2026-10-07T03:52:26Z",
     "window_days": 90,
     "scope": "Germany",
     "case_count": 44,
-    "geocoded_count": 19,
-    "method": "Verified seed set plus manually reviewed 90-day historical backfill from public police/prosecutor releases; daily automated public-source monitoring with strict death+homicide and follow-up deduplication filters.",
+    "geocoded_count": 44,
+    "method": "Verified 90-day seed/backfill set plus automated monitoring of public police RSS sources; strict death+homicide filter with follow-up-date and contact-address guards.",
     "disclaimer": "Public-source monitor, not an official or exhaustive crime register. Locations reflect the most precise place publicly reported; Fundort means body-discovery location and may not be the crime scene."
   },
   "cases": [
-    {
-      "id": "2026-10-01-bruchsal-heidelsheim",
-      "event_date": "2026-10-01",
-      "publication_date": "2026-10-01",
-      "city": "Bruchsal",
-      "state": "Baden-Württemberg",
-      "location": "Heidelsheim (residential address; street not publicly specified)",
-      "geocode_address": "Heidelsheim, Bruchsal, Germany",
-      "precision": "district",
-      "location_type": "Tatort",
-      "status": "suspected",
-      "offense": "Tötungsdelikt",
-      "summary": "A 63-year-old woman died at a residential address in Heidelsheim; her son was treated as the suspect.",
-      "source_agency": "Polizeipräsidium Karlsruhe / Staatsanwaltschaft Karlsruhe",
-      "source_url": "https://www.presseportal.de/blaulicht/pm/110972/6363036",
-      "lat": 49.1007969,
-      "lon": 8.645121,
-      "date_confidence": "high",
-      "geocode_precision": "district"
-    },
     {
       "id": "2026-10-01-euskirchen-zuelpich-fundort",
       "event_date": "2026-10-01",
@@ -50,24 +30,24 @@
       "geocode_precision": "city/area"
     },
     {
-      "id": "2026-09-28-berlin-tegeler-see",
-      "event_date": "2026-09-28",
-      "publication_date": "2026-09-29",
-      "city": "Berlin",
-      "state": "Berlin",
-      "location": "Tegeler See, Reinickendorf",
-      "geocode_address": "Tegeler See, Berlin, Germany",
-      "precision": "area",
-      "location_type": "Fundort",
+      "id": "2026-10-01-bruchsal-heidelsheim",
+      "event_date": "2026-10-01",
+      "publication_date": "2026-10-01",
+      "city": "Bruchsal",
+      "state": "Baden-Württemberg",
+      "location": "Heidelsheim (residential address; street not publicly specified)",
+      "geocode_address": "Heidelsheim, Bruchsal, Germany",
+      "precision": "district",
+      "location_type": "Tatort",
       "status": "suspected",
-      "offense": "Verdacht eines Tötungsdelikts",
-      "summary": "A body recovered from Tegeler See showed findings consistent with suspected homicide; the lake is the discovery location, not necessarily the crime scene.",
-      "source_agency": "Polizei Berlin / Staatsanwaltschaft Berlin",
-      "source_url": "https://www.berlin.de/polizei/polizeimeldungen/2026/pressemitteilung.1719543.php",
-      "lat": 52.574558,
-      "lon": 13.2550024,
-      "date_confidence": "discovery_date",
-      "geocode_precision": "area"
+      "offense": "Tötungsdelikt",
+      "summary": "A 63-year-old woman died at a residential address in Heidelsheim; her son was treated as the suspect.",
+      "source_agency": "Polizeipräsidium Karlsruhe / Staatsanwaltschaft Karlsruhe",
+      "source_url": "https://www.presseportal.de/blaulicht/pm/110972/6363036",
+      "lat": 49.1007969,
+      "lon": 8.645121,
+      "date_confidence": "high",
+      "geocode_precision": "district"
     },
     {
       "id": "2026-09-28-marl-karlstrasse",
@@ -90,24 +70,24 @@
       "geocode_precision": "street"
     },
     {
-      "id": "2026-09-26-duesseldorf-flingern",
-      "event_date": "2026-09-26",
-      "publication_date": "2026-10-05",
-      "city": "Düsseldorf",
-      "state": "Nordrhein-Westfalen",
-      "location": "Erkrather Straße, Flingern",
-      "geocode_address": "Erkrather Straße, Düsseldorf, Germany",
-      "precision": "street",
-      "location_type": "Tatort",
-      "status": "confirmed",
-      "offense": "Totschlag",
-      "summary": "A 53-year-old man died one day after a stabbing; prosecutors classify the case as manslaughter.",
-      "source_agency": "Polizei Düsseldorf / Staatsanwaltschaft Düsseldorf",
-      "source_url": "https://www.presseportal.de/blaulicht/pm/13248/6364988",
-      "lat": 51.2236269,
-      "lon": 6.7964472,
-      "date_confidence": "high",
-      "geocode_precision": "street"
+      "id": "2026-09-28-berlin-tegeler-see",
+      "event_date": "2026-09-28",
+      "publication_date": "2026-09-29",
+      "city": "Berlin",
+      "state": "Berlin",
+      "location": "Tegeler See, Reinickendorf",
+      "geocode_address": "Tegeler See, Berlin, Germany",
+      "precision": "area",
+      "location_type": "Fundort",
+      "status": "suspected",
+      "offense": "Verdacht eines Tötungsdelikts",
+      "summary": "A body recovered from Tegeler See showed findings consistent with suspected homicide; the lake is the discovery location, not necessarily the crime scene.",
+      "source_agency": "Polizei Berlin / Staatsanwaltschaft Berlin",
+      "source_url": "https://www.berlin.de/polizei/polizeimeldungen/2026/pressemitteilung.1719543.php",
+      "lat": 52.574558,
+      "lon": 13.2550024,
+      "date_confidence": "discovery_date",
+      "geocode_precision": "area"
     },
     {
       "id": "2026-09-26-obertshausen",
@@ -128,6 +108,26 @@
       "lon": 8.8732839,
       "date_confidence": "high",
       "geocode_precision": "city"
+    },
+    {
+      "id": "2026-09-26-duesseldorf-flingern",
+      "event_date": "2026-09-26",
+      "publication_date": "2026-10-05",
+      "city": "Düsseldorf",
+      "state": "Nordrhein-Westfalen",
+      "location": "Erkrather Straße, Flingern",
+      "geocode_address": "Erkrather Straße, Düsseldorf, Germany",
+      "precision": "street",
+      "location_type": "Tatort",
+      "status": "confirmed",
+      "offense": "Totschlag",
+      "summary": "A 53-year-old man died one day after a stabbing; prosecutors classify the case as manslaughter.",
+      "source_agency": "Polizei Düsseldorf / Staatsanwaltschaft Düsseldorf",
+      "source_url": "https://www.presseportal.de/blaulicht/pm/13248/6364988",
+      "lat": 51.2236269,
+      "lon": 6.7964472,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-09-25-delmenhorst-graftanlagen",
@@ -210,26 +210,6 @@
       "geocode_precision": "street"
     },
     {
-      "id": "2026-09-19-bad-berka",
-      "event_date": "2026-09-19",
-      "publication_date": "2026-09-22",
-      "city": "Bad Berka",
-      "state": "Thüringen",
-      "location": "Bad Berka (residential address; street not publicly specified in cited release)",
-      "geocode_address": "Bad Berka, Thüringen, Germany",
-      "precision": "city",
-      "location_type": "Tatort",
-      "status": "suspected",
-      "offense": "Tötungsdelikt",
-      "summary": "A 32-year-old woman died after a violent incident at a residence; police reported concrete indications of a homicide.",
-      "source_agency": "Landespolizeiinspektion Jena",
-      "source_url": "https://www.presseportal.de/blaulicht/pm/126722/6356830",
-      "lat": 50.8845519,
-      "lon": 11.2737429,
-      "date_confidence": "high",
-      "geocode_precision": "city"
-    },
-    {
       "id": "2026-09-19-marsberg",
       "event_date": "2026-09-19",
       "publication_date": "2026-09-20",
@@ -250,24 +230,24 @@
       "geocode_precision": "city"
     },
     {
-      "id": "2026-09-18-darmstadt-otto-roehm-strasse",
-      "event_date": "2026-09-18",
-      "publication_date": "2026-09-21",
-      "city": "Darmstadt",
-      "state": "Hessen",
-      "location": "Otto-Röhm-Straße",
-      "geocode_address": "Otto-Röhm-Straße, Darmstadt, Germany",
-      "precision": "street",
+      "id": "2026-09-19-bad-berka",
+      "event_date": "2026-09-19",
+      "publication_date": "2026-09-22",
+      "city": "Bad Berka",
+      "state": "Thüringen",
+      "location": "Bad Berka (residential address; street not publicly specified in cited release)",
+      "geocode_address": "Bad Berka, Thüringen, Germany",
+      "precision": "city",
       "location_type": "Tatort",
-      "status": "confirmed",
-      "offense": "Totschlag",
-      "summary": "A 68-year-old man died after a stabbing at communal accommodation; a suspect was detained on suspicion of manslaughter.",
-      "source_agency": "Polizeipräsidium Südhessen",
-      "source_url": "https://www.presseportal.de/blaulicht/pm/4969/6355694",
-      "lat": 49.8899657,
-      "lon": 8.6416802,
+      "status": "suspected",
+      "offense": "Tötungsdelikt",
+      "summary": "A 32-year-old woman died after a violent incident at a residence; police reported concrete indications of a homicide.",
+      "source_agency": "Landespolizeiinspektion Jena",
+      "source_url": "https://www.presseportal.de/blaulicht/pm/126722/6356830",
+      "lat": 50.8845519,
+      "lon": 11.2737429,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "city"
     },
     {
       "id": "2026-09-18-nuernberg-rothenburger-strasse",
@@ -286,6 +266,26 @@
       "source_url": "https://www.presseportal.de/blaulicht/pm/6013/6354926",
       "lat": 49.444406,
       "lon": 11.055062,
+      "date_confidence": "high",
+      "geocode_precision": "street"
+    },
+    {
+      "id": "2026-09-18-darmstadt-otto-roehm-strasse",
+      "event_date": "2026-09-18",
+      "publication_date": "2026-09-21",
+      "city": "Darmstadt",
+      "state": "Hessen",
+      "location": "Otto-Röhm-Straße",
+      "geocode_address": "Otto-Röhm-Straße, Darmstadt, Germany",
+      "precision": "street",
+      "location_type": "Tatort",
+      "status": "confirmed",
+      "offense": "Totschlag",
+      "summary": "A 68-year-old man died after a stabbing at communal accommodation; a suspect was detained on suspicion of manslaughter.",
+      "source_agency": "Polizeipräsidium Südhessen",
+      "source_url": "https://www.presseportal.de/blaulicht/pm/4969/6355694",
+      "lat": 49.8899657,
+      "lon": 8.6416802,
       "date_confidence": "high",
       "geocode_precision": "street"
     },
@@ -405,9 +405,10 @@
       "summary": "Two men were fatally shot and a third man was seriously injured after gunfire at a commercial yard in St. Pauli; homicide investigators took over.",
       "source_agency": "Polizei Hamburg",
       "source_url": "https://www.presseportal.de/blaulicht/pm/6337/6344346",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 53.5624507,
+      "lon": 9.9724259,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-08-31-hattingen-niederwenigern",
@@ -424,9 +425,10 @@
       "summary": "A 61-year-old man was critically injured in an axe attack on 31 August and died from his injuries on 17 September; the suspect remained in custody.",
       "source_agency": "Kreispolizeibehörde Ennepe-Ruhr-Kreis / Polizei Hagen",
       "source_url": "https://www.presseportal.de/blaulicht/pm/12726/6355102",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 51.39917,
+      "lon": 7.1144871,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-08-28-billigheim-ingenheim",
@@ -443,9 +445,10 @@
       "summary": "A 53-year-old woman died after being attacked with a knife in Ingenheim; a 60-year-old suspect was arrested at the scene.",
       "source_agency": "Polizeipräsidium Rheinpfalz",
       "source_url": "https://www.presseportal.de/blaulicht/pm/117696/6341875",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 49.1355756,
+      "lon": 8.0821264,
+      "date_confidence": "high",
+      "geocode_precision": "district"
     },
     {
       "id": "2026-08-26-wilhelmshaven-heppenser-strasse",
@@ -462,47 +465,10 @@
       "summary": "A man was found dead with severe injuries in a bathroom on Heppenser Straße; two suspects were detained and homicide investigators took over.",
       "source_agency": "Polizeiinspektion Wilhelmshaven/Friesland",
       "source_url": "https://www.presseportal.de/blaulicht/pm/68442/6340858",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "discovery_date"
-    },
-    {
-      "id": "2026-08-22-dortmund-hoerde",
-      "event_date": "2026-08-22",
-      "publication_date": "2026-08-22",
-      "city": "Dortmund",
-      "state": "Nordrhein-Westfalen",
-      "location": "Hörde (residential apartment; street not publicly specified)",
-      "geocode_address": "Hörde, Dortmund, Germany",
-      "precision": "district",
-      "location_type": "Fundort/Tatort",
-      "status": "suspected",
-      "offense": "Tötungsdelikt",
-      "summary": "A 49-year-old man was found dead in his apartment in Hörde; investigators found indications of homicide and detained his 15-year-old son as a suspect.",
-      "source_agency": "Polizei Dortmund / Staatsanwaltschaft Dortmund",
-      "source_url": "https://www.presseportal.de/blaulicht/pm/4971/6338001",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "discovery_date"
-    },
-    {
-      "id": "2026-08-22-hamburg-poppenbuettel",
-      "event_date": "2026-08-22",
-      "publication_date": "2026-08-23",
-      "city": "Hamburg",
-      "state": "Hamburg",
-      "location": "Haberkamp – Hennebergpark / Alsterwanderweg, Poppenbüttel",
-      "geocode_address": "Hennebergpark, Hamburg, Germany",
-      "precision": "area",
-      "location_type": "Fundort",
-      "status": "suspected",
-      "offense": "Tötungsdelikt",
-      "summary": "A 60-year-old woman was found dead with signs of violence in a green area near the Alsterwanderweg; a murder commission investigated suspected homicide.",
-      "source_agency": "Polizei Hamburg",
-      "source_url": "https://www.presseportal.de/blaulicht/pm/6337/6338143",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "discovery_date"
+      "lat": 53.5300303,
+      "lon": 8.1373,
+      "date_confidence": "discovery_date",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-08-22-verden-bahnhofstrasse",
@@ -519,9 +485,50 @@
       "summary": "A man was shot on Bahnhofstraße near Verden station and later died in hospital; a homicide commission was established.",
       "source_agency": "Polizeiinspektion Verden / Osterholz",
       "source_url": "https://www.presseportal.de/blaulicht/pm/68441/6338228",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 52.919834,
+      "lon": 9.2374052,
+      "date_confidence": "high",
+      "geocode_precision": "street"
+    },
+    {
+      "id": "2026-08-22-hamburg-poppenbuettel",
+      "event_date": "2026-08-22",
+      "publication_date": "2026-08-23",
+      "city": "Hamburg",
+      "state": "Hamburg",
+      "location": "Haberkamp – Hennebergpark / Alsterwanderweg, Poppenbüttel",
+      "geocode_address": "Hennebergpark, Hamburg, Germany",
+      "precision": "area",
+      "location_type": "Fundort",
+      "status": "suspected",
+      "offense": "Tötungsdelikt",
+      "summary": "A 60-year-old woman was found dead with signs of violence in a green area near the Alsterwanderweg; a murder commission investigated suspected homicide.",
+      "source_agency": "Polizei Hamburg",
+      "source_url": "https://www.presseportal.de/blaulicht/pm/6337/6338143",
+      "lat": 53.661737,
+      "lon": 10.0912271,
+      "date_confidence": "discovery_date",
+      "geocode_precision": "area"
+    },
+    {
+      "id": "2026-08-22-dortmund-hoerde",
+      "event_date": "2026-08-22",
+      "publication_date": "2026-08-22",
+      "city": "Dortmund",
+      "state": "Nordrhein-Westfalen",
+      "location": "Hörde (residential apartment; street not publicly specified)",
+      "geocode_address": "Hörde, Dortmund, Germany",
+      "precision": "district",
+      "location_type": "Fundort/Tatort",
+      "status": "suspected",
+      "offense": "Tötungsdelikt",
+      "summary": "A 49-year-old man was found dead in his apartment in Hörde; investigators found indications of homicide and detained his 15-year-old son as a suspect.",
+      "source_agency": "Polizei Dortmund / Staatsanwaltschaft Dortmund",
+      "source_url": "https://www.presseportal.de/blaulicht/pm/4971/6338001",
+      "lat": 51.4884311,
+      "lon": 7.4972451,
+      "date_confidence": "discovery_date",
+      "geocode_precision": "district"
     },
     {
       "id": "2026-08-21-berlin-prenzlauer-berg",
@@ -538,9 +545,10 @@
       "summary": "A 46-year-old woman was found dead in bushes near the planetarium; findings indicated a suspected homicide and a Berlin homicide commission took over.",
       "source_agency": "Polizei Berlin / Staatsanwaltschaft Berlin",
       "source_url": "https://www.berlin.de/polizei/polizeimeldungen/2026/pressemitteilung.1705979.php",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "discovery_date"
+      "lat": 52.5430569,
+      "lon": 13.4281438,
+      "date_confidence": "discovery_date",
+      "geocode_precision": "area"
     },
     {
       "id": "2026-08-19-hepstedt",
@@ -557,9 +565,10 @@
       "summary": "Police preliminarily concluded that a 90-year-old man shot and killed his 65-year-old wife in their home before taking his own life.",
       "source_agency": "Polizeiinspektion Rotenburg",
       "source_url": "https://www.presseportal.de/blaulicht/pm/59459/6336531",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 53.2579813,
+      "lon": 9.0854103,
+      "date_confidence": "high",
+      "geocode_precision": "city"
     },
     {
       "id": "2026-08-18-donauwoerth-hochbruckerstrasse",
@@ -576,9 +585,10 @@
       "summary": "A 43-year-old man was fatally injured with a blunt object during a violent altercation in the communal kitchen of accommodation on Hochbruckerstraße.",
       "source_agency": "Polizeipräsidium Schwaben Nord",
       "source_url": "https://www.presseportal.de/blaulicht/pm/169620/6337173",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 48.7352077,
+      "lon": 10.7920614,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-08-16-ginsheim",
@@ -595,9 +605,10 @@
       "summary": "A 20-year-old man was found dead in a Ginsheim apartment; an autopsy indicated external violence and a roommate became the suspect.",
       "source_agency": "Polizeipräsidium Südhessen",
       "source_url": "https://www.presseportal.de/blaulicht/pm/4969/6335815",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "discovery_date"
+      "lat": 49.9711057,
+      "lon": 8.3484576,
+      "date_confidence": "discovery_date",
+      "geocode_precision": "district"
     },
     {
       "id": "2026-08-12-rheine-thiestrasse",
@@ -614,9 +625,10 @@
       "summary": "A 46-year-old woman was fatally stabbed during a domestic dispute on Thiestraße; police arrested her 55-year-old husband and formed a murder commission.",
       "source_agency": "Polizei Steinfurt / Polizei Münster / Staatsanwaltschaft Münster",
       "source_url": "https://www.presseportal.de/blaulicht/pm/43526/6332528",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 52.2343764,
+      "lon": 7.486022,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-08-11-frankfurt-nied-coventrystrasse",
@@ -633,28 +645,10 @@
       "summary": "A 24-year-old man was stabbed during an altercation on Coventrystraße and died at the scene; police opened a homicide investigation.",
       "source_agency": "Polizeipräsidium Frankfurt am Main",
       "source_url": "https://www.presseportal.de/blaulicht/pm/4970/6332188",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
-    },
-    {
-      "id": "2026-08-09-berlin-charlottenburg-hardenbergplatz",
-      "event_date": "2026-08-09",
-      "publication_date": "2026-08-10",
-      "city": "Berlin",
-      "state": "Berlin",
-      "location": "Hardenbergplatz, Charlottenburg",
-      "geocode_address": "Hardenbergplatz, Berlin, Germany",
-      "precision": "square",
-      "location_type": "Tatort",
-      "status": "confirmed",
-      "offense": "Tötungsdelikt",
-      "summary": "A 30-year-old man was fatally shot after a dispute between groups at Hardenbergplatz; he died at the scene.",
-      "source_agency": "Polizei Berlin / Staatsanwaltschaft Berlin",
-      "source_url": "https://www.berlin.de/polizei/polizeimeldungen/2026/pressemitteilung.1701194.php",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 50.1018567,
+      "lon": 8.5774128,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-08-09-werther-engerstrasse",
@@ -671,9 +665,30 @@
       "summary": "A 36-year-old woman was found killed in her apartment on Engerstraße; her 33-year-old ex-partner surrendered and was treated as the urgent suspect.",
       "source_agency": "Polizei Bielefeld / Staatsanwaltschaft Bielefeld",
       "source_url": "https://www.presseportal.de/blaulicht/pm/12522/6330137",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 52.0728211,
+      "lon": 8.4115539,
+      "date_confidence": "high",
+      "geocode_precision": "street"
+    },
+    {
+      "id": "2026-08-09-berlin-charlottenburg-hardenbergplatz",
+      "event_date": "2026-08-09",
+      "publication_date": "2026-08-10",
+      "city": "Berlin",
+      "state": "Berlin",
+      "location": "Hardenbergplatz, Charlottenburg",
+      "geocode_address": "Hardenbergplatz, Berlin, Germany",
+      "precision": "square",
+      "location_type": "Tatort",
+      "status": "confirmed",
+      "offense": "Tötungsdelikt",
+      "summary": "A 30-year-old man was fatally shot after a dispute between groups at Hardenbergplatz; he died at the scene.",
+      "source_agency": "Polizei Berlin / Staatsanwaltschaft Berlin",
+      "source_url": "https://www.berlin.de/polizei/polizeimeldungen/2026/pressemitteilung.1701194.php",
+      "lat": 52.5067049,
+      "lon": 13.3328708,
+      "date_confidence": "high",
+      "geocode_precision": "square"
     },
     {
       "id": "2026-08-08-bremen-kirchweg",
@@ -690,9 +705,10 @@
       "summary": "A 56-year-old man died after being punched during a dispute on Kirchweg, falling and suffering fatal head injuries; a murder commission investigated.",
       "source_agency": "Polizei Bremen",
       "source_url": "https://www.presseportal.de/blaulicht/pm/35235/6329613",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 53.0618865,
+      "lon": 8.8094746,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-07-31-bad-duerkheim",
@@ -709,9 +725,10 @@
       "summary": "A 41-year-old man was fatally injured by a 43-year-old man in Bad Dürkheim; police launched an intensive search for the fleeing suspect.",
       "source_agency": "Polizeipräsidium Rheinpfalz / Staatsanwaltschaft Frankenthal",
       "source_url": "https://www.presseportal.de/blaulicht/pm/117696/6325479",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 49.4632944,
+      "lon": 8.1705063,
+      "date_confidence": "high",
+      "geocode_precision": "city"
     },
     {
       "id": "2026-07-26-rees-hotel",
@@ -728,9 +745,10 @@
       "summary": "A 35-year-old Dutch man was found dead in a hotel room in Rees; investigators treated the death as a violent crime and a suspect was later arrested on a murder-related warrant.",
       "source_agency": "Polizei Krefeld / Staatsanwaltschaft Kleve",
       "source_url": "https://www.presseportal.de/blaulicht/pm/50667/6323044",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "discovery_date"
+      "lat": 51.7581242,
+      "lon": 6.3956605,
+      "date_confidence": "discovery_date",
+      "geocode_precision": "city"
     },
     {
       "id": "2026-07-25-hamburg-farmsen-berne",
@@ -747,9 +765,10 @@
       "summary": "One man was killed and another was initially critically injured during an altercation involving four men near Berne underground station.",
       "source_agency": "Polizei Hamburg",
       "source_url": "https://www.presseportal.de/blaulicht/pm/6337/6321517",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 53.5501721,
+      "lon": 10.0013165,
+      "date_confidence": "high",
+      "geocode_precision": "city-fallback"
     },
     {
       "id": "2026-07-22-wolfsburg-city-galerie",
@@ -766,28 +785,10 @@
       "summary": "Investigators said a 73-year-old woman met the suspect at City-Galerie Wolfsburg and was fatally injured; her body was later moved to woodland near Lehre.",
       "source_agency": "Polizei Wolfsburg / Staatsanwaltschaft Braunschweig",
       "source_url": "https://www.presseportal.de/blaulicht/pm/56520/6336512",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
-    },
-    {
-      "id": "2026-07-21-berlin-mariendorf",
-      "event_date": "2026-07-21",
-      "publication_date": "2026-07-22",
-      "city": "Berlin",
-      "state": "Berlin",
-      "location": "Mariendorfer Damm, Mariendorf",
-      "geocode_address": "Mariendorfer Damm, Berlin, Germany",
-      "precision": "street",
-      "location_type": "Tatort",
-      "status": "suspected",
-      "offense": "Tötungsdelikt",
-      "summary": "A 65-year-old woman was fatally stabbed at a residence on Mariendorfer Damm; her 43-year-old son was treated as the suspect.",
-      "source_agency": "Polizei Berlin / Staatsanwaltschaft Berlin",
-      "source_url": "https://www.berlin.de/polizei/polizeimeldungen/2026/pressemitteilung.1696399.php",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 52.4222829,
+      "lon": 10.7886292,
+      "date_confidence": "high",
+      "geocode_precision": "shopping-centre"
     },
     {
       "id": "2026-07-21-dortmund-wambel",
@@ -804,9 +805,30 @@
       "summary": "A 78-year-old man was found dead in his home in Wambel with clear indications of external violence; a homicide commission took over and a suspect later surrendered.",
       "source_agency": "Polizei Dortmund / Staatsanwaltschaft Dortmund",
       "source_url": "https://www.presseportal.de/blaulicht/pm/4971/6318980",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "discovery_date"
+      "lat": 51.5204477,
+      "lon": 7.5205435,
+      "date_confidence": "discovery_date",
+      "geocode_precision": "district"
+    },
+    {
+      "id": "2026-07-21-berlin-mariendorf",
+      "event_date": "2026-07-21",
+      "publication_date": "2026-07-22",
+      "city": "Berlin",
+      "state": "Berlin",
+      "location": "Mariendorfer Damm, Mariendorf",
+      "geocode_address": "Mariendorfer Damm, Berlin, Germany",
+      "precision": "street",
+      "location_type": "Tatort",
+      "status": "suspected",
+      "offense": "Tötungsdelikt",
+      "summary": "A 65-year-old woman was fatally stabbed at a residence on Mariendorfer Damm; her 43-year-old son was treated as the suspect.",
+      "source_agency": "Polizei Berlin / Staatsanwaltschaft Berlin",
+      "source_url": "https://www.berlin.de/polizei/polizeimeldungen/2026/pressemitteilung.1696399.php",
+      "lat": 52.4389552,
+      "lon": 13.3877943,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-07-14-kelkheim-frankfurter-strasse",
@@ -823,9 +845,10 @@
       "summary": "A woman died at the scene after her husband attacked her with a cutting weapon on Frankfurter Straße; witnesses restrained the suspect.",
       "source_agency": "Polizeipräsidium Westhessen / Staatsanwaltschaft Frankfurt",
       "source_url": "https://www.presseportal.de/blaulicht/pm/50154/6314659",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 50.1237988,
+      "lon": 8.4675907,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-07-12-hamburg-bramfeld",
@@ -842,9 +865,10 @@
       "summary": "A 15-year-old girl was found dead with signs of severe violence in Bramfeld; her 43-year-old mother was detained as the suspect.",
       "source_agency": "Polizei Hamburg",
       "source_url": "https://www.presseportal.de/blaulicht/pm/6337/6313606",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "discovery_date"
+      "lat": 53.6168289,
+      "lon": 10.0789221,
+      "date_confidence": "discovery_date",
+      "geocode_precision": "district"
     },
     {
       "id": "2026-07-10-hamburg-eidelstedt-nebenbahnstrasse",
@@ -861,9 +885,10 @@
       "summary": "A 79-year-old man died after a physical altercation outside a venue on Nebenbahnstraße; homicide investigators searched for the assailant.",
       "source_agency": "Polizei Hamburg",
       "source_url": "https://www.presseportal.de/blaulicht/pm/6337/6312541",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 53.6106004,
+      "lon": 9.9039415,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     }
   ]
 }
