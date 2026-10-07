@@ -111,6 +111,12 @@ ALIASES={
   "hamburgaltstadt":"altstadt",
   "neuwerk":"inselneuwerk",
 }
+COMBINED_GEO={
+  "moorburgaltenwerder":["moorburg","altenwerder"],
+  "neulandgutmoor":["neuland","gutmoor"],
+  "steinwerderklgrasbrook":["steinwerder","kleinergrasbrook"],
+  "waltershoffinkenwerder":["waltershof","finkenwerder"],
+}
 
 def crime_key_for_geo(name):
     n=norm(name)
@@ -124,38 +130,42 @@ features=[];matched=set();geo_unmatched=[]
 for _,(_,f) in sorted(latest.items()):
     props=f.get("properties") or {}
     raw_name=str(props.get("stadtteil") or "").strip()
+    geo_key=norm(raw_name)
     nk=crime_key_for_geo(raw_name)
-    if not nk:
+    members=[nk] if nk else COMBINED_GEO.get(geo_key,[])
+    members=[x for x in members if x and x in all_names]
+    if not members:
         geo_unmatched.append(raw_name);continue
 
     raw_pop=props.get("bev_insgesamt")
     try:pop=int(round(float(str(raw_pop).replace(".","").replace(",",".")))) if raw_pop not in (None,"","-") else 0
     except:pop=0
 
-    p={"city":"Hamburg","state":"Hamburg","name":tables["crime_total"].get(nk,{}).get("name",raw_name),"population":pop}
+    display_name=tables["crime_total"].get(members[0],{}).get("name",raw_name) if len(members)==1 else raw_name
+    p={"city":"Hamburg","state":"Hamburg","name":display_name,"population":pop,"source_stadtteile":[tables["crime_total"].get(x,{}).get("name",x) for x in members]}
     found=False
     for key in METRIC_PAGES:
-        row=tables[key].get(nk)
-        if row:
-            cases=row["cases"]
+        rows=[tables[key].get(x) for x in members if tables[key].get(x)]
+        if rows:
+            cases=sum(int(row["cases"]) for row in rows)
             p[key]={
               "cases":cases,
               "rate":round(cases/pop*100000,1) if pop>0 else None,
-              "change":row["change"]
+              "change":rows[0]["change"] if len(rows)==1 else "—"
             }
             found=True
     if not found:continue
     p["source_population_field"]="bev_insgesamt"
     p["population_year"]=props.get("jahr")
-    features.append({"type":"Feature","id":"hamburg-"+nk,"properties":p,"geometry":f.get("geometry")})
-    matched.add(nk)
+    features.append({"type":"Feature","id":"hamburg-"+geo_key,"properties":p,"geometry":f.get("geometry")})
+    matched.update(members)
 
 missing=sorted(all_names-matched)
 # Some port / industrial Stadtteile are absent from the regional-statistical
 # population geometry because they have no or almost no residents. We retain
 # only areas with official geometry; require that essentially all populated
 # Stadtteile are present.
-if len(matched)<94 or len(features)<94:
+if len(matched)<103 or len(features)<99:
     sample=(geo.get("features") or [{}])[0].get("properties",{})
     raise RuntimeError(
       f"Hamburg join too small: matched={len(matched)} latest_geo={len(latest)} "
@@ -173,7 +183,7 @@ out={
    "geometry_population_source":"Statistikamt Nord / Hamburg Transparenzportal: Regionalstatistische Daten der Stadtteile",
    "geometry_population_source_url":GEOZIP,
    "metrics":METRIC_LABELS,
-   "note":"Local rates are computed from official 2025 police case counts and the latest official Stadtteil population attribute. Port/industrial areas without usable resident-population geometry are omitted from rate shading."
+   "note":"Local rates are computed from official 2025 police case counts and the latest official Stadtteil population attribute. Where the regional-statistical geometry combines two port/industrial Stadtteile, their police counts are summed into the same official polygon. Insel Neuwerk is absent from the regional-statistical geometry."
  },
  "features":features
 }
