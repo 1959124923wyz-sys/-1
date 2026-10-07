@@ -1,0 +1,49 @@
+name: Backfill Germany homicide map to 90 days
+
+on:
+  push:
+    branches: [expand-germany-homicide-90d]
+    paths:
+      - 'dao-radar/site/germany-homicide-map/scripts/backfill_90d.py'
+      - '.github/workflows/germany-homicide-backfill-90d.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: germany-homicide-backfill-90d
+  cancel-in-progress: true
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r dao-radar/site/germany-homicide-map/requirements.txt
+
+      - name: Backfill 90 days
+        env:
+          APP_CONTACT: https://github.com/1959124923wyz-sys/-1
+        run: python dao-radar/site/germany-homicide-map/scripts/backfill_90d.py
+
+      - name: Commit historical data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dao-radar/site/germany-homicide-map/data/
+          if ! git diff --cached --quiet; then
+            git commit -m "data: backfill Germany homicide map to 90 days"
+            git push
+          else
+            echo "No historical data changes"
+          fi
