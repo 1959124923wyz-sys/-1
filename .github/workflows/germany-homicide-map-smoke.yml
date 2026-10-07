@@ -10,6 +10,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: germany-crime-map-smoke-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   map-ui:
     runs-on: ubuntu-latest
@@ -38,11 +42,6 @@ jobs:
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/update_berlin_heatmap.py
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/validate_berlin_heatmap.py
           python -m py_compile dao-radar/site/germany-homicide-map/scripts/smoke_test_ui.py
-
-      - name: Dry-run 90-day Polizei Berlin backfill
-        env:
-          BERLIN_LOOKBACK_DAYS: '90'
-        run: python dao-radar/site/germany-homicide-map/scripts/update_berlin_categories.py
 
       - name: Refresh Berlin official theft heatmap
         run: python dao-radar/site/germany-homicide-map/scripts/update_berlin_heatmap.py
