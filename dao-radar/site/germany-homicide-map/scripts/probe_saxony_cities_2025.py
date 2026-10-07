@@ -57,3 +57,28 @@ for label,u in [
                 print(label,"LINK",txt[:120],href)
     except Exception as e:
         print(label+"_ERR",repr(e))
+
+
+print("\n===== GEOMETRY SAMPLE PROPERTIES =====")
+for label,u in [
+ ("LEIPZIG_GEO","https://static.leipzig.de/fileadmin/mediendatenbank/leipzig-de/Stadt/02.1_Dez1_Allgemeine_Verwaltung/12_Statistik_und_Wahlen/Geodaten/Ortsteile_Leipzig_UTM33N.json"),
+ ("CHEMNITZ_GEO","https://portal-chemnitz.opendata.arcgis.com/api/download/v1/items/42a13d7737f649409e981db3f0ba1455/geojson?layers=0"),
+]:
+    try:
+        rr=requests.get(u,headers=H,timeout=90);rr.raise_for_status();jj=rr.json()
+        print(label,"features",len(jj.get("features",[])),"crs",jj.get("crs"))
+        print(label,"sample",(jj.get("features") or [{}])[0].get("properties"))
+    except Exception as e: print(label+"_ERR",repr(e))
+
+dresden_candidates=[
+ "https://kommisdd.dresden.de/net3/public/ogc.ashx?NODEID=188&SERVICE=WFS&REQUEST=GetCapabilities",
+ "https://kommisdd.dresden.de/net3/public/ogc.ashx?NODEID=188&Service=WFS&Request=GetCapabilities",
+ "https://kommisdd.dresden.de/net3/public/ogc.ashx?NODEID=188&service=WFS&request=GetCapabilities",
+ "https://kommisdd.dresden.de/net3/public/ogc.ashx?NODEID=188&Service=GeoJSON",
+]
+for u in dresden_candidates:
+    try:
+        rr=requests.get(u,headers=H,timeout=60)
+        print("DRESDEN_PROBE",rr.status_code,rr.headers.get("content-type"),len(rr.content),rr.url)
+        print(rr.text[:1200].replace("\n"," "))
+    except Exception as e: print("DRESDEN_PROBE_ERR",repr(e),u)
