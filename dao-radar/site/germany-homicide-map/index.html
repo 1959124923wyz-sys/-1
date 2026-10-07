@@ -50,7 +50,7 @@ aside{height:100%;min-height:0;overflow:hidden;border-left:1px solid var(--line)
 
 .mapstatus,.legend,.layerinfo{position:absolute;z-index:700;background:rgba(12,17,23,.92);border:1px solid #35424e;color:#e5edf3;box-shadow:0 2px 12px rgba(0,0,0,.17);backdrop-filter:blur(4px)}
 .state-drawer{display:none;position:absolute;z-index:725;left:58px;top:12px;width:min(330px,calc(100% - 82px));max-height:calc(100% - 24px);overflow:auto;background:rgba(12,17,23,.96);border:1px solid #41505e;border-radius:10px;color:#edf3f7;box-shadow:0 8px 28px rgba(0,0,0,.28);backdrop-filter:blur(6px)}
-.state-drawer.open{display:block}.state-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:11px 12px 8px;border-bottom:1px solid #293642}.state-head small{display:block;color:#7f93a3;font-size:8.5px;margin-bottom:2px}.state-head h3{margin:0;font-size:17px;line-height:1.15}.state-close{border:0;background:transparent;color:#8fa0ad;font-size:20px;line-height:1;cursor:pointer;padding:0 2px}.state-close:hover{color:#fff}
+.state-drawer.open{display:block}.state-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:11px 12px 8px;border-bottom:1px solid #293642;cursor:grab;user-select:none;touch-action:none}.state-head.dragging{cursor:grabbing}.state-head small{display:block;color:#7f93a3;font-size:8.5px;margin-bottom:2px}.state-head h3{margin:0;font-size:17px;line-height:1.15}.state-close{border:0;background:transparent;color:#8fa0ad;font-size:20px;line-height:1;cursor:pointer;padding:0 2px}.state-close:hover{color:#fff}
 .state-metric{padding:8px 12px 0;color:#a9b7c2;font-size:9.5px}.state-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;padding:8px 12px}.state-stat{background:#17212b;border:1px solid #2b3946;border-radius:7px;padding:7px}.state-stat b{display:block;font-size:15px}.state-stat small{display:block;color:#8fa0ad;font-size:8px;margin-top:1px}
 .state-section{padding:8px 12px;border-top:1px solid #293642}.state-section-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:5px}.state-section-head strong{font-size:10px}.state-section-head span{font-size:8px;color:#7f919f}.state-county-row,.state-news-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;width:100%;border:0;background:transparent;color:#e5edf3;text-align:left;padding:5px 4px;border-radius:5px;cursor:pointer}.state-county-row:hover,.state-news-row:hover{background:#1a2530}.state-county-row span,.state-news-row span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:9.5px}.state-county-row b{font-size:9.5px}.state-news-row small{color:#80909e;font-size:8px;white-space:nowrap}.state-empty{color:#81919f;font-size:9px;padding:4px}
 .state-tip.leaflet-tooltip{background:#0f171f;color:#edf3f7;border:1px solid #40505d;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.24);padding:6px 8px;font-size:9px}.state-tip.leaflet-tooltip:before{display:none}
@@ -89,8 +89,8 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     <div id="legend" class="legend"></div>
     <div id="layerInfo" class="layerinfo"></div>
     <aside class="state-drawer" id="stateDrawer" aria-live="polite">
-      <div class="state-head">
-        <div><small>州概览</small><h3 id="stateName">—</h3></div>
+      <div class="state-head" id="stateDragHandle" title="拖动窗口">
+        <div><small>州概览 · 可拖动</small><h3 id="stateName">—</h3></div>
         <button class="state-close" id="stateClose" type="button" aria-label="关闭州详情">×</button>
       </div>
       <div class="state-metric" id="stateMetric">—</div>
@@ -184,7 +184,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     violenceLayers:$('violenceLayers'),propertyLayers:$('propertyLayers'),
     viewGermany:$('viewGermany'),focusBerlin:$('focusBerlin'),mapStatus:$('mapStatus'),
     legend:$('legend'),layerInfo:$('layerInfo'),
-    stateDrawer:$('stateDrawer'),stateName:$('stateName'),stateClose:$('stateClose'),stateMetric:$('stateMetric'),
+    stateDrawer:$('stateDrawer'),stateDragHandle:$('stateDragHandle'),stateName:$('stateName'),stateClose:$('stateClose'),stateMetric:$('stateMetric'),
     stateRate:$('stateRate'),stateCases:$('stateCases'),stateRank:$('stateRank'),stateRecent:$('stateRecent'),
     stateTopCounties:$('stateTopCounties'),stateNews:$('stateNews'),stateNewsCount:$('stateNewsCount'),
     safetyPanel:$('safetyPanel'),areaName:$('areaName'),riskBadge:$('riskBadge'),areaMetric:$('areaMetric'),
@@ -198,7 +198,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   const cats={homicide:{label:'凶杀',color:'#d6534f'},violence:{label:'严重暴力',color:'#df8a45'},robbery:{label:'抢劫',color:'#4f95bd'},sexual:{label:'性犯罪',color:'#9e76c8'},property:{label:'盗窃/财产',color:'#5a82d3'}};
   let mode='violence',caseData=null,pksData=null,propertyData=null,countyGeo=null,berlinViolence=null,heatData=null,stateGeo=null;
   let countyLayer=null,berlinLayer=null,heatLayer=null,stateLayer=null,selectedCountyLayer=null;
-  let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false,activeStateFilter=null,selectedStateName=null;
+  let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false,activeStateFilter=null,selectedStateName=null,stateReturnView=null,stateDrag=null;
   const newsLayer=L.layerGroup(),markers=new Map();
 
   const map=L.map('map',{minZoom:5,maxZoom:17,zoomControl:true,preferCanvas:true,worldCopyJump:false});
@@ -406,8 +406,46 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     }
     el.stateDrawer.classList.add('open');
   }
-  function closeStateDrawer(){
-    activeStateFilter=null;selectedStateName=null;el.stateDrawer.classList.remove('open');buildStateLayer();renderNews();
+  function closeStateDrawer({restore=true}={}){
+    activeStateFilter=null;selectedStateName=null;el.stateDrawer.classList.remove('open');renderNews();
+    const rv=stateReturnView;stateReturnView=null;
+    if(restore&&rv){
+      map.setView(rv.center,rv.zoom,{animate:true});
+    }else{
+      buildStateLayer();
+    }
+  }
+  function resetStateDrawerPosition(){
+    el.stateDrawer.style.left='58px';el.stateDrawer.style.top='12px';el.stateDrawer.style.right='auto';
+  }
+  function clampStateDrawer(left,top){
+    const host=document.querySelector('.mapwrap')?.getBoundingClientRect(),box=el.stateDrawer.getBoundingClientRect();
+    if(!host)return {left,top};
+    const maxLeft=Math.max(8,host.width-box.width-8),maxTop=Math.max(8,host.height-box.height-8);
+    return {left:Math.max(8,Math.min(left,maxLeft)),top:Math.max(8,Math.min(top,maxTop))};
+  }
+  function beginStateDrag(e){
+    if(e.button!=null&&e.button!==0)return;
+    if(e.target.closest('.state-close'))return;
+    const host=document.querySelector('.mapwrap')?.getBoundingClientRect(),box=el.stateDrawer.getBoundingClientRect();
+    if(!host)return;
+    stateDrag={id:e.pointerId,dx:e.clientX-box.left,dy:e.clientY-box.top,hostLeft:host.left,hostTop:host.top};
+    el.stateDragHandle.classList.add('dragging');
+    el.stateDragHandle.setPointerCapture?.(e.pointerId);
+    e.preventDefault();
+  }
+  function moveStateDrag(e){
+    if(!stateDrag||e.pointerId!==stateDrag.id)return;
+    const rawLeft=e.clientX-stateDrag.hostLeft-stateDrag.dx,rawTop=e.clientY-stateDrag.hostTop-stateDrag.dy;
+    const p=clampStateDrawer(rawLeft,rawTop);
+    el.stateDrawer.style.left=p.left+'px';el.stateDrawer.style.top=p.top+'px';el.stateDrawer.style.right='auto';
+    e.preventDefault();
+  }
+  function endStateDrag(e){
+    if(!stateDrag||e.pointerId!==stateDrag.id)return;
+    el.stateDragHandle.classList.remove('dragging');
+    try{el.stateDragHandle.releasePointerCapture?.(e.pointerId);}catch(_){}
+    stateDrag=null;
   }
 
   function berlinRates(){
@@ -643,6 +681,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
         layer.on('mouseover',()=>{if(feature.properties?.name!==selectedStateName)layer.setStyle({color:'#f4fbff',weight:2.65,fillOpacity:.055});});
         layer.on('mouseout',()=>stateLayer&&stateLayer.resetStyle(layer));
         layer.on('click',()=>{
+          if(!el.stateDrawer.classList.contains('open'))stateReturnView={center:map.getCenter(),zoom:map.getZoom()};
           selectedStateName=feature.properties?.name||null;activeStateFilter=selectedStateName;
           stateLayer.eachLayer(l=>stateLayer.resetStyle(l));
           layer.setStyle(stateStyle(feature));
@@ -785,17 +824,25 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     if(activeStateFilter){const f=stateFeatureByName(activeStateFilter);if(f)renderStateDrawer(f);}
   }
 
-  el.modeViolence.onclick=()=>{mode='violence';pinnedArea=null;hoverArea=null;activeStateFilter=null;selectedStateName=null;el.stateDrawer.classList.remove('open');render();showArea(null);};
-  el.modeProperty.onclick=()=>{mode='property';pinnedArea=null;hoverArea=null;activeStateFilter=null;selectedStateName=null;el.stateDrawer.classList.remove('open');render();showArea(null);};
-  el.stateClose.onclick=closeStateDrawer;
+  el.modeViolence.onclick=()=>{mode='violence';pinnedArea=null;hoverArea=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');render();showArea(null);};
+  el.modeProperty.onclick=()=>{mode='property';pinnedArea=null;hoverArea=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');render();showArea(null);};
+  el.stateClose.onclick=e=>{e.stopPropagation();closeStateDrawer({restore:true});};
+  el.stateClose.onpointerdown=e=>e.stopPropagation();
+  el.stateDragHandle.addEventListener('pointerdown',beginStateDrag);
+  el.stateDragHandle.addEventListener('pointermove',moveStateDrag);
+  el.stateDragHandle.addEventListener('pointerup',endStateDrag);
+  el.stateDragHandle.addEventListener('pointercancel',endStateDrag);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&el.stateDrawer.classList.contains('open'))closeStateDrawer({restore:true});});
   el.toggleViolenceNews.onclick=()=>{showViolenceNews=!showViolenceNews;render();};
   el.togglePropertyNews.onclick=()=>{showPropertyNews=!showPropertyNews;render();};
   el.violenceMetric.addEventListener('change',()=>{pinnedArea=null;hoverArea=null;render();showArea(null);});
   el.propertyMetric.addEventListener('change',()=>{pinnedArea=null;hoverArea=null;render();showArea(null);});
-  el.viewGermany.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;el.stateDrawer.classList.remove('open');render();showArea(null);map.fitBounds(germanyBounds,{padding:[14,14]});};
-  el.focusBerlin.onclick=()=>map.fitBounds(berlinBounds,{padding:[25,25],maxZoom:10});
+  el.viewGermany.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');render();showArea(null);map.fitBounds(germanyBounds,{padding:[14,14]});};
+  el.focusBerlin.onclick=()=>{activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');renderNews();map.fitBounds(berlinBounds,{padding:[25,25],maxZoom:10});};
   map.on('zoomend',()=>{buildStateLayer();if(mode==='violence')buildBerlinLayer();if(mode==='property')buildHeat();renderLegend();});
+  map.on('moveend',()=>{if(!stateLayer)buildStateLayer();if(el.stateDrawer.classList.contains('open')){const b=el.stateDrawer.getBoundingClientRect(),h=document.querySelector('.mapwrap')?.getBoundingClientRect();if(h){const p=clampStateDrawer(b.left-h.left,b.top-h.top);el.stateDrawer.style.left=p.left+'px';el.stateDrawer.style.top=p.top+'px';el.stateDrawer.style.right='auto';}}});
 
+  window.addEventListener('resize',()=>{if(el.stateDrawer.classList.contains('open')){const b=el.stateDrawer.getBoundingClientRect(),h=document.querySelector('.mapwrap')?.getBoundingClientRect();if(h){const p=clampStateDrawer(b.left-h.left,b.top-h.top);el.stateDrawer.style.left=p.left+'px';el.stateDrawer.style.top=p.top+'px';el.stateDrawer.style.right='auto';}}});
   Promise.all([
     fetch('data/cases.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('cases '+r.status);return r.json()}),
     fetch('data/germany-counties.geojson',{cache:'force-cache'}).then(r=>{if(!r.ok)throw new Error('counties '+r.status);return r.json()}),
