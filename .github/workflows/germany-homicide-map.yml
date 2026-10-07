@@ -3,17 +3,13 @@ name: Germany homicide map updater
 on:
   workflow_dispatch:
   schedule:
-    - cron: "7,27,47 * * * *"
+    - cron: "17 20 * * *"
   push:
     branches: [main]
     paths:
       - '.github/workflows/germany-homicide-map.yml'
       - 'dao-radar/site/germany-homicide-map/scripts/**'
       - 'dao-radar/site/germany-homicide-map/requirements.txt'
-  pull_request:
-    paths:
-      - '.github/workflows/germany-homicide-map.yml'
-      - 'dao-radar/site/germany-homicide-map/**'
 
 permissions:
   contents: write

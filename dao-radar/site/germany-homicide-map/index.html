@@ -1,42 +1,264 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Germany Homicide Monitor · rolling 30 days</title>
-<meta name="description" content="Rolling 30-day public-source map of fatal homicide cases reported by police/prosecutors in Germany.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>德国近30天凶杀案地图 · Germany Homicide Monitor</title>
+<meta name="description" content="德国最近30天公开警方/检察机关通报中的致死凶杀案件动态地图。">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
-:root{--bg:#0d1117;--panel:#161b22;--line:#30363d;--text:#f0f3f6;--muted:#8b949e;--red:#d94b4b;--amber:#d6a13b}
-*{box-sizing:border-box}html,body{margin:0;height:100%;font:14px/1.45 system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text)}
-header{min-height:102px;padding:18px 24px;border-bottom:1px solid var(--line);display:flex;gap:20px;align-items:center;justify-content:space-between}
-h1{margin:2px 0 4px;font-size:clamp(24px,3vw,36px)}.kicker{font-size:11px;letter-spacing:.14em;color:#8ab4d8}.sub{color:var(--muted);max-width:780px;margin:0}
-.stat{text-align:right;border:1px solid var(--line);border-radius:10px;padding:10px 13px}.stat b{display:block;font-size:26px}.stat span{display:block;color:var(--muted);font-size:11px}
-main{height:calc(100vh - 149px);min-height:560px;display:grid;grid-template-columns:minmax(0,1fr) 390px}#map{height:100%;width:100%;background:#dce4e9}
-aside{border-left:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;min-width:0}.filters{padding:11px;border-bottom:1px solid var(--line);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-select{background:#21262d;color:var(--text);border:1px solid var(--line);border-radius:6px;padding:5px}.note{padding:10px 12px;color:var(--muted);font-size:11px;border-bottom:1px solid var(--line)}
-#list{overflow:auto}.card{display:block;width:100%;text-align:left;background:transparent;color:var(--text);border:0;border-bottom:1px solid var(--line);padding:12px;cursor:pointer}.card:hover{background:#21262d}
-.row{display:flex;justify-content:space-between;gap:8px}.row b{font-size:13px}.badge{font-size:10px;padding:2px 6px;border-radius:999px;color:#fff}.confirmed{background:#8e3030}.suspected{background:#7d5f1f}.meta{color:var(--muted);font-size:11px;margin-top:4px}.summary{font-size:12px;margin:6px 0 0}
-.legend{position:absolute;z-index:500;left:12px;bottom:14px;background:rgba(15,18,24,.94);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:11px}.legend div{margin:3px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}.r{background:var(--red)}.a{background:var(--amber)}
-.mapwrap{position:relative}footer{height:47px;padding:10px 24px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:15px;align-items:center}
-.leaflet-popup-content{font-size:12px}.leaflet-popup-content h3{font-size:14px;margin:0 0 5px}.leaflet-popup-content p{margin:4px 0}
-@media(max-width:850px){header{align-items:flex-start;padding:14px}.stat{min-width:100px}main{height:auto;display:block}.mapwrap{height:56vh;min-height:420px}aside{border-left:0;border-top:1px solid var(--line)}footer{height:auto;padding:10px 14px;display:block}}
+:root{
+  --bg:#0d1117;--panel:#151a21;--panel2:#1c222b;--line:#30363d;
+  --text:#eef2f6;--muted:#8b98a7;--red:#c84645;--amber:#d3a33c;
+  --land:#dce6ed;--land2:#cbd8e1;--border:#7d93a5;--water:#cbd9e3;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font:14px/1.45 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
+body{overflow:hidden}
+header{height:88px;padding:14px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:18px;background:var(--bg)}
+.titleblock{min-width:0}.kicker{font-size:10px;letter-spacing:.15em;color:#79a9d1;text-transform:uppercase}
+h1{font-size:clamp(21px,2.2vw,31px);line-height:1.12;margin:3px 0 4px}.sub{margin:0;color:var(--muted);font-size:12px;max-width:850px}
+.stat{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:8px 11px;white-space:nowrap}
+.stat b{font-size:25px;line-height:1}.stat small{display:block;color:var(--muted);font-size:10px}.stat .sep{width:1px;height:30px;background:var(--line)}
+main{height:calc(100vh - 124px);min-height:470px;display:grid;grid-template-columns:minmax(0,1fr) min(405px,34vw);overflow:hidden}
+.mapwrap{position:relative;min-width:0;background:#bfcfd9}
+#map{height:100%;width:100%;background:var(--water)}
+aside{min-width:0;min-height:0;height:100%;overflow:hidden;border-left:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column}
+.filters{padding:10px 12px;border-bottom:1px solid var(--line);display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:var(--panel2)}
+.filters label{display:flex;align-items:center;gap:5px;font-size:12px}.filters select{background:#0f141a;color:var(--text);border:1px solid var(--line);border-radius:6px;padding:4px 6px}
+.filters input{accent-color:#4e86b7}.note{padding:8px 12px;border-bottom:1px solid var(--line);color:var(--muted);font-size:10.5px}
+#list{min-height:0;flex:1 1 auto;overflow:auto;overscroll-behavior:contain}
+.card{display:block;width:100%;text-align:left;background:transparent;color:var(--text);border:0;border-bottom:1px solid #282f38;padding:10px 12px;cursor:pointer}
+.card:hover,.card:focus{background:#202731;outline:none}.row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}.row b{font-size:12.5px}
+.badge{flex:0 0 auto;font-size:9px;padding:2px 6px;border-radius:999px;color:white}.confirmed{background:#a93e3d}.suspected{background:#9b7523}
+.meta{margin-top:3px;color:var(--muted);font-size:10px}.summary{font-size:11.5px;margin:5px 0 0;line-height:1.35}
+.legend,.mapstatus{position:absolute;z-index:700;background:rgba(13,17,23,.92);border:1px solid #394451;box-shadow:0 2px 10px rgba(0,0,0,.14);backdrop-filter:blur(4px)}
+.legend{left:12px;bottom:12px;border-radius:8px;padding:7px 9px;font-size:10px;color:#dce3ea}.legend div{margin:2px 0}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}.r{background:var(--red)}.a{background:var(--amber)}
+.mapstatus{right:12px;top:12px;border-radius:999px;padding:5px 9px;font-size:10px;color:#dce3ea}.mapstatus.ok:before,.mapstatus.fallback:before,.mapstatus.loading:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px}.mapstatus.ok:before{background:#4cab6d}.mapstatus.fallback:before{background:#e0a43a}.mapstatus.loading:before{background:#7c8a99}
+.state-label{font-weight:600;color:#526575;text-shadow:0 1px 0 rgba(255,255,255,.9);font-size:10px;white-space:nowrap;pointer-events:none}
+.city-ref{font-size:10px;color:#334652;text-shadow:0 1px 0 rgba(255,255,255,.95);white-space:nowrap;pointer-events:none}.city-ref:before{content:"•";font-size:14px;margin-right:3px}
+.leaflet-control-zoom a{color:#23313b!important}.leaflet-popup-content-wrapper{border-radius:9px}.leaflet-popup-content{font-size:12px;line-height:1.4}.leaflet-popup-content h3{font-size:14px;margin:0 0 5px}.leaflet-popup-content p{margin:4px 0}
+footer{height:36px;padding:7px 20px;border-top:1px solid var(--line);color:var(--muted);font-size:10px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:var(--bg);white-space:nowrap}
+footer span:first-child{overflow:hidden;text-overflow:ellipsis}
+@media(max-width:900px){
+  body{overflow:auto}header{height:auto;min-height:92px;padding:12px 14px;align-items:flex-start}.stat{padding:7px 9px}.stat .sep{display:none}.stat>div:last-child{display:none}
+  main{height:auto;display:block;overflow:visible}.mapwrap{height:58vh;min-height:430px}aside{height:auto;overflow:visible;border-left:0;border-top:1px solid var(--line);max-height:none}#list{max-height:55vh}
+  footer{height:auto;padding:8px 14px;white-space:normal;display:block}.mapstatus{top:10px;right:10px}
+}
 </style>
 </head>
 <body>
-<header><div><div class="kicker">PUBLIC-SOURCE MONITOR · GERMANY</div><h1>Homicide map · rolling 30 days</h1><p class="sub">Fatal homicide cases identified from public police/prosecutor releases. This is not an official or exhaustive crime register.</p></div><div class="stat"><b id="count">—</b><span>visible cases</span><span id="updated">loading…</span></div></header>
-<main><section class="mapwrap"><div id="map"></div><div class="legend"><div><i class="dot r"></i>confirmed/completed</div><div><i class="dot a"></i>suspected homicide</div><div>○ Fundort = body-discovery point</div></div></section>
-<aside><div class="filters"><label>Window <select id="days"><option>7</option><option>14</option><option selected>30</option></select></label><label><input id="confirmed" type="checkbox" checked> confirmed</label><label><input id="suspected" type="checkbox" checked> suspected</label></div><div class="note">Markers use the most precise location publicly released. City-level points are intentionally approximate. A “Fundort” may not be the crime scene. Open the linked official source to verify details.</div><div id="list"></div></aside></main>
-<footer><span>Sources: public police/prosecutor releases · map © OpenStreetMap contributors.</span><span>Automatic screening favors precision over recall.</span></footer>
+<header>
+  <div class="titleblock">
+    <div class="kicker">PUBLIC-SOURCE MONITOR · GERMANY</div>
+    <h1>德国近30天凶杀案地图</h1>
+    <p class="sub">Germany homicide monitor · 依据公开警方/检察机关通报整理；不是德国官方或穷尽式犯罪数据库。</p>
+  </div>
+  <div class="stat">
+    <div><b id="count">—</b><small>当前显示案件</small></div>
+    <div class="sep"></div>
+    <div><small id="updated">正在读取数据…</small><small id="total"></small></div>
+  </div>
+</header>
+
+<main>
+  <section class="mapwrap">
+    <div id="map"></div>
+    <div id="basemapStatus" class="mapstatus loading">底图加载中…</div>
+    <div class="legend">
+      <div><i class="dot r"></i>confirmed / 已确认致死案件</div>
+      <div><i class="dot a"></i>suspected / 疑似凶杀</div>
+      <div>○ 白圈 = Fundort / 遗体发现位置</div>
+    </div>
+  </section>
+
+  <aside>
+    <div class="filters">
+      <label>时间
+        <select id="days">
+          <option value="7">7天</option>
+          <option value="14">14天</option>
+          <option value="30" selected>30天</option>
+        </select>
+      </label>
+      <label><input id="confirmed" type="checkbox" checked> confirmed</label>
+      <label><input id="suspected" type="checkbox" checked> suspected</label>
+    </div>
+    <div class="note">点位使用公开通报中能确认的最精确位置。警方只公布城市/城区时会使用近似中心点；“Fundort”仅代表遗体发现位置，不必然是案发地点。</div>
+    <div id="list"></div>
+  </aside>
+</main>
+
+<footer>
+  <span>本地州界：deutschlandGeoJSON（Unlicense） · 街道底图（可用时）：© OpenStreetMap contributors</span>
+  <span>自动筛选优先降低误报；每天检查一次</span>
+</footer>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-const M=L.map('map',{minZoom:5}).setView([51.1,10.4],6);L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(M);const G=L.layerGroup().addTo(M);let D=null,markers=new Map();
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const pd=s=>{const [y,m,d]=s.split('-');return d+'.'+m+'.'+y};
-const diff=(a,b)=>(Date.parse(a+'T00:00:00Z')-Date.parse(b+'T00:00:00Z'))/86400000;
-function filtered(){if(!D)return[];const n=+days.value,tc=confirmed.checked,ts=suspected.checked,today=new Date().toISOString().slice(0,10);return D.cases.filter(c=>{const age=diff(today,c.event_date);return age>=0&&age<=n&&((c.status==='confirmed'&&tc)||(c.status==='suspected'&&ts))}).sort((a,b)=>b.event_date.localeCompare(a.event_date))}
-function popup(c){return '<h3>'+esc(c.city)+' · '+pd(c.event_date)+'</h3><p><b>'+esc(c.offense||'Homicide')+'</b> · '+esc(c.status)+'</p><p>'+esc(c.location)+'</p><p>'+esc(c.summary||'')+'</p><p style="font-size:11px;color:#667">'+esc(c.precision||'')+(c.location_type==='Fundort'?' · Fundort/body-discovery location':'')+'</p><p><a target="_blank" rel="noopener" href="'+esc(c.source_url)+'">Official source ↗</a></p>'}
-function render(){const cs=filtered(),bounds=[];G.clearLayers();markers=new Map();list.innerHTML='';for(const c of cs){if(Number.isFinite(c.lat)&&Number.isFinite(c.lon)){const fund=c.location_type==='Fundort',color=c.status==='confirmed'?'#d94b4b':'#d6a13b',m=L.circleMarker([c.lat,c.lon],{radius:fund?9:7,weight:fund?3:1.5,color:fund?'#fff':color,fillColor:color,fillOpacity:fund?.45:.85}).bindPopup(popup(c),{maxWidth:350}).addTo(G);markers.set(c.id,m);bounds.push([c.lat,c.lon])}const b=document.createElement('button');b.className='card';b.innerHTML='<div class="row"><b>'+esc(c.city)+' · '+pd(c.event_date)+'</b><span class="badge '+esc(c.status)+'">'+esc(c.status)+'</span></div><div class="meta">'+esc(c.location)+' · '+esc(c.location_type||'reported location')+'</div><p class="summary">'+esc(c.summary||'')+'</p>';b.onclick=()=>{const m=markers.get(c.id);if(m){M.flyTo(m.getLatLng(),Math.max(M.getZoom(),11));m.openPopup()}else window.open(c.source_url,'_blank','noopener')};list.appendChild(b)}count.textContent=cs.length;if(bounds.length&&!M._moved)M.fitBounds(bounds,{padding:[30,30],maxZoom:7})}
-M.on('dragstart zoomstart',()=>M._moved=true);[days,confirmed,suspected].forEach(x=>x.onchange=render);
-fetch('data/cases.json',{cache:'no-store'}).then(r=>r.json()).then(x=>{D=x;updated.textContent=x.meta?.generated_at?'updated '+new Date(x.meta.generated_at).toLocaleString():'update time unavailable';render()}).catch(()=>{list.innerHTML='<div class="note">Data load failed.</div>';updated.textContent='data unavailable'});
+(() => {
+  const $ = id => document.getElementById(id);
+  const el = {count:$('count'),updated:$('updated'),total:$('total'),days:$('days'),confirmed:$('confirmed'),suspected:$('suspected'),list:$('list'),basemapStatus:$('basemapStatus')};
+  const M = L.map('map',{minZoom:5,maxZoom:17,zoomControl:true,preferCanvas:true,worldCopyJump:false});
+  const germanyBounds = L.latLngBounds([[47.05,5.45],[55.15,15.65]]);
+  M.fitBounds(germanyBounds,{padding:[18,18]});
+  M.setMaxBounds([[45.3,3.2],[57.0,18.0]]);
+
+  M.createPane('statesPane');
+  M.getPane('statesPane').style.zIndex = 250;
+  M.createPane('labelsPane');
+  M.getPane('labelsPane').style.zIndex = 320;
+  M.getPane('labelsPane').style.pointerEvents = 'none';
+
+  let stateLayer=null, caseData=null, tileOk=false, tileErrors=0, fallbackMode=true, userMoved=false;
+  const casesLayer=L.layerGroup().addTo(M);
+  const fallbackLabels=L.layerGroup();
+  const markers=new Map();
+
+  const refs=[
+    ['Hamburg',53.5511,9.9937],['Bremen',53.0793,8.8017],['Hannover',52.3759,9.7320],
+    ['Berlin',52.5200,13.4050],['Leipzig',51.3397,12.3731],['Dresden',51.0504,13.7373],
+    ['Düsseldorf',51.2277,6.7735],['Köln',50.9375,6.9603],['Frankfurt',50.1109,8.6821],
+    ['Nürnberg',49.4521,11.0767],['Stuttgart',48.7758,9.1829],['München',48.1351,11.5820]
+  ];
+  for(const [name,lat,lon] of refs){
+    L.marker([lat,lon],{
+      pane:'labelsPane',interactive:false,
+      icon:L.divIcon({className:'city-ref',html:name,iconSize:null,iconAnchor:[0,0]})
+    }).addTo(fallbackLabels);
+  }
+
+  function stateStyle(){
+    return fallbackMode
+      ? {pane:'statesPane',color:'#71899a',weight:1.15,fillColor:'#dce6ed',fillOpacity:.93}
+      : {pane:'statesPane',color:'#61798c',weight:.85,fillColor:'#dce6ed',fillOpacity:.10};
+  }
+  function addStateLabel(feature,layer){
+    if(!feature?.properties?.name)return;
+    const c=layer.getBounds().getCenter();
+    L.marker(c,{
+      pane:'labelsPane',interactive:false,
+      icon:L.divIcon({className:'state-label',html:feature.properties.name,iconSize:null,iconAnchor:[0,0]})
+    }).addTo(fallbackLabels);
+  }
+  function setBasemapMode(mode){
+    fallbackMode=mode!=='street';
+    if(stateLayer)stateLayer.setStyle(stateStyle());
+    if(fallbackMode){
+      if(!M.hasLayer(fallbackLabels))fallbackLabels.addTo(M);
+      el.basemapStatus.className='mapstatus fallback';
+      el.basemapStatus.textContent='本地德国州界底图（OSM 当前不可用）';
+    }else{
+      if(M.hasLayer(fallbackLabels))M.removeLayer(fallbackLabels);
+      el.basemapStatus.className='mapstatus ok';
+      el.basemapStatus.textContent='OSM 街道底图 + 本地州界';
+    }
+  }
+
+  const tiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    maxZoom:19,
+    attribution:'&copy; OpenStreetMap contributors',
+    crossOrigin:true,
+    updateWhenIdle:true
+  });
+  tiles.on('tileload',()=>{
+    if(!tileOk){tileOk=true;setBasemapMode('street');}
+  });
+  tiles.on('tileerror',()=>{
+    tileErrors++;
+    if(tileErrors>=6&&!tileOk){
+      if(M.hasLayer(tiles))M.removeLayer(tiles);
+      setBasemapMode('fallback');
+    }
+  });
+  tiles.addTo(M);
+  setTimeout(()=>{
+    if(!tileOk){
+      if(M.hasLayer(tiles))M.removeLayer(tiles);
+      setBasemapMode('fallback');
+    }
+  },4000);
+
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const pd=s=>{const [y,m,d]=String(s).split('-');return y&&m&&d?d+'.'+m+'.'+y:String(s||'')};
+  const diff=(a,b)=>(Date.parse(a+'T00:00:00Z')-Date.parse(b+'T00:00:00Z'))/86400000;
+  const safeUrl=u=>/^https:\/\//i.test(String(u||''))?String(u):'#';
+
+  function filtered(){
+    if(!caseData)return[];
+    const n=+el.days.value, tc=el.confirmed.checked, ts=el.suspected.checked;
+    const today=new Date().toISOString().slice(0,10);
+    return caseData.cases.filter(c=>{
+      const age=diff(today,c.event_date);
+      return age>=0&&age<=n&&((c.status==='confirmed'&&tc)||(c.status==='suspected'&&ts));
+    }).sort((a,b)=>b.event_date.localeCompare(a.event_date)||String(a.city).localeCompare(String(b.city)));
+  }
+
+  function popup(c){
+    return '<h3>'+esc(c.city)+' · '+pd(c.event_date)+'</h3>'+
+      '<p><b>'+esc(c.offense||'Homicide')+'</b> · '+esc(c.status)+'</p>'+
+      '<p>'+esc(c.location)+'</p>'+
+      '<p>'+esc(c.summary||'')+'</p>'+
+      '<p style="font-size:11px;color:#667">'+esc(c.precision||'')+(c.location_type==='Fundort'?' · Fundort / 遗体发现点':'')+'</p>'+
+      '<p><a target="_blank" rel="noopener noreferrer" href="'+esc(safeUrl(c.source_url))+'">查看官方通报 ↗</a></p>';
+  }
+
+  function render(){
+    const cs=filtered();
+    casesLayer.clearLayers();markers.clear();el.list.innerHTML='';
+    for(const c of cs){
+      if(Number.isFinite(c.lat)&&Number.isFinite(c.lon)){
+        const fund=c.location_type==='Fundort';
+        const color=c.status==='confirmed'?'#c84645':'#d3a33c';
+        const m=L.circleMarker([c.lat,c.lon],{
+          radius:fund?8.5:7,weight:fund?3:1.6,color:fund?'#fff':color,
+          fillColor:color,fillOpacity:fund?.58:.90
+        }).bindPopup(popup(c),{maxWidth:360}).addTo(casesLayer);
+        markers.set(c.id,m);
+      }
+      const b=document.createElement('button');
+      b.className='card';
+      b.innerHTML='<div class="row"><b>'+esc(c.city)+' · '+pd(c.event_date)+'</b><span class="badge '+esc(c.status)+'">'+esc(c.status)+'</span></div>'+
+        '<div class="meta">'+esc(c.location)+' · '+esc(c.location_type||'reported location')+'</div>'+
+        '<p class="summary">'+esc(c.summary||'')+'</p>';
+      b.onclick=()=>{
+        const m=markers.get(c.id);
+        if(m){M.flyTo(m.getLatLng(),Math.max(M.getZoom(),11),{duration:.65});m.openPopup();}
+        else window.open(safeUrl(c.source_url),'_blank','noopener');
+      };
+      el.list.appendChild(b);
+    }
+    el.count.textContent=cs.length;
+    el.total.textContent='数据集共 '+(caseData?.cases?.length||0)+' 起';
+    if(!cs.length)el.list.innerHTML='<div class="note">当前筛选条件下没有案件。</div>';
+  }
+
+  M.on('dragstart zoomstart',()=>{userMoved=true;});
+
+  Promise.all([
+    fetch('data/germany-states.geojson',{cache:'force-cache'}).then(r=>{if(!r.ok)throw new Error('states '+r.status);return r.json();}),
+    fetch('data/cases.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('cases '+r.status);return r.json();})
+  ]).then(([states,data])=>{
+    stateLayer=L.geoJSON(states,{
+      pane:'statesPane',style:stateStyle,onEachFeature:addStateLabel
+    }).addTo(M);
+    if(!tileOk)setBasemapMode('fallback');
+    if(!userMoved)M.fitBounds(stateLayer.getBounds(),{padding:[15,15]});
+
+    caseData=data;
+    const t=data.meta?.generated_at?new Date(data.meta.generated_at):null;
+    el.updated.textContent=t&&!Number.isNaN(+t)?'数据更新 '+t.toLocaleString():'更新时间未知';
+    render();
+  }).catch(err=>{
+    console.error(err);
+    el.list.innerHTML='<div class="note">地图数据加载失败，请刷新页面重试。</div>';
+    el.updated.textContent='数据加载失败';
+    if(!tileOk)setBasemapMode('fallback');
+  });
+
+  [el.days,el.confirmed,el.suspected].forEach(x=>x.addEventListener('change',render));
+  window.__MAP_SMOKE__={map:M,getStateLayer:()=>stateLayer,getCaseData:()=>caseData,getBasemapMode:()=>fallbackMode?'fallback':'street'};
+})();
 </script>
-</body></html>
+</body>
+</html>
