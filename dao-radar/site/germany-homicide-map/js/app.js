@@ -48,13 +48,7 @@
   const fmt=n=>Number(n||0).toLocaleString('zh-CN');
   const pd=s=>{const [y,m,d]=String(s||'').split('-');return y&&m&&d?d+'.'+m+'.'+y:String(s||'')};
   const safe=u=>/^https:\/\//i.test(String(u||''))?u:'#';
-
-  function scaleColor(v,breaks,palette){
-    if(v==null||!Number.isFinite(Number(v)))return '#c8d1d8';
-    const n=Number(v);
-    for(let i=0;i<breaks.length;i++)if(n<=breaks[i])return palette[i];
-    return palette[palette.length-1];
-  }
+  const {scaleColor,pointInGeometry,percentile,riskLabel,quantileBreaks}=window.CrimeMapUtils;
   const nationalPalette=['#fff4e6','#fee2c2','#fbc48d','#f59e5b','#ea7449','#d94b3d','#ad2e32'];
   const berlinPalette=['#f5effa','#e6d7f2','#d2b7e5','#bb92d5','#9c68c1','#7c47a6','#5d2d83'];
   const propertyPalette=['#eff6ff','#d9eafb','#b9d8f3','#8bbce3','#5a9bd2','#3678b8','#1f4f8f'];
@@ -74,58 +68,14 @@
     homicide:{label:'凶杀',de:'Mord und Totschlag',news:['homicide']}
   };
 
-  function pointInRing(lon,lat,ring){
-    let inside=false;
-    for(let i=0,j=ring.length-1;i<ring.length;j=i++){
-      const xi=Number(ring[i][0]),yi=Number(ring[i][1]),xj=Number(ring[j][0]),yj=Number(ring[j][1]);
-      const hit=((yi>lat)!==(yj>lat))&&(lon<(xj-xi)*(lat-yi)/((yj-yi)||1e-12)+xi);
-      if(hit)inside=!inside;
-    }
-    return inside;
-  }
-  function pointInPolygon(lon,lat,poly){
-    if(!poly?.length||!pointInRing(lon,lat,poly[0]))return false;
-    for(let i=1;i<poly.length;i++)if(pointInRing(lon,lat,poly[i]))return false;
-    return true;
-  }
-  function pointInGeometry(lon,lat,geom){
-    if(!geom)return false;
-    if(geom.type==='Polygon')return pointInPolygon(lon,lat,geom.coordinates);
-    if(geom.type==='MultiPolygon')return geom.coordinates.some(poly=>pointInPolygon(lon,lat,poly));
-    return false;
-  }
   function violentRecentCount(feature,metric=currentViolenceMetric()){
     if(!caseData||!feature?.geometry)return 0;
     const catsOk=new Set(violenceMetrics[metric]?.news||[]);
     return caseData.cases.filter(c=>catsOk.has(c.category)&&Number.isFinite(c.lon)&&Number.isFinite(c.lat)&&pointInGeometry(c.lon,c.lat,feature.geometry)).length;
   }
-  function percentile(value,values){
-    const clean=values.map(Number).filter(Number.isFinite).sort((a,b)=>a-b);
-    if(!clean.length||!Number.isFinite(Number(value)))return 50;
-    const below=clean.filter(x=>x<Number(value)).length;
-    const equal=clean.filter(x=>x===Number(value)).length;
-    return Math.max(1,Math.min(99,Math.round(100*(below+equal*.5)/clean.length)));
-  }
-  function riskLabel(p){
-    if(p<=14)return {text:'极低',cls:'low'};
-    if(p<=29)return {text:'较低',cls:'low'};
-    if(p<=43)return {text:'偏低',cls:'low'};
-    if(p<=57)return {text:'中等',cls:'mid'};
-    if(p<=71)return {text:'偏高',cls:'high'};
-    if(p<=86)return {text:'较高',cls:'high'};
-    return {text:'极高',cls:'high'};
-  }
   function currentViolenceMetric(){return el.violenceMetric?.value||'violence';}
   function nationalRates(metric=currentViolenceMetric()){
     return Object.values(pksData?.records||{}).map(r=>Number(r?.[metric]?.rate)).filter(Number.isFinite);
-  }
-  function quantileBreaks(values){
-    const a=values.map(Number).filter(Number.isFinite).sort((x,y)=>x-y);
-    if(!a.length)return [0,0,0,0,0,0];
-    return [1/7,2/7,3/7,4/7,5/7,6/7].map(p=>{
-      const pos=(a.length-1)*p,lo=Math.floor(pos),hi=Math.min(lo+1,a.length-1),f=pos-lo;
-      return Math.round((a[lo]*(1-f)+a[hi]*f)*10)/10;
-    });
   }
   function currentPropertyMetric(){return el.propertyMetric?.value||'property_total';}
   function propertyRates(metric=currentPropertyMetric()){
