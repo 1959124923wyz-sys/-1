@@ -7805,5 +7805,19 @@
     }
   },
   "Heimweg, München, Erfurt, Germany": null,
-  "München, Erfurt, Germany": null
+  "München, Erfurt, Germany": null,
+  "Bleriotstraße, Augsburg, Germany": {
+    "lat": 48.3370573,
+    "lon": 10.9004252,
+    "address": {
+      "road": "Blériotstraße",
+      "suburb": "Universitätsviertel",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86159",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  }
 }

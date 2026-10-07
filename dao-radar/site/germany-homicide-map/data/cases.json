@@ -1,16 +1,16 @@
 {
   "meta": {
-    "generated_at": "2026-10-07T13:32:00Z",
+    "generated_at": "2026-10-07T13:47:09Z",
     "window_days": 90,
     "scope": "Germany",
-    "case_count": 581,
-    "geocoded_count": 580,
+    "case_count": 582,
+    "geocoded_count": 581,
     "category_counts": {
       "homicide": 42,
       "violence": 73,
       "robbery": 79,
       "sexual": 7,
-      "property": 380
+      "property": 381
     },
     "schema_version": 4,
     "coverage_note": "Public-source monitor. Includes targeted Presseportal police releases plus direct Polizei Berlin archive coverage. Sexual-crime locations are privacy-reduced.",
@@ -691,6 +691,31 @@
       "date_confidence": "publication_date",
       "privacy_protected": false,
       "geocode_precision": "district"
+    },
+    {
+      "id": "2026-10-03-property-2ab8b63ec7",
+      "event_date": "2026-10-03",
+      "publication_date": "2026-10-07",
+      "city": "Augsburg",
+      "state": "Bayern",
+      "location": "Bleriotstraße",
+      "geocode_address": "Bleriotstraße, Augsburg, Germany",
+      "precision": "street",
+      "location_type": "Tatort / reported location",
+      "status": "confirmed",
+      "offense": "Fahrraddiebstahl",
+      "subcategory": "Fahrraddiebstahl",
+      "category": "property",
+      "category_label": "盗窃/财产犯罪",
+      "severity": 2,
+      "summary": "警方公开通报的Fahrraddiebstahl案件：POL Schwaben Nord: Polizei ermittelt nach Fahrraddiebstahl",
+      "source_agency": "Presseportal police release",
+      "source_url": "https://www.presseportal.de/blaulicht/pm/169620/6366872",
+      "lat": 48.3370573,
+      "lon": 10.9004252,
+      "date_confidence": "high",
+      "privacy_protected": false,
+      "geocode_precision": "street"
     },
     {
       "id": "2026-10-02-property-7180d9784c",
