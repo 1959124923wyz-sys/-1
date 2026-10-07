@@ -21,11 +21,11 @@ DATE_RE=re.compile(r"(\d{2})\.(\d{2})\.(20\d{2})")
 STREET_RE=re.compile(r"\b([A-ZÄÖÜ][A-Za-zÄÖÜäöüß0-9.'’\- ]{1,65}?(?:straße|strasse|allee|weg|platz|gasse|damm|ring|ufer|chaussee|markt|stieg|graben|wall|steig))\b",re.I)
 DISTRICTS=["Mitte","Friedrichshain-Kreuzberg","Pankow","Charlottenburg-Wilmersdorf","Spandau","Steglitz-Zehlendorf","Tempelhof-Schöneberg","Neukölln","Treptow-Köpenick","Marzahn-Hellersdorf","Lichtenberg","Reinickendorf"]
 
-ROB=re.compile(r"Raub\\w*|ausgeraubt|überfallen|Überfall|räuberisch|geraubt",re.I)
+ROB=re.compile(r"Raub\w*|ausgeraubt|überfallen|Überfall|räuberisch|geraubt",re.I)
 SEX=re.compile(r"Vergewaltig|sexuell\w*\s+(?:Nötigung|Übergriff|Belästigung)|sexueller\s+Übergriff",re.I)
 PROP=re.compile(r"Einbruch|Einbrecher|Diebstahl|gestohlen|entwendet|aufgebrochen|Fahrrad.*(?:weg|gestohlen)|Auto.*(?:aufgebrochen|gestohlen)",re.I)
 VIOL=re.compile(r"Messer|Stich|Schuss|Schüsse|Schusswaffe|lebensgefährlich\s+verletzt|schwer\w*\s+verletzt|Körperverletzung|angegriffen|Angriff",re.I)
-SERIOUS_VIOLENCE=re.compile(r"Messer|Stich|Schuss|Schüsse|Schusswaffe|lebensgefährlich|lebensbedrohlich|schwer\\w*\\s+verletzt|erheblich\\w*\\s+verletzt|stationär|notoperiert|Notoperation|gefährliche\\s+Körperverletzung|schwere\\s+Körperverletzung|versuchter\\s+Totschlag|versuchtes\\s+Tötungsdelikt",re.I)
+SERIOUS_VIOLENCE=re.compile(r"Messer|Stich|Schuss|Schüsse|Schusswaffe|lebensgefährlich|lebensbedrohlich|schwer\w*\s+verletzt|erheblich\w*\s+verletzt|stationär|notoperiert|Notoperation|gefährliche\s+Körperverletzung|schwere\s+Körperverletzung|versuchter\s+Totschlag|versuchtes\s+Tötungsdelikt",re.I)
 TRAFFIC=re.compile(r"Verkehrsunfall|Unfall|Radfahrer|Fußgänger|E-Scooter|Motorrad|Sturz|Schiffsschraube|BVG-Bus|Linienbus",re.I)
 NON_EVENT=re.compile(r"Zeugen gesucht|Zeuginnen und Zeugen gesucht|wer erkennt|Öffentlichkeitsfahndung|Fahndung|Prävention|Präventionswoche|Experten-Tipps|Einbruchschutz|Statistik|Bilanz|Polizei bittet um Mithilfe|Belohnung ausgelobt|Durchsuchungsmaßnahmen|Durchsuchungsbeschlüsse|Bekämpfung der Schusswaffenkriminalität|BAO Ferrum|EG Telum|Sicherstellung|sichergestellt|Waffenfund|Überprüfung.*Schusswaffe",re.I)
 FATAL=re.compile(r"Tötungsdelikt|Totschlag|Mordkommission|\bMord\b|verstarb|verstorben|tödlich verletzt|tot aufgefunden",re.I)
