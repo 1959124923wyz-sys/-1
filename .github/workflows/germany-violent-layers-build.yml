@@ -1,0 +1,45 @@
+name: Build official violence layers
+
+on:
+  push:
+    branches: [violent-crime-overview-90d]
+    paths:
+      - 'dao-radar/site/germany-homicide-map/scripts/build_pks_violent_2025.py'
+      - 'dao-radar/site/germany-homicide-map/scripts/build_berlin_violent_atlas.py'
+      - '.github/workflows/germany-violent-layers-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: violent-layer-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: violent-crime-overview-90d
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install -r dao-radar/site/germany-homicide-map/requirements.txt
+      - name: Build nationwide PKS layer
+        run: python dao-radar/site/germany-homicide-map/scripts/build_pks_violent_2025.py
+      - name: Build Berlin local violence layer
+        run: python dao-radar/site/germany-homicide-map/scripts/build_berlin_violent_atlas.py
+      - name: Commit generated layers
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dao-radar/site/germany-homicide-map/data/
+          if ! git diff --cached --quiet; then
+            git commit -m "data: build official violence layers"
+            git push origin HEAD:violent-crime-overview-90d
+          else
+            echo "No generated data changes"
+          fi
