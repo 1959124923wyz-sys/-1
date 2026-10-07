@@ -1,16 +1,16 @@
 {
   "meta": {
-    "generated_at": "2026-10-07T10:39:15Z",
+    "generated_at": "2026-10-07T11:45:46Z",
     "window_days": 90,
     "scope": "Germany",
-    "case_count": 580,
+    "case_count": 581,
     "geocoded_count": 580,
     "category_counts": {
       "homicide": 42,
       "violence": 73,
       "robbery": 79,
       "sexual": 7,
-      "property": 379
+      "property": 380
     },
     "schema_version": 4,
     "coverage_note": "Public-source monitor. Includes targeted Presseportal police releases plus direct Polizei Berlin archive coverage. Sexual-crime locations are privacy-reduced.",
@@ -18,6 +18,30 @@
     "disclaimer": "Public-source monitor, not an official or exhaustive crime register. Locations reflect the most precise place publicly reported; Fundort means body-discovery location and may not be the crime scene."
   },
   "cases": [
+    {
+      "id": "2026-10-07-property-b2e9da9419",
+      "event_date": "2026-10-07",
+      "publication_date": "2026-10-07",
+      "city": "München, Erfurt",
+      "state": "",
+      "location": "Heimweg",
+      "geocode_address": "Heimweg, München, Erfurt, Germany",
+      "precision": "street",
+      "location_type": "Tatort / reported location",
+      "status": "confirmed",
+      "offense": "Taschendiebstahl",
+      "subcategory": "Taschendiebstahl",
+      "category": "property",
+      "category_label": "盗窃/财产犯罪",
+      "severity": 2,
+      "summary": "警方公开通报的Taschendiebstahl案件：BPOLI EF: Auf der Heimreise vom Oktoberfest bestohlen - Taschendiebe nutzen jede Chance",
+      "source_agency": "Presseportal police release",
+      "source_url": "https://www.presseportal.de/blaulicht/pm/74167/6366721",
+      "lat": null,
+      "lon": null,
+      "date_confidence": "medium",
+      "privacy_protected": false
+    },
     {
       "id": "2026-10-07-property-acc9dac601",
       "event_date": "2026-10-07",
