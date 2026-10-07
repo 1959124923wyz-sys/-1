@@ -15,25 +15,24 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Inspect public map JS endpoints
+      - name: Inspect Fang map API configuration
         shell: python
         run: |
           import requests,re
           h={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/154.0 Safari/537.36","Referer":"https://map.fang.com/"}
-          js="https://static.soufunimg.com/map/ditu/js/modules/vueMap/js/app.js?v=20250820001"
-          r=requests.get(js,headers=h,timeout=25)
-          print("STATUS",r.status_code,"LEN",len(r.content))
-          t=r.text
-          pats=[
-            r'https?[^"\']{0,180}',
-            r'[^"\']*(?:ajax|search|map)[^"\']*(?:api|house|loupan|esf|build)[^"\']*',
-            r'[^"\']*(?:api|interface|service)[^"\']{0,180}'
+          urls=[
+            "https://static.soufunimg.com/map/ditu/js/modules/vueMap/js/app.js?v=20250820001",
+            "https://static.soufunimg.com/map/ditu/js/modules/vueMap/js/vendor.js?v=20250820001",
+            "https://static.soufunimg.com/map/ditu/js/modules/vueMap/js/manifest.js?v=20250820001"
           ]
-          hits=[]
-          for p in pats:
-            for m in re.findall(p,t,re.I):
-              if any(k in m.lower() for k in ("soufun","fang","api","ajax","search","map")):
-                x=m[:240]
-                if x not in hits:hits.append(x)
-          print("HITS")
-          for x in hits[:250]: print(repr(x))
+          for url in urls:
+            t=requests.get(url,headers=h,timeout=25).text
+            print("\nFILE",url,"LEN",len(t))
+            for needle in ["API_URL","loupanList","esflist","getBaiduCoord","/ws/api/","mapSpot"]:
+              pos=0
+              count=0
+              while True:
+                i=t.find(needle,pos)
+                if i<0 or count>=15: break
+                print("CTX",needle,repr(t[max(0,i-450):i+850]))
+                pos=i+len(needle);count+=1
