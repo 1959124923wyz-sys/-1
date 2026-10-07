@@ -2,10 +2,10 @@
   "meta": {
     "generated_at": "2026-10-07T10:35:00+08:00",
     "currency": "CNY",
-    "default_monthly_savings": 5000,
     "default_area_sqm": 90,
     "price_basis": "community_reference_unit_price",
-    "notice": "挂牌/参考均价，不是成交价；部分点位来自公开地图坐标换算，价格与坐标均应以来源页为准。"
+    "notice": "挂牌/参考均价，不是成交价；部分点位来自公开地图坐标换算，价格与坐标均应以来源页为准。",
+    "default_annual_savings": 100000
   },
   "communities": [
     {
