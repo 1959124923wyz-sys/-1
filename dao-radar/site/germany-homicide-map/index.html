@@ -168,7 +168,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   const NATIONAL_VIOLENCE_2025=212335;
   const cats={homicide:{label:'凶杀',color:'#d6534f'},violence:{label:'严重暴力',color:'#df8a45'},robbery:{label:'抢劫',color:'#4f95bd'},sexual:{label:'性犯罪',color:'#9e76c8'},property:{label:'盗窃/财产',color:'#5a82d3'}};
   let mode='violence',caseData=null,pksData=null,propertyData=null,countyGeo=null,berlinViolence=null,heatData=null,stateGeo=null;
-  let countyLayer=null,berlinLayer=null,heatLayer=null,stateLayer=null;
+  let countyLayer=null,berlinLayer=null,heatLayer=null,stateLayer=null,selectedCountyLayer=null;
   let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false;
   const newsLayer=L.layerGroup(),markers=new Map();
 
@@ -361,7 +361,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
         });
         if(layer){
           const a=mode==='property'?propertyCountyArea(layer.feature,r):countyArea(layer.feature,r);
-          showArea(a,{pin:true});
+          selectCountyLayer(layer);showArea(a,{pin:true});
           if(layer.getBounds)map.fitBounds(layer.getBounds(),{padding:[30,30],maxZoom:8});
         }
       };
@@ -437,17 +437,36 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     if(mode==='property'){
       const key=currentPropertyMetric(),rec=propertyRecord(feature),breaks=quantileBreaks(propertyRates(key));
       const val=rec?.[key]?.rate;
-      return {pane:'countyPane',color:'#607685',weight:.45,fillColor:rec?scaleColor(val,breaks,propertyPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.56:0.07};
+      return {pane:'countyPane',color:'#667985',weight:.36,opacity:.78,fillColor:rec?scaleColor(val,breaks,propertyPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.60:0.07};
     }
     const key=currentViolenceMetric(),rec=pksRecord(feature),breaks=quantileBreaks(nationalRates(key)),val=rec?.[key]?.rate;
-    return {pane:'countyPane',color:'#607685',weight:.45,fillColor:rec?scaleColor(val,breaks,nationalPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.52:0.07};
+    return {pane:'countyPane',color:'#6b7378',weight:.36,opacity:.78,fillColor:rec?scaleColor(val,breaks,nationalPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.60:0.07};
   }
   function berlinStyle(feature){
     const v=Number(feature?.properties?.combined_rate||0),breaks=quantileBreaks(berlinRates());
     return {pane:'berlinPane',color:'#694d77',weight:.35,opacity:.42,fillColor:scaleColor(v,breaks,berlinPalette),fillOpacity:.64};
   }
+  function selectCountyLayer(layer){
+    if(!countyLayer||!layer)return;
+    if(selectedCountyLayer&&selectedCountyLayer!==layer)countyLayer.resetStyle(selectedCountyLayer);
+    selectedCountyLayer=layer;
+    countyLayer.resetStyle(layer);
+    layer.setStyle({color:'#111820',weight:2.2,opacity:1,fillOpacity:.72});
+    if(layer.bringToFront)layer.bringToFront();
+  }
+  function hoverCountyLayer(layer){
+    if(!layer||layer===selectedCountyLayer)return;
+    layer.setStyle({color:'#ffffff',weight:1.45,opacity:.95,fillOpacity:.68});
+    if(layer.bringToFront)layer.bringToFront();
+  }
+  function unhoverCountyLayer(layer){
+    if(!countyLayer||!layer||layer===selectedCountyLayer)return;
+    countyLayer.resetStyle(layer);
+  }
+
   function buildCountyLayer(){
     if(countyLayer){map.removeLayer(countyLayer);countyLayer=null;}
+    selectedCountyLayer=null;
     if(!countyGeo)return;
     if(mode==='violence'&&!pksData)return;
     if(mode==='property'&&!propertyData)return;
@@ -460,9 +479,9 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
           const a=area(),rk=riskLabel(a.pct);
           return '<b>'+esc(r.name)+'</b><br>'+esc(a.metric.replace('BKA PKS 2025 · ',''))+'<br>'+fmt(Math.round(a.rate))+' /10万人·年 · '+rk.text;
         },{sticky:true});
-        layer.on('mouseover',()=>showArea(area()));
-        layer.on('mouseout',()=>{hoverArea=null;showArea(pinnedArea);});
-        layer.on('click',()=>showArea(area(),{pin:true}));
+        layer.on('mouseover',()=>{hoverCountyLayer(layer);showArea(area());});
+        layer.on('mouseout',()=>{unhoverCountyLayer(layer);hoverArea=null;showArea(pinnedArea);});
+        layer.on('click',()=>{selectCountyLayer(layer);showArea(area(),{pin:true});});
       }
     }).addTo(map);
   }
@@ -590,7 +609,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   el.togglePropertyNews.onclick=()=>{showPropertyNews=!showPropertyNews;render();};
   el.violenceMetric.addEventListener('change',()=>{pinnedArea=null;hoverArea=null;render();showArea(null);});
   el.propertyMetric.addEventListener('change',()=>{pinnedArea=null;hoverArea=null;render();showArea(null);});
-  el.viewGermany.onclick=()=>map.fitBounds(germanyBounds,{padding:[14,14]});
+  el.viewGermany.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;render();showArea(null);map.fitBounds(germanyBounds,{padding:[14,14]});};
   el.focusBerlin.onclick=()=>map.fitBounds(berlinBounds,{padding:[25,25],maxZoom:10});
   map.on('zoomend',()=>{if(mode==='violence')buildBerlinLayer();if(mode==='property')buildHeat();renderLegend();});
   map.on('click',e=>{if(mode==='property'&&map.getZoom()>=9&&berlinBounds.contains(e.latlng)&&propertyHeatField()){const a=propertyAreaNearest(e.latlng);if(a)showArea(a,{pin:true});}});
