@@ -22,7 +22,7 @@
   const {national:nationalPalette,berlin:berlinPalette,property:propertyPalette,berlinProperty:berlinPropertyPalette}=palettes;
   let mode='violence',caseData=null,pksData=null,propertyData=null,countyGeo=null,berlinViolence=null,heatData=null,stateGeo=null;
   let countyLayer=null,berlinLayer=null,heatLayer=null,stateLayer=null,selectedCountyLayer=null;
-  let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false,activeStateFilter=null,selectedStateName=null,stateReturnView=null;
+  let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false,statePanel=null;
   const newsLayer=L.layerGroup(),markers=new Map();
   const stateDrawerDrag=window.CrimeDrawerDrag.create({drawer:el.stateDrawer,handle:el.stateDragHandle});
 
@@ -94,52 +94,6 @@
     const s=stateStats(feature);
     const label=mode==='property'?(propertyMetrics[s.key]?.label||s.key):(violenceMetrics[s.key]?.label||s.key);
     return '<b>'+esc(s.name)+'</b><br>'+esc(label)+' · '+fmt(Math.round(s.rate))+'/10万人<br>'+fmt(s.cases)+' 起 · 16州第 '+s.rank;
-  }
-  function renderStateDrawer(feature){
-    if(!feature)return;
-    const s=stateStats(feature),label=mode==='property'?(propertyMetrics[s.key]?.label||s.key):(violenceMetrics[s.key]?.label||s.key);
-    el.stateName.textContent=s.name;el.stateMetric.textContent='BKA PKS 2025 · '+label;
-    el.stateRate.textContent=fmt(Math.round(s.rate));el.stateCases.textContent=fmt(s.cases);el.stateRank.textContent='#'+s.rank;el.stateRecent.textContent=fmt(s.news.length);
-    el.stateTopCounties.innerHTML='';
-    for(const r of s.topCounties){
-      const b=document.createElement('button');b.type='button';b.className='state-county-row';
-      b.innerHTML='<span>'+esc(r.name)+'</span><b>'+fmt(Math.round(r[s.key].rate))+'</b>';
-      b.onclick=()=>{
-        const layer=countyLayer?.getLayers().find(x=>{
-          const rec=mode==='property'?propertyRecord(x.feature):pksRecord(x.feature);
-          return rec?.ags===r.ags;
-        });
-        if(layer){
-          const a=mode==='property'?propertyCountyArea(layer.feature,r):countyArea(layer.feature,r);
-          selectCountyLayer(layer);showArea(a,{pin:true});
-          if(layer.getBounds)map.fitBounds(layer.getBounds(),{padding:[30,30],maxZoom:9});
-        }
-      };
-      el.stateTopCounties.appendChild(b);
-    }
-    el.stateNewsCount.textContent=s.news.length?fmt(s.news.length)+' 起':'';
-    el.stateNews.innerHTML='';
-    if(!s.news.length){
-      el.stateNews.innerHTML='<div class="state-empty">当前公开抓取暂无匹配通报；不代表没有案件。</div>';
-    }else{
-      for(const n of s.news.slice(0,6)){
-        const b=document.createElement('button');b.type='button';b.className='state-news-row';
-        b.innerHTML='<span>'+esc(n.city||s.name)+' · '+esc(n.offense||n.category_label||'事件')+'</span><small>'+pd(n.event_date)+'</small>';
-        b.onclick=()=>{
-          const m=markers.get(n.id);
-          if(m){map.flyTo(m.getLatLng(),Math.max(map.getZoom(),10),{duration:.45});m.openPopup();}
-          else window.open(safe(n.source_url),'_blank','noopener');
-        };
-        el.stateNews.appendChild(b);
-      }
-    }
-    el.stateDrawer.classList.add('open');
-  }
-  function closeStateDrawer({restore=true}={}){
-    activeStateFilter=null;selectedStateName=null;el.stateDrawer.classList.remove('open');renderNews();
-    const rv=stateReturnView;stateReturnView=null;
-    buildStateLayer();
-    if(restore&&rv)map.setView(rv.center,rv.zoom,{animate:true});
   }
   function berlinRates(){
     const seen=new Map();
@@ -352,7 +306,7 @@
     }).addTo(map);
   }
   function stateStyle(feature){
-    const selected=feature?.properties?.name===selectedStateName;
+    const selected=feature?.properties?.name===statePanel?.selectedName;
     return {pane:'statePane',color:selected?'#ffffff':'#20384b',weight:selected?3.1:2.0,opacity:selected?1:.98,fillColor:'#dce7ee',fillOpacity:selected?.045:.006};
   }
   function buildStateLayer(){
@@ -365,14 +319,12 @@
       onEachFeature:(feature,layer)=>{
         if(!interactive)return;
         layer.bindTooltip(()=>stateTooltipHtml(feature),{sticky:true,direction:'top',className:'state-tip'});
-        layer.on('mouseover',()=>{if(feature.properties?.name!==selectedStateName)layer.setStyle({color:'#f4fbff',weight:2.65,fillOpacity:.055});});
+        layer.on('mouseover',()=>{if(feature.properties?.name!==statePanel?.selectedName)layer.setStyle({color:'#f4fbff',weight:2.65,fillOpacity:.055});});
         layer.on('mouseout',()=>stateLayer&&stateLayer.resetStyle(layer));
         layer.on('click',()=>{
-          if(!el.stateDrawer.classList.contains('open'))stateReturnView={center:map.getCenter(),zoom:map.getZoom()};
-          selectedStateName=feature.properties?.name||null;activeStateFilter=selectedStateName;
+          statePanel.select(feature);
           stateLayer.eachLayer(l=>stateLayer.resetStyle(l));
           layer.setStyle(stateStyle(feature));
-          renderNews();renderStateDrawer(feature);
           if(layer.getBounds)map.fitBounds(layer.getBounds(),{padding:[32,32],maxZoom:7.05});
         });
       }
@@ -422,8 +374,9 @@
   function visibleCases(){
     if(!caseData)return[];
     let rows=caseData.cases.filter(caseMatchesCurrentMetric);
-    if(activeStateFilter){
-      const f=stateFeatureByName(activeStateFilter);
+    const stateFilter=statePanel?.filterName;
+    if(stateFilter){
+      const f=stateFeatureByName(stateFilter);
       if(f)rows=rows.filter(c=>caseInState(c,f));
       return rows;
     }
@@ -453,7 +406,8 @@
       el.list.appendChild(b);
     }
     if(!cs.length)el.list.innerHTML='<div class="mode-note">当前筛选没有公开通报点。</div>';
-    el.listTitle.textContent=(activeStateFilter?activeStateFilter+' · ':'')+'近90天公开通报（'+fmt(cs.length)+'）· 次要参考';
+    const stateFilter=statePanel?.filterName;
+    el.listTitle.textContent=(stateFilter?stateFilter+' · ':'')+'近90天公开通报（'+fmt(cs.length)+'）· 次要参考';
     return cs;
   }
 
@@ -509,24 +463,54 @@
     el.togglePropertyNews.classList.toggle('active',showPropertyNews);el.togglePropertyNews.setAttribute('aria-pressed',String(showPropertyNews));
     buildCountyLayer();buildStateLayer();buildBerlinLayer();buildHeat();
     const cs=renderNews();renderLegend();renderLayerInfo(cs);renderSummary(cs);renderRankList();
-    if(activeStateFilter){const f=stateFeatureByName(activeStateFilter);if(f)renderStateDrawer(f);}
+    const stateFilter=statePanel?.filterName;if(stateFilter){const f=stateFeatureByName(stateFilter);if(f)statePanel.render(f);}
   }
 
-  el.modeViolence.onclick=()=>{mode='violence';pinnedArea=null;hoverArea=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');render();showArea(null);};
-  el.modeProperty.onclick=()=>{mode='property';pinnedArea=null;hoverArea=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');render();showArea(null);};
-  el.stateClose.onclick=e=>{e.stopPropagation();closeStateDrawer({restore:true});};
+  statePanel=window.CrimeStatePanel.create({
+    elements:{
+      stateDrawer:el.stateDrawer,stateName:el.stateName,stateMetric:el.stateMetric,
+      stateRate:el.stateRate,stateCases:el.stateCases,stateRank:el.stateRank,stateRecent:el.stateRecent,
+      stateTopCounties:el.stateTopCounties,stateNews:el.stateNews,stateNewsCount:el.stateNewsCount
+    },
+    map,
+    getMode:()=>mode,
+    getStats:stateStats,
+    getMetricLabel:key=>mode==='property'?(propertyMetrics[key]?.label||key):(violenceMetrics[key]?.label||key),
+    onCountySelect:(row,key)=>{
+      const layer=countyLayer?.getLayers().find(x=>{
+        const rec=mode==='property'?propertyRecord(x.feature):pksRecord(x.feature);
+        return rec?.ags===row.ags;
+      });
+      if(layer){
+        const area=mode==='property'?propertyCountyArea(layer.feature,row):countyArea(layer.feature,row);
+        selectCountyLayer(layer);showArea(area,{pin:true});
+        if(layer.getBounds)map.fitBounds(layer.getBounds(),{padding:[30,30],maxZoom:9});
+      }
+    },
+    onNewsSelect:item=>{
+      const marker=markers.get(item.id);
+      if(marker){map.flyTo(marker.getLatLng(),Math.max(map.getZoom(),10),{duration:.45});marker.openPopup();}
+      else window.open(safe(item.source_url),'_blank','noopener');
+    },
+    onStateChanged:()=>renderNews(),
+    formatNumber:fmt,formatDate:pd,escapeHtml:esc
+  });
+
+  el.modeViolence.onclick=()=>{mode='violence';pinnedArea=null;hoverArea=null;statePanel.reset();render();showArea(null);};
+  el.modeProperty.onclick=()=>{mode='property';pinnedArea=null;hoverArea=null;statePanel.reset();render();showArea(null);};
+  el.stateClose.onclick=e=>{e.stopPropagation();statePanel.close({restore:true});buildStateLayer();};
   el.stateClose.onpointerdown=e=>e.stopPropagation();
   el.stateDragHandle.addEventListener('pointerdown',stateDrawerDrag.begin);
   el.stateDragHandle.addEventListener('pointermove',stateDrawerDrag.move);
   el.stateDragHandle.addEventListener('pointerup',stateDrawerDrag.end);
   el.stateDragHandle.addEventListener('pointercancel',stateDrawerDrag.end);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&el.stateDrawer.classList.contains('open'))closeStateDrawer({restore:true});});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&statePanel.isOpen){statePanel.close({restore:true});buildStateLayer();}});
   el.toggleViolenceNews.onclick=()=>{showViolenceNews=!showViolenceNews;render();};
   el.togglePropertyNews.onclick=()=>{showPropertyNews=!showPropertyNews;render();};
   el.violenceMetric.addEventListener('change',()=>{pinnedArea=null;hoverArea=null;render();showArea(null);});
   el.propertyMetric.addEventListener('change',()=>{pinnedArea=null;hoverArea=null;render();showArea(null);});
-  el.viewGermany.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');render();showArea(null);map.fitBounds(germanyBounds,{padding:[14,14]});};
-  el.focusBerlin.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');renderNews();showArea(null);map.fitBounds(berlinBounds,{padding:[25,25],maxZoom:10});};
+  el.viewGermany.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;statePanel.reset();render();showArea(null);map.fitBounds(germanyBounds,{padding:[14,14]});};
+  el.focusBerlin.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;statePanel.reset();showArea(null);map.fitBounds(berlinBounds,{padding:[25,25],maxZoom:10});};
   map.on('zoomend',()=>{buildStateLayer();if(mode==='violence')buildBerlinLayer();if(mode==='property')buildHeat();renderLegend();});
   map.on('moveend',()=>{if(!stateLayer)buildStateLayer();if(el.stateDrawer.classList.contains('open'))stateDrawerDrag.keepInside();});
 
@@ -552,7 +536,7 @@
     map,getMode:()=>mode,getCaseData:()=>caseData,getPksData:()=>pksData,getPropertyData:()=>propertyData,getBerlinViolence:()=>berlinViolence,getHeatData:()=>heatData,
     getCountyLayer:()=>countyLayer,getBerlinLayer:()=>berlinLayer,getHeatLayer:()=>heatLayer,getVisibleCases:()=>visibleCases(),
     getPinnedArea:()=>pinnedArea,getHoverArea:()=>hoverArea,
-    clearSelection:()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');showArea(null);},
+    clearSelection:()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;statePanel.reset();showArea(null);},
     showArea
   };
 })();
