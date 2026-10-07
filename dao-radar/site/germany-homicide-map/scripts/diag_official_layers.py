@@ -1,22 +1,27 @@
 #!/usr/bin/env python3
-import re,requests
-from bs4 import BeautifulSoup
-u="https://stadtritter.de/kriminalstatistik-deutschland/"
-r=requests.get(u,headers={"User-Agent":"Mozilla/5.0 GermanyCrimeMonitor/1.0"},timeout=45)
-print("PAGE",r.status_code,r.url,len(r.content),r.headers.get("content-type"))
-r.raise_for_status()
-s=BeautifulSoup(r.text,"html.parser")
-links=[]
-for a in s.find_all("a",href=True):
-    href=requests.compat.urljoin(r.url,a["href"])
-    txt=" ".join(a.get_text(" ",strip=True).split())
-    if re.search(r"json|csv|sqlite|manifest|geojson|download|daten",txt+" "+href,re.I):
-        links.append((txt,href))
-print("LINKS",len(links))
-for x in links[:200]:print("L",repr(x[0]),x[1])
-for pat in (r'https?://[^"\']+\.json[^"\']*',r'["\']([^"\']*\.json[^"\']*)["\']',r'892000',r'Gewaltkriminal'):
-    ms=list(re.finditer(pat,r.text,re.I))
-    print("PAT",pat,"N",len(ms))
-    for m in ms[:30]:
-        a=max(0,m.start()-180);b=min(len(r.text),m.end()+260)
-        print("RAW",re.sub(r"\s+"," ",r.text[a:b])[:800])
+import json,sqlite3,tempfile,requests,os
+HEAD={"User-Agent":"Mozilla/5.0 GermanyCrimeMonitor/1.0"}
+base="https://stadtritter.de/wp-content/plugins/stadtritter-krimstatistik/data/"
+for name in ("pks-historie-manifest.json","pks-historie.db","laenderflaechen-2025.geojson"):
+    u=base+name
+    r=requests.get(u,headers=HEAD,timeout=90)
+    print("FETCH",name,r.status_code,len(r.content),r.headers.get("content-type"))
+    r.raise_for_status()
+    if name.endswith("manifest.json"):
+        obj=r.json(); print("MANIFEST",json.dumps(obj,ensure_ascii=False)[:12000])
+    elif name.endswith(".db"):
+        fd,path=tempfile.mkstemp(suffix=".db");os.close(fd)
+        open(path,"wb").write(r.content)
+        con=sqlite3.connect(path)
+        print("TABLES",con.execute("select name,sql from sqlite_master where type='table' order by name").fetchall())
+        for table in [x[0] for x in con.execute("select name from sqlite_master where type='table'").fetchall()]:
+            print("T",table,"COUNT",con.execute(f"select count(*) from {table}").fetchone())
+            cols=con.execute(f"pragma table_info({table})").fetchall(); print("COLS",table,cols)
+            rows=con.execute(f"select * from {table} limit 5").fetchall(); print("ROWS",table,rows)
+            # try searches
+            try:
+                print("VIOL",table,con.execute(f"select * from {table} where delikt_key='892000' and jahr=2025 limit 30").fetchall())
+            except Exception as e: print("NO_VIOL_QUERY",table,repr(e))
+        con.close();os.remove(path)
+    else:
+        obj=r.json(); print("GEO_FEATURES",len(obj.get("features",[]))); print("GEO_PROPS",obj["features"][0].get("properties"))
