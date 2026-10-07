@@ -132,7 +132,10 @@ jobs:
             # Rebase the generated-data commit before pushing instead of failing
             # with a non-fast-forward error.
             git fetch origin main
-            git rebase origin/main
+            # The commit contains generated data only. During a concurrent UI/source
+            # change, prefer this run's freshly generated data while rebasing onto
+            # the newest code, avoiding conflicts caused by regenerated snapshots.
+            git rebase -X theirs origin/main
             git push origin HEAD:main
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
