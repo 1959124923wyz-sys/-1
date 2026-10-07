@@ -127,12 +127,13 @@ def norm_name(s):
 def poi_category(tags):
     name=tags.get("name") or tags.get("name:zh") or tags.get("name:en") or ""
     if tags.get("aeroway")=="aerodrome": return "airport"
-    if tags.get("barrier")=="border_control" or "口岸" in name: return "border"
-    if tags.get("industrial")=="port" or tags.get("harbour")=="yes": return "port"
-    if tags.get("amenity")=="ferry_terminal": return "ferry"
     if tags.get("railway")=="station":
         if tags.get("station")=="subway" or tags.get("subway")=="yes": return None
         return "rail"
+    if tags.get("barrier")=="border_control": return "border"
+    if tags.get("industrial")=="port" or tags.get("harbour")=="yes": return "port"
+    if tags.get("amenity")=="ferry_terminal": return "ferry"
+    if re.search(r"(口岸(?:\s*[①②])?|管制站)$",name): return "border"
     return None
 
 def poi_priority(cat,name):
@@ -153,14 +154,16 @@ def build(raw,source):
             name=tags.get("name:zh") or tags.get("name") or tags.get("ref") or ""
             tol={"motorway":0.00018,"trunk":0.00022,"primary":0.00030,"secondary":0.00048}[cls]
             pts=simplify(rawpts,tol)
-            if cls=="secondary" and (not name or line_length(pts)<0.00075): continue
+            if cls=="secondary" and (not name or line_length(pts)<0.00120): continue
+            pts=[[round(x,5),round(y,5)] for x,y in pts]
             if len(pts)>=2:
                 roads.append({"c":cls,"n":name,"p":pts})
             continue
         if el.get("type")=="way" and tags.get("railway")=="rail" and len(geom)>=2:
             rawpts=[[p["lon"],p["lat"]] for p in geom]
             if not any(in_city(x,y) for x,y in rawpts): continue
-            pts=simplify(rawpts,0.00032)
+            pts=simplify(rawpts,0.00038)
+            pts=[[round(x,5),round(y,5)] for x,y in pts]
             if len(pts)>=2:rails.append({"n":tags.get("name:zh") or tags.get("name") or "铁路","p":pts})
             continue
         cat=poi_category(tags)
@@ -169,11 +172,11 @@ def build(raw,source):
             if not pos or not in_city(pos[0],pos[1]):continue
             name=tags.get("name:zh") or tags.get("name") or tags.get("name:en") or ""
             if not name:continue
-            noise=("社区","公交","上客","下客","停车","地铁","巴士","警岗","派出所")
+            noise=("社区","公交","上客","下客","停车","地铁","巴士","警岗","派出所","商业","旅行社","大楼","医院","联络道","立交","出租车","项目","酒店","公安","宿舍","口岸區","口岸区")
             if cat=="border" and (any(x in name for x in noise) or not ("口岸" in name or "管制站" in name)): continue
             if cat=="airport" and not ("宝安" in name or "深圳机场" in name): continue
             if cat in ("port","ferry") and not any(x.lower() in name.lower() for x in ("港","码头","port","terminal","蛇口","赤湾","大铲湾","盐田")): continue
-            pois.append({"t":cat,"n":name,"p":pos,"q":poi_priority(cat,name)})
+            pois.append({"t":cat,"n":name,"p":[round(pos[0],5),round(pos[1],5)],"q":poi_priority(cat,name)})
 
     # Deduplicate POIs by normalized name, preferring the higher-priority representation.
     dedup={}
