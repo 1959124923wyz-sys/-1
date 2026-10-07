@@ -25,6 +25,9 @@ import requests
 from bs4 import BeautifulSoup
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+import urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 ROOT = Path(__file__).resolve().parents[1]
 CASES = ROOT / "data/cases.json"
@@ -148,6 +151,27 @@ def parse_date(text: str) -> date | None:
         return date(int(m.group(3)), int(m.group(2)), int(m.group(1)))
     except ValueError:
         return None
+
+
+def listing_context(anchor) -> str:
+    """Walk upward until the card text includes both date and locality.
+
+    The Brandenburg CMS nests the clickable title several divs below the
+    publication date/location, so using only the immediate parent loses those
+    fields.
+    """
+    node = anchor
+    fallback = clean(anchor.get_text(" ", strip=True))
+    for _ in range(8):
+        node = getattr(node, "parent", None)
+        if node is None:
+            break
+        text = clean(node.get_text(" ", strip=True))
+        if text:
+            fallback = text
+        if parse_date(text) and LOCATION_RE.search(text):
+            return text
+    return fallback
 
 
 def listing_location(context: str) -> tuple[str, str]:
@@ -307,8 +331,7 @@ def scan(lookback: int, max_pages: int):
                 continue
             seen.add(href)
             title = clean(a.get_text(" ", strip=True))
-            parent = a.find_parent(["article", "li", "div"]) or a.parent
-            context = clean(parent.get_text(" ", strip=True) if parent else title)
+            context = listing_context(a)
             published = parse_date(context)
             if not published:
                 # Heading itself normally starts with the publication date.
