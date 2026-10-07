@@ -71,10 +71,6 @@
     return window.CrimeDataModel.caseMatchesMetric(mode,key,c,violenceMetrics);
   }
   function caseInState(c,feature){return window.CrimeDataModel.caseInFeature(c,feature);}
-  function stateRecentCases(feature){
-    if(!caseData||!feature)return[];
-    return caseData.cases.filter(c=>caseMatchesCurrentMetric(c)&&caseInState(c,feature)).sort((a,b)=>String(b.event_date).localeCompare(String(a.event_date)));
-  }
   function stateStats(feature){
     const key=mode==='property'?currentPropertyMetric():currentViolenceMetric();
     return window.CrimeDataModel.stateStats({feature,stateGeo,mode,key,propertyData,pksData,caseData,violenceMetrics});
@@ -84,6 +80,20 @@
     const label=mode==='property'?(propertyMetrics[s.key]?.label||s.key):(violenceMetrics[s.key]?.label||s.key);
     return '<b>'+esc(s.name)+'</b><br>'+esc(label)+' · '+fmt(Math.round(s.rate))+'/10万人<br>'+fmt(s.cases)+' 起 · 16州第 '+s.rank;
   }
+  function countyArea(feature,rec){
+    const key=currentViolenceMetric(),m=rec?.[key]||{},rate=Number(m.rate||0),cases=Number(m.cases||0),pct=percentile(rate,nationalRates(key));
+    return {kind:'violence-county',ags:rec?.ags||'',name:rec?.name||'未知县/市',state:rec?.state||'',metric:'BKA PKS 2025 · '+(violenceMetrics[key]?.label||key),
+      rate,cases,change:m.change||'—',recent:violentRecentCount(feature,key),pct,feature,metricKey:key,
+      note:'2025年警方记录的县/市级年度数据。颜色按德国县/市同一指标的相对分位着色；未报案事件不在PKS中。'};
+  }
+  function propertyCountyArea(feature,rec){
+    const key=currentPropertyMetric(),m=rec?.[key]||{},rate=Number(m.rate||0),cases=Number(m.cases||0),pct=percentile(rate,propertyRates(key));
+    const recent=caseData?.cases?.filter(c=>c.category==='property'&&Number.isFinite(c.lon)&&Number.isFinite(c.lat)&&pointInGeometry(c.lon,c.lat,feature.geometry)).length||0;
+    return {kind:'property-county',ags:rec?.ags||'',name:rec?.name||'未知县/市',state:rec?.state||'',metric:'BKA PKS 2025 · '+(propertyMetrics[key]?.label||key),
+      rate,cases,change:m.change||'—',recent,pct,feature,metricKey:key,
+      note:'2025年警方记录的县/市级年度数据。颜色按德国县/市同一指标的相对分位着色；未报案事件不在PKS中。'};
+  }
+
   function berlinRates(){return berlinDetail?.violenceRates()||[];}
   function propertyLocalValues(field=propertyHeatField()){return berlinDetail?.propertyValues(field)||[];}
 
