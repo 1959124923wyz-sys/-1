@@ -1,0 +1,55 @@
+name: Germany homicide map UI smoke test
+
+on:
+  pull_request:
+    paths:
+      - 'dao-radar/site/germany-homicide-map/**'
+      - '.github/workflows/germany-homicide-map-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  map-ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install browser test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Validate Python scripts
+        run: |
+          python -m py_compile dao-radar/site/germany-homicide-map/scripts/update_cases.py
+          python -m py_compile dao-radar/site/germany-homicide-map/scripts/smoke_test_ui.py
+
+      - name: Start local map server
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 --directory dao-radar/site/germany-homicide-map >/tmp/germany-map-server.log 2>&1 &
+          echo $! > /tmp/germany-map-server.pid
+          sleep 1
+
+      - name: Simulate blocked OSM tiles and render map
+        env:
+          SMOKE_URL: http://127.0.0.1:8765/
+          SMOKE_SCREENSHOT: /tmp/germany-homicide-map-smoke.png
+        run: python dao-radar/site/germany-homicide-map/scripts/smoke_test_ui.py
+
+      - name: Upload rendered screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: germany-homicide-map-smoke
+          path: /tmp/germany-homicide-map-smoke.png
+          if-no-files-found: warn
