@@ -24,7 +24,7 @@ WFS_PARAMS={
 }
 HEAD={"User-Agent":"GermanyCrimeMonitorBerlinHeat/1.0 (+https://github.com/1959124923wyz-sys/-1)"}
 TODAY=datetime.now(timezone.utc).date()
-WINDOWS=(30,60,90)
+WINDOWS=(90,)
 
 def save(path,obj):
     path.parent.mkdir(parents=True,exist_ok=True)
@@ -305,8 +305,6 @@ print(json.dumps({
     "centroids":len(centroids),
     "bike_rows":source_stats["bike"]["raw_rows"],
     "vehicle_rows":source_stats["vehicle"]["raw_rows"],
-    "window30":windows["30"]["total"],
-    "window60":windows["60"]["total"],
     "window90":windows["90"]["total"],
     "bike90":windows["90"]["bike"],
     "vehicle90":windows["90"]["vehicle"],
