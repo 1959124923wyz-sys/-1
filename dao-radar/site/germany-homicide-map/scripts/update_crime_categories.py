@@ -132,6 +132,7 @@ def classify(category,title,text):
         sub="Messer-/Waffenangriff" if re.search(r"Messer|Stich|Schuss",head,re.I) else "Schwere Körperverletzung"
         return (sub,"violence",4)
     if category=="property":
+        if re.search(r"Pressemeldungen|Wochenend|Einbrüche aus dem Kreisgebiet|mehrere (?:Einbrüche|Diebstähle)|und mehr",title,re.I):return None
         if re.search(r"Wohnungseinbruch|Einbruchdiebstahl",head,re.I):
             return ("Wohnungseinbruch","property",2)
         if re.search(r"Fahrraddiebstahl|Fahrrad\s+gestohlen|Pedelec\s+gestohlen|E-Bike\s+gestohlen",head,re.I):
@@ -168,6 +169,8 @@ def geocode(session,q,cache,last):
 
 payload=load(CASES,{"meta":{},"cases":[]})
 cases=payload.get("cases",[])
+before_cases=json.dumps(cases,ensure_ascii=False,sort_keys=True)
+previous_generated=payload.get("meta",{}).get("generated_at")
 cache=load(CACHE,{})
 existing_urls={c.get("source_url") for c in cases if c.get("source_url")}
 existing_keys={(c.get("event_date"),normalize(c.get("city","")),c.get("subcategory") or c.get("offense",""),normalize(c.get("location",""))) for c in cases}
@@ -292,8 +295,10 @@ cases=[c for c in cases if KEEP_CUTOFF<=date.fromisoformat(c["event_date"])<=TOD
 cases.sort(key=lambda c:(c["event_date"],c.get("city",""),c.get("category","")),reverse=True)
 category_counts={k:sum(1 for c in cases if c.get("category")==k) for k in ("homicide","violence","robbery","sexual","property")}
 payload["cases"]=cases
+cases_changed=json.dumps(cases,ensure_ascii=False,sort_keys=True)!=before_cases
+generated=(datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z") if cases_changed or not previous_generated else previous_generated)
 payload["meta"].update({
-    "generated_at":datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),
+    "generated_at":generated,
     "window_days":90,
     "case_count":len(cases),
     "geocoded_count":sum(c.get("lat") is not None and c.get("lon") is not None for c in cases),
@@ -303,4 +308,4 @@ payload["meta"].update({
     "method":"Rolling 90-day public police/prosecutor release monitor with targeted category backfill, event-date filtering, deduplication, cached geocoding, and privacy-reduced sexual-crime locations."
 })
 save(CASES,payload)
-print("SUMMARY","lookback",LOOKBACK,"new",len(added),"stats",stats,"total",len(cases),"category_counts",category_counts,"geocoded",payload["meta"]["geocoded_count"])
+print("SUMMARY","lookback",LOOKBACK,"new",len(added),"stats",stats,"total",len(cases),"category_counts",category_counts,"geocoded",payload["meta"]["geocoded_count"],"changed",cases_changed)
