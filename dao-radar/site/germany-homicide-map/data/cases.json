@@ -1,11 +1,11 @@
 {
   "meta": {
-    "generated_at": "2026-10-07T03:00:16Z",
+    "generated_at": "2026-10-07T03:01:39Z",
     "window_days": 30,
     "scope": "Germany",
-    "case_count": 20,
-    "geocoded_count": 20,
-    "method": "Verified seed set plus automated monitoring of public police RSS sources; strict death+homicide filter.",
+    "case_count": 19,
+    "geocoded_count": 19,
+    "method": "Verified seed set plus automated monitoring of public police RSS sources; strict death+homicide filter with follow-up-date and contact-address guards.",
     "disclaimer": "Public-source monitor, not an official or exhaustive crime register. Locations reflect the most precise place publicly reported; Fundort means body-discovery location and may not be the crime scene."
   },
   "cases": [
@@ -228,26 +228,6 @@
       "lon": 8.8552071,
       "date_confidence": "high",
       "geocode_precision": "city"
-    },
-    {
-      "id": "2026-09-19-257a0fcd93",
-      "event_date": "2026-09-19",
-      "publication_date": "2026-10-07",
-      "city": "Dietzenbach",
-      "state": "Hessen",
-      "location": "Hessisches Landeskriminalamt - Pressestelle - Hölderlinstraße",
-      "geocode_address": "Hessisches Landeskriminalamt - Pressestelle - Hölderlinstraße, Dietzenbach, Germany",
-      "precision": "street",
-      "location_type": "Tatort/Reported location",
-      "status": "suspected",
-      "offense": "Tötungsdelikt",
-      "summary": "Public police release reports a fatal suspected homicide: Tötungsdelikt in Dietzenbach",
-      "source_agency": "Polizei Hessen",
-      "source_url": "https://www.polizei.hessen.de/node/8067",
-      "lat": 50.0171926,
-      "lon": 8.784277,
-      "date_confidence": "medium",
-      "geocode_precision": "city-fallback"
     },
     {
       "id": "2026-09-19-bad-berka",
