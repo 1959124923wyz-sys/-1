@@ -21,6 +21,7 @@ ENDPOINTS=[
 ]
 UA="ShenzhenSaveYearsMap/1.0 (+GitHub Pages static visualization)"
 ROAD_TYPES=("motorway","trunk","primary","secondary")
+BOUNDARY=ROOT/"data"/"shenzhen-boundary.js"
 QUERY=f"""
 [out:json][timeout:120];
 (
@@ -79,6 +80,38 @@ def line_length(pts):
         total+=math.hypot((x2-x1)*math.cos(math.radians((y1+y2)/2)),y2-y1)
     return total
 
+def load_city_polygons():
+    txt=BOUNDARY.read_text(encoding="utf-8")
+    raw=txt.split("=",1)[1].strip().rstrip(";")
+    geo=json.loads(raw)
+    polys=[]
+    for f in geo.get("features",[]):
+        g=f.get("geometry") or {}
+        coords=g.get("coordinates") or []
+        if g.get("type")=="Polygon":
+            if coords: polys.append(coords[0])
+        elif g.get("type")=="MultiPolygon":
+            for p in coords:
+                if p: polys.append(p[0])
+    return polys
+
+CITY_POLYS=None
+
+def point_in_ring(x,y,ring):
+    inside=False
+    j=len(ring)-1
+    for i in range(len(ring)):
+        xi,yi=ring[i]; xj,yj=ring[j]
+        if ((yi>y)!=(yj>y)) and (x < (xj-xi)*(y-yi)/((yj-yi) or 1e-12)+xi):
+            inside=not inside
+        j=i
+    return inside
+
+def in_city(lng,lat):
+    global CITY_POLYS
+    if CITY_POLYS is None:CITY_POLYS=load_city_polygons()
+    return any(point_in_ring(lng,lat,r) for r in CITY_POLYS)
+
 def center_of(el):
     if "lat" in el and "lon" in el:return [el["lon"],el["lat"]]
     c=el.get("center")
@@ -115,21 +148,31 @@ def build(raw,source):
         geom=el.get("geometry") or []
         if el.get("type")=="way" and tags.get("highway") in ROAD_TYPES and len(geom)>=2:
             cls=tags["highway"]
-            tol={"motorway":0.00018,"trunk":0.00022,"primary":0.00030,"secondary":0.00042}[cls]
-            pts=simplify([[p["lon"],p["lat"]] for p in geom],tol)
+            rawpts=[[p["lon"],p["lat"]] for p in geom]
+            if not any(in_city(x,y) for x,y in rawpts): continue
+            name=tags.get("name:zh") or tags.get("name") or tags.get("ref") or ""
+            tol={"motorway":0.00018,"trunk":0.00022,"primary":0.00030,"secondary":0.00048}[cls]
+            pts=simplify(rawpts,tol)
+            if cls=="secondary" and (not name or line_length(pts)<0.00075): continue
             if len(pts)>=2:
-                roads.append({"c":cls,"n":tags.get("name") or tags.get("ref") or "","p":pts})
+                roads.append({"c":cls,"n":name,"p":pts})
             continue
         if el.get("type")=="way" and tags.get("railway")=="rail" and len(geom)>=2:
-            pts=simplify([[p["lon"],p["lat"]] for p in geom],0.00028)
-            if len(pts)>=2:rails.append({"n":tags.get("name") or "铁路","p":pts})
+            rawpts=[[p["lon"],p["lat"]] for p in geom]
+            if not any(in_city(x,y) for x,y in rawpts): continue
+            pts=simplify(rawpts,0.00032)
+            if len(pts)>=2:rails.append({"n":tags.get("name:zh") or tags.get("name") or "铁路","p":pts})
             continue
         cat=poi_category(tags)
         if cat:
             pos=center_of(el)
-            if not pos:continue
+            if not pos or not in_city(pos[0],pos[1]):continue
             name=tags.get("name:zh") or tags.get("name") or tags.get("name:en") or ""
             if not name:continue
+            noise=("社区","公交","上客","下客","停车","地铁","巴士","警岗","派出所")
+            if cat=="border" and (any(x in name for x in noise) or not ("口岸" in name or "管制站" in name)): continue
+            if cat=="airport" and not ("宝安" in name or "深圳机场" in name): continue
+            if cat in ("port","ferry") and not any(x.lower() in name.lower() for x in ("港","码头","port","terminal","蛇口","赤湾","大铲湾","盐田")): continue
             pois.append({"t":cat,"n":name,"p":pos,"q":poi_priority(cat,name)})
 
     # Deduplicate POIs by normalized name, preferring the higher-priority representation.
@@ -139,6 +182,15 @@ def build(raw,source):
         if not k:continue
         if k not in dedup:dedup[k]=p
     pois=list(dedup.values())
+
+    # Prefer the canonical Shenzhen-side representation of duplicated crossings.
+    compact=[]
+    seen_spatial=[]
+    for p in sorted(pois,key=lambda x:-x["q"]):
+        if any(p["t"]==q["t"] and math.hypot(p["p"][0]-q["p"][0],p["p"][1]-q["p"][1])<0.0012 for q in seen_spatial):
+            continue
+        seen_spatial.append(p); compact.append(p)
+    pois=compact
 
     # Limit minor rail stations to prevent a POI cloud; always keep high-priority hubs.
     rail_pois=sorted([p for p in pois if p["t"]=="rail"],key=lambda x:-x["q"])
