@@ -124,6 +124,22 @@ def session() -> requests.Session:
     return s
 
 
+def official_get(s: requests.Session, url: str, *, timeout: int = 35):
+    """Fetch only the official Brandenburg police host.
+
+    The site currently serves an incomplete certificate chain to GitHub-hosted
+    runners. Browsers recover the chain, while Python/OpenSSL on Actions does
+    not. TLS verification is therefore disabled *only* for this fixed public
+    government host; redirects to any other host are rejected.
+    """
+    if not url.startswith(BASE + "/"):
+        raise ValueError(f"refusing non-Brandenburg URL: {url}")
+    r = s.get(url, timeout=timeout, verify=False)
+    if not r.url.startswith(BASE + "/"):
+        raise RuntimeError(f"unexpected redirect outside official host: {r.url}")
+    return r
+
+
 def parse_date(text: str) -> date | None:
     m = DATE_RE.search(text or "")
     if not m:
@@ -215,7 +231,7 @@ def classify(title: str, body: str):
 
 
 def article_text(s: requests.Session, url: str) -> str:
-    r = s.get(url, timeout=30)
+    r = official_get(s, url, timeout=30)
     r.raise_for_status()
     soup = BeautifulSoup(r.text, "html.parser")
     main = soup.find("main") or soup.find("article") or soup.body or soup
@@ -274,7 +290,7 @@ def scan(lookback: int, max_pages: int):
 
     for page_no in range(1, max_pages + 1):
         url = LISTING.format(page=page_no)
-        r = s.get(url, timeout=35)
+        r = official_get(s, url, timeout=35)
         if r.status_code == 404:
             break
         r.raise_for_status()
