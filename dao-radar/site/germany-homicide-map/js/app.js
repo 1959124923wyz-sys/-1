@@ -6,7 +6,7 @@
     toggleViolenceNews:$('toggleViolenceNews'),violenceMetric:$('violenceMetric'),
     togglePropertyNews:$('togglePropertyNews'),propertyMetric:$('propertyMetric'),
     violenceLayers:$('violenceLayers'),propertyLayers:$('propertyLayers'),
-    viewGermany:$('viewGermany'),focusBerlin:$('focusBerlin'),focusMunich:$('focusMunich'),mapStatus:$('mapStatus'),
+    viewGermany:$('viewGermany'),focusBerlin:$('focusBerlin'),mapStatus:$('mapStatus'),
     legend:$('legend'),layerInfo:$('layerInfo'),
     stateDrawer:$('stateDrawer'),stateDragHandle:$('stateDragHandle'),stateName:$('stateName'),stateClose:$('stateClose'),stateMetric:$('stateMetric'),
     stateRate:$('stateRate'),stateCases:$('stateCases'),stateRank:$('stateRank'),stateRecent:$('stateRecent'),
@@ -20,15 +20,14 @@
   };
   const NATIONAL_VIOLENCE_2025=212335;
   const cats={homicide:{label:'凶杀',color:'#d6534f'},violence:{label:'严重暴力',color:'#df8a45'},robbery:{label:'抢劫',color:'#4f95bd'},sexual:{label:'性犯罪',color:'#9e76c8'},property:{label:'盗窃/财产',color:'#5a82d3'}};
-  let mode='violence',caseData=null,pksData=null,propertyData=null,countyGeo=null,berlinViolence=null,heatData=null,munichLocal=null,stateGeo=null;
-  let countyLayer=null,berlinLayer=null,heatLayer=null,munichLayer=null,stateLayer=null,selectedCountyLayer=null;
+  let mode='violence',caseData=null,pksData=null,propertyData=null,countyGeo=null,berlinViolence=null,heatData=null,stateGeo=null;
+  let countyLayer=null,berlinLayer=null,heatLayer=null,stateLayer=null,selectedCountyLayer=null;
   let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false,activeStateFilter=null,selectedStateName=null,stateReturnView=null,stateDrag=null;
   const newsLayer=L.layerGroup(),markers=new Map();
 
   const map=L.map('map',{minZoom:5,maxZoom:17,zoomControl:true,preferCanvas:true,worldCopyJump:false});
   const germanyBounds=L.latLngBounds([[47.05,5.45],[55.15,15.65]]);
   const berlinBounds=L.latLngBounds([[52.33,13.08],[52.69,13.77]]);
-  const munichBounds=L.latLngBounds([[48.02,11.32],[48.28,11.78]]);
   map.fitBounds(germanyBounds,{padding:[14,14]});map.setMaxBounds([[45.3,3.2],[57.1,18.0]]);
   map.createPane('countyPane');map.getPane('countyPane').style.zIndex=230;
   map.createPane('statePane');map.getPane('statePane').style.zIndex=245;
@@ -91,26 +90,6 @@
     if(map.getZoom()<7.5)return false;
     if(mode==='violence')return currentViolenceMetric()==='violence'&&!!berlinViolence;
     return !!propertyHeatField()&&!!heatData&&!!berlinViolence;
-  }
-  function munichLocalField(){
-    if(mode==='violence'){
-      if(currentViolenceMetric()==='violence')return 'violence_proxy';
-      if(currentViolenceMetric()==='sexual')return 'sexual';
-      return null;
-    }
-    return currentPropertyMetric()==='property_total'?'property_total':null;
-  }
-  function munichLocalActive(){
-    return map.getZoom()>=8&&!!munichLocal&&!!munichLocalField()&&map.getBounds().intersects(munichBounds);
-  }
-  function munichLocalValues(field=munichLocalField()){
-    if(!field)return[];
-    const seen=new Map();
-    for(const f of munichLocal?.features||[]){
-      const p=f.properties||{};
-      if(!seen.has(p.district_no))seen.set(p.district_no,Number(p?.[field]?.rate));
-    }
-    return [...seen.values()].filter(Number.isFinite);
   }
   function stateFeatureByName(name){
     return stateGeo?.features?.find(f=>f.properties?.name===name)||null;
@@ -299,19 +278,10 @@
       bike:Number(point.bike||0),vehicle:Number(point.vehicle||0),total:Number(point.total||0),
       note:'柏林 Planungsraum 级官方开放数据；显示最近90天记录数，不按人口标准化，也不代表全部财产犯罪。'};
   }
-  function munichArea(feature,p){
-    const field=munichLocalField();if(!field)return null;
-    const m=p?.[field]||{},rate=Number(m.rate||0),cases=Number(m.cases||0),pct=percentile(rate,munichLocalValues(field));
-    const label=field==='violence_proxy'?'暴力代理（Rohheitsdelikte + 人身自由类）':field==='sexual'?'性犯罪':'盗窃总体';
-    const recent=caseData?.cases?.filter(x=>caseMatchesCurrentMetric(x)&&Number.isFinite(x.lon)&&Number.isFinite(x.lat)&&pointInGeometry(x.lon,x.lat,feature.geometry)).length||0;
-    return {kind:'munich-local',name:p?.name||'München Stadtbezirk',state:'Bayern',
-      metric:'München 2025 · '+label,rate,cases,recent,pct,feature,
-      note:field==='violence_proxy'?'慕尼黑官方城区数据；此处为“Rohheitsdelikte und Straftaten gegen die persönliche Freiheit”代理指标，不等同BKA完整暴力犯罪口径。':'慕尼黑官方城区数据，按2024年末人口计算每10万人率。'};
-  }
   function renderCoverage(a){
-    if(a?.kind==='property-local'||a?.kind==='berlin'||a?.kind==='munich-local'){
+    if(a?.kind==='property-local'||a?.kind==='berlin'){
       el.coveragePill.textContent='细分数据';el.coveragePill.className='coverage-pill high';
-      el.coverageText.textContent=a.kind==='property-local'?'Polizei Berlin Open Data · Planungsraum · 90天':a.kind==='berlin'?'Polizei Berlin Kriminalitätsatlas':'Statistisches Amt München · Stadtbezirke 2025';
+      el.coverageText.textContent=a.kind==='property-local'?'Polizei Berlin Open Data · Planungsraum · 90天':'Polizei Berlin Kriminalitätsatlas';
       return;
     }
     const count=mode==='property'?(propertyData?.meta?.county_count||0):(pksData?.meta?.county_count||0);
@@ -390,14 +360,7 @@
       el.areaQuarter.textContent=fmt(a.cases);el.areaQuarterLabel.textContent='2025登记案件';
       el.areaRecent.textContent=a.change;el.areaRecentLabel.textContent='较2024变化';
       el.areaNote.textContent=a.note;
-    }else if(a.kind==='munich-local'){
-      const risk=riskLabel(a.pct);
-      el.riskBadge.textContent=risk.text+' · 慕尼黑P'+a.pct;el.riskBadge.className='risk-badge '+risk.cls;
-      el.areaRate.textContent=fmt(Math.round(a.rate));el.areaRateLabel.textContent='每10万人·年';
-      el.areaQuarter.textContent=fmt(a.cases);el.areaQuarterLabel.textContent='2025登记案件';
-      el.areaRecent.textContent=fmt(a.recent);el.areaRecentLabel.textContent='90天公开通报';
-      el.areaNote.textContent=a.note;
-    }else{
+        }else{
       const risk=riskLabel(a.pct);
       el.riskBadge.textContent=risk.text+' · P'+a.pct;el.riskBadge.className='risk-badge '+risk.cls;
       el.areaRate.textContent=fmt(Math.round(a.rate));el.areaRateLabel.textContent='每10万人·年';
@@ -431,8 +394,6 @@
       const key=currentPropertyMetric(),rec=propertyRecord(feature),breaks=quantileBreaks(propertyRates(key));
       const val=rec?.[key]?.rate;
       if(rec?.name==='Berlin'&&berlinLocalActive())return {pane:'countyPane',color:'transparent',weight:0,opacity:0,fillColor:'transparent',fillOpacity:0};
-    if(rec?.name==='München'&&munichLocalActive())return {pane:'countyPane',color:'transparent',weight:0,opacity:0,fillColor:'transparent',fillOpacity:0};
-      if(rec?.name==='München'&&munichLocalActive())return {pane:'countyPane',color:'transparent',weight:0,opacity:0,fillColor:'transparent',fillOpacity:0};
       return {pane:'countyPane',color:'#718390',weight:.28,opacity:.58,fillColor:rec?scaleColor(val,breaks,propertyPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.68:0.07};
     }
     const key=currentViolenceMetric(),rec=pksRecord(feature),breaks=quantileBreaks(nationalRates(key)),val=rec?.[key]?.rate;
@@ -523,25 +484,6 @@
       }
     }).addTo(map);
   }
-  function buildMunichLayer(){
-    if(munichLayer){map.removeLayer(munichLayer);munichLayer=null;}
-    if(!munichLocalActive())return;
-    const field=munichLocalField(),breaks=quantileBreaks(munichLocalValues(field)),palette=mode==='property'?propertyPalette:nationalPalette;
-    munichLayer=L.geoJSON(munichLocal,{
-      pane:'berlinPane',
-      style:feature=>{
-        const p=feature.properties||{},v=Number(p?.[field]?.rate);
-        return {pane:'berlinPane',color:mode==='property'?'#486783':'#8a563b',weight:.38,opacity:.65,fillColor:scaleColor(v,breaks,palette),fillOpacity:.84};
-      },
-      onEachFeature:(feature,layer)=>{
-        const p=feature.properties||{},area=()=>munichArea(feature,p);
-        layer.bindTooltip(()=>{const a=area(),rk=riskLabel(a.pct);return '<b>'+esc(a.name)+'</b><br>'+esc(a.metric.replace('München 2025 · ',''))+' '+fmt(Math.round(a.rate))+'/10万人 · '+rk.text;},{sticky:true});
-        layer.on('mouseover',()=>{layer.setStyle({color:'#ffffff',weight:1.35,opacity:1,fillOpacity:.88});showArea(area());});
-        layer.on('mouseout',()=>{munichLayer&&munichLayer.resetStyle(layer);hoverArea=null;showArea(pinnedArea);});
-        layer.on('click',()=>{munichLayer&&munichLayer.resetStyle(layer);layer.setStyle({color:'#ffffff',weight:2.1,opacity:1,fillOpacity:.90});showArea(area(),{pin:true});});
-      }
-    }).addTo(map);
-  }
 
   function buildHeat(){
     if(heatLayer){map.removeLayer(heatLayer);heatLayer=null;}
@@ -624,11 +566,9 @@
     if(mode==='violence'){
       const key=currentViolenceMetric(),meta=violenceMetrics[key]||{},n=quantileBreaks(nationalRates(key));
       const b=quantileBreaks(berlinRates());
-      const mf=munichLocalField(),mb=mf?quantileBreaks(munichLocalValues(mf)):[];
       el.legend.innerHTML=
         '<div class="legend-block"><div class="legend-title">德国县/市 · BKA PKS 2025</div><div>'+esc(meta.label||key)+' · 每10万人/年</div>'+scaleHtml(nationalPalette,n)+'</div>'+
         (key==='violence'&&map.getZoom()>=7.5&&map.getBounds().intersects(berlinBounds)?'<div class="legend-block"><div class="legend-title">柏林 · 官方细分层</div><div>抢劫 + 危险/严重伤害 · 每10万人/年</div>'+scaleHtml(berlinPalette,b)+'</div>':'')+
-        (munichLocalActive()?'<div class="legend-block"><div class="legend-title">慕尼黑 · 官方城区层</div><div>'+(mf==='sexual'?'性犯罪':'暴力代理')+' · 每10万人/年</div>'+scaleHtml(nationalPalette,mb)+'</div>':'')+
         '<div class="legend-row">全国层按县/市分位；城市细分层仅在官方口径可对应时自动显示。</div>';
     }else{
       const key=currentPropertyMetric(),meta=propertyMetrics[key]||{},n=quantileBreaks(propertyRates(key));
@@ -636,7 +576,6 @@
       el.legend.innerHTML=
         '<div class="legend-block"><div class="legend-title">德国县/市 · BKA PKS 2025</div><div>'+esc(meta.label||key)+' · 每10万人/年</div>'+scaleHtml(propertyPalette,n)+'</div>'+
         (localField&&map.getZoom()>=7.5&&map.getBounds().intersects(berlinBounds)?'<div class="legend-block"><div class="legend-title">柏林 · 官方90天分区</div><div>'+(localField==='bike'?'自行车盗窃':localField==='vehicle'?'车内/车上盗窃':'自行车 + 车辆相关')+' · 记录数</div>'+scaleHtml(berlinPropertyPalette,localBreaks)+'</div>':'')+
-        (munichLocalActive()?'<div class="legend-block"><div class="legend-title">慕尼黑 · 官方城区层</div><div>盗窃总体 · 每10万人/年</div>'+scaleHtml(propertyPalette,quantileBreaks(munichLocalValues('property_total')))+'</div>':'')+
         '<div class="legend-row">全国层按县/市犯罪率分位；城市细分层仅在官方可比数据存在时显示。</div>';
     }
   }
@@ -660,7 +599,7 @@
     el.violenceLayers.hidden=mode!=='violence';el.propertyLayers.hidden=mode!=='property';
     el.toggleViolenceNews.classList.toggle('active',showViolenceNews);el.toggleViolenceNews.setAttribute('aria-pressed',String(showViolenceNews));
     el.togglePropertyNews.classList.toggle('active',showPropertyNews);el.togglePropertyNews.setAttribute('aria-pressed',String(showPropertyNews));
-    buildCountyLayer();buildStateLayer();buildBerlinLayer();buildMunichLayer();buildHeat();
+    buildCountyLayer();buildStateLayer();buildBerlinLayer();buildHeat();
     const cs=renderNews();renderLegend();renderLayerInfo(cs);renderSummary(cs);renderRankList();
     if(activeStateFilter){const f=stateFeatureByName(activeStateFilter);if(f)renderStateDrawer(f);}
   }
@@ -680,8 +619,7 @@
   el.propertyMetric.addEventListener('change',()=>{pinnedArea=null;hoverArea=null;render();showArea(null);});
   el.viewGermany.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');render();showArea(null);map.fitBounds(germanyBounds,{padding:[14,14]});};
   el.focusBerlin.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');renderNews();showArea(null);map.fitBounds(berlinBounds,{padding:[25,25],maxZoom:10});};
-  el.focusMunich.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');renderNews();showArea(null);map.fitBounds(munichBounds,{padding:[25,25],maxZoom:10});};
-  map.on('zoomend',()=>{buildStateLayer();if(mode==='violence')buildBerlinLayer();buildMunichLayer();if(mode==='property')buildHeat();renderLegend();});
+  map.on('zoomend',()=>{buildStateLayer();if(mode==='violence')buildBerlinLayer();if(mode==='property')buildHeat();renderLegend();});
   map.on('moveend',()=>{if(!stateLayer)buildStateLayer();if(el.stateDrawer.classList.contains('open')){const b=el.stateDrawer.getBoundingClientRect(),h=document.querySelector('.mapwrap')?.getBoundingClientRect();if(h){const p=clampStateDrawer(b.left-h.left,b.top-h.top);el.stateDrawer.style.left=p.left+'px';el.stateDrawer.style.top=p.top+'px';el.stateDrawer.style.right='auto';}}});
 
   window.addEventListener('resize',()=>{if(el.stateDrawer.classList.contains('open')){const b=el.stateDrawer.getBoundingClientRect(),h=document.querySelector('.mapwrap')?.getBoundingClientRect();if(h){const p=clampStateDrawer(b.left-h.left,b.top-h.top);el.stateDrawer.style.left=p.left+'px';el.stateDrawer.style.top=p.top+'px';el.stateDrawer.style.right='auto';}}});
@@ -692,10 +630,9 @@
     fetch('data/pks_violent_2025.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('pks '+r.status);return r.json()}),
     fetch('data/pks_property_2025.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('property pks '+r.status);return r.json()}),
     fetch('data/berlin_violent_2025.geojson',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('berlin violence '+r.status);return r.json()}),
-    fetch('data/berlin_heatmap.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('heat '+r.status);return r.json()}),
-    fetch('data/munich_local_2025.geojson',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('munich '+r.status);return r.json()})
-  ]).then(([cases,counties,states,pks,propertyPks,berlinV,heat,munich])=>{
-    caseData=cases;countyGeo=counties;stateGeo=states;pksData=pks;propertyData=propertyPks;berlinViolence=berlinV;heatData=heat;munichLocal=munich;
+    fetch('data/berlin_heatmap.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('heat '+r.status);return r.json()})
+  ]).then(([cases,counties,states,pks,propertyPks,berlinV,heat])=>{
+    caseData=cases;countyGeo=counties;stateGeo=states;pksData=pks;propertyData=propertyPks;berlinViolence=berlinV;heatData=heat;
     const t=caseData.meta?.generated_at?new Date(caseData.meta.generated_at):null;
     el.updated.textContent=t&&!Number.isNaN(+t)?'通报更新 '+t.toLocaleString():'通报更新时间未知';
     render();showArea(null);
@@ -704,7 +641,7 @@
   });
 
   window.__CRIME_MAP__={
-    map,getMode:()=>mode,getCaseData:()=>caseData,getPksData:()=>pksData,getPropertyData:()=>propertyData,getBerlinViolence:()=>berlinViolence,getHeatData:()=>heatData,getMunichLocal:()=>munichLocal,
+    map,getMode:()=>mode,getCaseData:()=>caseData,getPksData:()=>pksData,getPropertyData:()=>propertyData,getBerlinViolence:()=>berlinViolence,getHeatData:()=>heatData,
     getCountyLayer:()=>countyLayer,getBerlinLayer:()=>berlinLayer,getHeatLayer:()=>heatLayer,getVisibleCases:()=>visibleCases(),
     getPinnedArea:()=>pinnedArea,getHoverArea:()=>hoverArea,
     clearSelection:()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');showArea(null);},
