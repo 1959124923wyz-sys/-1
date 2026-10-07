@@ -8,6 +8,8 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/germany-homicide-map.yml'
+      - 'dao-radar/site/germany-homicide-map/scripts/**'
+      - 'dao-radar/site/germany-homicide-map/requirements.txt'
   pull_request:
     paths:
       - '.github/workflows/germany-homicide-map.yml'
@@ -55,3 +57,5 @@ jobs:
           else
             echo "No map data changes"
           fi
+
+# validation: follow-up/date/location guards v2
