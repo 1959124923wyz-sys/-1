@@ -43,14 +43,16 @@ with sync_playwright() as p:
         mapHeight:document.getElementById("map").getBoundingClientRect().height,
         hasDaysSelector:!!document.getElementById("days"),
         title:document.title,
-        heading:document.querySelector(".title")?.textContent
+        heading:document.querySelector(".title")?.textContent,
+        violenceControlsHidden:document.getElementById("violenceLayers").hidden,
+        propertyControlsHidden:document.getElementById("propertyLayers").hidden
       };
     }""")
 
     assert report["mode"]=="violence",report
     assert report["cases"]>=500,report
     assert report["pksCount"]>=390,report
-    assert report["pksMatched"]>=398,report
+    assert report["pksMatched"]>=402,report
     assert report["countyLayers"]>=400,report
     assert report["berlinFeatures"]>=135,report
     assert report["visible"]==sum(report["counts"].get(k,0) for k in ("homicide","violence","robbery","sexual")),report
@@ -60,6 +62,8 @@ with sync_playwright() as p:
     assert report["mapHeight"]>=500,report
     assert "本地统计底图" in report["mapStatus"],report
     assert "犯罪态势" in report["heading"],report
+    assert report["violenceControlsHidden"] is False,report
+    assert report["propertyControlsHidden"] is True,report
     assert report["heat90"]["total"]>=10000,report["heat90"]
     assert not page_errors,page_errors
 
@@ -73,7 +77,9 @@ with sync_playwright() as p:
       zoom:window.__CRIME_MAP__.map.getZoom(),
       layerCount:window.__CRIME_MAP__.getBerlinLayer()?.getLayers().length||0,
       countyLayer:!!window.__CRIME_MAP__.getCountyLayer(),
-      info:document.getElementById("layerInfo").textContent
+      info:document.getElementById("layerInfo").textContent,
+      violenceControlsHidden:document.getElementById("violenceLayers").hidden,
+      propertyControlsHidden:document.getElementById("propertyLayers").hidden
     })""")
     assert berlin["zoom"]>=8,berlin
     assert berlin["layerCount"]>=135,berlin
@@ -94,6 +100,8 @@ with sync_playwright() as p:
     assert prop["heat"] is True,prop
     assert prop["visible"]==prop["propertyCount"],prop
     assert prop["propertyCount"]>=300,prop
+    assert prop["violenceControlsHidden"] is True,prop
+    assert prop["propertyControlsHidden"] is False,prop
     assert "90天" in prop["info"],prop
     page.screenshot(path=str(PROPERTY_SHOT),full_page=True)
 
