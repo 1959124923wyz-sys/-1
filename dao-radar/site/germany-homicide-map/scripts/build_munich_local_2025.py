@@ -1,0 +1,146 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+import csv, io, json, re
+from datetime import datetime, timezone
+from pathlib import Path
+
+import requests
+
+ROOT=Path(__file__).resolve().parents[1]
+OUT=ROOT/"data/munich_local_2025.geojson"
+WFS="https://geoportal.muenchen.de/geoserver/gsm_wfs/ows?outputFormat=application%2Fjson&request=GetFeature&service=WFS&typeName=gsm_wfs%3Avablock_stadtbezirk&version=1.0.0"
+POP="https://opendata.muenchen.de/dataset/e3f5dbd2-39cc-40cd-bc91-4bb49a0b1802/resource/a641ce6a-4e01-4f4b-9976-1ae6a47e3762/download/bevolkerung_bezirke_neu.csv"
+CRIME_SOURCE="https://stadt.muenchen.de/dam/jcr:6291ac42-463d-4267-b436-c4b1a3313454/jt260904.pdf"
+HEAD={"User-Agent":"GermanyCrimeMonitor/1.0 (+https://github.com/1959124923wyz-sys/-1)"}
+
+# Official Statistisches Amt München / Polizeipräsidium München table:
+# total, life, sexual, violence-broad (Rohheitsdelikte + offences against personal freedom),
+# simple theft, aggravated theft, fraud/forgery, adjusted total.
+RAW={
+1:("Altstadt - Lehel",[6863,1,145,1273,2209,538,964,6756]),
+2:("Ludwigsvorstadt - Isarvorstadt",[9852,6,251,1791,1700,508,1392,8576]),
+3:("Maxvorstadt",[4454,0,106,968,882,455,423,4352]),
+4:("Schwabing West",[1859,1,64,368,326,291,304,1852]),
+5:("Au - Haidhausen",[3628,2,92,679,777,468,482,3550]),
+6:("Sendling",[1658,1,72,334,262,275,225,1648]),
+7:("Sendling - Westpark",[2007,0,79,409,293,359,278,1996]),
+8:("Schwanthalerhöhe",[1960,1,39,350,235,186,267,1512]),
+9:("Neuhausen - Nymphenburg",[3496,4,110,639,709,703,443,3482]),
+10:("Moosach",[3024,0,78,508,916,454,487,3021]),
+11:("Milbertshofen - Am Hart",[3254,2,118,717,594,432,591,3242]),
+12:("Schwabing - Freimann",[6012,1,119,984,999,453,902,4775]),
+13:("Bogenhausen",[2818,1,119,528,480,565,381,2800]),
+14:("Berg am Laim",[2335,0,70,591,315,305,298,2310]),
+15:("Trudering - Riem",[2993,2,96,548,691,418,416,2979]),
+16:("Ramersdorf - Perlach",[4863,5,155,1087,978,542,944,4822]),
+17:("Obergiesing - Fasangarten",[2550,0,68,518,466,321,480,2538]),
+18:("Untergiesing - Harlaching",[2008,0,65,370,312,334,294,1938]),
+19:("Thalkirchen - Obersendling - Forstenried - Fürstenried - Solln",[2698,6,126,559,488,427,409,2683]),
+20:("Hadern",[1357,0,61,279,202,248,153,1350]),
+21:("Pasing - Obermenzing",[2962,2,94,583,656,534,324,2912]),
+22:("Aubing - Lochhausen - Langwied",[1779,1,73,474,324,303,155,1764]),
+23:("Allach - Untermenzing",[938,3,36,245,139,149,125,933]),
+24:("Feldmoching - Hasenbergl",[2064,2,104,485,412,326,222,2052]),
+25:("Laim",[2178,0,69,446,462,359,290,2151]),
+}
+
+def norm(s):
+    return re.sub(r"[^a-z0-9]+","",str(s or "").lower()
+        .replace("ä","ae").replace("ö","oe").replace("ü","ue").replace("ß","ss"))
+
+def get_json(url):
+    r=requests.get(url,headers=HEAD,timeout=90);r.raise_for_status();return r.json()
+
+def get_text(url):
+    r=requests.get(url,headers=HEAD,timeout=90);r.raise_for_status()
+    for enc in ("utf-8-sig","utf-8","latin-1"):
+        try:return r.content.decode(enc)
+        except UnicodeDecodeError:pass
+    return r.text
+
+def parse_population():
+    text=get_text(POP)
+    dialect=csv.Sniffer().sniff(text[:3000],delimiters=",;\t")
+    rows=list(csv.DictReader(io.StringIO(text),dialect=dialect))
+    out={}
+    for row in rows:
+        vals=[str(v or "").strip() for v in row.values()]
+        joined=" ".join(vals)
+        m=re.search(r"\b(\d{1,2})\b",joined)
+        if not m:continue
+        n=int(m.group(1))
+        if not 1<=n<=25:continue
+        pop=None
+        for k,v in row.items():
+            if "einwohner" in norm(k) and "dichte" not in norm(k):
+                raw=re.sub(r"[^0-9]","",str(v or ""))
+                if raw:pop=int(raw);break
+        if pop:out[n]=pop
+    if len(out)<24:
+        raise RuntimeError(f"population join incomplete: {len(out)} districts")
+    return out
+
+def district_no(props):
+    # Prefer explicit number-like fields.
+    for k,v in props.items():
+        nk=norm(k)
+        if any(x in nk for x in ("bezirk", "nummer", "nr")):
+            m=re.fullmatch(r"0*(\d{1,2})",str(v or "").strip())
+            if m and 1<=int(m.group(1))<=25:return int(m.group(1))
+    # Fallback to name matching.
+    strings=" | ".join(str(v or "") for v in props.values())
+    ns=norm(strings)
+    for n,(name,_) in RAW.items():
+        if norm(name) and norm(name) in ns:return n
+    return None
+
+pop=parse_population()
+geo=get_json(WFS)
+features=[]
+seen=set()
+for f in geo.get("features",[]):
+    props=f.get("properties") or {}
+    n=district_no(props)
+    if n is None or n not in RAW:continue
+    name,vals=RAW[n]
+    total,life,sexual,violent_broad,theft_simple,theft_aggravated,fraud,adjusted=vals
+    population=pop.get(n)
+    if not population:continue
+    def metric(cases):
+        return {"cases":int(cases),"rate":round(cases/population*100000,1)}
+    p={
+        "city":"München","state":"Bayern","district_no":n,"name":name,"population":population,
+        "crime_total":metric(total),
+        "violence_proxy":metric(violent_broad),
+        "sexual":metric(sexual),
+        "life":metric(life),
+        "property_total":metric(theft_simple+theft_aggravated),
+        "simple_theft":metric(theft_simple),
+        "aggravated_theft":metric(theft_aggravated),
+        "fraud":metric(fraud),
+        "adjusted_total":metric(adjusted),
+    }
+    features.append({"type":"Feature","id":f"munich-{n:02d}","properties":p,"geometry":f.get("geometry")})
+    seen.add(n)
+
+if len(features)!=25:
+    missing=sorted(set(RAW)-seen)
+    raise RuntimeError(f"expected 25 Munich district geometries, got {len(features)}; missing={missing}")
+
+out={
+  "type":"FeatureCollection",
+  "meta":{
+    "generated_at":datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),
+    "year":2025,"scope":"München Stadtbezirke","feature_count":len(features),
+    "crime_source":"Statistisches Amt München / Polizeipräsidium München: Straftaten in den Stadtbezirken 2025",
+    "crime_source_url":CRIME_SOURCE,
+    "population_source":"Open Data Portal München: Bevölkerung in den Stadtbezirken (31.12.2024)",
+    "population_source_url":POP,
+    "geometry_source":"GeodatenService München: Stadtbezirke WFS",
+    "geometry_source_url":WFS,
+    "note":"Violence local layer uses 'Rohheitsdelikte und Straftaten gegen die persönliche Freiheit' as a clearly labelled local proxy; it is not identical to BKA Gewaltkriminalität."
+  },
+  "features":features
+}
+OUT.write_text(json.dumps(out,ensure_ascii=False,separators=(",",":"))+"\n",encoding="utf-8")
+print(json.dumps({"features":len(features),"pop":len(pop),"names":[x["properties"]["name"] for x in features[:4]]},ensure_ascii=False,indent=2))
