@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Germany Homicide Monitor · rolling 30 days</title>
+<meta name="description" content="Rolling 30-day public-source map of fatal homicide cases reported by police/prosecutors in Germany.">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--line:#30363d;--text:#f0f3f6;--muted:#8b949e;--red:#d94b4b;--amber:#d6a13b}
+*{box-sizing:border-box}html,body{margin:0;height:100%;font:14px/1.45 system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text)}
+header{min-height:102px;padding:18px 24px;border-bottom:1px solid var(--line);display:flex;gap:20px;align-items:center;justify-content:space-between}
+h1{margin:2px 0 4px;font-size:clamp(24px,3vw,36px)}.kicker{font-size:11px;letter-spacing:.14em;color:#8ab4d8}.sub{color:var(--muted);max-width:780px;margin:0}
+.stat{text-align:right;border:1px solid var(--line);border-radius:10px;padding:10px 13px}.stat b{display:block;font-size:26px}.stat span{display:block;color:var(--muted);font-size:11px}
+main{height:calc(100vh - 149px);min-height:560px;display:grid;grid-template-columns:minmax(0,1fr) 390px}#map{height:100%;width:100%;background:#dce4e9}
+aside{border-left:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;min-width:0}.filters{padding:11px;border-bottom:1px solid var(--line);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+select{background:#21262d;color:var(--text);border:1px solid var(--line);border-radius:6px;padding:5px}.note{padding:10px 12px;color:var(--muted);font-size:11px;border-bottom:1px solid var(--line)}
+#list{overflow:auto}.card{display:block;width:100%;text-align:left;background:transparent;color:var(--text);border:0;border-bottom:1px solid var(--line);padding:12px;cursor:pointer}.card:hover{background:#21262d}
+.row{display:flex;justify-content:space-between;gap:8px}.row b{font-size:13px}.badge{font-size:10px;padding:2px 6px;border-radius:999px;color:#fff}.confirmed{background:#8e3030}.suspected{background:#7d5f1f}.meta{color:var(--muted);font-size:11px;margin-top:4px}.summary{font-size:12px;margin:6px 0 0}
+.legend{position:absolute;z-index:500;left:12px;bottom:14px;background:rgba(15,18,24,.94);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:11px}.legend div{margin:3px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}.r{background:var(--red)}.a{background:var(--amber)}
+.mapwrap{position:relative}footer{height:47px;padding:10px 24px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:15px;align-items:center}
+.leaflet-popup-content{font-size:12px}.leaflet-popup-content h3{font-size:14px;margin:0 0 5px}.leaflet-popup-content p{margin:4px 0}
+@media(max-width:850px){header{align-items:flex-start;padding:14px}.stat{min-width:100px}main{height:auto;display:block}.mapwrap{height:56vh;min-height:420px}aside{border-left:0;border-top:1px solid var(--line)}footer{height:auto;padding:10px 14px;display:block}}
+</style>
+</head>
+<body>
+<header><div><div class="kicker">PUBLIC-SOURCE MONITOR · GERMANY</div><h1>Homicide map · rolling 30 days</h1><p class="sub">Fatal homicide cases identified from public police/prosecutor releases. This is not an official or exhaustive crime register.</p></div><div class="stat"><b id="count">—</b><span>visible cases</span><span id="updated">loading…</span></div></header>
+<main><section class="mapwrap"><div id="map"></div><div class="legend"><div><i class="dot r"></i>confirmed/completed</div><div><i class="dot a"></i>suspected homicide</div><div>○ Fundort = body-discovery point</div></div></section>
+<aside><div class="filters"><label>Window <select id="days"><option>7</option><option>14</option><option selected>30</option></select></label><label><input id="confirmed" type="checkbox" checked> confirmed</label><label><input id="suspected" type="checkbox" checked> suspected</label></div><div class="note">Markers use the most precise location publicly released. City-level points are intentionally approximate. A “Fundort” may not be the crime scene. Open the linked official source to verify details.</div><div id="list"></div></aside></main>
+<footer><span>Sources: public police/prosecutor releases · map © OpenStreetMap contributors.</span><span>Automatic screening favors precision over recall.</span></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const M=L.map('map',{minZoom:5}).setView([51.1,10.4],6);L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(M);const G=L.layerGroup().addTo(M);let D=null,markers=new Map();
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pd=s=>{const [y,m,d]=s.split('-');return d+'.'+m+'.'+y};
+const diff=(a,b)=>(Date.parse(a+'T00:00:00Z')-Date.parse(b+'T00:00:00Z'))/86400000;
+function filtered(){if(!D)return[];const n=+days.value,tc=confirmed.checked,ts=suspected.checked,today=new Date().toISOString().slice(0,10);return D.cases.filter(c=>{const age=diff(today,c.event_date);return age>=0&&age<=n&&((c.status==='confirmed'&&tc)||(c.status==='suspected'&&ts))}).sort((a,b)=>b.event_date.localeCompare(a.event_date))}
+function popup(c){return '<h3>'+esc(c.city)+' · '+pd(c.event_date)+'</h3><p><b>'+esc(c.offense||'Homicide')+'</b> · '+esc(c.status)+'</p><p>'+esc(c.location)+'</p><p>'+esc(c.summary||'')+'</p><p style="font-size:11px;color:#667">'+esc(c.precision||'')+(c.location_type==='Fundort'?' · Fundort/body-discovery location':'')+'</p><p><a target="_blank" rel="noopener" href="'+esc(c.source_url)+'">Official source ↗</a></p>'}
+function render(){const cs=filtered(),bounds=[];G.clearLayers();markers=new Map();list.innerHTML='';for(const c of cs){if(Number.isFinite(c.lat)&&Number.isFinite(c.lon)){const fund=c.location_type==='Fundort',color=c.status==='confirmed'?'#d94b4b':'#d6a13b',m=L.circleMarker([c.lat,c.lon],{radius:fund?9:7,weight:fund?3:1.5,color:fund?'#fff':color,fillColor:color,fillOpacity:fund?.45:.85}).bindPopup(popup(c),{maxWidth:350}).addTo(G);markers.set(c.id,m);bounds.push([c.lat,c.lon])}const b=document.createElement('button');b.className='card';b.innerHTML='<div class="row"><b>'+esc(c.city)+' · '+pd(c.event_date)+'</b><span class="badge '+esc(c.status)+'">'+esc(c.status)+'</span></div><div class="meta">'+esc(c.location)+' · '+esc(c.location_type||'reported location')+'</div><p class="summary">'+esc(c.summary||'')+'</p>';b.onclick=()=>{const m=markers.get(c.id);if(m){M.flyTo(m.getLatLng(),Math.max(M.getZoom(),11));m.openPopup()}else window.open(c.source_url,'_blank','noopener')};list.appendChild(b)}count.textContent=cs.length;if(bounds.length&&!M._moved)M.fitBounds(bounds,{padding:[30,30],maxZoom:7})}
+M.on('dragstart zoomstart',()=>M._moved=true);[days,confirmed,suspected].forEach(x=>x.onchange=render);
+fetch('data/cases.json',{cache:'no-store'}).then(r=>r.json()).then(x=>{D=x;updated.textContent=x.meta?.generated_at?'updated '+new Date(x.meta.generated_at).toLocaleString():'update time unavailable';render()}).catch(()=>{list.innerHTML='<div class="note">Data load failed.</div>';updated.textContent='data unavailable'});
+</script>
+</body></html>
