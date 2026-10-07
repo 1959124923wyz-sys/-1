@@ -267,5 +267,35 @@
       "country": "Deutschland",
       "country_code": "de"
     }
+  },
+  "Willy-Brandt-Allee, 79111 Freiburg im Breisgau, Germany": {
+    "lat": 47.9988163,
+    "lon": 7.7944331,
+    "address": {
+      "road": "Willy-Brandt-Allee",
+      "suburb": "Rieselfeld",
+      "city": "Freiburg im Breisgau",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "79111",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Sonnenallee 293, 12057 Berlin, Germany": {
+    "lat": 52.4686198,
+    "lon": 13.4677817,
+    "address": {
+      "house_number": "293",
+      "road": "Sonnenallee",
+      "quarter": "Weiße Siedlung",
+      "suburb": "Neukölln",
+      "borough": "Neukölln",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "postcode": "12057",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
   }
 }

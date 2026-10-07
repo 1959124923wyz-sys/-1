@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-10-07T03:01:39Z",
+    "generated_at": "2026-10-07T03:05:48Z",
     "window_days": 30,
     "scope": "Germany",
     "case_count": 19,
-    "geocoded_count": 17,
+    "geocoded_count": 19,
     "method": "Verified seed set plus automated monitoring of public police RSS sources; strict death+homicide filter with follow-up-date and contact-address guards.",
     "disclaimer": "Public-source monitor, not an official or exhaustive crime register. Locations reflect the most precise place publicly reported; Fundort means body-discovery location and may not be the crime scene."
   },
@@ -364,9 +364,10 @@
       "summary": "A 74-year-old man died after a knife/sharp-force attack; investigators treated the case as a completed homicide.",
       "source_agency": "Polizeipräsidium Freiburg",
       "source_url": "https://www.presseportal.de/blaulicht/pm/110970/6351677",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 47.9988163,
+      "lon": 7.7944331,
+      "date_confidence": "high",
+      "geocode_precision": "street/intersection"
     },
     {
       "id": "2026-09-07-berlin-neukoelln-planetenstrasse-sonnenallee",
@@ -383,9 +384,10 @@
       "summary": "A 27-year-old man was fatally shot at Planetenstraße/Sonnenallee; Berlin police homicide investigators and prosecutors opened a homicide investigation.",
       "source_agency": "Polizei Berlin / Staatsanwaltschaft Berlin",
       "source_url": "https://www.berlin.de/polizei/polizeimeldungen/2026/pressemitteilung.1710956.php",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 52.4686198,
+      "lon": 13.4677817,
+      "date_confidence": "high",
+      "geocode_precision": "street/intersection"
     }
   ]
 }
