@@ -101,4 +101,4 @@ The main workflow builds current official city layers, validates JavaScript and 
 
 ## Current city-detail sources
 
-The registry is authoritative. At the time of this refactor it contains Hamburg plus the supported Saxony cities; Berlin and Munich still have dedicated core paths because their data models predate the generic registry. Future cleanup can migrate those two into the same registry once behavior is fully equivalent.
+The registry is authoritative for Hamburg, Munich and the supported Saxony cities. Berlin remains the only dedicated city path because it combines two different local datasets: an annual violence layer and a rolling 90-day property layer with its own Planungsraum mapping.
