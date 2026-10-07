@@ -38,7 +38,6 @@ aside{height:100%;min-height:0;overflow:hidden;border-left:1px solid var(--line)
 .area-title{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}.area-name{font-size:18px;font-weight:760;line-height:1.15;overflow:hidden;text-overflow:ellipsis}.risk-badge{flex:0 0 auto;border-radius:999px;padding:4px 8px;font-size:9px;font-weight:700;border:1px solid #43515e;background:#202a34}
 .risk-badge.low{color:#90d2cf}.risk-badge.mid{color:#f0cf7a}.risk-badge.high{color:#f09a7f}
 .area-metric{font-size:10px;color:#a7b5c1;margin-bottom:4px}.coverage-line{display:flex;align-items:center;gap:6px;margin:0 0 8px;font-size:9px;color:#91a0ae;min-height:18px}.coverage-pill{flex:0 0 auto;border:1px solid #3a4652;border-radius:999px;padding:2px 6px;font-size:8.5px;font-weight:700;letter-spacing:.01em;background:#1b2530}.coverage-pill.high{color:#8bd5b0;border-color:#35644f;background:#14271f}.coverage-pill.standard{color:#8fc7e8;border-color:#365b73;background:#152632}.coverage-pill.base{color:#c6b47c;border-color:#62583a;background:#2a2619}.coverage-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.area-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.area-stat{border:1px solid #2b3946;background:#18212b;border-radius:8px;padding:8px;min-width:0}.area-stat b{font-size:16px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.area-stat small{display:block;color:var(--muted);font-size:8.5px;line-height:1.25;margin-top:2px}
-.riskline{margin:10px 0 6px}.riskline-top{display:flex;justify-content:space-between;font-size:9px;color:#9dabb7}.risktrack{height:7px;border-radius:99px;background:linear-gradient(90deg,#78bcbc 0 40%,#ddb668 40% 70%,#d66550 70% 100%);margin-top:4px;position:relative}.riskpin{position:absolute;top:-3px;width:2px;height:13px;background:#fff;box-shadow:0 0 0 1px #111}.riskpin.hidden{display:none}.riskmarks{position:relative;height:13px;margin-top:2px;color:#6f8190;font-size:7.5px}.riskmarks span{position:absolute;transform:translateX(-50%)}.riskmarks span:nth-child(1){left:20%}.riskmarks span:nth-child(2){left:40%}.riskmarks span:nth-child(3){left:60%}.riskmarks span:nth-child(4){left:80%}
 .area-note{font-size:9.5px;color:#9caab6;line-height:1.45;margin-top:8px}
 .rank-section{margin-top:13px;padding-top:10px;border-top:1px solid #293542}.rank-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px}.rank-head strong{font-size:10px}.rank-head span{font-size:8.5px;color:var(--muted)}
 .rank-list{display:grid;gap:3px}.rank-row{width:100%;display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:7px;align-items:center;border:0;border-radius:6px;background:transparent;color:var(--text);padding:5px 6px;text-align:left;cursor:pointer}.rank-row:hover{background:#1a2530}.rank-no{font-size:9px;color:#6f8190;text-align:center}.rank-place{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10px}.rank-value{font-size:10px;font-variant-numeric:tabular-nums;color:#cbd8e2}
@@ -51,7 +50,7 @@ aside{height:100%;min-height:0;overflow:hidden;border-left:1px solid var(--line)
 
 .mapstatus,.legend,.layerinfo{position:absolute;z-index:700;background:rgba(12,17,23,.92);border:1px solid #35424e;color:#e5edf3;box-shadow:0 2px 12px rgba(0,0,0,.17);backdrop-filter:blur(4px)}
 .mapstatus{right:12px;top:12px;border-radius:999px;padding:5px 9px;font-size:9.5px}.mapstatus:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;background:#6f7d89}.mapstatus.ok:before{background:var(--green)}.mapstatus.fallback:before{background:#dca23b}
-.legend{left:12px;bottom:12px;border-radius:8px;padding:8px 10px;font-size:9.5px;min-width:230px;max-width:315px}.legend-title{font-weight:700;margin-bottom:3px}.legend-block+.legend-block{margin-top:8px;padding-top:7px;border-top:1px solid #35424e}.scale{display:flex;height:7px;border-radius:99px;overflow:hidden;margin:4px 0}.scale span{flex:1}.legend-labels{display:flex;justify-content:space-between;color:#a9b6c1;font-size:8px}
+.legend{left:12px;bottom:12px;border-radius:8px;padding:8px 10px;font-size:9.5px;min-width:250px;max-width:340px}.legend-title{font-weight:700;margin-bottom:3px}.legend-block+.legend-block{margin-top:8px;padding-top:7px;border-top:1px solid #35424e}.scale{display:grid;grid-template-columns:repeat(7,1fr);height:8px;border-radius:4px;overflow:hidden;margin:5px 0 3px;gap:1px}.scale span{min-width:0}.legend-labels{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;color:#8fa0ad;font-size:7.5px;text-align:center;line-height:1.15}.legend-labels span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .legend-row{margin-top:3px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}.dh{background:var(--red)}.dv{background:var(--orange)}.dr{background:var(--blue)}.ds{background:var(--purple)}.dp{background:var(--property)}
 .layerinfo{display:none!important;right:12px;bottom:12px;border-radius:8px;padding:9px 10px;max-width:300px;font-size:9.5px;line-height:1.4}.layerinfo b{font-size:10.5px}.layerinfo .big{font-size:14px;font-weight:760}.layerinfo .mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:5px}.layerinfo .mini-grid span{display:block;background:#18212b;border-radius:5px;padding:4px 5px}.layerinfo .mini-grid small{display:block}.layerinfo small{color:#96a5b2}
 .leaflet-tooltip{font-size:10px}.leaflet-popup-content-wrapper{border-radius:8px}.leaflet-popup-content{font-size:11px;line-height:1.4}.leaflet-popup-content h3{font-size:13px;margin:0 0 5px}.leaflet-popup-content p{margin:4px 0}
@@ -127,11 +126,6 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
         <div class="area-stat"><b id="areaQuarter">—</b><small id="areaQuarterLabel">2025登记案件</small></div>
         <div class="area-stat"><b id="areaRecent">—</b><small id="areaRecentLabel">较2024变化</small></div>
       </div>
-      <div class="riskline">
-        <div class="riskline-top"><span id="riskRankLabel">同级区域相对位置</span><span id="riskRankText">—</span></div>
-        <div class="risktrack"><i class="riskpin hidden" id="riskPin" style="left:50%"></i></div>
-        <div class="riskmarks"><span>P20</span><span>P40</span><span>P60</span><span>P80</span></div>
-      </div>
       <div class="area-note" id="areaNote">全国概览会显示当前指标的真实分布统计；悬停或点击地图后切换为该县/市的实际数据。</div>
       <div class="rank-section">
         <div class="rank-head"><strong>高值地区</strong><span>每10万人</span></div>
@@ -167,8 +161,8 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     safetyPanel:$('safetyPanel'),areaName:$('areaName'),riskBadge:$('riskBadge'),areaMetric:$('areaMetric'),
     coveragePill:$('coveragePill'),coverageText:$('coverageText'),
     areaRate:$('areaRate'),areaRateLabel:$('areaRateLabel'),areaQuarter:$('areaQuarter'),areaQuarterLabel:$('areaQuarterLabel'),
-    areaRecent:$('areaRecent'),areaRecentLabel:$('areaRecentLabel'),riskRankLabel:$('riskRankLabel'),riskRankText:$('riskRankText'),
-    riskPin:$('riskPin'),areaNote:$('areaNote'),rankList:$('rankList'),
+    areaRecent:$('areaRecent'),areaRecentLabel:$('areaRecentLabel'),
+    areaNote:$('areaNote'),rankList:$('rankList'),
     listTitle:$('listTitle'),list:$('list')
   };
   const NATIONAL_VIOLENCE_2025=212335;
@@ -206,9 +200,9 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     for(let i=0;i<breaks.length;i++)if(n<=breaks[i])return palette[i];
     return palette[palette.length-1];
   }
-  const nationalPalette=['#dceff0','#a9d5d5','#79b8b8','#e1b765','#d96a4f'];
-  const berlinPalette=['#f1e8f7','#d6b8e7','#bc8bd5','#9b5fbe','#74389b'];
-  const propertyPalette=['#edf4fb','#cbdff0','#9fc4df','#6d9ec8','#3f70aa'];
+  const nationalPalette=['#fff4e6','#fee2c2','#fbc48d','#f59e5b','#ea7449','#d94b3d','#ad2e32'];
+  const berlinPalette=['#f5effa','#e6d7f2','#d2b7e5','#bb92d5','#9c68c1','#7c47a6','#5d2d83'];
+  const propertyPalette=['#eff6ff','#d9eafb','#b9d8f3','#8bbce3','#5a9bd2','#3678b8','#1f4f8f'];
   const propertyMetrics={
     property_total:{label:'盗窃总体',de:'Diebstahl insgesamt'},
     burglary:{label:'入室盗窃',de:'Wohnungseinbruchdiebstahl'},
@@ -257,11 +251,13 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     return Math.max(1,Math.min(99,Math.round(100*(below+equal*.5)/clean.length)));
   }
   function riskLabel(p){
-    if(p<=20)return {text:'相对较低',cls:'low'};
-    if(p<=40)return {text:'相对偏低',cls:'low'};
-    if(p<=60)return {text:'同级中等',cls:'mid'};
-    if(p<=80)return {text:'相对偏高',cls:'high'};
-    return {text:'相对较高',cls:'high'};
+    if(p<=14)return {text:'极低',cls:'low'};
+    if(p<=29)return {text:'较低',cls:'low'};
+    if(p<=43)return {text:'偏低',cls:'low'};
+    if(p<=57)return {text:'中等',cls:'mid'};
+    if(p<=71)return {text:'偏高',cls:'high'};
+    if(p<=86)return {text:'较高',cls:'high'};
+    return {text:'极高',cls:'high'};
   }
   function currentViolenceMetric(){return el.violenceMetric?.value||'violence';}
   function nationalRates(metric=currentViolenceMetric()){
@@ -269,8 +265,8 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   }
   function quantileBreaks(values){
     const a=values.map(Number).filter(Number.isFinite).sort((x,y)=>x-y);
-    if(!a.length)return [0,0,0,0];
-    return [.2,.4,.6,.8].map(p=>{
+    if(!a.length)return [0,0,0,0,0,0];
+    return [1/7,2/7,3/7,4/7,5/7,6/7].map(p=>{
       const pos=(a.length-1)*p,lo=Math.floor(pos),hi=Math.min(lo+1,a.length-1),f=pos-lo;
       return Math.round((a[lo]*(1-f)+a[hi]*f)*10)/10;
     });
@@ -346,7 +342,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     const rows=Object.values(data?.records||{}).filter(r=>r?.[key]&&Number.isFinite(Number(r[key].rate)));
     const sorted=rows.slice().sort((a,b)=>Number(b[key].rate)-Number(a[key].rate));
     const rates=rows.map(r=>Number(r[key].rate)).sort((a,b)=>a-b);
-    const breaks=isProperty?(data?.meta?.quantile_breaks?.[key]||quantileBreaks(rates)):quantileBreaks(rates);
+    const breaks=quantileBreaks(rates);
     const median=rates.length?rates[Math.floor((rates.length-1)/2)]:0;
     const totalCases=rows.reduce((sum,r)=>sum+Number(r?.[key]?.cases||0),0);
     return {key,label:meta?.label||key,de:meta?.de||key,rows,sorted,rates,breaks,median,totalCases,top:sorted[0]||null};
@@ -374,7 +370,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   }
 
   function renderNationalOverview(){
-    const s=currentNationalSummary(),p80=s.breaks?.[3]||0,top=s.top;
+    const s=currentNationalSummary(),top=s.top;
     el.areaName.textContent='德国全国 · '+s.label;
     el.riskBadge.textContent=fmt(s.rows.length)+' 县/市';el.riskBadge.className='risk-badge mid';
     el.areaMetric.textContent='BKA PKS 2025 · '+s.label;
@@ -382,9 +378,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     el.areaRate.textContent=fmt(Math.round(s.median));el.areaRateLabel.textContent='县/市中位数 · /10万人';
     el.areaQuarter.textContent=fmt(Math.round(s.totalCases));el.areaQuarterLabel.textContent='2025全国县/市汇总案件';
     el.areaRecent.textContent=top?fmt(Math.round(top[s.key].rate)):'—';el.areaRecentLabel.textContent=top?'最高值 · '+top.name:'最高值';
-    el.riskRankLabel.textContent='全国县/市五分位刻度';el.riskRankText.textContent='选择地区后显示其位置';
-    el.riskPin.classList.add('hidden');
-    el.areaNote.textContent='2025登记 '+fmt(Math.round(s.totalCases))+' 起；全国五分位着色，P80='+fmt(Math.round(p80))+'/10万人。统计为案件数。';
+    el.areaNote.textContent='2025登记 '+fmt(Math.round(s.totalCases))+' 起；地图按全国7分位着色。统计为案件数。';
     renderAreaOverlay(null);
   }
 
@@ -402,24 +396,20 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
       el.areaRate.textContent=fmt(a.cases);el.areaRateLabel.textContent='最近90天记录';
       el.areaQuarter.textContent=fmt(a.bike);el.areaQuarterLabel.textContent='其中自行车盗窃';
       el.areaRecent.textContent=fmt(a.vehicle);el.areaRecentLabel.textContent='其中车辆相关';
-      el.riskRankLabel.textContent='最近统计区距离';el.riskRankText.textContent=a.distance<1000?Math.round(a.distance)+' m':(a.distance/1000).toFixed(1)+' km';
-      el.riskPin.classList.add('hidden');el.areaNote.textContent=a.note;
+      el.areaNote.textContent=a.note+' 最近统计区约 '+(a.distance<1000?Math.round(a.distance)+'m':(a.distance/1000).toFixed(1)+'km')+'。';
     }else if(a.kind==='property-county'||a.kind==='violence-county'){
       const risk=riskLabel(a.pct),isProperty=a.kind==='property-county';
-      el.riskBadge.textContent=risk.text;el.riskBadge.className='risk-badge '+risk.cls;
+      el.riskBadge.textContent=risk.text+' · P'+a.pct;el.riskBadge.className='risk-badge '+risk.cls;
       el.areaRate.textContent=fmt(Math.round(a.rate));el.areaRateLabel.textContent='每10万人·年';
       el.areaQuarter.textContent=fmt(a.cases);el.areaQuarterLabel.textContent='2025登记案件';
       el.areaRecent.textContent=a.change;el.areaRecentLabel.textContent='较2024变化';
-      el.riskRankLabel.textContent='该地区在全国县/市中的分位';el.riskRankText.textContent='约 P'+a.pct;
-      el.riskPin.classList.remove('hidden');el.riskPin.style.left=Math.max(1,Math.min(99,a.pct))+'%';el.areaNote.textContent=a.note;
+      el.areaNote.textContent=a.note;
     }else{
       const risk=riskLabel(a.pct);
-      el.riskBadge.textContent=risk.text;el.riskBadge.className='risk-badge '+risk.cls;
+      el.riskBadge.textContent=risk.text+' · P'+a.pct;el.riskBadge.className='risk-badge '+risk.cls;
       el.areaRate.textContent=fmt(Math.round(a.rate));el.areaRateLabel.textContent='每10万人·年';
       el.areaQuarter.textContent=fmt(Math.round(a.cases));el.areaQuarterLabel.textContent='2025登记案件';
       el.areaRecent.textContent=fmt(a.recent);el.areaRecentLabel.textContent='90天公开通报';
-      el.riskRankLabel.textContent='柏林同级分区相对位置';
-      el.riskRankText.textContent='约 P'+a.pct;el.riskPin.classList.remove('hidden');el.riskPin.style.left=Math.max(1,Math.min(99,a.pct))+'%';
       el.areaNote.textContent=a.note;
     }
     renderAreaOverlay(a);
@@ -445,7 +435,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   }
   function nationalStyle(feature){
     if(mode==='property'){
-      const key=currentPropertyMetric(),rec=propertyRecord(feature),breaks=propertyData?.meta?.quantile_breaks?.[key]||[800,1200,1700,2400];
+      const key=currentPropertyMetric(),rec=propertyRecord(feature),breaks=quantileBreaks(propertyRates(key));
       const val=rec?.[key]?.rate;
       return {pane:'countyPane',color:'#607685',weight:.45,fillColor:rec?scaleColor(val,breaks,propertyPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.56:0.07};
     }
@@ -453,7 +443,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     return {pane:'countyPane',color:'#607685',weight:.45,fillColor:rec?scaleColor(val,breaks,nationalPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.52:0.07};
   }
   function berlinStyle(feature){
-    const v=Number(feature?.properties?.combined_rate||0),breaks=berlinViolence?.meta?.quantile_breaks||[150,220,300,420];
+    const v=Number(feature?.properties?.combined_rate||0),breaks=quantileBreaks(berlinRates());
     return {pane:'berlinPane',color:'#694d77',weight:.35,opacity:.42,fillColor:scaleColor(v,breaks,berlinPalette),fillOpacity:.64};
   }
   function buildCountyLayer(){
@@ -541,19 +531,28 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   }
 
   function scaleHtml(palette,breaks){
+    const labs=[
+      '≤'+fmt(Math.round(breaks[0]||0)),
+      '≤'+fmt(Math.round(breaks[1]||0)),
+      '≤'+fmt(Math.round(breaks[2]||0)),
+      '≤'+fmt(Math.round(breaks[3]||0)),
+      '≤'+fmt(Math.round(breaks[4]||0)),
+      '≤'+fmt(Math.round(breaks[5]||0)),
+      '>'+fmt(Math.round(breaks[5]||0))
+    ];
     return '<div class="scale">'+palette.map(c=>'<span style="background:'+c+'"></span>').join('')+'</div>'+
-      '<div class="legend-labels"><span>较低</span><span>'+fmt(breaks[1]||'')+'</span><span>'+fmt(breaks[3]||'')+'</span><span>较高</span></div>';
+      '<div class="legend-labels">'+labs.map(x=>'<span>'+x+'</span>').join('')+'</div>';
   }
   function renderLegend(){
     if(mode==='violence'){
       const key=currentViolenceMetric(),meta=violenceMetrics[key]||{},n=quantileBreaks(nationalRates(key));
-      const b=berlinViolence?.meta?.quantile_breaks||[150,220,300,420];
+      const b=quantileBreaks(berlinRates());
       el.legend.innerHTML=
         '<div class="legend-block"><div class="legend-title">德国县/市 · BKA PKS 2025</div><div>'+esc(meta.label||key)+' · 每10万人/年</div>'+scaleHtml(nationalPalette,n)+'</div>'+
         (key==='violence'&&map.getZoom()>=7.5?'<div class="legend-block"><div class="legend-title">柏林 · 官方细分层</div><div>抢劫 + 危险/严重伤害 · 每10万人/年</div>'+scaleHtml(berlinPalette,b)+'</div>':'')+
         '<div class="legend-row">全国颜色按县/市相对分位；近期事件点默认关闭。</div>';
     }else{
-      const key=currentPropertyMetric(),meta=propertyMetrics[key]||{},n=propertyData?.meta?.quantile_breaks?.[key]||[800,1200,1700,2400];
+      const key=currentPropertyMetric(),meta=propertyMetrics[key]||{},n=quantileBreaks(propertyRates(key));
       const localField=propertyHeatField();
       el.legend.innerHTML=
         '<div class="legend-block"><div class="legend-title">德国县/市 · BKA PKS 2025</div><div>'+esc(meta.label||key)+' · 每10万人/年</div>'+scaleHtml(propertyPalette,n)+'</div>'+
