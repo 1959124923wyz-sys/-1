@@ -11,6 +11,7 @@
     map,
     getMode,
     getViolenceMetric,
+    getPropertyMetric,
     getCaseData,
     getViolenceData,
     getPropertyData,
@@ -33,8 +34,7 @@
     }
 
     function currentPropertyField() {
-      const select = document.getElementById('propertyMetric');
-      return propertyField(select?.value || 'property_total');
+      return propertyField(getPropertyMetric?.() || 'property_total');
     }
 
     function isActive() {
