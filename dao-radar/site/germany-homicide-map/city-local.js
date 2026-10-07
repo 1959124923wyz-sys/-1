@@ -102,7 +102,7 @@ function addButtons(){
   const anchor=$('focusMunich')||$('focusBerlin');if(!anchor)return;
   for(const c of manifest.cities){
     const id='focusCity_'+c.id;if($(id))continue;
-    const b=document.createElement('button');b.id=id;b.type='button';b.textContent=c.name_zh||c.name;b.onclick=()=>api.map.fitBounds(cityBounds(c),{padding:[25,25],maxZoom:10});anchor.before(b)
+    const b=document.createElement('button');b.id=id;b.type='button';b.textContent=c.name_zh||c.name;b.onclick=()=>{api.clearSelection?.();api.map.fitBounds(cityBounds(c),{padding:[25,25],maxZoom:10});};anchor.before(b)
   }
 }
 async function boot(){
