@@ -16,6 +16,8 @@ on:
       - '.github/workflows/germany-homicide-map.yml'
       - 'dao-radar/site/germany-homicide-map/scripts/**'
       - 'dao-radar/site/germany-homicide-map/index.html'
+      - 'dao-radar/site/germany-homicide-map/city-local.js'
+      - 'dao-radar/site/germany-homicide-map/data/city_layers.json'
       - 'dao-radar/site/germany-homicide-map/requirements.txt'
 
 permissions:
@@ -59,6 +61,11 @@ jobs:
           for(const code of blocks) new Function(code);
           console.log('Inline JavaScript syntax OK:',blocks.length,'block(s)');
           NODE
+
+      - name: Validate generic city-layer JavaScript syntax
+        run: |
+          node --check dao-radar/site/germany-homicide-map/city-local.js
+          python -m json.tool dao-radar/site/germany-homicide-map/data/city_layers.json >/dev/null
 
       - name: Ensure nationwide 2025 property heatmap data
         run: |
