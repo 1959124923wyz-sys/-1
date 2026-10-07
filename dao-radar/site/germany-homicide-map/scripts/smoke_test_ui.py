@@ -17,6 +17,7 @@ with sync_playwright() as p:
     assert response and response.ok, f"page HTTP failure: {response.status if response else 'no response'}"
     page.wait_for_function("window.__MAP_SMOKE__ && window.__MAP_SMOKE__.getStateLayer()",timeout=30000)
     page.wait_for_function("window.__MAP_SMOKE__.getCaseData()",timeout=30000)
+    page.wait_for_function("window.__MAP_SMOKE__.getHeatData()",timeout=60000)
     page.wait_for_timeout(4500)
 
     report=page.evaluate("""() => {
@@ -39,7 +40,11 @@ with sync_playwright() as p:
         selectedCategories:window.__MAP_SMOKE__.getSelectedCategories(),
         categoryCounts:counts,
         allChecked:document.getElementById('allCategories').checked,
-        allIndeterminate:document.getElementById('allCategories').indeterminate
+        allIndeterminate:document.getElementById('allCategories').indeterminate,
+        heatEnabled:window.__MAP_SMOKE__.getHeatEnabled(),
+        heatLayer:!!window.__MAP_SMOKE__.getHeatLayer(),
+        heat90:window.__MAP_SMOKE__.getHeatData().windows["90"],
+        heatInfo:document.getElementById('heatNumbers').textContent
       };
     }""")
 
@@ -63,6 +68,12 @@ with sync_playwright() as p:
     assert report["allChecked"] is False and report["allIndeterminate"] is True,report
     assert report["mapHeight"]>=400 and report["mapWidth"]>=700,report
     assert "本地德国州界底图" in report["status"],report
+    assert report["heatEnabled"] is True,report
+    assert report["heatLayer"] is True,report
+    assert report["heat90"]["total"]>=1500,report["heat90"]
+    assert report["heat90"]["bike"]>=500,report["heat90"]
+    assert report["heat90"]["vehicle"]>=500,report["heat90"]
+    assert "90天" in report["heatInfo"],report["heatInfo"]
     assert not page_errors,page_errors
 
     page.locator('.cat-check[data-category="homicide"]').uncheck()
@@ -88,7 +99,45 @@ with sync_playwright() as p:
 
     page.locator('.cat-check[data-category="homicide"]').check()
     page.wait_for_timeout(100)
+
+    # Heat layer follows the global 30/60/90-day selector and can be toggled independently
+    # from the news-point category checkboxes.
+    page.locator('#days').select_option('30')
+    page.wait_for_timeout(250)
+    heat30=page.evaluate("""() => ({
+      window:window.__MAP_SMOKE__.getHeatWindow(),
+      layer:!!window.__MAP_SMOKE__.getHeatLayer(),
+      info:document.getElementById('heatNumbers').textContent
+    })""")
+    assert heat30["layer"] is True,heat30
+    assert heat30["window"]["total"]<=report["heat90"]["total"],(report,heat30)
+    assert "30天" in heat30["info"],heat30
+
+    page.locator('#heatType').select_option('bike')
+    page.wait_for_timeout(200)
+    bike_mode=page.evaluate("""() => ({
+      layer:!!window.__MAP_SMOKE__.getHeatLayer(),
+      info:document.getElementById('heatNumbers').textContent
+    })""")
+    assert bike_mode["layer"] is True,bike_mode
+    assert "自行车盗窃" in bike_mode["info"],bike_mode
+
+    page.locator('#heatEnabled').uncheck()
+    page.wait_for_timeout(150)
+    heat_off=page.evaluate("""() => ({
+      layer:!!window.__MAP_SMOKE__.getHeatLayer(),
+      hidden:document.getElementById('heatInfo').hidden
+    })""")
+    assert heat_off["layer"] is False,heat_off
+    assert heat_off["hidden"] is True,heat_off
+
+    # Restore the default 90-day combined heat layer for the screenshot artifact.
+    page.locator('#heatEnabled').check()
+    page.locator('#heatType').select_option('total')
+    page.locator('#days').select_option('90')
+    page.wait_for_timeout(250)
+
     SHOT.parent.mkdir(parents=True,exist_ok=True)
     page.screenshot(path=str(SHOT),full_page=True)
-    print(json.dumps({"initial":report,"no_homicide":no_homicide,"with_property":with_property},ensure_ascii=False))
+    print(json.dumps({"initial":report,"no_homicide":no_homicide,"with_property":with_property,"heat30":heat30,"bike_mode":bike_mode,"heat_off":heat_off},ensure_ascii=False))
     browser.close()
