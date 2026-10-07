@@ -1,25 +1,31 @@
 {
   "meta": {
-    "generated_at": "2026-10-07T12:00:16+08:00",
+    "generated_at": "2026-10-07T12:02:19+08:00",
     "currency": "CNY",
     "default_area_sqm": 90,
     "price_basis": "community_reference_unit_price",
     "notice": "挂牌/参考均价，不是成交价；部分点位来自公开地图坐标换算，价格与坐标均应以来源页为准。",
     "next_discovery_url": "https://sz.esf.fang.com/housing/__0_3_0_0_9_0_0_0/",
     "last_run_successes": 0,
-    "discovery_added": 22,
-    "discovery_updated": 72,
-    "last_run_failures": 0,
-    "last_run_notes": [],
+    "discovery_added": 0,
+    "discovery_updated": 0,
+    "last_run_failures": 1,
+    "last_run_notes": [
+      {
+        "name": "Fang index",
+        "url": "https://sz.esf.fang.com/housing/__0_2_0_0_1_0_0_0/",
+        "error": "parser got only 0 priced residential rows on page 1; stopped"
+      }
+    ],
     "default_annual_savings": 100000,
     "discovery_start_page": 1,
-    "discovery_pages_ok": 50,
-    "discovery_rows_seen": 970,
-    "discovery_unmatched": 876,
+    "discovery_pages_ok": 0,
+    "discovery_rows_seen": 0,
+    "discovery_unmatched": 0,
     "coordinate_cache_size": 629,
     "discovery_cursor_page": 76,
-    "last_run_stopped_reason": null,
-    "discovery_sort_code": 1
+    "last_run_stopped_reason": "parser got only 0 priced residential rows on page 1; stopped",
+    "discovery_sort_code": 2
   },
   "communities": [
     {
