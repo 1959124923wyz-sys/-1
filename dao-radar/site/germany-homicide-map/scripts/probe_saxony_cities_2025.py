@@ -123,3 +123,24 @@ try:
     print("DRESDEN_GML",rr.status_code,rr.headers.get("content-type"),len(rr.content))
     print(rr.text[:7000].replace("\n"," "))
 except Exception as e: print("DRESDEN_GML_ERR",repr(e))
+
+
+print("\n===== DRESDEN PARSED FEATURE PROPS =====")
+try:
+    import xml.etree.ElementTree as ET
+    rr=requests.get("https://kommisdd.dresden.de/net3/public/ogc.ashx",headers=H,params={
+      "NODEID":"188","SERVICE":"WFS","VERSION":"2.0.0","REQUEST":"GetFeature",
+      "TYPENAMES":"cls:L137","COUNT":"3","SRSNAME":"EPSG:4326"
+    },timeout=90)
+    root=ET.fromstring(rr.content)
+    ns={"wfs":"http://www.opengis.net/wfs/2.0","cls":"http://www.cardogis.com/kommisdd","gml":"http://www.opengis.net/gml/3.2"}
+    for member in root.findall(".//wfs:member",ns)[:3]:
+        feat=list(member)[0]
+        props={}
+        for ch in list(feat):
+            tag=ch.tag.split("}")[-1]
+            if tag!="PrimaryGeometry":
+                props[tag]=(ch.text or "").strip()
+        pos=feat.find(".//gml:posList",ns)
+        print("DRESDEN_FEATURE",props,"pos_head",(pos.text or "")[:120] if pos is not None else None)
+except Exception as e: print("DRESDEN_PARSED_ERR",repr(e))
