@@ -56,8 +56,8 @@
 <div class="app">
   <aside class="sidebar">
     <div class="brand"><div><h1>深圳 · 攒房地图</h1><p>把“元/㎡”翻译成一个更残酷的单位：<br>一个人要攒多少年，才能一次性付清。</p></div><span class="badge">NO API KEY</span></div>
-    <section class="hero"><div class="big" id="cityMedian">— 年</div><div class="sub">当前可见小区 · 攒够默认面积房款的中位年数</div><div class="meta"><span>年储蓄 <b id="annualSaving">6.0 万</b></span><span>面积 <b id="areaMeta">90㎡</b></span><span>点位 <b id="countMeta">—</b></span></div></section>
-    <div class="control"><div class="labelrow"><label for="saving">每月能存下多少钱</label><output id="savingOut">¥5,000</output></div><input id="saving" class="input" type="number" min="500" step="500" value="5000"></div>
+    <section class="hero"><div class="big" id="cityMedian">— 年</div><div class="sub">当前可见小区 · 攒够默认面积房款的中位年数</div><div class="meta"><span>年储蓄 <b id="annualSaving">10.0 万</b></span><span>面积 <b id="areaMeta">90㎡</b></span><span>点位 <b id="countMeta">—</b></span></div></section>
+    <div class="control"><div class="labelrow"><label for="saving">每年能存下多少钱</label><output id="savingOut">¥100,000</output></div><input id="saving" class="input" type="number" min="10000" step="10000" value="100000"></div>
     <div class="control"><div class="labelrow"><label>假设购买面积</label><output id="areaOut">90㎡</output></div><div class="seg" id="areaSeg"><button data-v="50">50㎡</button><button data-v="70">70㎡</button><button data-v="90" class="active">90㎡</button><button data-v="120">120㎡</button></div></div>
     <div class="control two"><input id="search" class="input" placeholder="搜索小区 / 商圈"><select id="district" class="select"><option value="">全深圳</option></select></div>
     <div class="legend"><span class="leg"><i class="dot" style="background:var(--green)"></i>≤50年</span><span class="leg"><i class="dot" style="background:var(--yellow)"></i>50–100</span><span class="leg"><i class="dot" style="background:var(--orange)"></i>100–200</span><span class="leg"><i class="dot" style="background:var(--red)"></i>200+</span></div>
@@ -73,7 +73,7 @@
         <g id="districtLabelLayer"></g>
         <g id="markerLayer"></g>
       </svg>
-      <div id="mapEmpty" class="map-empty" hidden>地图边界数据未加载</div>
+      
     </div>
     <div class="maptop"><div class="status" id="status">正在读取数据…</div><button class="share" id="share">复制当前参数链接</button></div>
     <div class="map-hint">拖动平移 · 滚轮缩放 · 点击点位看详情</div>
@@ -92,7 +92,8 @@
   const fmt=n=>new Intl.NumberFormat('zh-CN').format(Math.round(n));
   const qs=new URLSearchParams(location.search);
   let area=Math.max(20,Math.min(300,Number(qs.get('area'))||DATA.meta.default_area_sqm||90));
-  let saving=Math.max(500,Number(qs.get('saving'))||DATA.meta.default_monthly_savings||5000);
+  const legacyMonthly=Number(qs.get('saving'))||0;
+  let saving=Math.max(10000,Number(qs.get('annual'))||(legacyMonthly>0&&legacyMonthly<30000?legacyMonthly*12:legacyMonthly)||DATA.meta.default_annual_savings||100000);
   let selectedId=null;
 
   $('#saving').value=saving;
@@ -119,7 +120,7 @@
   }
   function initProjection(){
     const pts=allCoords();
-    if(!pts.length){$('#mapEmpty').hidden=false;return false}
+    if(!pts.length){return false}
     bbox={minLng:Infinity,maxLng:-Infinity,minLat:Infinity,maxLat:-Infinity};
     pts.forEach(([lng,lat])=>{bbox.minLng=Math.min(bbox.minLng,lng);bbox.maxLng=Math.max(bbox.maxLng,lng);bbox.minLat=Math.min(bbox.minLat,lat);bbox.maxLat=Math.max(bbox.maxLat,lat)});
     const sx=(SVG_W-PAD*2)/(bbox.maxLng-bbox.minLng), sy=(SVG_H-PAD*2)/(bbox.maxLat-bbox.minLat);
@@ -159,7 +160,7 @@
     });
   }
 
-  function years(c){return c.unit_price*area/(saving*12)}
+  function years(c){return c.unit_price*area/saving}
   function color(y){return y<=50?'#46d685':y<=100?'#ffd557':y<=200?'#ff9955':'#ff6464'}
   function filters(){
     const q=$('#search').value.trim().toLowerCase(),d=$('#district').value;
@@ -172,7 +173,7 @@
   }
   function updateURL(){
     const q=new URLSearchParams(location.search);
-    q.set('area',area);q.set('saving',saving);
+    q.set('area',area);q.set('annual',Math.round(saving));q.delete('saving');
     history.replaceState(null,'','?'+q.toString())
   }
   function setView(v,animate=false){
@@ -198,7 +199,7 @@
     selectedId=c.id;
     document.querySelectorAll('.community-marker').forEach(n=>n.classList.toggle('selected',n.dataset.id===c.id));
     const y=years(c),total=c.unit_price*area;
-    $('#mapPopup').innerHTML=`<button class="close" aria-label="关闭">×</button><h3>${esc(c.name)}</h3><div class="popgrid"><span>折算年数</span><b style="color:${color(y)}">${y.toFixed(1)} 年</b><span>参考单价</span><b>¥${fmt(c.unit_price)}/㎡</b><span>假设面积</span><b>${area}㎡</b><span>估算总价</span><b>¥${(total/10000).toFixed(0)}万</b><span>每月储蓄</span><b>¥${fmt(saving)}</b><span>数据期</span><b class="${ageClass(c)}">${esc(c.price_period||'未知')}</b><span>区域</span><b>${esc(c.district||'')} · ${esc(c.subdistrict||'')}</b></div>${c.source_url?`<a href="${encodeURI(c.source_url)}" target="_blank" rel="noopener noreferrer">查看价格来源 ↗</a>`:''}`;
+    $('#mapPopup').innerHTML=`<button class="close" aria-label="关闭">×</button><h3>${esc(c.name)}</h3><div class="popgrid"><span>折算年数</span><b style="color:${color(y)}">${y.toFixed(1)} 年</b><span>参考单价</span><b>¥${fmt(c.unit_price)}/㎡</b><span>假设面积</span><b>${area}㎡</b><span>估算总价</span><b>¥${(total/10000).toFixed(0)}万</b><span>每年储蓄</span><b>¥${fmt(saving)}</b><span>数据期</span><b class="${ageClass(c)}">${esc(c.price_period||'未知')}</b><span>区域</span><b>${esc(c.district||'')} · ${esc(c.subdistrict||'')}</b></div>${c.source_url?`<a href="${encodeURI(c.source_url)}" target="_blank" rel="noopener noreferrer">查看价格来源 ↗</a>`:''}`;
     $('#mapPopup').hidden=false;
     $('#mapPopup .close').onclick=()=>{selectedId=null;$('#mapPopup').hidden=true;document.querySelectorAll('.community-marker').forEach(n=>n.classList.remove('selected'))}
   }
@@ -231,7 +232,7 @@
   function render(){
     updateURL();
     $('#savingOut').textContent='¥'+fmt(saving);
-    $('#annualSaving').textContent=(saving*12/10000).toFixed(1)+' 万';
+    $('#annualSaving').textContent=(saving/10000).toFixed(1)+' 万';
     $('#areaOut').textContent=area+'㎡';$('#areaMeta').textContent=area+'㎡';
     const rows=filters().sort((a,b)=>years(a)-years(b));
     $('#countMeta').textContent=rows.length+' 小区';$('#sortMeta').textContent=rows.length+' 个已定位';
@@ -250,7 +251,7 @@
   drawBase();
   setView(homeView);
 
-  $('#saving').addEventListener('input',e=>{saving=Math.max(500,Number(e.target.value)||5000);render()});
+  $('#saving').addEventListener('input',e=>{saving=Math.max(10000,Number(e.target.value)||100000);render()});
   preset.forEach(b=>b.onclick=()=>{area=Number(b.dataset.v);preset.forEach(x=>x.classList.toggle('active',x===b));render()});
   $('#search').oninput=render;$('#district').onchange=render;
   $('#zoomIn').onclick=()=>zoomAt(.78);
