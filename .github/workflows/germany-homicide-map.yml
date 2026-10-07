@@ -63,6 +63,14 @@ jobs:
       - name: Validate Berlin official heatmap
         run: python dao-radar/site/germany-homicide-map/scripts/validate_berlin_heatmap.py
 
+      - name: Refresh annual official violence background layers
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: python dao-radar/site/germany-homicide-map/scripts/update_official_crime_layers.py
+
+      - name: Validate annual official violence background layers
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: python dao-radar/site/germany-homicide-map/scripts/validate_official_crime_layers.py
+
       - name: Commit refreshed data
         id: save
         if: github.event_name != 'pull_request'
