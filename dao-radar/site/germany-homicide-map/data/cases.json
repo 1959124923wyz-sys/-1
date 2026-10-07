@@ -1,11 +1,11 @@
 {
   "meta": {
-    "generated_at": "2026-10-07T02:37:24Z",
+    "generated_at": "2026-10-07T03:00:16Z",
     "window_days": 30,
     "scope": "Germany",
-    "case_count": 19,
-    "geocoded_count": 0,
-    "method": "Manually verified seed set plus automated monitoring of public police RSS sources; strict death+homicide filter.",
+    "case_count": 20,
+    "geocoded_count": 20,
+    "method": "Verified seed set plus automated monitoring of public police RSS sources; strict death+homicide filter.",
     "disclaimer": "Public-source monitor, not an official or exhaustive crime register. Locations reflect the most precise place publicly reported; Fundort means body-discovery location and may not be the crime scene."
   },
   "cases": [
@@ -24,9 +24,10 @@
       "summary": "A missing 46-year-old woman was found dead in a wooded area; her husband was detained on urgent suspicion of homicide. The mapped point is the discovery area, not necessarily the crime scene.",
       "source_agency": "Polizei Bonn",
       "source_url": "https://www.presseportal.de/blaulicht/pm/7304/6363362",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "discovery_date"
+      "lat": 50.6922459,
+      "lon": 6.6472694,
+      "date_confidence": "discovery_date",
+      "geocode_precision": "city/area"
     },
     {
       "id": "2026-10-01-bruchsal-heidelsheim",
@@ -43,9 +44,10 @@
       "summary": "A 63-year-old woman died at a residential address in Heidelsheim; her son was treated as the suspect.",
       "source_agency": "Polizeipräsidium Karlsruhe / Staatsanwaltschaft Karlsruhe",
       "source_url": "https://www.presseportal.de/blaulicht/pm/110972/6363036",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 49.1007969,
+      "lon": 8.645121,
+      "date_confidence": "high",
+      "geocode_precision": "district"
     },
     {
       "id": "2026-09-28-marl-karlstrasse",
@@ -62,9 +64,10 @@
       "summary": "A 39-year-old man was fatally shot in a tea room; a homicide commission was established.",
       "source_agency": "Polizeipräsidium Recklinghausen / Staatsanwaltschaft Essen",
       "source_url": "https://www.presseportal.de/blaulicht/pm/42900/6360231",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 51.6650372,
+      "lon": 7.1336861,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-09-28-berlin-tegeler-see",
@@ -81,9 +84,10 @@
       "summary": "A body recovered from Tegeler See showed findings consistent with suspected homicide; the lake is the discovery location, not necessarily the crime scene.",
       "source_agency": "Polizei Berlin / Staatsanwaltschaft Berlin",
       "source_url": "https://www.berlin.de/polizei/polizeimeldungen/2026/pressemitteilung.1719543.php",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "discovery_date"
+      "lat": 52.574558,
+      "lon": 13.2550024,
+      "date_confidence": "discovery_date",
+      "geocode_precision": "area"
     },
     {
       "id": "2026-09-26-obertshausen",
@@ -100,9 +104,10 @@
       "summary": "A 51-year-old woman died in a residential house; her husband was treated as the suspect in a homicide investigation.",
       "source_agency": "Polizeipräsidium Südosthessen",
       "source_url": "https://www.presseportal.de/blaulicht/pm/43561/6359834",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 50.0731304,
+      "lon": 8.8732839,
+      "date_confidence": "high",
+      "geocode_precision": "city"
     },
     {
       "id": "2026-09-26-duesseldorf-flingern",
@@ -119,9 +124,10 @@
       "summary": "A 53-year-old man died one day after a stabbing; prosecutors classify the case as manslaughter.",
       "source_agency": "Polizei Düsseldorf / Staatsanwaltschaft Düsseldorf",
       "source_url": "https://www.presseportal.de/blaulicht/pm/13248/6364988",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 51.2236269,
+      "lon": 6.7964472,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-09-25-delmenhorst-graftanlagen",
@@ -138,9 +144,10 @@
       "summary": "A 25-year-old man with severe cut injuries later died in hospital; a homicide commission is investigating suspected manslaughter.",
       "source_agency": "Polizeiinspektion Delmenhorst / Oldenburg-Land / Wesermarsch",
       "source_url": "https://www.presseportal.de/blaulicht/pm/68438/6360749",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 53.0408246,
+      "lon": 8.6208271,
+      "date_confidence": "high",
+      "geocode_precision": "area"
     },
     {
       "id": "2026-09-24-wadern-lockweiler",
@@ -157,9 +164,10 @@
       "summary": "A 45-year-old woman died after a violent incident in Lockweiler; a 19-year-old was urgently suspected of killing her.",
       "source_agency": "Landespolizeipräsidium Saarland",
       "source_url": "https://www.presseportal.de/blaulicht/pm/120462/6358992",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 49.5303883,
+      "lon": 6.9189473,
+      "date_confidence": "high",
+      "geocode_precision": "district"
     },
     {
       "id": "2026-09-23-coesfeld-grimpingstrasse",
@@ -176,9 +184,10 @@
       "summary": "A 36-year-old woman died after a knife attack at communal accommodation; the detained suspect was later accused of murder.",
       "source_agency": "Polizei Münster / Staatsanwaltschaft Münster",
       "source_url": "https://www.presseportal.de/blaulicht/pm/11187/6359260",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 51.9363169,
+      "lon": 7.1704612,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-09-22-hagen-im-bremischen-amtsdamm",
@@ -195,9 +204,10 @@
       "summary": "A victim attacked on Amtsdamm later died; police upgraded the investigation to a completed homicide.",
       "source_agency": "Polizeiinspektion Cuxhaven",
       "source_url": "https://www.presseportal.de/blaulicht/pm/68437/6363325",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 53.3595339,
+      "lon": 8.6546469,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-09-19-marsberg",
@@ -214,9 +224,30 @@
       "summary": "Police investigated a fatal incident in Marsberg as a homicide/manslaughter case; two men were treated as urgent suspects.",
       "source_agency": "Polizei Dortmund / Staatsanwaltschaft Arnsberg",
       "source_url": "https://www.presseportal.de/blaulicht/pm/4971/6356925",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 51.4602168,
+      "lon": 8.8552071,
+      "date_confidence": "high",
+      "geocode_precision": "city"
+    },
+    {
+      "id": "2026-09-19-257a0fcd93",
+      "event_date": "2026-09-19",
+      "publication_date": "2026-10-07",
+      "city": "Dietzenbach",
+      "state": "Hessen",
+      "location": "Hessisches Landeskriminalamt - Pressestelle - Hölderlinstraße",
+      "geocode_address": "Hessisches Landeskriminalamt - Pressestelle - Hölderlinstraße, Dietzenbach, Germany",
+      "precision": "street",
+      "location_type": "Tatort/Reported location",
+      "status": "suspected",
+      "offense": "Tötungsdelikt",
+      "summary": "Public police release reports a fatal suspected homicide: Tötungsdelikt in Dietzenbach",
+      "source_agency": "Polizei Hessen",
+      "source_url": "https://www.polizei.hessen.de/node/8067",
+      "lat": 50.0171926,
+      "lon": 8.784277,
+      "date_confidence": "medium",
+      "geocode_precision": "city-fallback"
     },
     {
       "id": "2026-09-19-bad-berka",
@@ -233,9 +264,10 @@
       "summary": "A 32-year-old woman died after a violent incident at a residence; police reported concrete indications of a homicide.",
       "source_agency": "Landespolizeiinspektion Jena",
       "source_url": "https://www.presseportal.de/blaulicht/pm/126722/6356830",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 50.8845519,
+      "lon": 11.2737429,
+      "date_confidence": "high",
+      "geocode_precision": "city"
     },
     {
       "id": "2026-09-18-nuernberg-rothenburger-strasse",
@@ -252,9 +284,10 @@
       "summary": "A 45-year-old woman was found dead in an apartment with indications that she had been killed; homicide investigators opened a case.",
       "source_agency": "Polizeipräsidium Mittelfranken",
       "source_url": "https://www.presseportal.de/blaulicht/pm/6013/6354926",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 49.444406,
+      "lon": 11.055062,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-09-18-darmstadt-otto-roehm-strasse",
@@ -271,9 +304,10 @@
       "summary": "A 68-year-old man died after a stabbing at communal accommodation; a suspect was detained on suspicion of manslaughter.",
       "source_agency": "Polizeipräsidium Südhessen",
       "source_url": "https://www.presseportal.de/blaulicht/pm/4969/6355694",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 49.8899657,
+      "lon": 8.6416802,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-09-17-hamburg-barmbek-sued",
@@ -290,9 +324,10 @@
       "summary": "A woman was found dead in an apartment; homicide investigators treated her husband as the suspect.",
       "source_agency": "Polizei Hamburg",
       "source_url": "https://www.presseportal.de/blaulicht/pm/6337/6354002",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 53.5754581,
+      "lon": 10.0445108,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-09-14-dietzenbach",
@@ -309,9 +344,10 @@
       "summary": "A 60-year-old man was killed by gunfire; homicide investigators took over the case.",
       "source_agency": "Polizeipräsidium Südosthessen",
       "source_url": "https://webapi.polizei.hessen.de/meldungen/toetungsdelikt-in-dietzenbach",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 50.0171926,
+      "lon": 8.784277,
+      "date_confidence": "high",
+      "geocode_precision": "city"
     },
     {
       "id": "2026-09-09-ratzeburg-bahnhofsallee",
@@ -328,9 +364,10 @@
       "summary": "A woman was fatally attacked with a knife in a supermarket; police and prosecutors opened a manslaughter investigation.",
       "source_agency": "Polizeidirektion Lübeck",
       "source_url": "https://www.presseportal.de/blaulicht/pm/43738/6349626",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 53.6995354,
+      "lon": 10.7493799,
+      "date_confidence": "high",
+      "geocode_precision": "street"
     },
     {
       "id": "2026-09-08-freiburg-rieselfeld",
@@ -347,9 +384,10 @@
       "summary": "A 74-year-old man died after a knife/sharp-force attack; investigators treated the case as a completed homicide.",
       "source_agency": "Polizeipräsidium Freiburg",
       "source_url": "https://www.presseportal.de/blaulicht/pm/110970/6351677",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 47.9960901,
+      "lon": 7.8494005,
+      "date_confidence": "high",
+      "geocode_precision": "city-fallback"
     },
     {
       "id": "2026-09-07-berlin-neukoelln-planetenstrasse-sonnenallee",
@@ -366,9 +404,10 @@
       "summary": "A 27-year-old man was fatally shot at Planetenstraße/Sonnenallee; Berlin police homicide investigators and prosecutors opened a homicide investigation.",
       "source_agency": "Polizei Berlin / Staatsanwaltschaft Berlin",
       "source_url": "https://www.berlin.de/polizei/polizeimeldungen/2026/pressemitteilung.1710956.php",
-      "lat": null,
-      "lon": null,
-      "date_confidence": "high"
+      "lat": 52.5173885,
+      "lon": 13.3951309,
+      "date_confidence": "high",
+      "geocode_precision": "city-fallback"
     }
   ]
 }

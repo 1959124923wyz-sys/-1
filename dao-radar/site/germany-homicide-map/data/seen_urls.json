@@ -1,1 +1,27 @@
-{}
+{
+  "https://www.polizei.hessen.de/node/8264": {
+    "seen_at": "2026-10-07T02:54:33.728662+00:00",
+    "final": true,
+    "included": false
+  },
+  "https://www.polizei.hessen.de/node/8067": {
+    "seen_at": "2026-10-07T02:54:34.026975+00:00",
+    "final": true,
+    "included": true
+  },
+  "https://www.polizei.hessen.de/node/7244": {
+    "seen_at": "2026-10-07T02:54:34.259503+00:00",
+    "final": true,
+    "included": false
+  },
+  "https://www.berlin.de/polizei/polizeimeldungen/2026/pressemitteilung.1721932.php": {
+    "seen_at": "2026-10-07T02:54:34.869509+00:00",
+    "final": true,
+    "included": false
+  },
+  "https://www.berlin.de/polizei/polizeimeldungen/2025/pressemitteilung.1624068.php": {
+    "seen_at": "2026-10-07T02:54:34.995127+00:00",
+    "final": true,
+    "included": false
+  }
+}

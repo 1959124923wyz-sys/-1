@@ -1,1 +1,272 @@
-{}
+{
+  "Zülpich, Nordrhein-Westfalen, Germany": {
+    "lat": 50.6922459,
+    "lon": 6.6472694,
+    "address": {
+      "town": "Zülpich",
+      "county": "Kreis Euskirchen",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "53909",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Heidelsheim, Bruchsal, Germany": {
+    "lat": 49.1007969,
+    "lon": 8.645121,
+    "address": {
+      "village": "Heidelsheim",
+      "town": "Bruchsal",
+      "municipality": "VVG der Stadt Bruchsal",
+      "county": "Landkreis Karlsruhe",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Karlstraße, Marl, Germany": {
+    "lat": 51.6650372,
+    "lon": 7.1336861,
+    "address": {
+      "road": "Karlstraße",
+      "suburb": "Hüls-Süd",
+      "town": "Marl",
+      "county": "Kreis Recklinghausen",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "45772",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Tegeler See, Berlin, Germany": {
+    "lat": 52.574558,
+    "lon": 13.2550024,
+    "address": {
+      "lake": "Tegeler See",
+      "borough": "Reinickendorf",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Obertshausen, Hessen, Germany": {
+    "lat": 50.0731304,
+    "lon": 8.8732839,
+    "address": {
+      "municipality": "Obertshausen",
+      "county": "Landkreis Offenbach",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "63179",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Erkrather Straße, Düsseldorf, Germany": {
+    "lat": 51.2236269,
+    "lon": 6.7964472,
+    "address": {
+      "road": "Erkrather Straße",
+      "suburb": "Stadtmitte",
+      "city_district": "Stadtbezirk 1",
+      "city": "Düsseldorf",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "40210",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Graftanlagen, Delmenhorst, Germany": {
+    "lat": 53.0408246,
+    "lon": 8.6208271,
+    "address": {
+      "park": "Graftanlagen",
+      "town": "Delmenhorst",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Lockweiler, Wadern, Saarland, Germany": {
+    "lat": 49.5303883,
+    "lon": 6.9189473,
+    "address": {
+      "city_district": "Lockweiler",
+      "town": "Wadern",
+      "county": "Landkreis Merzig-Wadern",
+      "state": "Saarland",
+      "ISO3166-2-lvl4": "DE-SL",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Grimpingstraße, Coesfeld, Germany": {
+    "lat": 51.9363169,
+    "lon": 7.1704612,
+    "address": {
+      "road": "Grimpingstraße",
+      "town": "Coesfeld",
+      "county": "Kreis Coesfeld",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "48653",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Amtsdamm, Hagen im Bremischen, Germany": {
+    "lat": 53.3595339,
+    "lon": 8.6546469,
+    "address": {
+      "road": "Amtsdamm",
+      "town": "Hagen",
+      "county": "Landkreis Cuxhaven",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "27628",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Marsberg, Nordrhein-Westfalen, Germany": {
+    "lat": 51.4602168,
+    "lon": 8.8552071,
+    "address": {
+      "town": "Marsberg",
+      "county": "Hochsauerlandkreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "34431",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bad Berka, Thüringen, Germany": {
+    "lat": 50.8845519,
+    "lon": 11.2737429,
+    "address": {
+      "city": "Bad Berka",
+      "county": "Landkreis Weimarer Land",
+      "state": "Thüringen",
+      "ISO3166-2-lvl4": "DE-TH",
+      "postcode": "99438",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Rothenburger Straße, Nürnberg, Germany": {
+    "lat": 49.444406,
+    "lon": 11.055062,
+    "address": {
+      "railway": "Rothenburger Straße",
+      "road": "Frankenschnellweg",
+      "neighbourhood": "St. Leonhard",
+      "suburb": "Weiterer Innenstadtgürtel West/Nord/Ost",
+      "city": "Nürnberg",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "90439",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Otto-Röhm-Straße, Darmstadt, Germany": {
+    "lat": 49.8899657,
+    "lon": 8.6416802,
+    "address": {
+      "road": "Otto-Röhm-Straße",
+      "suburb": "Darmstadt-Nord",
+      "city": "Darmstadt",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "64293",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Von-Essen-Straße, Hamburg, Germany": {
+    "lat": 53.5754581,
+    "lon": 10.0445108,
+    "address": {
+      "road": "Von-Essen-Straße",
+      "suburb": "Barmbek-Süd",
+      "city_district": "Hamburg-Nord",
+      "city": "Hamburg",
+      "ISO3166-2-lvl4": "DE-HH",
+      "postcode": "22081",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Dietzenbach, Hessen, Germany": {
+    "lat": 50.0171926,
+    "lon": 8.784277,
+    "address": {
+      "town": "Dietzenbach",
+      "county": "Landkreis Offenbach",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "63128",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bahnhofsallee, Ratzeburg, Germany": {
+    "lat": 53.6995354,
+    "lon": 10.7493799,
+    "address": {
+      "road": "Bahnhofsallee",
+      "suburb": "Sankt Georgsberg",
+      "town": "Ratzeburg",
+      "county": "Kreis Herzogtum Lauenburg",
+      "state": "Schleswig-Holstein",
+      "ISO3166-2-lvl4": "DE-SH",
+      "postcode": "23909",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Willy-Brandt-Allee / Carl-von-Ossietzky-Straße, Freiburg im Breisgau, Germany": null,
+  "Freiburg im Breisgau, Germany": {
+    "lat": 47.9960901,
+    "lon": 7.8494005,
+    "address": {
+      "city": "Freiburg im Breisgau",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Planetenstraße Ecke Sonnenallee, Berlin, Germany": null,
+  "Berlin, Germany": {
+    "lat": 52.5173885,
+    "lon": 13.3951309,
+    "address": {
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hessisches Landeskriminalamt - Pressestelle - Hölderlinstraße, Dietzenbach, Germany": null,
+  "Dietzenbach, Germany": {
+    "lat": 50.0171926,
+    "lon": 8.784277,
+    "address": {
+      "town": "Dietzenbach",
+      "county": "Landkreis Offenbach",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "63128",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  }
+}
