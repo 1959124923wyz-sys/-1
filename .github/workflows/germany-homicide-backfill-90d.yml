@@ -1,10 +1,11 @@
-name: Backfill Germany homicide map to 90 days
+name: Finalize Germany homicide map 90-day data
 
 on:
   push:
     branches: [expand-germany-homicide-90d]
     paths:
-      - 'dao-radar/site/germany-homicide-map/scripts/backfill_90d.py'
+      - 'dao-radar/site/germany-homicide-map/data/cases.json'
+      - 'dao-radar/site/germany-homicide-map/scripts/update_cases.py'
       - '.github/workflows/germany-homicide-backfill-90d.yml'
   workflow_dispatch:
 
@@ -12,13 +13,13 @@ permissions:
   contents: write
 
 concurrency:
-  group: germany-homicide-backfill-90d
+  group: germany-homicide-finalize-90d
   cancel-in-progress: true
 
 jobs:
-  backfill:
+  finalize:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 25
     steps:
       - name: Checkout branch
         uses: actions/checkout@v6
@@ -31,19 +32,19 @@ jobs:
       - name: Install dependencies
         run: pip install -r dao-radar/site/germany-homicide-map/requirements.txt
 
-      - name: Backfill 90 days
+      - name: Geocode and validate rolling 90-day data
         env:
           APP_CONTACT: https://github.com/1959124923wyz-sys/-1
-        run: python dao-radar/site/germany-homicide-map/scripts/backfill_90d.py
+        run: python dao-radar/site/germany-homicide-map/scripts/update_cases.py
 
-      - name: Commit historical data
+      - name: Commit normalized data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add dao-radar/site/germany-homicide-map/data/
           if ! git diff --cached --quiet; then
-            git commit -m "data: backfill Germany homicide map to 90 days"
+            git commit -m "data: finalize geocoded 90-day Germany homicide set"
             git push
           else
-            echo "No historical data changes"
+            echo "No data changes"
           fi
