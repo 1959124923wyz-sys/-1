@@ -10,10 +10,6 @@ on:
       - '.github/workflows/germany-homicide-map.yml'
       - 'dao-radar/site/germany-homicide-map/scripts/**'
       - 'dao-radar/site/germany-homicide-map/requirements.txt'
-  pull_request:
-    paths:
-      - '.github/workflows/germany-homicide-map.yml'
-      - 'dao-radar/site/germany-homicide-map/**'
 
 permissions:
   contents: write
