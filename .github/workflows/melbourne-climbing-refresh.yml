@@ -1,12 +1,15 @@
-name: Melbourne climbing map refresh
+name: Melbourne climbing map daily refresh
 
 on:
   workflow_dispatch:
   schedule:
+    # Run exactly once per day.
+    # 21:17 UTC = 08:17 Melbourne during AEDT / 07:17 during AEST.
     - cron: "17 21 * * *"
   push:
     branches: [main]
     paths:
+      - "dao-radar/site/melbourne-climbing-map/index.html"
       - "dao-radar/site/melbourne-climbing-map/data/seed.json"
       - "dao-radar/site/melbourne-climbing-map/scripts/update_gyms.py"
       - ".github/workflows/melbourne-climbing-refresh.yml"
@@ -31,12 +34,14 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Refresh geocodes, source health and OSM candidates
+      - name: Daily refresh of gym data and source checks
         working-directory: dao-radar/site/melbourne-climbing-map
         run: python scripts/update_gyms.py
 
-      - name: Commit generated data
+      - name: Commit refreshed map data
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name "melbourne-climbing-map-bot"
           git config user.email "actions@users.noreply.github.com"
           git add dao-radar/site/melbourne-climbing-map/data/gyms.json \
@@ -46,6 +51,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated data changes."
           else
-            git commit -m "data: refresh Melbourne climbing map"
+            git commit -m "data: daily refresh Melbourne climbing map"
+            git pull --rebase origin main
             git push
           fi
