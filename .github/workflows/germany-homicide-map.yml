@@ -58,4 +58,4 @@ jobs:
             echo "No map data changes"
           fi
 
-# validation: follow-up/date/location guards v2
+# validation: no-op stability v3
