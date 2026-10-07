@@ -67,11 +67,12 @@ def parse_csv(content:bytes):
     text=decode_bytes(content).replace("\x00","")
     sample=text[:20000]
     try:
-        dialect=csv.Sniffer().sniff(sample,delimiters=";,\t")
+        dialect=csv.Sniffer().sniff(sample,delimiters=";,|\t")
         delim=dialect.delimiter
     except Exception:
         # Berlin police CSV exports are commonly comma-separated.
-        delim="," if sample.count(",")>=sample.count(";") else ";"
+        counts={d:sample.count(d) for d in (",",";","|","\t")}
+        delim=max(counts,key=counts.get)
     reader=csv.DictReader(io.StringIO(text),delimiter=delim)
     rows=list(reader)
     headers=reader.fieldnames or []
