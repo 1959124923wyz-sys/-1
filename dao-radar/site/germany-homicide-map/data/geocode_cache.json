@@ -7789,5 +7789,19 @@
       "country": "Deutschland",
       "country_code": "de"
     }
+  },
+  "Schloss-Wolfsbrunnenweg, Heidelberg, Germany": {
+    "lat": 49.413346,
+    "lon": 8.7405526,
+    "address": {
+      "road": "Schloss-Wolfsbrunnenweg",
+      "suburb": "Schlierbach",
+      "city": "Heidelberg",
+      "state": "Baden-Württemberg",
+      "ISO3166-2-lvl4": "DE-BW",
+      "postcode": "69118",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
   }
 }

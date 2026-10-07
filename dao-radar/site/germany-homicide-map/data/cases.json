@@ -1,16 +1,16 @@
 {
   "meta": {
-    "generated_at": "2026-10-07T09:32:47Z",
+    "generated_at": "2026-10-07T09:56:58Z",
     "window_days": 90,
     "scope": "Germany",
-    "case_count": 579,
-    "geocoded_count": 579,
+    "case_count": 580,
+    "geocoded_count": 580,
     "category_counts": {
       "homicide": 42,
       "violence": 73,
       "robbery": 79,
       "sexual": 7,
-      "property": 378
+      "property": 379
     },
     "schema_version": 4,
     "coverage_note": "Public-source monitor. Includes targeted Presseportal police releases plus direct Polizei Berlin archive coverage. Sexual-crime locations are privacy-reduced.",
@@ -114,6 +114,31 @@
       "source_url": "https://www.presseportal.de/blaulicht/pm/11530/6366397",
       "lat": 51.5385854,
       "lon": 7.2651829,
+      "date_confidence": "high",
+      "privacy_protected": false,
+      "geocode_precision": "street"
+    },
+    {
+      "id": "2026-10-06-property-af2d5223a3",
+      "event_date": "2026-10-06",
+      "publication_date": "2026-10-07",
+      "city": "Heidelberg",
+      "state": "Baden-Württemberg",
+      "location": "Schloss-Wolfsbrunnenweg",
+      "geocode_address": "Schloss-Wolfsbrunnenweg, Heidelberg, Germany",
+      "precision": "street",
+      "location_type": "Tatort / reported location",
+      "status": "confirmed",
+      "offense": "Wohnungseinbruch",
+      "subcategory": "Wohnungseinbruch",
+      "category": "property",
+      "category_label": "盗窃/财产犯罪",
+      "severity": 2,
+      "summary": "警方公开通报的Wohnungseinbruch案件：Heidelberg: Versuchter Wohnungseinbruch in Schlierbach - Zeugenaufruf",
+      "source_agency": "Presseportal police release",
+      "source_url": "https://www.presseportal.de/blaulicht/pm/14915/6366614",
+      "lat": 49.413346,
+      "lon": 8.7405526,
       "date_confidence": "high",
       "privacy_protected": false,
       "geocode_precision": "street"
