@@ -51,18 +51,40 @@ def pubdate(entry):
         if st:return datetime(*st[:6],tzinfo=timezone.utc)
         return datetime.now(timezone.utc)
 def event_date(text,published,today):
-    m=re.search(r"Tatzeit:\s*(?:\w+,\s*)?(\d{1,2})\.\s*([A-Za-zÄÖÜäöü]+)\s+(20\d{2})",text,re.I)
+    # Prefer an explicitly labelled Tatzeit.
+    m=re.search(r"Tatzeit:\\s*(?:\\w+,\\s*)?(\\d{1,2})\\.\\s*([A-Za-zÄÖÜäöü]+)\\s+(20\\d{2})",text,re.I)
     if m:
-        mm=MONTHS.get(m.group(2).lower().replace("ä","ae"))
+        mm=MONTHS.get(m.group(2).lower()) or MONTHS.get(m.group(2).lower().replace("ä","ae"))
         if mm:
             try:return date(int(m.group(3)),mm,int(m.group(1))),"high"
             except ValueError:pass
-    ds=[]
-    for d,m,y in NUMDATE.findall(text):
-        try:x=date(int(y),int(m),int(d))
+
+    # Follow-up releases often contain their publication date plus the older incident
+    # date. Score dates by nearby homicide language so an arrest/update date does not
+    # become a second incident.
+    candidates=[]
+    def add_candidate(x,start,end):
+        if not (0 <= (published.date()-x).days <= 45): return
+        ctx=text[max(0,start-220):min(len(text),end+260)]
+        score=0
+        if re.search(r"Tatzeit|Tatort",ctx,re.I): score+=8
+        if re.search(r"getötet|tödlich|verstarb|verstorben|\\bstarb\\b|erschossen|erstochen|Tötungsdelikt|Totschlag|\\bMord\\b",ctx,re.I): score+=5
+        if re.search(r"festgenommen|Festnahme|Haft|Haftrichter|Untersuchungshaft|Folgemeldung|Nachtrag",ctx,re.I): score-=2
+        candidates.append((score,x))
+    for m in NUMDATE.finditer(text):
+        try:x=date(int(m.group(3)),int(m.group(2)),int(m.group(1)))
         except ValueError:continue
-        if 0 <= (published.date()-x).days <= 45: ds.append(x)
-    return (max(ds),"medium") if ds else (published.date(),"publication_date")
+        add_candidate(x,m.start(),m.end())
+    for m in TEXTDATE.finditer(text):
+        mm=MONTHS.get(m.group(2).lower()) or MONTHS.get(m.group(2).lower().replace("ä","ae"))
+        if not mm:continue
+        try:x=date(int(m.group(3) or published.year),mm,int(m.group(1)))
+        except ValueError:continue
+        add_candidate(x,m.start(),m.end())
+    if candidates:
+        score,x=max(candidates,key=lambda z:(z[0],z[1]))
+        return x,("high" if score>=5 else "medium")
+    return published.date(),"publication_date"
 def city_for(title,desc,body,url):
     if "berlin.de" in url:return "Berlin"
     for s in (desc,body[:700]):
@@ -73,11 +95,13 @@ def city_for(title,desc,body,url):
     m=re.search(r"(?:Tötungsdelikt|Totschlag|Mord|Tötung)[^\n]{0,50}?\bin\s+([A-ZÄÖÜ][A-Za-zÄÖÜäöüß\- ]{2,45}?)(?:\s*[-–:]|$)",title,re.I)
     return m.group(1).strip() if m else ""
 def location_for(body,city):
-    m=re.search(r"Tatort:\s*([^\n\r<]{3,120})",body,re.I)
+    # Do not geocode press-office/contact addresses at the bottom of releases.
+    core=re.split(r"Rückfragen|Pressekontakt|Pressestelle|Original-Content|Kontakt:",body,maxsplit=1,flags=re.I)[0]
+    m=re.search(r"Tatort:\\s*([^\\n\\r<]{3,120})",core,re.I)
     if m:
-        v=re.split(r"(?:Gestern|Heute|Am\s|Zeit:)",m.group(1))[0].strip(" .,-")
+        v=re.split(r"(?:Gestern|Heute|Am\\s|Zeit:)",m.group(1))[0].strip(" .,-")
         if 2<len(v)<100:return v,f"{v}, {city}, Germany","reported-place"
-    m=STREET.search(body)
+    m=STREET.search(core)
     if m:
         v=m.group(1).strip(); return v,f"{v}, {city}, Germany","street"
     return city,f"{city}, Germany","city"
