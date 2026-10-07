@@ -48,6 +48,18 @@ jobs:
       - name: Install dependencies
         run: pip install -r dao-radar/site/germany-homicide-map/requirements.txt
 
+      - name: Validate inline map JavaScript syntax
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const html=fs.readFileSync('dao-radar/site/germany-homicide-map/index.html','utf8');
+          const blocks=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)]
+            .map(m=>m[1]).filter(x=>x.trim());
+          if(!blocks.length) throw new Error('no inline script found');
+          for(const code of blocks) new Function(code);
+          console.log('Inline JavaScript syntax OK:',blocks.length,'block(s)');
+          NODE
+
       - name: Ensure nationwide 2025 property heatmap data
         run: |
           if [ ! -f dao-radar/site/germany-homicide-map/data/pks_property_2025.json ]; then
