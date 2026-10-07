@@ -82,3 +82,33 @@ for u in dresden_candidates:
         print("DRESDEN_PROBE",rr.status_code,rr.headers.get("content-type"),len(rr.content),rr.url)
         print(rr.text[:1200].replace("\n"," "))
     except Exception as e: print("DRESDEN_PROBE_ERR",repr(e),u)
+
+
+print("\n===== DIRECT GEOMETRY QUERY =====")
+try:
+    u="https://services6.arcgis.com/jiszdsDupTUO3fSM/arcgis/rest/services/Stadtteile_FL_1/FeatureServer/0/query"
+    rr=requests.get(u,headers=H,params={"where":"1=1","outFields":"*","f":"geojson","outSR":"4326"},timeout=90)
+    print("CHEMNITZ_QUERY",rr.status_code,rr.headers.get("content-type"),len(rr.content))
+    jj=rr.json(); print("CHEMNITZ_QUERY features",len(jj.get("features",[])),"sample",(jj.get("features") or [{}])[0].get("properties"))
+except Exception as e: print("CHEMNITZ_QUERY_ERR",repr(e))
+
+try:
+    import xml.etree.ElementTree as ET
+    cap=requests.get("https://kommisdd.dresden.de/net3/public/ogc.ashx",headers=H,params={"NODEID":"188","SERVICE":"WFS","REQUEST":"GetCapabilities"},timeout=90)
+    root=ET.fromstring(cap.content)
+    ns={"wfs":"http://www.opengis.net/wfs/2.0"}
+    names=[]
+    for ft in root.findall(".//wfs:FeatureType",ns):
+        n=ft.findtext("wfs:Name",default="",namespaces=ns);t=ft.findtext("wfs:Title",default="",namespaces=ns)
+        if n: names.append((n,t))
+    print("DRESDEN_TYPES",names)
+    if names:
+        for n,t in names[:4]:
+            rr=requests.get("https://kommisdd.dresden.de/net3/public/ogc.ashx",headers=H,params={
+                "NODEID":"188","SERVICE":"WFS","VERSION":"2.0.0","REQUEST":"GetFeature",
+                "TYPENAMES":n,"COUNT":"3","SRSNAME":"EPSG:4326","OUTPUTFORMAT":"application/json"
+            },timeout=90)
+            print("DRESDEN_GET",n,rr.status_code,rr.headers.get("content-type"),len(rr.content),rr.text[:600].replace("\n"," "))
+            if "json" in (rr.headers.get("content-type") or "").lower():
+                jj=rr.json();print("DRESDEN_SAMPLE",n,(jj.get("features") or [{}])[0].get("properties"))
+except Exception as e: print("DRESDEN_DIRECT_ERR",repr(e))
