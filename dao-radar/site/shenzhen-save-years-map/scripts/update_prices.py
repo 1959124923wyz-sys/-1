@@ -26,7 +26,7 @@ JS = ROOT / "data" / "communities.js"
 COORD_CACHE = ROOT / "data" / "coords_cache.json"
 COORD_BOOTSTRAP_URL = "https://raw.githubusercontent.com/Qixuan5/data_analysis/main/%E5%B0%8F%E5%BE%90_%E6%88%BF%E4%BB%B7%E5%88%86%E6%9E%90/data_clear/%E6%B7%B1%E5%9C%B3_geo.csv"
 FANG_INDEX = "https://sz.esf.fang.com/housing/"
-FANG_PAGE = "https://sz.esf.fang.com/housing/__0_3_0_0_{page}_0_0_0/"
+FANG_PAGE = "https://sz.esf.fang.com/housing/__0_{sort}_0_0_{page}_0_0_0/"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0 Safari/537.36"
 TZ = timezone(timedelta(hours=8))
 CAPTCHA_WORDS = ("验证码", "访问过于频繁", "安全验证", "人机验证", "captcha")
@@ -231,8 +231,9 @@ def merge_discovered(db:dict,rows:list[dict],coords:dict,timestamp:str)->tuple[i
         db["communities"].append(rec); by_name[key]=rec; added+=1
     return added,updated,unmatched
 
-def fang_page_url(page:int)->str:
-    return FANG_INDEX if page<=1 else FANG_PAGE.format(page=page)
+def fang_page_url(page:int, sort_code:int=3)->str:
+    if page<=1 and sort_code==3: return FANG_INDEX
+    return FANG_PAGE.format(sort=sort_code,page=max(1,page))
 
 def write_outputs(db:dict):
     db["communities"].sort(key=lambda x:(x.get("district",""),x.get("subdistrict",""),x.get("name","")))
@@ -242,7 +243,8 @@ def write_outputs(db:dict):
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--discover-pages",type=int,default=25,help="number of deterministic Fang list pages to scan")
-    ap.add_argument("--start-page",type=int,default=0,help="first Fang list page; 0 uses rotating cursor from metadata")
+    ap.add_argument("--start-page",type=int,default=0,help="first Fang list page; 0 uses rotating cursor for default sort")
+    ap.add_argument("--sort-code",type=int,choices=(1,2,3),default=3,help="Fang list sort code; 3=second-hand listing volume, 1/2=price-order variants")
     ap.add_argument("--detail-limit",type=int,default=12,help="max known detail pages to refresh; 0 disables")
     ap.add_argument("--delay",type=float,default=.65,help="delay between public page requests")
     args=ap.parse_args()
@@ -284,13 +286,13 @@ def main():
 
     coords=load_coords(s)
     total_coord_cache=len(coords)
-    start=args.start_page if args.start_page>0 else int(meta.get("discovery_cursor_page") or 1)
+    start=args.start_page if args.start_page>0 else (int(meta.get("discovery_cursor_page") or 1) if args.sort_code==3 else 1)
     start=max(1,min(100,start)); pages=max(0,min(100,args.discover_pages))
     discovered_added=discovered_updated=unmatched=rows_seen=pages_ok=0
     stopped_reason=None
     for offset in range(pages):
         page=((start-1+offset)%100)+1
-        url=fang_page_url(page)
+        url=fang_page_url(page,args.sort_code)
         r=fetch(s,url)
         if not r.text:
             failures.append({"name":"Fang index","url":url,"error":r.error})
@@ -304,6 +306,8 @@ def main():
         if offset<pages-1: time.sleep(args.delay)
 
     next_page=((start-1+max(1,pages_ok))%100)+1
+    if args.sort_code==3:
+        meta["discovery_cursor_page"]=next_page
     meta.update(
         generated_at=timestamp,
         default_annual_savings=100000,
@@ -315,7 +319,7 @@ def main():
         discovery_updated=discovered_updated,
         discovery_unmatched=unmatched,
         coordinate_cache_size=total_coord_cache,
-        discovery_cursor_page=next_page,
+        discovery_sort_code=args.sort_code,
         last_run_failures=len(failures),
         last_run_notes=failures[:25],
         last_run_stopped_reason=stopped_reason,
