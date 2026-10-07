@@ -18,7 +18,7 @@
     areaNote:$('areaNote'),rankList:$('rankList'),
     listTitle:$('listTitle'),list:$('list')
   };
-  const {NATIONAL_VIOLENCE_2025,categories:cats,palettes,propertyMetrics,violenceMetrics}=window.CrimeMapConfig;
+  const {categories:cats,palettes,propertyMetrics,violenceMetrics}=window.CrimeMapConfig;
   const {national:nationalPalette,berlin:berlinPalette,property:propertyPalette,berlinProperty:berlinPropertyPalette}=palettes;
   let mode='violence',caseData=null,pksData=null,propertyData=null,countyGeo=null,berlinViolence=null,heatData=null,stateGeo=null;
   let countyLayer=null,stateLayer=null,selectedCountyLayer=null;
@@ -349,6 +349,7 @@
     map,
     getMode:()=>mode,
     getViolenceMetric:currentViolenceMetric,
+    getPropertyMetric:currentPropertyMetric,
     getCaseData:()=>caseData,
     getViolenceData:()=>berlinViolence,
     getPropertyData:()=>heatData,
