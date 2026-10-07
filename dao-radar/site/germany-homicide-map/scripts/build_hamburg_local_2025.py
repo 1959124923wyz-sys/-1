@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 import io,json,re,zipfile
-from datetime import datetime,timezone
 from pathlib import Path
 import requests
 from pypdf import PdfReader
@@ -176,8 +175,8 @@ if len(matched)<103 or len(features)<99:
 out={
  "type":"FeatureCollection",
  "meta":{
-   "generated_at":datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),
-   "year":2025,"scope":"Hamburg Stadtteile","feature_count":len(features),"stadtteil_count":len(matched),
+    "schema_version":1,
+      "year":2025,"scope":"Hamburg Stadtteile","feature_count":len(features),"stadtteil_count":len(matched),
    "crime_source":"Polizei Hamburg / LKA: Stadtteilatlas PKS 2025",
    "crime_source_url":PDF,
    "geometry_population_source":"Statistikamt Nord / Hamburg Transparenzportal: Regionalstatistische Daten der Stadtteile",
