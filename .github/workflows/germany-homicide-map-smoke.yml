@@ -1,4 +1,4 @@
-name: Germany homicide map UI smoke test
+name: Germany crime map UI smoke test
 
 on:
   pull_request:

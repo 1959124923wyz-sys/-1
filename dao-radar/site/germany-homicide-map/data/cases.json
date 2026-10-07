@@ -6,7 +6,16 @@
     "case_count": 44,
     "geocoded_count": 44,
     "method": "Verified 90-day seed/backfill set plus automated monitoring of public police RSS sources; strict death+homicide filter with follow-up-date and contact-address guards.",
-    "disclaimer": "Public-source monitor, not an official or exhaustive crime register. Locations reflect the most precise place publicly reported; Fundort means body-discovery location and may not be the crime scene."
+    "disclaimer": "Public-source monitor, not an official or exhaustive crime register. Locations reflect the most precise place publicly reported; Fundort means body-discovery location and may not be the crime scene.",
+    "category_counts": {
+      "homicide": 42,
+      "violence": 2,
+      "robbery": 0,
+      "sexual": 0,
+      "property": 0
+    },
+    "schema_version": 2,
+    "coverage_note": "Current dataset includes homicide/suspected homicide and fatal serious violence. Other category controls are reserved for future source coverage; zero does not mean zero crime."
   },
   "cases": [
     {
@@ -27,7 +36,10 @@
       "lat": 50.6922459,
       "lon": 6.6472694,
       "date_confidence": "discovery_date",
-      "geocode_precision": "city/area"
+      "geocode_precision": "city/area",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-10-01-bruchsal-heidelsheim",
@@ -47,7 +59,10 @@
       "lat": 49.1007969,
       "lon": 8.645121,
       "date_confidence": "high",
-      "geocode_precision": "district"
+      "geocode_precision": "district",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-28-marl-karlstrasse",
@@ -67,7 +82,10 @@
       "lat": 51.6650372,
       "lon": 7.1336861,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-28-berlin-tegeler-see",
@@ -87,7 +105,10 @@
       "lat": 52.574558,
       "lon": 13.2550024,
       "date_confidence": "discovery_date",
-      "geocode_precision": "area"
+      "geocode_precision": "area",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-26-obertshausen",
@@ -107,7 +128,10 @@
       "lat": 50.0731304,
       "lon": 8.8732839,
       "date_confidence": "high",
-      "geocode_precision": "city"
+      "geocode_precision": "city",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-26-duesseldorf-flingern",
@@ -127,7 +151,10 @@
       "lat": 51.2236269,
       "lon": 6.7964472,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-25-delmenhorst-graftanlagen",
@@ -147,7 +174,10 @@
       "lat": 53.0408246,
       "lon": 8.6208271,
       "date_confidence": "high",
-      "geocode_precision": "area"
+      "geocode_precision": "area",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-24-wadern-lockweiler",
@@ -167,7 +197,10 @@
       "lat": 49.5303883,
       "lon": 6.9189473,
       "date_confidence": "high",
-      "geocode_precision": "district"
+      "geocode_precision": "district",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-23-coesfeld-grimpingstrasse",
@@ -187,7 +220,10 @@
       "lat": 51.9363169,
       "lon": 7.1704612,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-22-hagen-im-bremischen-amtsdamm",
@@ -207,7 +243,10 @@
       "lat": 53.3595339,
       "lon": 8.6546469,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-19-marsberg",
@@ -227,7 +266,10 @@
       "lat": 51.4602168,
       "lon": 8.8552071,
       "date_confidence": "high",
-      "geocode_precision": "city"
+      "geocode_precision": "city",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-19-bad-berka",
@@ -247,7 +289,10 @@
       "lat": 50.8845519,
       "lon": 11.2737429,
       "date_confidence": "high",
-      "geocode_precision": "city"
+      "geocode_precision": "city",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-18-nuernberg-rothenburger-strasse",
@@ -267,7 +312,10 @@
       "lat": 49.444406,
       "lon": 11.055062,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-18-darmstadt-otto-roehm-strasse",
@@ -287,7 +335,10 @@
       "lat": 49.8899657,
       "lon": 8.6416802,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-17-hamburg-barmbek-sued",
@@ -307,7 +358,10 @@
       "lat": 53.5754581,
       "lon": 10.0445108,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-14-dietzenbach",
@@ -327,7 +381,10 @@
       "lat": 50.0171926,
       "lon": 8.784277,
       "date_confidence": "high",
-      "geocode_precision": "city"
+      "geocode_precision": "city",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-09-ratzeburg-bahnhofsallee",
@@ -347,7 +404,10 @@
       "lat": 53.6995354,
       "lon": 10.7493799,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-08-freiburg-rieselfeld",
@@ -367,7 +427,10 @@
       "lat": 47.9988163,
       "lon": 7.7944331,
       "date_confidence": "high",
-      "geocode_precision": "street/intersection"
+      "geocode_precision": "street/intersection",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-07-berlin-neukoelln-planetenstrasse-sonnenallee",
@@ -387,7 +450,10 @@
       "lat": 52.4686198,
       "lon": 13.4677817,
       "date_confidence": "high",
-      "geocode_precision": "street/intersection"
+      "geocode_precision": "street/intersection",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-09-01-hamburg-st-pauli-lagerstrasse",
@@ -408,7 +474,10 @@
       "lat": 53.5624507,
       "lon": 9.9724259,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-31-hattingen-niederwenigern",
@@ -428,7 +497,10 @@
       "lat": 51.39917,
       "lon": 7.1144871,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-28-billigheim-ingenheim",
@@ -448,7 +520,10 @@
       "lat": 49.1355756,
       "lon": 8.0821264,
       "date_confidence": "high",
-      "geocode_precision": "district"
+      "geocode_precision": "district",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-26-wilhelmshaven-heppenser-strasse",
@@ -468,7 +543,10 @@
       "lat": 53.5300303,
       "lon": 8.1373,
       "date_confidence": "discovery_date",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-22-verden-bahnhofstrasse",
@@ -488,7 +566,10 @@
       "lat": 52.919834,
       "lon": 9.2374052,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-22-hamburg-poppenbuettel",
@@ -508,7 +589,10 @@
       "lat": 53.661737,
       "lon": 10.0912271,
       "date_confidence": "discovery_date",
-      "geocode_precision": "area"
+      "geocode_precision": "area",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-22-dortmund-hoerde",
@@ -528,7 +612,10 @@
       "lat": 51.4884311,
       "lon": 7.4972451,
       "date_confidence": "discovery_date",
-      "geocode_precision": "district"
+      "geocode_precision": "district",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-21-berlin-prenzlauer-berg",
@@ -548,7 +635,10 @@
       "lat": 52.5430569,
       "lon": 13.4281438,
       "date_confidence": "discovery_date",
-      "geocode_precision": "area"
+      "geocode_precision": "area",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-19-hepstedt",
@@ -568,7 +658,10 @@
       "lat": 53.2579813,
       "lon": 9.0854103,
       "date_confidence": "high",
-      "geocode_precision": "city"
+      "geocode_precision": "city",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-18-donauwoerth-hochbruckerstrasse",
@@ -588,7 +681,10 @@
       "lat": 48.7352077,
       "lon": 10.7920614,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-16-ginsheim",
@@ -608,7 +704,10 @@
       "lat": 49.9711057,
       "lon": 8.3484576,
       "date_confidence": "discovery_date",
-      "geocode_precision": "district"
+      "geocode_precision": "district",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-12-rheine-thiestrasse",
@@ -628,7 +727,10 @@
       "lat": 52.2343764,
       "lon": 7.486022,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-11-frankfurt-nied-coventrystrasse",
@@ -648,7 +750,10 @@
       "lat": 50.1018567,
       "lon": 8.5774128,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-09-werther-engerstrasse",
@@ -668,7 +773,10 @@
       "lat": 52.0728211,
       "lon": 8.4115539,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-09-berlin-charlottenburg-hardenbergplatz",
@@ -688,7 +796,10 @@
       "lat": 52.5067049,
       "lon": 13.3328708,
       "date_confidence": "high",
-      "geocode_precision": "square"
+      "geocode_precision": "square",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-08-08-bremen-kirchweg",
@@ -708,7 +819,10 @@
       "lat": 53.0618865,
       "lon": 8.8094746,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "violence",
+      "category_label": "严重暴力",
+      "severity": 4
     },
     {
       "id": "2026-07-31-bad-duerkheim",
@@ -728,7 +842,10 @@
       "lat": 49.4632944,
       "lon": 8.1705063,
       "date_confidence": "high",
-      "geocode_precision": "city"
+      "geocode_precision": "city",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-07-26-rees-hotel",
@@ -748,7 +865,10 @@
       "lat": 51.7581242,
       "lon": 6.3956605,
       "date_confidence": "discovery_date",
-      "geocode_precision": "city"
+      "geocode_precision": "city",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-07-25-hamburg-farmsen-berne",
@@ -768,7 +888,10 @@
       "lat": 53.5501721,
       "lon": 10.0013165,
       "date_confidence": "high",
-      "geocode_precision": "city-fallback"
+      "geocode_precision": "city-fallback",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-07-22-wolfsburg-city-galerie",
@@ -788,7 +911,10 @@
       "lat": 52.4222829,
       "lon": 10.7886292,
       "date_confidence": "high",
-      "geocode_precision": "shopping-centre"
+      "geocode_precision": "shopping-centre",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-07-21-dortmund-wambel",
@@ -808,7 +934,10 @@
       "lat": 51.5204477,
       "lon": 7.5205435,
       "date_confidence": "discovery_date",
-      "geocode_precision": "district"
+      "geocode_precision": "district",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-07-21-berlin-mariendorf",
@@ -828,7 +957,10 @@
       "lat": 52.4389552,
       "lon": 13.3877943,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-07-14-kelkheim-frankfurter-strasse",
@@ -848,7 +980,10 @@
       "lat": 50.1237988,
       "lon": 8.4675907,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-07-12-hamburg-bramfeld",
@@ -868,7 +1003,10 @@
       "lat": 53.6168289,
       "lon": 10.0789221,
       "date_confidence": "discovery_date",
-      "geocode_precision": "district"
+      "geocode_precision": "district",
+      "category": "homicide",
+      "category_label": "凶杀",
+      "severity": 5
     },
     {
       "id": "2026-07-10-hamburg-eidelstedt-nebenbahnstrasse",
@@ -888,7 +1026,10 @@
       "lat": 53.6106004,
       "lon": 9.9039415,
       "date_confidence": "high",
-      "geocode_precision": "street"
+      "geocode_precision": "street",
+      "category": "violence",
+      "category_label": "严重暴力",
+      "severity": 4
     }
   ]
 }

@@ -24,6 +24,8 @@ with sync_playwright() as p:
 
     report=page.evaluate("""() => {
       const data=window.__MAP_SMOKE__.getCaseData();
+      const counts={};
+      for(const c of data.cases) counts[c.category]=(counts[c.category]||0)+1;
       return {
         mode: window.__MAP_SMOKE__.getBasemapMode(),
         states: window.__MAP_SMOKE__.getStateLayer().getLayers().length,
@@ -34,7 +36,14 @@ with sync_playwright() as p:
         mapHeight: document.getElementById('map').getBoundingClientRect().height,
         mapWidth: document.getElementById('map').getBoundingClientRect().width,
         status: document.getElementById('basemapStatus').textContent,
-        title: document.querySelector('h1').textContent
+        title: document.querySelector('h1').textContent,
+        categoryChecks: document.querySelectorAll('.cat-check').length,
+        enabledCategoryChecks: [...document.querySelectorAll('.cat-check')].filter(x=>!x.disabled).length,
+        selectedCategories: window.__MAP_SMOKE__.getSelectedCategories(),
+        categoryCounts: counts,
+        robberyDisabled: document.querySelector('.cat-check[data-category="robbery"]').disabled,
+        sexualDisabled: document.querySelector('.cat-check[data-category="sexual"]').disabled,
+        propertyDisabled: document.querySelector('.cat-check[data-category="property"]').disabled
       };
     }""")
 
@@ -44,12 +53,35 @@ with sync_playwright() as p:
     assert report["cards"]==report["cases"], report
     assert report["geocoded"]==report["cases"], report
     assert report["selectedDays"]=="90", report
-    assert "3个月" in report["title"], report
+    assert "犯罪事件" in report["title"], report
+    assert report["categoryChecks"]==5, report
+    assert report["enabledCategoryChecks"]>=2, report
+    assert "homicide" in report["selectedCategories"], report
+    assert "violence" in report["selectedCategories"], report
+    assert report["categoryCounts"].get("homicide",0)>=1, report
+    assert report["categoryCounts"].get("violence",0)>=1, report
+    assert report["robberyDisabled"] and report["sexualDisabled"] and report["propertyDisabled"], report
     assert report["mapHeight"]>=400 and report["mapWidth"]>=700, report
     assert "本地德国州界底图" in report["status"], report
     assert not page_errors, page_errors
 
+    # Verify category filtering is functional rather than decorative.
+    page.locator('.cat-check[data-category="homicide"]').uncheck()
+    page.wait_for_timeout(200)
+    filtered=page.evaluate("""() => ({
+      visible: window.__MAP_SMOKE__.getVisibleCases().length,
+      cards: document.querySelectorAll('.card').length,
+      selected: window.__MAP_SMOKE__.getSelectedCategories()
+    })""")
+    assert "homicide" not in filtered["selected"], filtered
+    assert filtered["visible"]==report["categoryCounts"]["violence"], (report,filtered)
+    assert filtered["cards"]==filtered["visible"], filtered
+
+    # Restore the default state before the visual artifact is captured.
+    page.locator('.cat-check[data-category="homicide"]').check()
+    page.wait_for_timeout(200)
+
     SHOT.parent.mkdir(parents=True,exist_ok=True)
     page.screenshot(path=str(SHOT),full_page=True)
-    print(json.dumps(report,ensure_ascii=False))
+    print(json.dumps({"initial":report,"filtered":filtered},ensure_ascii=False))
     browser.close()
