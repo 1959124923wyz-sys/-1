@@ -1,0 +1,44 @@
+name: Build Shenzhen transport context
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-shenzhen-transport.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shenzhen-transport-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Build self-hosted transport layer
+        run: python dao-radar/site/shenzhen-save-years-map/scripts/build_transport_context.py
+      - name: Commit transport layer
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dao-radar/site/shenzhen-save-years-map/data/transport_context.*
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "data: add Shenzhen transport context"
+          git pull --rebase origin main
+          git push
