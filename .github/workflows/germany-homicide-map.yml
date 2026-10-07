@@ -76,6 +76,10 @@ jobs:
         run: |
           python dao-radar/site/germany-homicide-map/scripts/build_hamburg_local_2025.py
 
+      - name: Ensure Leipzig 2025 neighborhood layer
+        run: |
+          python dao-radar/site/germany-homicide-map/scripts/build_leipzig_local_2025.py
+
       - name: Refresh homicide data
         env:
           APP_CONTACT: https://github.com/1959124923wyz-sys/-1
