@@ -25,8 +25,8 @@ ROB=re.compile(r"\bRaub\w*|ausgeraubt|überfallen|Überfall|räuberisch",re.I)
 SEX=re.compile(r"Vergewaltig|sexuell\w*\s+(?:Nötigung|Übergriff|Belästigung)|sexueller\s+Übergriff",re.I)
 PROP=re.compile(r"Einbruch|Einbrecher|Diebstahl|gestohlen|entwendet|aufgebrochen|Fahrrad.*(?:weg|gestohlen)|Auto.*(?:aufgebrochen|gestohlen)",re.I)
 VIOL=re.compile(r"Messer|Stich|Schuss|Schüsse|Schusswaffe|lebensgefährlich\s+verletzt|schwer\w*\s+verletzt|Körperverletzung|angegriffen|Angriff",re.I)
-TRAFFIC=re.compile(r"Verkehrsunfall|Unfall|Radfahrer|Fußgänger|E-Scooter|Motorrad",re.I)
-NON_EVENT=re.compile(r"Zeugen gesucht|wer erkennt|Öffentlichkeitsfahndung|Fahndung|Prävention|Statistik|Bilanz|Polizei bittet um Mithilfe",re.I)
+TRAFFIC=re.compile(r"Verkehrsunfall|Unfall|Radfahrer|Fußgänger|E-Scooter|Motorrad|Sturz|Schiffsschraube|BVG-Bus|Linienbus",re.I)
+NON_EVENT=re.compile(r"Zeugen gesucht|Zeuginnen und Zeugen gesucht|wer erkennt|Öffentlichkeitsfahndung|Fahndung|Prävention|Präventionswoche|Experten-Tipps|Einbruchschutz|Statistik|Bilanz|Polizei bittet um Mithilfe|Belohnung ausgelobt|Durchsuchungsmaßnahmen|Durchsuchungsbeschlüsse|Bekämpfung der Schusswaffenkriminalität|BAO Ferrum|EG Telum|Sicherstellung|sichergestellt|Waffenfund|Überprüfung.*Schusswaffe",re.I)
 FATAL=re.compile(r"Tötungsdelikt|Totschlag|Mordkommission|\bMord\b|verstarb|verstorben|tödlich verletzt|tot aufgefunden",re.I)
 
 def load(p,default):
