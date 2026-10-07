@@ -15,24 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Inspect Fang map API configuration
+      - name: Extract Fang map API constants
         shell: python
         run: |
           import requests,re
           h={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/154.0 Safari/537.36","Referer":"https://map.fang.com/"}
-          urls=[
-            "https://static.soufunimg.com/map/ditu/js/modules/vueMap/js/app.js?v=20250820001",
-            "https://static.soufunimg.com/map/ditu/js/modules/vueMap/js/vendor.js?v=20250820001",
-            "https://static.soufunimg.com/map/ditu/js/modules/vueMap/js/manifest.js?v=20250820001"
-          ]
-          for url in urls:
+          for fn in ("app.js","vendor.js","manifest.js"):
+            url=f"https://static.soufunimg.com/map/ditu/js/modules/vueMap/js/{fn}?v=20250820001"
             t=requests.get(url,headers=h,timeout=25).text
-            print("\nFILE",url,"LEN",len(t))
-            for needle in ["API_URL","loupanList","esflist","getBaiduCoord","/ws/api/","mapSpot"]:
-              pos=0
-              count=0
-              while True:
-                i=t.find(needle,pos)
-                if i<0 or count>=15: break
-                print("CTX",needle,repr(t[max(0,i-450):i+850]))
-                pos=i+len(needle);count+=1
+            print("FILE",fn,"LEN",len(t))
+            for pat in [r'API_URL.{0,180}',r'QmSG.{0,1200}',r'ajaxSearch.{0,500}',r'getBaiduCoord.{0,500}',r'/ws/[^"\']{1,180}']:
+              hits=re.findall(pat,t,re.I)
+              for x in hits[:30]: print("MATCH",pat,repr(x))
