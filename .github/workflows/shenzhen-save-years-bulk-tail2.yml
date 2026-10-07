@@ -1,0 +1,45 @@
+name: Shenzhen map bulk tail 2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/shenzhen-save-years-bulk-tail2.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shenzhen-save-years-map-refresh
+  cancel-in-progress: false
+
+jobs:
+  bulk-tail2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: dao-radar/site/shenzhen-save-years-map/requirements.txt
+      - run: pip install -r dao-radar/site/shenzhen-save-years-map/requirements.txt
+      - name: Scan Fang pages 75 through 100
+        run: python dao-radar/site/shenzhen-save-years-map/scripts/update_prices.py --discover-pages 26 --start-page 75 --detail-limit 0 --delay 1.2
+      - name: Run parser tests
+        run: python -m unittest discover -s dao-radar/site/shenzhen-save-years-map/tests -p 'test_*.py'
+      - name: Commit expanded dataset
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- dao-radar/site/shenzhen-save-years-map/data/; then
+            echo "No data changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dao-radar/site/shenzhen-save-years-map/data/
+          git commit -m "data: finish Shenzhen community bulk tail"
+          git pull --rebase origin main
+          git push
