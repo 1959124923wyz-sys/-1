@@ -31,7 +31,8 @@
     .community-marker{cursor:pointer}
     .community-dot{stroke:#fff;stroke-width:2.2;vector-effect:non-scaling-stroke}
     .community-halo{fill:none;stroke:#fff;stroke-width:8;opacity:.06;vector-effect:non-scaling-stroke}
-    .community-tag{pointer-events:none}
+    .community-tag{pointer-events:none;display:none}
+    .city-svg.show-tags .community-tag,.community-marker:hover .community-tag,.community-marker.selected .community-tag{display:block}
     .community-tag-bg{fill:#0f1318;stroke:#5e6874;stroke-width:1;vector-effect:non-scaling-stroke}
     .community-tag-text{fill:#fff;font-size:12px;font-weight:900;text-anchor:middle;dominant-baseline:middle;paint-order:stroke;stroke:#0f1318;stroke-width:2px}
     .community-marker.selected .community-dot{stroke:var(--accent);stroke-width:4}
@@ -92,9 +93,8 @@
   const fmt=n=>new Intl.NumberFormat('zh-CN').format(Math.round(n));
   const qs=new URLSearchParams(location.search);
   let area=Math.max(20,Math.min(300,Number(qs.get('area'))||DATA.meta.default_area_sqm||90));
-  const legacyMonthly=Number(qs.get('saving'))||0;
-  let saving=Math.max(10000,Number(qs.get('annual'))||(legacyMonthly>0&&legacyMonthly<30000?legacyMonthly*12:legacyMonthly)||DATA.meta.default_annual_savings||100000);
-  let selectedId=null;
+  let saving=Math.max(10000,Number(qs.get('annual'))||DATA.meta.default_annual_savings||100000);
+  let selectedId=null,currentRowCount=0;
 
   $('#saving').value=saving;
   const preset=[...document.querySelectorAll('#areaSeg button')];
@@ -183,6 +183,7 @@
     x=Math.max(-160,Math.min(SVG_W-w+160,x));
     y=Math.max(-120,Math.min(SVG_H-h+120,y));
     view={x,y,w,h};
+    svg.classList.toggle('show-tags',currentRowCount<=120||w<620);
     svg.style.transition=animate?'viewBox .18s ease':'none';
     svg.setAttribute('viewBox',`${x} ${y} ${w} ${h}`);
   }
@@ -211,13 +212,14 @@
   }
   function drawMarkers(rows){
     const layer=$('#markerLayer');layer.replaceChildren();
-    const showTags=rows.length<=120;
+    currentRowCount=rows.length;
+    svg.classList.toggle('show-tags',currentRowCount<=120||view.w<620);
     rows.forEach(c=>{
       const [x,y]=project(c.lng,c.lat),yr=years(c),g=el('g',{class:'community-marker','data-id':c.id,transform:`translate(${x} ${y})`});
       const halo=el('circle',{r:12,class:'community-halo'});
       const dot=el('circle',{r:6.5,class:'community-dot',fill:color(yr)});
       g.append(halo,dot);
-      if(showTags){
+      {
         const txt=yr.toFixed(yr<100?1:0)+'年',w=Math.max(42,txt.length*12+12);
         const rect=el('rect',{x:-w/2,y:-35,width:w,height:23,rx:7,ry:7,class:'community-tag-bg'});
         const text=el('text',{x:0,y:-23.5,class:'community-tag-text'});text.textContent=txt;
