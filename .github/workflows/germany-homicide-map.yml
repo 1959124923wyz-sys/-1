@@ -74,25 +74,8 @@ jobs:
             echo "Property heatmap data already present; skip static annual rebuild"
           fi
 
-      - name: Ensure Munich 2025 district layer
-        run: |
-          python dao-radar/site/germany-homicide-map/scripts/build_munich_local_2025.py
-
-      - name: Ensure Hamburg 2025 neighborhood layer
-        run: |
-          python dao-radar/site/germany-homicide-map/scripts/build_hamburg_local_2025.py
-
-      - name: Ensure Leipzig 2025 neighborhood layer
-        run: |
-          python dao-radar/site/germany-homicide-map/scripts/build_leipzig_local_2025.py
-
-      - name: Ensure Chemnitz 2025 neighborhood layer
-        run: |
-          python dao-radar/site/germany-homicide-map/scripts/build_chemnitz_local_2025.py
-
-      - name: Ensure Dresden 2025 neighborhood layer
-        run: |
-          python dao-radar/site/germany-homicide-map/scripts/build_dresden_local_2025.py
+      - name: Build registered city detail layers
+        run: python dao-radar/site/germany-homicide-map/scripts/build_city_layers.py
 
       - name: Validate city detail registry
         run: python dao-radar/site/germany-homicide-map/scripts/validate_city_layers.py
