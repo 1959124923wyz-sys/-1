@@ -151,6 +151,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     sumA:$('sumA'),sumB:$('sumB'),sumC:$('sumC'),sumALabel:$('sumALabel'),sumBLabel:$('sumBLabel'),sumCLabel:$('sumCLabel'),
     listTitle:$('listTitle'),list:$('list')
   };
+  const NATIONAL_VIOLENCE_2025=212335;
   const cats={homicide:{label:'凶杀',color:'#d6534f'},violence:{label:'严重暴力',color:'#df8a45'},robbery:{label:'抢劫',color:'#4f95bd'},sexual:{label:'性犯罪',color:'#9e76c8'},property:{label:'盗窃/财产',color:'#5a82d3'}};
   let mode='violence',caseData=null,pksData=null,countyGeo=null,berlinViolence=null,heatData=null,stateGeo=null;
   let countyLayer=null,berlinLayer=null,heatLayer=null,stateLayer=null;
@@ -304,7 +305,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   }
   function renderSummary(cs){
     if(mode==='violence'){
-      el.sumA.textContent=fmt(pksData?.meta?.county_count||0);el.sumALabel.textContent='BKA PKS县/市';
+      el.sumA.textContent=fmt(NATIONAL_VIOLENCE_2025);el.sumALabel.textContent='BKA 2025全国暴力犯罪';
       el.sumB.textContent=fmt(cs.length);el.sumBLabel.textContent='90天暴力类通报点';
       el.sumC.textContent=fmt(berlinViolence?.meta?.bzr_count||berlinViolence?.meta?.feature_count||0);el.sumCLabel.textContent='柏林Bezirksregion';
       el.listTitle.textContent='近90天暴力类公开通报';
