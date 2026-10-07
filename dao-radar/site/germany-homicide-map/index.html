@@ -251,7 +251,7 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
     const showOfficial=currentMode==='violence'&&el.officialNationalEnabled?.checked&&officialNationalData;
     const st=showOfficial?stateStat(feature):null;
     if(st){
-      return {pane:'statesPane',color:'#6f4c4d',weight:1.05,fillColor:quantileColor(Number(st.hz),nationalValues(),NATIONAL_COLORS),fillOpacity:fallbackMode?.82:.58};
+      return {pane:'statesPane',color:'#6f4c4d',weight:1.05,fillColor:quantileColor(Number(st.hz),nationalValues(),NATIONAL_COLORS),fillOpacity:fallbackMode ? .82 : .58};
     }
     return fallbackMode
       ? {pane:'statesPane',color:'#71899a',weight:1.15,fillColor:'#dce6ed',fillOpacity:.93}
