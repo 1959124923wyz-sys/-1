@@ -3,7 +3,7 @@ name: Germany homicide map updater
 on:
   workflow_dispatch:
   schedule:
-    - cron: "7,27,47 * * * *"
+    - cron: "17 20 * * *"
   push:
     branches: [main]
     paths:
