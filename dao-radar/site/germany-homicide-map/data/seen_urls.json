@@ -23,5 +23,10 @@
     "seen_at": "2026-10-07T03:05:31.915052+00:00",
     "final": true,
     "included": true
+  },
+  "https://www.presseportal.de/blaulicht/pm/169620/6366884": {
+    "seen_at": "2026-10-07T14:11:11.440461+00:00",
+    "final": true,
+    "included": false
   }
 }
