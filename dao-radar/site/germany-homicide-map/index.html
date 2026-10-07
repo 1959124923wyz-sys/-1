@@ -49,6 +49,11 @@ aside{height:100%;min-height:0;overflow:hidden;border-left:1px solid var(--line)
 .cardmeta{font-size:9px;color:var(--muted);margin-top:2px}.cardsum{font-size:10.5px;line-height:1.34;margin-top:4px}
 
 .mapstatus,.legend,.layerinfo{position:absolute;z-index:700;background:rgba(12,17,23,.92);border:1px solid #35424e;color:#e5edf3;box-shadow:0 2px 12px rgba(0,0,0,.17);backdrop-filter:blur(4px)}
+.state-drawer{display:none;position:absolute;z-index:725;left:58px;top:12px;width:min(330px,calc(100% - 82px));max-height:calc(100% - 24px);overflow:auto;background:rgba(12,17,23,.96);border:1px solid #41505e;border-radius:10px;color:#edf3f7;box-shadow:0 8px 28px rgba(0,0,0,.28);backdrop-filter:blur(6px)}
+.state-drawer.open{display:block}.state-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:11px 12px 8px;border-bottom:1px solid #293642}.state-head small{display:block;color:#7f93a3;font-size:8.5px;margin-bottom:2px}.state-head h3{margin:0;font-size:17px;line-height:1.15}.state-close{border:0;background:transparent;color:#8fa0ad;font-size:20px;line-height:1;cursor:pointer;padding:0 2px}.state-close:hover{color:#fff}
+.state-metric{padding:8px 12px 0;color:#a9b7c2;font-size:9.5px}.state-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;padding:8px 12px}.state-stat{background:#17212b;border:1px solid #2b3946;border-radius:7px;padding:7px}.state-stat b{display:block;font-size:15px}.state-stat small{display:block;color:#8fa0ad;font-size:8px;margin-top:1px}
+.state-section{padding:8px 12px;border-top:1px solid #293642}.state-section-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:5px}.state-section-head strong{font-size:10px}.state-section-head span{font-size:8px;color:#7f919f}.state-county-row,.state-news-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;width:100%;border:0;background:transparent;color:#e5edf3;text-align:left;padding:5px 4px;border-radius:5px;cursor:pointer}.state-county-row:hover,.state-news-row:hover{background:#1a2530}.state-county-row span,.state-news-row span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:9.5px}.state-county-row b{font-size:9.5px}.state-news-row small{color:#80909e;font-size:8px;white-space:nowrap}.state-empty{color:#81919f;font-size:9px;padding:4px}
+.state-tip.leaflet-tooltip{background:#0f171f;color:#edf3f7;border:1px solid #40505d;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.24);padding:6px 8px;font-size:9px}.state-tip.leaflet-tooltip:before{display:none}
 .mapstatus{right:12px;top:12px;border-radius:999px;padding:5px 9px;font-size:9.5px}.mapstatus:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;background:#6f7d89}.mapstatus.ok:before{background:var(--green)}.mapstatus.fallback:before{background:#dca23b}
 .legend{left:12px;bottom:12px;border-radius:8px;padding:8px 10px;font-size:9.5px;min-width:250px;max-width:340px}.legend-title{font-weight:700;margin-bottom:3px}.legend-block+.legend-block{margin-top:8px;padding-top:7px;border-top:1px solid #35424e}.scale{display:grid;grid-template-columns:repeat(7,1fr);height:8px;border-radius:4px;overflow:hidden;margin:5px 0 3px;gap:1px}.scale span{min-width:0}.legend-labels{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;color:#8fa0ad;font-size:7.5px;text-align:center;line-height:1.15}.legend-labels span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .legend-row{margin-top:3px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}.dh{background:var(--red)}.dv{background:var(--orange)}.dr{background:var(--blue)}.ds{background:var(--purple)}.dp{background:var(--property)}
@@ -59,7 +64,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
 @media(max-width:920px){
   body{overflow:auto;display:block}header{padding:8px 10px}.header-main{align-items:flex-start;flex-wrap:wrap}.modebar{width:100%}
   main{display:block;height:auto;overflow:visible}.mapwrap{height:60vh;min-height:430px}aside{height:auto;max-height:none;border-left:0;border-top:1px solid var(--line)}#list{max-height:55vh}
-  .area-grid{grid-template-columns:repeat(3,1fr)}.layerinfo{max-width:260px;right:8px;bottom:8px}.legend{left:8px;bottom:8px;max-width:265px}footer{height:auto;display:block;white-space:normal;padding:7px 11px}
+  .area-grid{grid-template-columns:repeat(3,1fr)}.layerinfo{max-width:260px;right:8px;bottom:8px}.legend{left:8px;bottom:8px;max-width:265px}.state-drawer{left:8px;right:8px;top:58px;width:auto;max-height:55vh}footer{height:auto;display:block;white-space:normal;padding:7px 11px}
 }
 </style>
 </head>
@@ -83,6 +88,27 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     <div id="mapStatus" class="mapstatus">底图加载中…</div>
     <div id="legend" class="legend"></div>
     <div id="layerInfo" class="layerinfo"></div>
+    <aside class="state-drawer" id="stateDrawer" aria-live="polite">
+      <div class="state-head">
+        <div><small>州概览</small><h3 id="stateName">—</h3></div>
+        <button class="state-close" id="stateClose" type="button" aria-label="关闭州详情">×</button>
+      </div>
+      <div class="state-metric" id="stateMetric">—</div>
+      <div class="state-stats">
+        <div class="state-stat"><b id="stateRate">—</b><small>每10万人·年</small></div>
+        <div class="state-stat"><b id="stateCases">—</b><small>2025登记案件</small></div>
+        <div class="state-stat"><b id="stateRank">—</b><small>16州排名</small></div>
+        <div class="state-stat"><b id="stateRecent">—</b><small>90天相关通报</small></div>
+      </div>
+      <div class="state-section">
+        <div class="state-section-head"><strong>州内高值县/市</strong><span>每10万人</span></div>
+        <div id="stateTopCounties"></div>
+      </div>
+      <div class="state-section">
+        <div class="state-section-head"><strong>近90天相关通报</strong><span id="stateNewsCount"></span></div>
+        <div id="stateNews"></div>
+      </div>
+    </aside>
   </section>
 
   <aside>
@@ -158,6 +184,9 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     violenceLayers:$('violenceLayers'),propertyLayers:$('propertyLayers'),
     viewGermany:$('viewGermany'),focusBerlin:$('focusBerlin'),mapStatus:$('mapStatus'),
     legend:$('legend'),layerInfo:$('layerInfo'),
+    stateDrawer:$('stateDrawer'),stateName:$('stateName'),stateClose:$('stateClose'),stateMetric:$('stateMetric'),
+    stateRate:$('stateRate'),stateCases:$('stateCases'),stateRank:$('stateRank'),stateRecent:$('stateRecent'),
+    stateTopCounties:$('stateTopCounties'),stateNews:$('stateNews'),stateNewsCount:$('stateNewsCount'),
     safetyPanel:$('safetyPanel'),areaName:$('areaName'),riskBadge:$('riskBadge'),areaMetric:$('areaMetric'),
     coveragePill:$('coveragePill'),coverageText:$('coverageText'),
     areaRate:$('areaRate'),areaRateLabel:$('areaRateLabel'),areaQuarter:$('areaQuarter'),areaQuarterLabel:$('areaQuarterLabel'),
@@ -169,7 +198,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   const cats={homicide:{label:'凶杀',color:'#d6534f'},violence:{label:'严重暴力',color:'#df8a45'},robbery:{label:'抢劫',color:'#4f95bd'},sexual:{label:'性犯罪',color:'#9e76c8'},property:{label:'盗窃/财产',color:'#5a82d3'}};
   let mode='violence',caseData=null,pksData=null,propertyData=null,countyGeo=null,berlinViolence=null,heatData=null,stateGeo=null;
   let countyLayer=null,berlinLayer=null,heatLayer=null,stateLayer=null,selectedCountyLayer=null;
-  let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false;
+  let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false,activeStateFilter=null,selectedStateName=null;
   const newsLayer=L.layerGroup(),markers=new Map();
 
   const map=L.map('map',{minZoom:5,maxZoom:17,zoomControl:true,preferCanvas:true,worldCopyJump:false});
@@ -281,6 +310,104 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     if(metric==='theft_from_vehicle')return 'vehicle';
     return null;
   }
+  function stateFeatureByName(name){
+    return stateGeo?.features?.find(f=>f.properties?.name===name)||null;
+  }
+  function caseMatchesCurrentMetric(c){
+    if(mode==='violence'){
+      return new Set(violenceMetrics[currentViolenceMetric()]?.news||[]).has(c.category);
+    }
+    if(c.category!=='property')return false;
+    const key=currentPropertyMetric();
+    if(key==='property_total')return true;
+    const t=((c.subcategory||'')+' '+(c.offense||'')+' '+(c.summary||'')).toLowerCase();
+    if(key==='burglary')return /wohnungseinbruch/.test(t);
+    if(key==='bicycle_theft')return /fahrrad|pedelec|e-bike|ebike/.test(t);
+    if(key==='vehicle_theft')return /autodiebstahl|fahrzeug-\/autodiebstahl|fahrzeugdiebstahl|kraftwagen.*diebstahl/.test(t);
+    if(key==='theft_from_vehicle')return /diebstahl.*(?:aus|an).*fahrzeug|fahrzeugaufbruch|kfz.*aufbruch/.test(t);
+    return true;
+  }
+  function caseInState(c,feature){
+    const name=feature?.properties?.name||'';
+    if(c.state&&c.state===name)return true;
+    return Number.isFinite(c.lon)&&Number.isFinite(c.lat)&&pointInGeometry(c.lon,c.lat,feature?.geometry);
+  }
+  function stateRecentCases(feature){
+    if(!caseData||!feature)return[];
+    return caseData.cases.filter(c=>caseMatchesCurrentMetric(c)&&caseInState(c,feature)).sort((a,b)=>String(b.event_date).localeCompare(String(a.event_date)));
+  }
+  function populationForAgs(ags){
+    const vr=pksData?.records?.[ags]?.violence;
+    return vr&&Number(vr.rate)>0?Number(vr.cases)/Number(vr.rate)*100000:0;
+  }
+  function stateBaseStats(feature){
+    const name=feature?.properties?.name||'';
+    const key=mode==='property'?currentPropertyMetric():currentViolenceMetric();
+    const data=mode==='property'?propertyData:pksData;
+    const rows=Object.values(data?.records||{}).filter(r=>r.state===name&&r?.[key]&&Number.isFinite(Number(r[key].rate)));
+    const cases=rows.reduce((s,r)=>s+Number(r[key].cases||0),0);
+    const pop=rows.reduce((s,r)=>s+populationForAgs(r.ags),0);
+    const rate=pop>0?cases/pop*100000:0;
+    return {name,key,rows,cases,pop,rate};
+  }
+  function allStateStats(){
+    return (stateGeo?.features||[]).map(f=>({feature:f,...stateBaseStats(f)})).filter(x=>x.rows.length).sort((a,b)=>b.rate-a.rate);
+  }
+  function stateStats(feature){
+    const base=stateBaseStats(feature),all=allStateStats();
+    const rank=Math.max(1,all.findIndex(x=>x.name===base.name)+1);
+    const news=stateRecentCases(feature);
+    return {...base,rank,news,topCounties:base.rows.slice().sort((a,b)=>Number(b[base.key].rate)-Number(a[base.key].rate)).slice(0,5)};
+  }
+  function stateTooltipHtml(feature){
+    const s=stateStats(feature);
+    const label=mode==='property'?(propertyMetrics[s.key]?.label||s.key):(violenceMetrics[s.key]?.label||s.key);
+    return '<b>'+esc(s.name)+'</b><br>'+esc(label)+' · '+fmt(Math.round(s.rate))+'/10万人<br>'+fmt(s.cases)+' 起 · 16州第 '+s.rank;
+  }
+  function renderStateDrawer(feature){
+    if(!feature)return;
+    const s=stateStats(feature),label=mode==='property'?(propertyMetrics[s.key]?.label||s.key):(violenceMetrics[s.key]?.label||s.key);
+    el.stateName.textContent=s.name;el.stateMetric.textContent='BKA PKS 2025 · '+label;
+    el.stateRate.textContent=fmt(Math.round(s.rate));el.stateCases.textContent=fmt(s.cases);el.stateRank.textContent='#'+s.rank;el.stateRecent.textContent=fmt(s.news.length);
+    el.stateTopCounties.innerHTML='';
+    for(const r of s.topCounties){
+      const b=document.createElement('button');b.type='button';b.className='state-county-row';
+      b.innerHTML='<span>'+esc(r.name)+'</span><b>'+fmt(Math.round(r[s.key].rate))+'</b>';
+      b.onclick=()=>{
+        const layer=countyLayer?.getLayers().find(x=>{
+          const rec=mode==='property'?propertyRecord(x.feature):pksRecord(x.feature);
+          return rec?.ags===r.ags;
+        });
+        if(layer){
+          const a=mode==='property'?propertyCountyArea(layer.feature,r):countyArea(layer.feature,r);
+          selectCountyLayer(layer);showArea(a,{pin:true});
+          if(layer.getBounds)map.fitBounds(layer.getBounds(),{padding:[30,30],maxZoom:9});
+        }
+      };
+      el.stateTopCounties.appendChild(b);
+    }
+    el.stateNewsCount.textContent=s.news.length?fmt(s.news.length)+' 起':'';
+    el.stateNews.innerHTML='';
+    if(!s.news.length){
+      el.stateNews.innerHTML='<div class="state-empty">当前公开抓取暂无匹配通报；不代表没有案件。</div>';
+    }else{
+      for(const n of s.news.slice(0,6)){
+        const b=document.createElement('button');b.type='button';b.className='state-news-row';
+        b.innerHTML='<span>'+esc(n.city||s.name)+' · '+esc(n.offense||n.category_label||'事件')+'</span><small>'+pd(n.event_date)+'</small>';
+        b.onclick=()=>{
+          const m=markers.get(n.id);
+          if(m){map.flyTo(m.getLatLng(),Math.max(map.getZoom(),10),{duration:.45});m.openPopup();}
+          else window.open(safe(n.source_url),'_blank','noopener');
+        };
+        el.stateNews.appendChild(b);
+      }
+    }
+    el.stateDrawer.classList.add('open');
+  }
+  function closeStateDrawer(){
+    activeStateFilter=null;selectedStateName=null;el.stateDrawer.classList.remove('open');buildStateLayer();renderNews();
+  }
+
   function berlinRates(){
     const seen=new Map();
     for(const f of berlinViolence?.features||[]){
@@ -485,10 +612,30 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
       }
     }).addTo(map);
   }
+  function stateStyle(feature){
+    const selected=feature?.properties?.name===selectedStateName;
+    return {pane:'statePane',color:selected?'#f5f8fa':'#284052',weight:selected?2.8:1.75,opacity:selected?1:.96,fillColor:'#dce7ee',fillOpacity:selected?.035:.008};
+  }
   function buildStateLayer(){
     if(stateLayer){map.removeLayer(stateLayer);stateLayer=null;}
     if(!stateGeo)return;
-    stateLayer=L.geoJSON(stateGeo,{pane:'statePane',style:{color:'#334f63',weight:1.15,fillOpacity:0,interactive:false}}).addTo(map);
+    const interactive=map.getZoom()<=7.15;
+    stateLayer=L.geoJSON(stateGeo,{
+      pane:'statePane',style:stateStyle,interactive,
+      onEachFeature:(feature,layer)=>{
+        if(!interactive)return;
+        layer.bindTooltip(()=>stateTooltipHtml(feature),{sticky:true,direction:'top',className:'state-tip'});
+        layer.on('mouseover',()=>{if(feature.properties?.name!==selectedStateName)layer.setStyle({color:'#eef7ff',weight:2.25,fillOpacity:.045});});
+        layer.on('mouseout',()=>stateLayer&&stateLayer.resetStyle(layer));
+        layer.on('click',()=>{
+          selectedStateName=feature.properties?.name||null;activeStateFilter=selectedStateName;
+          stateLayer.eachLayer(l=>stateLayer.resetStyle(l));
+          layer.setStyle(stateStyle(feature));
+          renderNews();renderStateDrawer(feature);
+          if(layer.getBounds)map.fitBounds(layer.getBounds(),{padding:[32,32],maxZoom:7.05});
+        });
+      }
+    }).addTo(map);
   }
   function buildBerlinLayer(){
     if(berlinLayer){map.removeLayer(berlinLayer);berlinLayer=null;}
@@ -518,9 +665,14 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
 
   function visibleCases(){
     if(!caseData)return[];
-    if(mode==='property')return showPropertyNews?caseData.cases.filter(c=>c.category==='property'):[];
-    const sel=new Set(violenceMetrics[currentViolenceMetric()]?.news||[]);
-    return showViolenceNews?caseData.cases.filter(c=>sel.has(c.category)):[];
+    let rows=caseData.cases.filter(caseMatchesCurrentMetric);
+    if(activeStateFilter){
+      const f=stateFeatureByName(activeStateFilter);
+      if(f)rows=rows.filter(c=>caseInState(c,f));
+      return rows;
+    }
+    if(mode==='property')return showPropertyNews?rows:[];
+    return showViolenceNews?rows:[];
   }
   function markerFor(c){
     const meta=cats[c.category]||{label:c.category,color:'#667'};
@@ -545,7 +697,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
       el.list.appendChild(b);
     }
     if(!cs.length)el.list.innerHTML='<div class="mode-note">当前筛选没有公开通报点。</div>';
-    el.listTitle.textContent='近90天公开通报（'+fmt(cs.length)+'）· 次要参考';
+    el.listTitle.textContent=(activeStateFilter?activeStateFilter+' · ':'')+'近90天公开通报（'+fmt(cs.length)+'）· 次要参考';
     return cs;
   }
 
@@ -601,17 +753,19 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     el.togglePropertyNews.classList.toggle('active',showPropertyNews);el.togglePropertyNews.setAttribute('aria-pressed',String(showPropertyNews));
     buildCountyLayer();buildStateLayer();buildBerlinLayer();buildHeat();
     const cs=renderNews();renderLegend();renderLayerInfo(cs);renderSummary(cs);renderRankList();
+    if(activeStateFilter){const f=stateFeatureByName(activeStateFilter);if(f)renderStateDrawer(f);}
   }
 
-  el.modeViolence.onclick=()=>{mode='violence';pinnedArea=null;hoverArea=null;render();showArea(null);};
-  el.modeProperty.onclick=()=>{mode='property';pinnedArea=null;hoverArea=null;render();showArea(null);};
+  el.modeViolence.onclick=()=>{mode='violence';pinnedArea=null;hoverArea=null;activeStateFilter=null;selectedStateName=null;el.stateDrawer.classList.remove('open');render();showArea(null);};
+  el.modeProperty.onclick=()=>{mode='property';pinnedArea=null;hoverArea=null;activeStateFilter=null;selectedStateName=null;el.stateDrawer.classList.remove('open');render();showArea(null);};
+  el.stateClose.onclick=closeStateDrawer;
   el.toggleViolenceNews.onclick=()=>{showViolenceNews=!showViolenceNews;render();};
   el.togglePropertyNews.onclick=()=>{showPropertyNews=!showPropertyNews;render();};
   el.violenceMetric.addEventListener('change',()=>{pinnedArea=null;hoverArea=null;render();showArea(null);});
   el.propertyMetric.addEventListener('change',()=>{pinnedArea=null;hoverArea=null;render();showArea(null);});
-  el.viewGermany.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;render();showArea(null);map.fitBounds(germanyBounds,{padding:[14,14]});};
+  el.viewGermany.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;el.stateDrawer.classList.remove('open');render();showArea(null);map.fitBounds(germanyBounds,{padding:[14,14]});};
   el.focusBerlin.onclick=()=>map.fitBounds(berlinBounds,{padding:[25,25],maxZoom:10});
-  map.on('zoomend',()=>{if(mode==='violence')buildBerlinLayer();if(mode==='property')buildHeat();renderLegend();});
+  map.on('zoomend',()=>{buildStateLayer();if(mode==='violence')buildBerlinLayer();if(mode==='property')buildHeat();renderLegend();});
   map.on('click',e=>{if(mode==='property'&&map.getZoom()>=9&&berlinBounds.contains(e.latlng)&&propertyHeatField()){const a=propertyAreaNearest(e.latlng);if(a)showArea(a,{pin:true});}});
 
   Promise.all([
