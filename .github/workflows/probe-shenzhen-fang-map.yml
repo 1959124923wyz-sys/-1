@@ -1,4 +1,4 @@
-name: Probe Shenzhen Fang map endpoint
+name: Probe Shenzhen Fang list structure
 
 on:
   push:
@@ -15,15 +15,26 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Query Fang ajaxSearch directly
+      - name: Inspect Fang community list HTML
         shell: python
         run: |
-          import requests,json
-          h={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/154.0 Safari/537.36","Referer":"https://map.fang.com/"}
-          params={"city":"sz","type":"esf","xfPrice":"","esfPrice":"","zfPrice":"","room":"","area":"","purpose":"住宅","keyword":"","zoom":"12","newcodeType":"","newcode":"","pagingType":"","pagingNum":"","x1":"113.72","x2":"114.65","y1":"22.35","y2":"22.90","subwayline":"","subwaystation":"","issamllcity":"0","fapaiPrice":"","fapaiPropertyType":"","fapaiStage":"","fapaiStatus":""}
-          for host in ["https://map.fang.com/ajaxSearch.html","https://sz.map.fang.com/ajaxSearch.html"]:
-            try:
-              r=requests.get(host,params=params,headers=h,timeout=25,allow_redirects=True)
-              print("\nURL",host,"STATUS",r.status_code,"FINAL",r.url,"CTYPE",r.headers.get("content-type"),"LEN",len(r.content))
-              print("HEAD",repr(r.text[:12000]))
-            except Exception as e: print("ERR",host,repr(e))
+          import requests
+          from bs4 import BeautifulSoup
+          h={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/154.0 Safari/537.36","Accept-Language":"zh-CN,zh;q=0.9","Referer":"https://sz.esf.fang.com/"}
+          for url in ["https://sz.esf.fang.com/housing/","https://sz.esf.fang.com/housing/__0_2_0_0_9_0_0_0/"]:
+            r=requests.get(url,headers=h,timeout=25)
+            print("\nURL",url,"STATUS",r.status_code,"LEN",len(r.content),"FINAL",r.url)
+            soup=BeautifulSoup(r.text,"html.parser")
+            node=soup.find(string=lambda x:x and "红树西岸" in x)
+            if not node:
+              # print candidate list containers/classes
+              for sel in [".houseList",".listContent",".list",".listBox",".listinfo",".houseList_dl","dl"]:
+                found=soup.select(sel)
+                if found: print("SEL",sel,"COUNT",len(found),"SAMPLE",found[0].get_text(" ",strip=True)[:1200])
+              continue
+            cur=node.parent
+            for i in range(6):
+              if not cur: break
+              print("ANCESTOR",i,"TAG",cur.name,"CLASS",cur.get("class"),"ID",cur.get("id"))
+              print(str(cur)[:7000])
+              cur=cur.parent
