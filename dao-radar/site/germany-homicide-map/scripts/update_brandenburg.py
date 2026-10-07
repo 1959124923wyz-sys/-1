@@ -321,7 +321,9 @@ def scan(lookback: int, max_pages: int):
         r.raise_for_status()
         pages_scanned += 1
         soup = BeautifulSoup(r.text, "html.parser")
-        anchors = [a for a in soup.find_all("a", href=True) if ARTICLE_RE.search(urljoin(url, a["href"]))]
+        # The first link in each card is an image with no text; use the h4
+        # headline link so title extraction and deduplication are stable.
+        anchors = [a for a in soup.select("h4 a[href]") if ARTICLE_RE.search(urljoin(url, a["href"]))]
         if not anchors:
             break
 
