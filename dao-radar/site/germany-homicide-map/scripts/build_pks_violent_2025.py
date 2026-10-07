@@ -61,10 +61,12 @@ def scrape_one(item):
 
 geo=json.loads(GEO.read_text(encoding="utf-8"))
 geom_by_ags={str(f.get("id","")).zfill(5):f.get("properties",{}) for f in geo.get("features",[])}
+LEGACY_TO_CURRENT={"03152":"03159","03156":"03159","16056":"16063"}
+CURRENT_TO_LEGACY={"03159":"03152","16063":"16056"}
 print("geometry features",len(geom_by_ags))
 
 r=session().get(INDEX,timeout=45);r.raise_for_status()
-soup=BeautifulSoup(r.text,"html.parser")
+soup=BeautifulSoup(r.content.decode("utf-8","replace"),"html.parser")
 links={}
 for a in soup.find_all("a",href=True):
     href=urljoin(INDEX,a["href"])
@@ -86,6 +88,8 @@ with ThreadPoolExecutor(max_workers=8) as ex:
         try:
             key,rec=f.result()
             props=geom_by_ags.get(key,{})
+            if not props and key in CURRENT_TO_LEGACY:
+                props=geom_by_ags.get(CURRENT_TO_LEGACY[key],{})
             rec["state"]=props.get("state")
             rec["district_type"]=props.get("districtType")
             records[key]=rec
@@ -113,7 +117,8 @@ out={
    "unit":"Fälle je 100.000 Einwohner",
    "county_count":len(records),
    "geometry_count":len(geom_by_ags),
-   "matched_geometry":sum(1 for k in records if k in geom_by_ags),
+   "matched_geometry":sum(1 for g in geom_by_ags if (g in records or LEGACY_TO_CURRENT.get(g) in records)),
+   "geometry_aliases":LEGACY_TO_CURRENT,
    "quantile_breaks":breaks,
    "official_source":"Bundeskriminalamt (BKA), Polizeiliche Kriminalstatistik 2025, Kreistabelle T01",
    "official_catalog_url":"https://data.gov.de/suche/daten/2025-polizeiliche-kriminalstatistik-t01-grundtabelle-kreise-ausgewahlte-straftaten-gruppen",
