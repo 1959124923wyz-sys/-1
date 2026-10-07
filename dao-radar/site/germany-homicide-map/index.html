@@ -168,7 +168,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
 </main>
 
 <footer>
-  <span>全国层：BKA PKS 2025 · 县/市每10万人犯罪率；柏林90天细分与近期事件为独立辅助层。</span>
+  <span>全国层：BKA PKS 2025 · 县/市每10万人犯罪率；柏林、汉堡、慕尼黑及萨克森主要城市在官方数据可用时自动下钻。</span>
   <span>警方登记数据，不代表未报案犯罪。</span>
 </footer>
 
@@ -933,7 +933,9 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   window.__CRIME_MAP__={
     map,getMode:()=>mode,getCaseData:()=>caseData,getPksData:()=>pksData,getPropertyData:()=>propertyData,getBerlinViolence:()=>berlinViolence,getHeatData:()=>heatData,getMunichLocal:()=>munichLocal,
     getCountyLayer:()=>countyLayer,getBerlinLayer:()=>berlinLayer,getHeatLayer:()=>heatLayer,getVisibleCases:()=>visibleCases(),
-    getPinnedArea:()=>pinnedArea,getHoverArea:()=>hoverArea,showArea
+    getPinnedArea:()=>pinnedArea,getHoverArea:()=>hoverArea,
+    clearSelection:()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');showArea(null);},
+    showArea
   };
 })();
 </script>
