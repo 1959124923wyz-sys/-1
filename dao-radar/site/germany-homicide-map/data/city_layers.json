@@ -54,7 +54,8 @@
           "field": "theft_from_vehicle",
           "label": "车内/车上盗窃"
         }
-      }
+      },
+      "builder": "scripts/build_hamburg_local_2025.py"
     },
     {
       "id": "leipzig",
@@ -93,7 +94,8 @@
           "field": "property_total",
           "label": "盗窃总体"
         }
-      }
+      },
+      "builder": "scripts/build_leipzig_local_2025.py"
     },
     {
       "id": "chemnitz",
@@ -132,7 +134,8 @@
           "field": "property_total",
           "label": "盗窃总体"
         }
-      }
+      },
+      "builder": "scripts/build_chemnitz_local_2025.py"
     },
     {
       "id": "dresden",
@@ -171,7 +174,8 @@
           "field": "property_total",
           "label": "盗窃总体"
         }
-      }
+      },
+      "builder": "scripts/build_dresden_local_2025.py"
     },
     {
       "id": "munich",
@@ -210,7 +214,8 @@
           "field": "property_total",
           "label": "盗窃总体"
         }
-      }
+      },
+      "builder": "scripts/build_munich_local_2025.py"
     }
   ]
 }
