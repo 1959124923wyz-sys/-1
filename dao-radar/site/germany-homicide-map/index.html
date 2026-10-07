@@ -270,10 +270,16 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
       quarter:cases/4,recent:violentRecentCount(feature),pct,feature,
       note:'季度量级 = 2025全年警方记录 ÷ 4，仅用于旅行前的量级感知，并非2026当前季度实时案件数。'};
   }
+  function berlinBzrRecentCount(bzr){
+    if(!caseData||!berlinViolence||!bzr)return 0;
+    const geoms=(berlinViolence.features||[]).filter(f=>f.properties?.bZR===bzr).map(f=>f.geometry).filter(Boolean);
+    const catsOk=new Set(['homicide','violence','robbery','sexual']);
+    return caseData.cases.filter(c=>catsOk.has(c.category)&&Number.isFinite(c.lon)&&Number.isFinite(c.lat)&&geoms.some(g=>pointInGeometry(c.lon,c.lat,g))).length;
+  }
   function berlinArea(feature,p){
     const rate=Number(p?.combined_rate||0),cases=Number(p?.combined_cases||0),pct=percentile(rate,berlinRates());
     return {kind:'berlin',name:p?.name||'Berlin Bezirksregion',metric:'柏林试点 · 抢劫 + 危险/严重身体伤害',rate,cases,
-      quarter:cases/4,recent:violentRecentCount(feature),pct,feature,
+      quarter:cases/4,recent:berlinBzrRecentCount(p?.bZR),pct,feature,
       note:'柏林紫色层为 Polizei Berlin PKS 2025 的两类严重暴力代理指标；季度量级按全年÷4折算，不等同BKA完整“Gewaltkriminalität”。'};
   }
   function propertyAreaNearest(latlng){
