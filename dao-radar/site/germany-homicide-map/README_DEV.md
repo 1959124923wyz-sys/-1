@@ -7,11 +7,19 @@ This directory powers the public Germany crime map. The current goal is to keep 
 ```text
 index.html                      thin page shell
 css/map.css                     all map UI styling
-js/app.js                       core Leaflet app and national/state/Berlin logic
+js/app.js                       application orchestration + national/state map
+js/core/config.js               metric labels, categories and palettes
+js/core/geo-stats.js            shared geometry / quantile helpers
+js/core/data-model.js           aggregation and case-matching logic
+js/panels/state-panel.js        state drawer rendering / selection state
+js/panels/drawer-drag.js        reusable draggable panel behavior
+js/layers/berlin-detail.js      Berlin-specific annual + rolling local layers
 js/layers/city-detail.js        generic registry-driven city detail loader
-data/city_layers.json           city layer registry
+js/layers/recent-events.js      rolling report markers and list rendering
+data/city_layers.json           city layer + builder registry
 data/*.geojson / *.json         generated runtime datasets
-scripts/*.py                    data builders, updaters and validators
+scripts/build_city_layers.py    registry-driven annual city build orchestrator
+scripts/*.py                    source adapters, updaters and validators
 ```
 
 The public page should not contain large inline CSS or JavaScript blocks. New city detail layers should normally be added through `data/city_layers.json` and a generated GeoJSON file, not by adding city-specific branches to `index.html`.
@@ -49,7 +57,7 @@ A city may expose only the subset supported by its official source. If a local s
 
 ## Adding a city detail layer
 
-1. Create a builder such as `scripts/build_<city>_local_2025.py`.
+1. Create a deterministic builder such as `scripts/build_<city>_local_2025.py`. Annual builders must not embed the current wall-clock time in output; identical source data should produce identical files.
 2. Generate a GeoJSON FeatureCollection into `data/<city>_local_2025.geojson`.
 3. Each feature should have a stable `id`, Polygon/MultiPolygon geometry, `properties.name`, and metric objects such as:
    ```json
@@ -59,12 +67,14 @@ A city may expose only the subset supported by its official source. If a local s
    }
    ```
 4. Register the layer in `data/city_layers.json` with:
+   - `builder`
    - bounds
    - minimum zoom
    - source label
    - public metric → GeoJSON field mapping
 5. Run:
    ```bash
+   python scripts/build_city_layers.py --city <city-id>
    python scripts/validate_city_layers.py
    node --check js/app.js
    node --check js/layers/city-detail.js
@@ -75,9 +85,10 @@ The generic city loader will create the jump button, detect the city by map exte
 ## Files that should remain stable
 
 - `index.html`: HTML structure only.
-- `js/app.js`: core national/state/Berlin behavior.
+- `js/app.js`: orchestration and national/state behavior only.
+- `js/layers/berlin-detail.js`: Berlin-only behavior.
 - `js/layers/city-detail.js`: generic city detail behavior.
-- `data/city_layers.json`: declarative registry.
+- `data/city_layers.json`: declarative city/data-builder registry.
 
 Avoid putting source-specific scraping/parsing logic in browser JavaScript.
 
@@ -88,7 +99,7 @@ Avoid putting source-specific scraping/parsing logic in browser JavaScript.
 - `validate_*.py`: invariants and schema/data checks.
 - one-off probes should not have permanent push-triggered workflows once the production builder exists.
 
-The main workflow builds current official city layers, validates JavaScript and registry/data consistency, runs crime-data validators, commits changed generated data, and deploys Pages.
+The main workflow runs one registry-driven city build step, validates JavaScript and registry/data consistency, runs rolling-data validators/updaters, commits only changed generated data, and deploys Pages. Static annual builders are deterministic so a no-change rebuild does not create a new commit or fight concurrent UI commits.
 
 ## Data integrity principles
 
