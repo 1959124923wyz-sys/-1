@@ -73,7 +73,7 @@ def parse_population():
         pop=None
         for k,v in row.items():
             nk=norm(k)
-            if "einwohner" in nk and "dichte" not in nk and "anteil" not in nk:
+            if ("einwohner" in nk or nk=="bevolkerung" or nk=="bevoelkerung") and "dichte" not in nk and "anteil" not in nk:
                 raw=re.sub(r"[^0-9]","",str(v or ""))
                 if raw:
                     candidate=int(raw)
