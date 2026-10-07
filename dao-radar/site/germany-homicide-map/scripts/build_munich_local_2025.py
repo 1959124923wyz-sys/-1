@@ -126,15 +126,15 @@ for f in geo.get("features",[]):
     features.append({"type":"Feature","id":f"munich-{n:02d}","properties":p,"geometry":f.get("geometry")})
     seen.add(n)
 
-if len(features)!=25:
-    missing=sorted(set(RAW)-seen)
-    raise RuntimeError(f"expected 25 Munich district geometries, got {len(features)}; missing={missing}")
+missing=sorted(set(RAW)-seen)
+if missing or len(seen)!=25:
+    raise RuntimeError(f"expected all 25 Munich districts; unique={len(seen)} features={len(features)} missing={missing}")
 
 out={
   "type":"FeatureCollection",
   "meta":{
     "generated_at":datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),
-    "year":2025,"scope":"München Stadtbezirke","feature_count":len(features),
+    "year":2025,"scope":"München Stadtbezirke","feature_count":len(features),"district_count":len(seen),
     "crime_source":"Statistisches Amt München / Polizeipräsidium München: Straftaten in den Stadtbezirken 2025",
     "crime_source_url":CRIME_SOURCE,
     "population_source":"Open Data Portal München: Bevölkerung in den Stadtbezirken (31.12.2024)",
@@ -146,4 +146,4 @@ out={
   "features":features
 }
 OUT.write_text(json.dumps(out,ensure_ascii=False,separators=(",",":"))+"\n",encoding="utf-8")
-print(json.dumps({"features":len(features),"pop":len(pop),"names":[x["properties"]["name"] for x in features[:4]]},ensure_ascii=False,indent=2))
+print(json.dumps({"features":len(features),"districts":len(seen),"pop":len(pop),"names":[x["properties"]["name"] for x in features[:4]]},ensure_ascii=False,indent=2))
