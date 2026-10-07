@@ -25,6 +25,8 @@ SOURCES=[
     ("sexual","Sexuelle Nötigung"),
     ("violence","Messerstiche"),
     ("violence","Messerangriff"),
+    ("violence","Gefährliche Körperverletzung"),
+    ("violence","Schwerverletzt"),
     ("property","Wohnungseinbruchdiebstahl"),
     ("property","Wohnungseinbruch"),
     ("property","Fahrraddiebstahl"),
