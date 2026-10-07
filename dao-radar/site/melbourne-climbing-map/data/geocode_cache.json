@@ -1,0 +1,79 @@
+{
+  "hardrock-cbd": {
+    "lat": -37.8079635,
+    "lng": 144.9608776,
+    "display_name": "Franklin Street, Greek Precinct, Melbourne, Victoria, 3000, Australia",
+    "address": "4/8 Franklin Street, Melbourne VIC 3000, Australia",
+    "cached_at": "2026-10-07T05:06:10.272328+00:00"
+  },
+  "northside-northcote": {
+    "lat": -37.7695729,
+    "lng": 144.9974001,
+    "display_name": "109-113, Helen Street, Northcote, Melbourne, Victoria, 3070, Australia",
+    "address": "109-113 Helen Street, Northcote VIC 3070, Australia",
+    "cached_at": "2026-10-07T05:06:12.348395+00:00"
+  },
+  "boulderlab-brunswick": {
+    "lat": -37.7763891,
+    "lng": 144.9619483,
+    "display_name": "260-266, Barkly Street, Brunswick, Melbourne, Victoria, 3056, Australia",
+    "address": "260-266 Barkly Street, Brunswick VIC 3056, Australia",
+    "cached_at": "2026-10-07T05:06:13.625480+00:00"
+  },
+  "boulderlab-clayton": {
+    "lat": -37.9298203,
+    "lng": 145.1280953,
+    "display_name": "Boulder Lab Clayton, 1418A, Centre Road, Clayton South, Melbourne, Victoria, 3169, Australia",
+    "address": "1418A Centre Road, Clayton South VIC 3169, Australia",
+    "cached_at": "2026-10-07T05:06:15.185767+00:00"
+  },
+  "laroca-oakleigh": {
+    "lat": -37.9163789,
+    "lng": 145.1059794,
+    "display_name": "La Roca Boulders, 2, Natalia Avenue, Oakleigh South, Melbourne, Victoria, 3167, Australia",
+    "address": "2 Natalia Avenue, Oakleigh South VIC 3167, Australia",
+    "cached_at": "2026-10-07T05:06:18.087636+00:00"
+  },
+  "onsight-glen": {
+    "lat": -37.8861463,
+    "lng": 145.1580119,
+    "display_name": "Aristoc Road, Glen Waverley, Melbourne, Victoria, 3150, Australia",
+    "address": "1/12 Aristoc Road, Glen Waverley VIC 3150, Australia",
+    "cached_at": "2026-10-07T05:06:20.143889+00:00"
+  },
+  "up-balaclava": {
+    "lat": -37.8698725,
+    "lng": 144.9941973,
+    "display_name": "William Street, Balaclava, Melbourne, Victoria, 3183, Australia",
+    "address": "24 William Street, Balaclava VIC 3183, Australia",
+    "cached_at": "2026-10-07T05:06:21.770287+00:00"
+  },
+  "rocket-footscray": {
+    "lat": -37.7867321,
+    "lng": 144.8856511,
+    "display_name": "21, Mephan Street, Footscray, Melbourne, Victoria, 3011, Australia",
+    "address": "21 Mephan Street, Footscray VIC 3011, Australia",
+    "cached_at": "2026-10-07T05:06:23.268835+00:00"
+  },
+  "climb-west": {
+    "lat": -37.8588929,
+    "lng": 144.8098935,
+    "display_name": "Climb West, 193, Maidstone Street, Altona, Melbourne, Victoria, 3018, Australia",
+    "address": "193 Maidstone Street, Altona VIC 3018, Australia",
+    "cached_at": "2026-10-07T05:06:24.676745+00:00"
+  },
+  "the-crux": {
+    "lat": -37.7310638,
+    "lng": 144.9532363,
+    "display_name": "Crux Bouldering, 20, Louvain Street, Coburg North, Melbourne, Victoria, 3058, Australia",
+    "address": "20 Louvain Street, Coburg North VIC 3058, Australia",
+    "cached_at": "2026-10-07T05:06:26.185561+00:00"
+  },
+  "clipnclimb-berwick": {
+    "lat": -38.0377053,
+    "lng": 145.3369415,
+    "display_name": "Clip n Climb, 39-51, Intrepid Street, Berwick, Melbourne, Victoria, 3806, Australia",
+    "address": "39-51 Intrepid Street, Berwick VIC 3806, Australia",
+    "cached_at": "2026-10-07T05:06:29.220082+00:00"
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "generated_at": "2026-10-07T05:06:32.175503+00:00",
+  "candidates": [
+    {
+      "osm_type": "node",
+      "osm_id": 4251954805,
+      "name": "Activate by Hardrock",
+      "lat": -37.9464448,
+      "lng": 145.0791493,
+      "tags": {
+        "addr:housenumber": "444",
+        "addr:street": "Warrigal Road",
+        "leisure": "sports_centre",
+        "opening_hours": "Mo-Su 10:00-18:00; Fr 14:00-18:00",
+        "sport": "climbing",
+        "website": "https://www.activatebyhardrock.com.au/"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 420029923,
+      "name": "Bayside Rock Climbing",
+      "lat": -38.0938508,
+      "lng": 145.1688472,
+      "tags": {
+        "addr:housenumber": "9",
+        "addr:street": "Network Drive",
+        "addr:suburb": "Carrum Downs",
+        "climbing:boulder": "yes",
+        "leisure": "sports_centre",
+        "opening_hours": "Mo-Fr 12:00-21:30; Sa,Su 09:00-17:00",
+        "sport": "climbing",
+        "website": "https://baysiderock.com.au/"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 219381709,
+      "name": "Boulder Lab",
+      "lat": -37.8836345,
+      "lng": 145.2692935,
+      "tags": {
+        "addr:housenumber": "1821",
+        "addr:street": "Ferntree Gully Road",
+        "addr:suburb": "Ferntree Gully",
+        "leisure": "sports_centre",
+        "sport": "climbing"
+      }
+    },
+    {
+      "osm_type": "node",
+      "osm_id": 4028264370,
+      "name": "Burnley Bouldering Walls",
+      "lat": -37.831984,
+      "lng": 145.0024236,
+      "tags": {
+        "climbing:boulder": "yes",
+        "leisure": "sports_centre",
+        "sport": "climbing;rock_climbing;bouldering"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 1037277580,
+      "name": "Climb West",
+      "lat": -37.8588933,
+      "lng": 144.8098908,
+      "tags": {
+        "addr:housenumber": "193",
+        "addr:street": "Maidstone Street",
+        "addr:suburb": "Altona",
+        "leisure": "sports_centre",
+        "sport": "climbing"
+      }
+    },
+    {
+      "osm_type": "node",
+      "osm_id": 9607773349,
+      "name": "Clip 'n Climb",
+      "lat": -37.8549166,
+      "lng": 144.8668394,
+      "tags": {
+        "addr:housenumber": "134",
+        "addr:street": "Maddox Road",
+        "addr:suburb": "Williamstown North",
+        "leisure": "sports_centre",
+        "sport": "climbing",
+        "website": "https://www.clipnclimbwilliamstown.com.au/"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 759500090,
+      "name": "Clip n Climb",
+      "lat": -38.0376957,
+      "lng": 145.3369335,
+      "tags": {
+        "addr:housenumber": "39-51",
+        "addr:street": "Intrepid Avenue",
+        "addr:suburb": "Berwick",
+        "leisure": "sports_centre",
+        "opening_hours": "Tu-Th 10:00-19:00; Fr 10:00-21:00; Sa 09:00-21:00; Su 09:00-19:00; SH Mo-Su 09:00-21:00",
+        "sport": "climbing",
+        "website": "https://www.clipnclimbberwick.com.au/"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 1073561718,
+      "name": "Crux Bouldering",
+      "lat": -37.731063,
+      "lng": 144.9531903,
+      "tags": {
+        "addr:housenumber": "20",
+        "addr:street": "Louvain Street",
+        "addr:suburb": "Coburg North",
+        "leisure": "sports_centre",
+        "sport": "climbing",
+        "website": "http://www.thecruxclimbing.com.au/"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 686086183,
+      "name": "Flinders Peak Slabs",
+      "lat": -37.952821,
+      "lng": 144.4280514,
+      "tags": {
+        "sport": "climbing",
+        "website": "https://www.thecrag.com/climbing/australia/the-you-yangs/area/2343311802"
+      }
+    },
+    {
+      "osm_type": "node",
+      "osm_id": 11052120803,
+      "name": "Footscray Boudlering Wall",
+      "lat": -37.80104,
+      "lng": 144.9095001,
+      "tags": {
+        "leisure": "sports_centre",
+        "sport": "climbing"
+      }
+    },
+    {
+      "osm_type": "node",
+      "osm_id": 9862019478,
+      "name": "Go Climb",
+      "lat": -37.7320176,
+      "lng": 144.9585833,
+      "tags": {
+        "addr:housenumber": "64-74",
+        "addr:street": "Gaffney Street",
+        "leisure": "sports_centre",
+        "opening_hours": "Mo-Su 09:00-18:00; Fr,Sa 09:00-21:00",
+        "sport": "climbing",
+        "website": "https://goclimb.com.au/"
+      }
+    },
+    {
+      "osm_type": "node",
+      "osm_id": 3388467782,
+      "name": "Hardrock",
+      "lat": -37.807364,
+      "lng": 144.9624993,
+      "tags": {
+        "addr:housenumber": "501",
+        "addr:street": "Swanston Street",
+        "addr:suburb": "Melbourne",
+        "climbing:boulder": "no",
+        "leisure": "sports_centre",
+        "opening_hours": "Mo-Fr 12:00-22:00; Sa,Su 11:00-19:00",
+        "sport": "climbing",
+        "website": "https://www.hardrock.com.au/"
+      }
+    },
+    {
+      "osm_type": "node",
+      "osm_id": 14210623269,
+      "name": "Main boardwalk",
+      "lat": -37.6589373,
+      "lng": 144.343406,
+      "tags": {
+        "sport": "climbing"
+      }
+    },
+    {
+      "osm_type": "node",
+      "osm_id": 9824058770,
+      "name": "Ninja Parc Bayswater",
+      "lat": -37.8459103,
+      "lng": 145.2712427,
+      "tags": {
+        "addr:housenumber": "13",
+        "addr:street": "Burton Court",
+        "addr:suburb": "Bayswater",
+        "leisure": "sports_centre",
+        "opening_hours": "Mo 11:00-18:00; Tu 10:00-18:00; We 11:00-18:00; Th 10:00-18:00; Fr 11:00-18:00; Sa-Su 10:00-15:00",
+        "sport": "climbing",
+        "website": "https://www.ninjaparc.com.au/indoor-obstacle-course-bayswater/"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 569238104,
+      "name": "Royalty Walls",
+      "lat": -37.9405119,
+      "lng": 144.42201,
+      "tags": {
+        "sport": "climbing",
+        "website": "https://www.thecrag.com/climbing/australia/the-you-yangs/area/12832045"
+      }
+    },
+    {
+      "osm_type": "node",
+      "osm_id": 1313707258,
+      "name": "Staughton Vale Cliff Face",
+      "lat": -37.8462728,
+      "lng": 144.2697483,
+      "tags": {
+        "sport": "climbing"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 60642164,
+      "name": "The Amphitheatre",
+      "lat": -37.6589194,
+      "lng": 144.3434554,
+      "tags": {
+        "sport": "climbing",
+        "website": "https://www.thecrag.com/climbing/australia/werribee-gorge/falcons-lookout/area/82709238"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 260729883,
+      "name": "The Lactic Factory",
+      "lat": -37.8014293,
+      "lng": 144.9934058,
+      "tags": {
+        "addr:housenumber": "1",
+        "addr:street": "Studley Street",
+        "addr:suburb": "Abbotsford",
+        "climbing:boulder": "yes",
+        "opening_hours": "Mo-Fr 12:00-22:00; Sa,Su 10:00-20:00",
+        "sport": "climbing",
+        "website": "http://www.thelacticfactory.com.au"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 1075688284,
+      "name": "Urban Climb",
+      "lat": -37.8206641,
+      "lng": 145.1588322,
+      "tags": {
+        "addr:housenumber": "15-33",
+        "addr:street": "Alfred Street",
+        "climbing:boulder": "yes",
+        "leisure": "sports_centre",
+        "opening_hours": "Mo-Fr 10:00-22:00; Sa,Su 08:00-20:00",
+        "sport": "climbing",
+        "website": "https://urbanclimb.com.au/locations/blackburn/"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 569238099,
+      "name": "Urinal Wall",
+      "lat": -37.9427087,
+      "lng": 144.4204746,
+      "tags": {
+        "sport": "climbing",
+        "website": "https://www.thecrag.com/climbing/australia/the-you-yangs/area/12831925"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 577645914,
+      "name": "Veni Vidi Vici Wall",
+      "lat": -37.6585351,
+      "lng": 144.3432252,
+      "tags": {
+        "sport": "climbing",
+        "website": "https://www.thecrag.com/climbing/australia/werribee-gorge/falcons-lookout/area/82709316"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 686086182,
+      "name": "Wave Wall",
+      "lat": -37.9526325,
+      "lng": 144.4281378,
+      "tags": {
+        "sport": "climbing",
+        "website": "https://www.thecrag.com/climbing/australia/the-you-yangs/area/2343311802"
+      }
+    }
+  ]
+}
