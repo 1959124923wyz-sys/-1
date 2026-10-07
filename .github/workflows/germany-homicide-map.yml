@@ -68,6 +68,10 @@ jobs:
             echo "Property heatmap data already present; skip static annual rebuild"
           fi
 
+      - name: Ensure Munich 2025 district layer
+        run: |
+          python dao-radar/site/germany-homicide-map/scripts/build_munich_local_2025.py
+
       - name: Refresh homicide data
         env:
           APP_CONTACT: https://github.com/1959124923wyz-sys/-1
