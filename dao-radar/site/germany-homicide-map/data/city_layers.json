@@ -172,6 +172,45 @@
           "label": "盗窃总体"
         }
       }
+    },
+    {
+      "id": "munich",
+      "name": "München",
+      "name_zh": "慕尼黑",
+      "state": "Bayern",
+      "file": "data/munich_local_2025.geojson",
+      "bounds": [
+        [
+          48.02,
+          11.32
+        ],
+        [
+          48.28,
+          11.78
+        ]
+      ],
+      "min_zoom": 8,
+      "source_label": "Statistisches Amt München / Polizeipräsidium München · Stadtbezirke 2025",
+      "unit": "每10万人·年",
+      "metrics": {
+        "violence": {
+          "field": "violence_proxy",
+          "label": "暴力代理",
+          "note": "使用 Rohheitsdelikte und Straftaten gegen die persönliche Freiheit 作为城市内部暴力代理，不等同于BKA完整 Gewaltkriminalität 口径。"
+        },
+        "sexual": {
+          "field": "sexual",
+          "label": "性犯罪"
+        },
+        "homicide": {
+          "field": "life",
+          "label": "凶杀/生命犯罪"
+        },
+        "property_total": {
+          "field": "property_total",
+          "label": "盗窃总体"
+        }
+      }
     }
   ]
 }
