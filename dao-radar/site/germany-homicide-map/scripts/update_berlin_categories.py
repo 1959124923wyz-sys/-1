@@ -63,13 +63,17 @@ def refine(category,title,text):
         else:sub="Diebstahl/Einbruch"
         return ("property",sub,2)
     if category=="violence":
-        # completed homicides are handled by the homicide pipeline; non-fatal attempts stay as violence
+        # Completed homicides are handled by the homicide pipeline. Berlin's broader
+        # "Angriff" headlines are only kept here when the release contains a clear
+        # serious-injury/weapon marker, so the Berlin layer uses the same severity
+        # standard as the nationwide violence layer.
         if FATAL.search(joined) and re.search(r"verstarb|verstorben|tödlich verletzt|tot aufgefunden",joined,re.I):
             return None
-        if not VIOL.search(joined):return None
-        if re.search(r"Messer|Stich",joined,re.I):sub="Messer-/Stichangriff"
+        if not VIOL.search(joined) or not SERIOUS_VIOLENCE.search(joined):
+            return None
+        if re.search(r"versuchter Totschlag|versuchtes Tötungsdelikt",joined,re.I):sub="Versuchtes Tötungsdelikt"
+        elif re.search(r"Messer|Stich",joined,re.I):sub="Messer-/Stichangriff"
         elif re.search(r"Schuss|Schusswaffe",joined,re.I):sub="Schusswaffengewalt"
-        elif re.search(r"versuchter Totschlag|versuchtes Tötungsdelikt",joined,re.I):sub="Versuchtes Tötungsdelikt"
         else:sub="Schwere Körperverletzung"
         return ("violence",sub,4)
     return None
