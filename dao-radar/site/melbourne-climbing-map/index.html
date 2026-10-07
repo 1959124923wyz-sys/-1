@@ -73,7 +73,16 @@ function openInfo(v){const n=melbNow(),h=(v.hours||{})[n.day];if(!h)return {know
 function todayHours(v){const n=melbNow();return (v.hours||{})[n.day]||'—'}
 function c(v){return v.climber||{}}
 function pp(v){return c(v).passes||{}}
-function priceText(v){const p=pp(v);if(p.day_text)return p.day_text;if(v.day_pass_aud===0)return '免费';if(Number.isFinite(v.day_pass_aud))return '
+function priceText(v){const p=pp(v);if(p.day_text)return p.day_text;if(v.day_pass_aud===0)return '免费';if(Number.isFinite(v.day_pass_aud))return '\u0024'+v.day_pass_aud;return '官网查价'}
+function effective(v){return v.effective_status||v.status||'active'}
+function richnessScore(v){const x=c(v);let n=0;if((x.route_count_min||0)>=100)n=5;else if((x.wall_area_m2||0)>=800||(x.rope_lines||0)>=100)n=5;else if((x.wall_area_m2||0)>=500||(x.route_count_min||0)>=70||(x.rope_lines||0)>=50)n=4;else if((x.wall_area_m2||0)>=250||x.network_access>=3)n=3;else if(x.scale_text)n=2;if((x.new_problems_per_week_min||0)>=20)n=Math.max(n,4);return n}
+function freshnessScore(v){const t=(c(v).freshness_text||'').toLowerCase();if((c(v).new_problems_per_week_min||0)>=20)return 5;if(/每周二、周四|一周多次|每周都会|几乎每周|固定周/.test(t))return 4;if(/持续分区|持续/.test(t))return 3;if(/未公布|不存在/.test(t))return 1;return t?2:0}
+function trainingScore(v){const a=c(v).training||[];return Math.min(5,a.length)}
+function memberWeekly(v){const p=pp(v);if(Number.isFinite(p.best_weekly))return p.best_weekly;if(Number.isFinite(p.weekly))return p.weekly;if(Number.isFinite(p.monthly))return p.monthly*12/52;return null}
+function breakEven(v){const p=pp(v),w=memberWeekly(v),d=Number.isFinite(p.day)?p.day:(Number.isFinite(v.day_pass_aud)?v.day_pass_aud:null);if(!(w>0)||!(d>0))return null;const lo=w/(p.day_max||d),hi=w/d;return Math.abs(lo-hi)<.08?hi.toFixed(1):(lo.toFixed(1)+'–'+hi.toFixed(1))}
+function longPrice(v){const p=pp(v);return [p.weekly_text,p.monthly_text,p.ten_text,p.other_text].filter(Boolean).join(' · ')||'长期卡价格未公开'}
+function smokeClass(v){const r=richnessScore(v),f=freshnessScore(v),t=trainingScore(v);if(r>=4&&f>=4)return ['hot','高量 + 高频换线'];if(t>=4)return ['hot','训练配置强'];if(r>=4)return ['hot','高量馆'];if(f>=4)return ['fast','换线快'];return ['','资料型']}
+function passBoxes(v){const p=pp(v),arr=[];if(p.day_text)arr.push(['日票',p.day_text]);if(p.ten_text)arr.push(['次卡',p.ten_text]);if(p.weekly_text)arr.push(['周付 / 会员',p.weekly_text]);if(p.monthly_text)arr.push(['月卡',p.monthly_text]);if(p.trial_text)arr.push(['新客 / 短卡',p.trial_text]);if(p.other_text)arr.push(['预付 / 其他',p.other_text]);return arr}
 function filterRows(){
  const q=els.search.value.trim().toLowerCase();
  rows=DATA.venues.filter(v=>{
