@@ -120,7 +120,10 @@ seen=set()
 # Archive has ~20 items/page. Scan until listing dates are older than the requested lookback.
 for page_no in range(1,36):
     url=f"{ARCHIVE}?page_at_1_0={page_no}"
-    r=session.get(url,headers=HEAD,timeout=30);r.raise_for_status()
+    r=session.get(url,headers=HEAD,timeout=30)
+    if r.status_code==404:
+        break
+    r.raise_for_status()
     soup=BeautifulSoup(r.text,"html.parser")
     anchors=soup.find_all("a",href=ARTICLE_RE)
     if not anchors:break
