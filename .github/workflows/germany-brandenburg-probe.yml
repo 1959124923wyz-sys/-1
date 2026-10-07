@@ -34,4 +34,4 @@ jobs:
         run: pip install -r dao-radar/site/germany-homicide-map/requirements.txt
 
       - name: Probe 14 days of official Brandenburg police releases
-        run: python dao-radar/site/germany-homicide-map/scripts/update_brandenburg.py --lookback 14 --max-pages 60
+        run: python dao-radar/site/germany-homicide-map/scripts/update_brandenburg.py --lookback 14 --max-pages 3
