@@ -15,17 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Extract Fang map data URL
+      - name: Find Fang dataUrl assignments
         shell: python
         run: |
           import requests,re
           h={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/154.0 Safari/537.36","Referer":"https://map.fang.com/"}
           t=requests.get("https://static.soufunimg.com/map/ditu/js/modules/vueMap/js/app.js?v=20250820001",headers=h,timeout=25).text
-          for needle in ["dataUrl","ajaxSearch.html","bJLo:function","API_URL"]:
-            print("\nNEEDLE",needle)
-            pos=0
-            for _ in range(20):
-              i=t.find(needle,pos)
-              if i<0: break
-              print(repr(t[max(0,i-900):i+1300]))
-              pos=i+len(needle)
+          for m in re.finditer(r'dataUrl',t):
+            i=m.start()
+            print(repr(t[max(0,i-350):i+600]))
