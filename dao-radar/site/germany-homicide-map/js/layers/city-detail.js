@@ -1,6 +1,5 @@
 (()=>{"use strict";
-const WARM=['#fff4e6','#fee2c2','#fbc48d','#f59e5b','#ea7449','#d94b3d','#ad2e32'];
-const COOL=['#eff6ff','#d9eafb','#b9d8f3','#8bbce3','#5a9bd2','#3678b8','#1f4f8f'];
+const {palettes:{national:WARM,property:COOL},violenceMetrics}=window.CrimeMapConfig;
 let api=null,manifest=null,active=null,activeKey=null,layer=null,selected=null,cache=new Map();
 
 const $=id=>document.getElementById(id);
@@ -8,20 +7,7 @@ const fmt=n=>Number(n||0).toLocaleString('zh-CN');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function metricKey(){return api?.getMode?.()==='property'?$('propertyMetric')?.value:$('violenceMetric')?.value}
 const {quantileBreaks,scaleColor,percentile,riskLabel,pointInGeometry}=window.CrimeMapUtils;
-function caseMatches(c,key){
-  if(api.getMode()==='violence'){
-    const m={violence:['homicide','violence','robbery','sexual'],serious_injury:['violence'],robbery:['robbery'],sexual:['sexual'],homicide:['homicide']};
-    return (m[key]||[]).includes(c.category)
-  }
-  if(c.category!=='property')return false;
-  const t=((c.subcategory||'')+' '+(c.offense||'')+' '+(c.summary||'')).toLowerCase();
-  if(key==='property_total')return true;
-  if(key==='burglary')return /wohnungseinbruch/.test(t);
-  if(key==='bicycle_theft')return /fahrrad|pedelec|e-bike|ebike/.test(t);
-  if(key==='vehicle_theft')return /autodiebstahl|fahrzeug-\/autodiebstahl|fahrzeugdiebstahl|kraftwagen.*diebstahl/.test(t);
-  if(key==='theft_from_vehicle')return /diebstahl.*(?:aus|an).*fahrzeug|fahrzeugaufbruch|kfz.*aufbruch/.test(t);
-  return false
-}
+function caseMatches(c,key){return window.CrimeDataModel.caseMatchesMetric(api.getMode(),key,c,violenceMetrics)}
 function cityBounds(c){return L.latLngBounds(c.bounds)}
 function matchingCity(){
   if(!manifest||!api)return null;
