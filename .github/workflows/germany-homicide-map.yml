@@ -52,6 +52,11 @@ jobs:
           CRIME_LOOKBACK_DAYS: '4'
         run: python dao-radar/site/germany-homicide-map/scripts/update_crime_categories.py
 
+      - name: Refresh direct Polizei Berlin source
+        env:
+          BERLIN_LOOKBACK_DAYS: ${{ github.event_name == 'push' && '90' || '5' }}
+        run: python dao-radar/site/germany-homicide-map/scripts/update_berlin_categories.py
+
       - name: Commit refreshed data
         id: save
         if: github.event_name != 'pull_request'
