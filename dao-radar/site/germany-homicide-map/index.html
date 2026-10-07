@@ -409,11 +409,8 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   function closeStateDrawer({restore=true}={}){
     activeStateFilter=null;selectedStateName=null;el.stateDrawer.classList.remove('open');renderNews();
     const rv=stateReturnView;stateReturnView=null;
-    if(restore&&rv){
-      map.setView(rv.center,rv.zoom,{animate:true});
-    }else{
-      buildStateLayer();
-    }
+    buildStateLayer();
+    if(restore&&rv)map.setView(rv.center,rv.zoom,{animate:true});
   }
   function resetStateDrawerPosition(){
     el.stateDrawer.style.left='58px';el.stateDrawer.style.top='12px';el.stateDrawer.style.right='auto';
@@ -838,7 +835,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   el.violenceMetric.addEventListener('change',()=>{pinnedArea=null;hoverArea=null;render();showArea(null);});
   el.propertyMetric.addEventListener('change',()=>{pinnedArea=null;hoverArea=null;render();showArea(null);});
   el.viewGermany.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');render();showArea(null);map.fitBounds(germanyBounds,{padding:[14,14]});};
-  el.focusBerlin.onclick=()=>{activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');renderNews();map.fitBounds(berlinBounds,{padding:[25,25],maxZoom:10});};
+  el.focusBerlin.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;activeStateFilter=null;selectedStateName=null;stateReturnView=null;el.stateDrawer.classList.remove('open');renderNews();showArea(null);map.fitBounds(berlinBounds,{padding:[25,25],maxZoom:10});};
   map.on('zoomend',()=>{buildStateLayer();if(mode==='violence')buildBerlinLayer();if(mode==='property')buildHeat();renderLegend();});
   map.on('moveend',()=>{if(!stateLayer)buildStateLayer();if(el.stateDrawer.classList.contains('open')){const b=el.stateDrawer.getBoundingClientRect(),h=document.querySelector('.mapwrap')?.getBoundingClientRect();if(h){const p=clampStateDrawer(b.left-h.left,b.top-h.top);el.stateDrawer.style.left=p.left+'px';el.stateDrawer.style.top=p.top+'px';el.stateDrawer.style.right='auto';}}});
 
