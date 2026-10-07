@@ -8,6 +8,10 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/germany-homicide-map.yml'
+  pull_request:
+    paths:
+      - '.github/workflows/germany-homicide-map.yml'
+      - 'dao-radar/site/germany-homicide-map/**'
 
 permissions:
   contents: write
@@ -40,6 +44,7 @@ jobs:
         run: python dao-radar/site/germany-homicide-map/scripts/update_cases.py
 
       - name: Commit refreshed data
+        if: github.event_name != 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
