@@ -1,4 +1,4 @@
-name: Germany homicide map updater
+name: Germany crime map updater
 
 on:
   workflow_dispatch:
@@ -41,7 +41,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r dao-radar/site/germany-homicide-map/requirements.txt
 
-      - name: Refresh rolling 30-day data
+      - name: Refresh rolling 90-day crime data
         env:
           APP_CONTACT: https://github.com/1959124923wyz-sys/-1
         run: python dao-radar/site/germany-homicide-map/scripts/update_cases.py
@@ -54,7 +54,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add dao-radar/site/germany-homicide-map/data/
           if ! git diff --cached --quiet; then
-            git commit -m "data: refresh Germany homicide map"
+            git commit -m "data: refresh Germany crime map"
             git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
