@@ -293,7 +293,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
   }
   function renderLayerInfo(cs){
     if(mode==='violence'){
-      const n=pksData?.meta?.county_count||0,berlinN=berlinViolence?.meta?.feature_count||0;
+      const n=pksData?.meta?.county_count||0,berlinN=berlinViolence?.meta?.bzr_count||berlinViolence?.meta?.feature_count||0;
       el.layerInfo.innerHTML='<b>三层真相 · 暴力模式</b><div><span class="big">'+fmt(n)+'</span> 个PKS县/市统计单元 · 2025年度</div><div><span class="big">'+fmt(cs.length)+'</span> 个近90天公开通报点</div><div>柏林细分：'+fmt(berlinN)+' 个Bezirksregion（抢劫 + 危险/严重伤害）</div><small>年度统计用于“哪里长期更高”；新闻点用于“最近发生了什么”。</small>';
     }else{
       const w=heatData?.windows?.['90']||{},field=el.heatType.value||'total';
@@ -306,7 +306,7 @@ footer{flex:0 0 34px;border-top:1px solid var(--line);padding:7px 18px;color:var
     if(mode==='violence'){
       el.sumA.textContent=fmt(pksData?.meta?.county_count||0);el.sumALabel.textContent='BKA PKS县/市';
       el.sumB.textContent=fmt(cs.length);el.sumBLabel.textContent='90天暴力类通报点';
-      el.sumC.textContent=fmt(berlinViolence?.meta?.feature_count||0);el.sumCLabel.textContent='柏林细分区域';
+      el.sumC.textContent=fmt(berlinViolence?.meta?.bzr_count||berlinViolence?.meta?.feature_count||0);el.sumCLabel.textContent='柏林Bezirksregion';
       el.listTitle.textContent='近90天暴力类公开通报';
       el.modeNote.textContent='默认结构：BKA PKS 2025县级暴力犯罪年统计作为全国底图；近90天重大/可定位警方通报作为事件点；放大柏林后叠加2025 Kriminalitätsatlas高覆盖细分层。';
       el.officialBadge.textContent='BKA PKS 2025 官方结构背景';
