@@ -21,8 +21,8 @@
   const {NATIONAL_VIOLENCE_2025,categories:cats,palettes,propertyMetrics,violenceMetrics}=window.CrimeMapConfig;
   const {national:nationalPalette,berlin:berlinPalette,property:propertyPalette,berlinProperty:berlinPropertyPalette}=palettes;
   let mode='violence',caseData=null,pksData=null,propertyData=null,countyGeo=null,berlinViolence=null,heatData=null,stateGeo=null;
-  let countyLayer=null,berlinLayer=null,heatLayer=null,stateLayer=null,selectedCountyLayer=null;
-  let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false,statePanel=null,eventLayer=null;
+  let countyLayer=null,stateLayer=null,selectedCountyLayer=null;
+  let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false,statePanel=null,eventLayer=null,berlinDetail=null;
   const stateDrawerDrag=window.CrimeDrawerDrag.create({drawer:el.stateDrawer,handle:el.stateDragHandle});
 
   const map=L.map('map',{minZoom:5,maxZoom:17,zoomControl:true,preferCanvas:true,worldCopyJump:false});
@@ -61,17 +61,8 @@
   function propertyRates(metric=currentPropertyMetric()){
     return Object.values(propertyData?.records||{}).map(r=>Number(r?.[metric]?.rate)).filter(Number.isFinite);
   }
-  function propertyHeatField(metric=currentPropertyMetric()){
-    if(metric==='property_total')return 'total';
-    if(metric==='bicycle_theft')return 'bike';
-    if(metric==='theft_from_vehicle')return 'vehicle';
-    return null;
-  }
-  function berlinLocalActive(){
-    if(map.getZoom()<7.5)return false;
-    if(mode==='violence')return currentViolenceMetric()==='violence'&&!!berlinViolence;
-    return !!propertyHeatField()&&!!heatData&&!!berlinViolence;
-  }
+  function propertyHeatField(){return berlinDetail?.propertyField()||null;}
+  function berlinLocalActive(){return berlinDetail?.isActive()||false;}
   function stateFeatureByName(name){
     return stateGeo?.features?.find(f=>f.properties?.name===name)||null;
   }
@@ -93,60 +84,9 @@
     const label=mode==='property'?(propertyMetrics[s.key]?.label||s.key):(violenceMetrics[s.key]?.label||s.key);
     return '<b>'+esc(s.name)+'</b><br>'+esc(label)+' · '+fmt(Math.round(s.rate))+'/10万人<br>'+fmt(s.cases)+' 起 · 16州第 '+s.rank;
   }
-  function berlinRates(){
-    const seen=new Map();
-    for(const f of berlinViolence?.features||[]){
-      const p=f.properties||{};if(!seen.has(p.bZR))seen.set(p.bZR,Number(p.combined_rate));
-    }
-    return [...seen.values()].filter(Number.isFinite);
-  }
-  function countyArea(feature,rec){
-    const key=currentViolenceMetric(),m=rec?.[key]||{},rate=Number(m.rate||0),cases=Number(m.cases||0),pct=percentile(rate,nationalRates(key));
-    return {kind:'violence-county',ags:rec?.ags||'',name:rec?.name||'未知县/市',state:rec?.state||'',metric:'BKA PKS 2025 · '+(violenceMetrics[key]?.label||key),
-      rate,cases,change:m.change||'—',recent:violentRecentCount(feature,key),pct,feature,metricKey:key,
-      note:'2025年警方记录的县/市级年度数据。颜色按德国县/市同一指标的相对分位着色；未报案事件不在PKS中。'};
-  }
-  function propertyCountyArea(feature,rec){
-    const key=currentPropertyMetric(),m=rec?.[key]||{},rate=Number(m.rate||0),cases=Number(m.cases||0),pct=percentile(rate,propertyRates(key));
-    const recent=caseData?.cases?.filter(c=>c.category==='property'&&Number.isFinite(c.lon)&&Number.isFinite(c.lat)&&pointInGeometry(c.lon,c.lat,feature.geometry)).length||0;
-    return {kind:'property-county',ags:rec?.ags||'',name:rec?.name||'未知县/市',state:rec?.state||'',metric:'BKA PKS 2025 · '+(propertyMetrics[key]?.label||key),
-      rate,cases,change:m.change||'—',recent,pct,feature,metricKey:key,
-      note:'2025年警方记录的县/市级年度数据。颜色按德国县/市同一指标的相对分位着色；未报案事件不在PKS中。'};
-  }
-  function berlinBzrRecentCount(bzr){
-    if(!caseData||!berlinViolence||!bzr)return 0;
-    const geoms=(berlinViolence.features||[]).filter(f=>f.properties?.bZR===bzr).map(f=>f.geometry).filter(Boolean);
-    const catsOk=new Set(['homicide','violence','robbery','sexual']);
-    return caseData.cases.filter(c=>catsOk.has(c.category)&&Number.isFinite(c.lon)&&Number.isFinite(c.lat)&&geoms.some(g=>pointInGeometry(c.lon,c.lat,g))).length;
-  }
-  function berlinArea(feature,p){
-    const rate=Number(p?.combined_rate||0),cases=Number(p?.combined_cases||0),pct=percentile(rate,berlinRates());
-    return {kind:'berlin',name:p?.name||'Berlin Bezirksregion',state:'Berlin',metric:'Polizei Berlin PKS 2025 · 抢劫 + 危险/严重身体伤害',rate,cases,
-      recent:berlinBzrRecentCount(p?.bZR),pct,feature,
-      note:'柏林细分层为两类严重暴力指标的合计，用于观察城市内部空间差异；与全国完整“Gewaltkriminalität”口径不同。'};
-  }
-  function normPlr(v){
-    const d=String(v||'').replace(/\D/g,'');
-    return d?d.padStart(8,'0').slice(-8):'';
-  }
-  function propertyPointMap(){
-    const pts=heatData?.windows?.['90']?.points||[];
-    return new Map(pts.map(p=>[normPlr(p.lor),p]));
-  }
-  function propertyLocalValues(field=propertyHeatField()){
-    if(!field)return[];
-    return [...propertyPointMap().values()].map(p=>Number(p[field]||0)).filter(Number.isFinite);
-  }
-  function propertyLocalArea(feature,geomProps,point){
-    if(!point)return null;
-    const field=propertyHeatField()||'total',v=Number(point[field]||0),pct=percentile(v,propertyLocalValues(field));
-    const label=field==='bike'?'自行车盗窃':field==='vehicle'?'车内/车上盗窃':'自行车 + 车辆相关盗窃';
-    return {kind:'property-local',name:point.name||geomProps?.name||point.lor||'Berlin Planungsraum',state:'Berlin',
-      metric:'Polizei Berlin Open Data · 近90天 · '+label,
-      rate:null,cases:v,recent:v,pct,feature,
-      bike:Number(point.bike||0),vehicle:Number(point.vehicle||0),total:Number(point.total||0),
-      note:'柏林 Planungsraum 级官方开放数据；显示最近90天记录数，不按人口标准化，也不代表全部财产犯罪。'};
-  }
+  function berlinRates(){return berlinDetail?.violenceRates()||[];}
+  function propertyLocalValues(field=propertyHeatField()){return berlinDetail?.propertyValues(field)||[];}
+
   function renderCoverage(a){
     if(a?.kind==='property-local'||a?.kind==='berlin'){
       el.coveragePill.textContent='细分数据';el.coveragePill.className='coverage-pill high';
@@ -260,10 +200,6 @@
     if(rec?.name==='Berlin'&&berlinLocalActive())return {pane:'countyPane',color:'transparent',weight:0,opacity:0,fillColor:'transparent',fillOpacity:0};
     return {pane:'countyPane',color:'#7c7f82',weight:.28,opacity:.56,fillColor:rec?scaleColor(val,breaks,nationalPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.68:0.07};
   }
-  function berlinStyle(feature){
-    const v=Number(feature?.properties?.combined_rate||0),breaks=quantileBreaks(berlinRates());
-    return {pane:'berlinPane',color:'#76558a',weight:.34,opacity:.58,fillColor:scaleColor(v,breaks,berlinPalette),fillOpacity:.84};
-  }
   function selectCountyLayer(layer){
     if(!countyLayer||!layer)return;
     if(selectedCountyLayer&&selectedCountyLayer!==layer)countyLayer.resetStyle(selectedCountyLayer);
@@ -328,47 +264,6 @@
       }
     }).addTo(map);
   }
-  function buildBerlinLayer(){
-    if(berlinLayer){map.removeLayer(berlinLayer);berlinLayer=null;}
-    if(mode!=='violence'||currentViolenceMetric()!=='violence'||!berlinViolence||map.getZoom()<7.5)return;
-    berlinLayer=L.geoJSON(berlinViolence,{
-      pane:'berlinPane',style:berlinStyle,
-      onEachFeature:(feature,layer)=>{
-        const p=feature.properties||{},area=()=>berlinArea(feature,p);
-        layer.bindTooltip(()=>{const a=area(),rk=riskLabel(a.pct);return '<b>'+esc(p.name)+'</b><br>严重暴力细分 '+fmt(Math.round(a.rate))+' /10万人·年 · '+rk.text+'<br>2025登记 '+fmt(Math.round(a.cases))+' 起';},{sticky:true});
-        layer.on('mouseover',()=>showArea(area()));
-        layer.on('mouseout',()=>{hoverArea=null;showArea(pinnedArea);});
-        layer.on('click',()=>showArea(area(),{pin:true}));
-      }
-    }).addTo(map);
-  }
-
-  function buildHeat(){
-    if(heatLayer){map.removeLayer(heatLayer);heatLayer=null;}
-    if(mode!=='property'||!heatData||!berlinViolence||map.getZoom()<7.5)return;
-    const field=propertyHeatField();if(!field)return;
-    const byPlr=propertyPointMap(),breaks=quantileBreaks(propertyLocalValues(field));
-    heatLayer=L.geoJSON(berlinViolence,{
-      pane:'berlinPane',
-      filter:feature=>byPlr.has(normPlr(feature?.properties?.plr)),
-      style:feature=>{
-        const point=byPlr.get(normPlr(feature?.properties?.plr)),v=Number(point?.[field]||0);
-        return {pane:'berlinPane',color:'#486783',weight:.34,opacity:.58,fillColor:scaleColor(v,breaks,berlinPropertyPalette),fillOpacity:.84};
-      },
-      onEachFeature:(feature,layer)=>{
-        const point=byPlr.get(normPlr(feature?.properties?.plr));if(!point)return;
-        const area=()=>propertyLocalArea(feature,feature.properties||{},point);
-        layer.bindTooltip(()=>{
-          const a=area(),rk=riskLabel(a.pct);
-          return '<b>'+esc(a.name)+'</b><br>'+esc(a.metric.replace('Polizei Berlin Open Data · 近90天 · ',''))+' '+fmt(a.cases)+' 起 · '+rk.text;
-        },{sticky:true});
-        layer.on('mouseover',()=>{layer.setStyle({color:'#ffffff',weight:1.25,opacity:1,fillOpacity:.84});showArea(area());});
-        layer.on('mouseout',()=>{heatLayer&&heatLayer.resetStyle(layer);hoverArea=null;showArea(pinnedArea);});
-        layer.on('click',()=>{heatLayer&&heatLayer.resetStyle(layer);layer.setStyle({color:'#ffffff',weight:2.1,opacity:1,fillOpacity:.86});showArea(area(),{pin:true});});
-      }
-    }).addTo(map);
-  }
-
   function visibleCases(){
     if(!caseData)return[];
     let rows=caseData.cases.filter(caseMatchesCurrentMetric);
@@ -435,10 +330,25 @@
     el.violenceLayers.hidden=mode!=='violence';el.propertyLayers.hidden=mode!=='property';
     el.toggleViolenceNews.classList.toggle('active',showViolenceNews);el.toggleViolenceNews.setAttribute('aria-pressed',String(showViolenceNews));
     el.togglePropertyNews.classList.toggle('active',showPropertyNews);el.togglePropertyNews.setAttribute('aria-pressed',String(showPropertyNews));
-    buildCountyLayer();buildStateLayer();buildBerlinLayer();buildHeat();
+    buildCountyLayer();buildStateLayer();berlinDetail.render();
     const cs=renderNews();renderLegend();renderLayerInfo(cs);renderSummary(cs);renderRankList();
     const stateFilter=statePanel?.filterName;if(stateFilter){const f=stateFeatureByName(stateFilter);if(f)statePanel.render(f);}
   }
+
+  berlinDetail=window.CrimeBerlinDetail.create({
+    map,
+    getMode:()=>mode,
+    getViolenceMetric:currentViolenceMetric,
+    getCaseData:()=>caseData,
+    getViolenceData:()=>berlinViolence,
+    getPropertyData:()=>heatData,
+    showArea,
+    getPinnedArea:()=>pinnedArea,
+    formatNumber:fmt,
+    escapeHtml:esc,
+    violencePalette:berlinPalette,
+    propertyPalette:berlinPropertyPalette
+  });
 
   eventLayer=window.CrimeRecentEvents.create({
     map,
@@ -492,7 +402,7 @@
   el.propertyMetric.addEventListener('change',()=>{pinnedArea=null;hoverArea=null;render();showArea(null);});
   el.viewGermany.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;statePanel.reset();render();showArea(null);map.fitBounds(germanyBounds,{padding:[14,14]});};
   el.focusBerlin.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;statePanel.reset();showArea(null);map.fitBounds(berlinBounds,{padding:[25,25],maxZoom:10});};
-  map.on('zoomend',()=>{buildStateLayer();if(mode==='violence')buildBerlinLayer();if(mode==='property')buildHeat();renderLegend();});
+  map.on('zoomend',()=>{buildStateLayer();berlinDetail.render();renderLegend();});
   map.on('moveend',()=>{if(!stateLayer)buildStateLayer();if(el.stateDrawer.classList.contains('open'))stateDrawerDrag.keepInside();});
 
   window.addEventListener('resize',()=>{if(el.stateDrawer.classList.contains('open'))stateDrawerDrag.keepInside();});
@@ -515,7 +425,7 @@
 
   window.__CRIME_MAP__={
     map,getMode:()=>mode,getCaseData:()=>caseData,getPksData:()=>pksData,getPropertyData:()=>propertyData,getBerlinViolence:()=>berlinViolence,getHeatData:()=>heatData,
-    getCountyLayer:()=>countyLayer,getBerlinLayer:()=>berlinLayer,getHeatLayer:()=>heatLayer,getVisibleCases:()=>visibleCases(),
+    getCountyLayer:()=>countyLayer,getBerlinLayer:()=>berlinDetail?.violenceLayer||null,getHeatLayer:()=>berlinDetail?.propertyLayer||null,getVisibleCases:()=>visibleCases(),
     getPinnedArea:()=>pinnedArea,getHoverArea:()=>hoverArea,
     clearSelection:()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;statePanel.reset();showArea(null);},
     showArea
