@@ -39,7 +39,7 @@ jobs:
         run: pip install -r dao-radar/site/shenzhen-save-years-map/requirements.txt
 
       - name: Refresh prices and discover communities
-        run: python dao-radar/site/shenzhen-save-years-map/scripts/update_prices.py --discover-pages 8 --delay 1.6
+        run: python dao-radar/site/shenzhen-save-years-map/scripts/update_prices.py --discover-pages 25 --detail-limit 12 --delay 0.65
 
       - name: Run parser tests
         run: python -m unittest discover -s dao-radar/site/shenzhen-save-years-map/tests -p 'test_*.py'
