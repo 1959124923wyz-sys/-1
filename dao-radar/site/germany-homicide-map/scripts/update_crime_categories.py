@@ -25,7 +25,8 @@ SOURCES=[
     ("sexual","Sexuelle Nötigung"),
     ("violence","Messerstiche"),
     ("violence","Messerangriff"),
-    ("violence","Gefährliche Körperverletzung"),
+    ("violence","Messer"),
+    ("violence","Schüsse"),
     ("violence","Schwerverletzt"),
     ("property","Wohnungseinbruchdiebstahl"),
     ("property","Wohnungseinbruch"),
@@ -136,7 +137,7 @@ def classify(category,title,text):
         return None
     if category=="violence":
         if HOMICIDE.search(head) or TRAFFIC.search(title):return None
-        if not re.search(r"Messer|Stich|Angriff|Gewalttat|gefährliche Körperverletzung|schwere Körperverletzung",title,re.I):return None
+        if not re.search(r"Messer|Stich|Schuss|Angriff|Gewalttat|gefährliche Körperverletzung|schwere Körperverletzung",title,re.I):return None
         weapon=bool(re.search(r"Messer|Stichverletz|Schuss|Schusswaffe|gefährliche Körperverletzung|schwere Körperverletzung",head,re.I))
         serious=bool(re.search(r"schwer verletzt|lebensgefährlich|erheblich verletzt|stationär|Notoperation|Stichverletz|Messerstich|Schussverletz",head,re.I))
         if not (weapon and serious):return None
