@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 ROOT=Path(__file__).resolve().parents[1]
 CASES=ROOT/"data/cases.json"; CACHE=ROOT/"data/geocode_cache.json"; SEEN=ROOT/"data/seen_urls.json"
-WINDOW=30
+WINDOW=90
 RSS=[
  ("Presseportal Polizei","https://www.presseportal.de/rss/polizei.rss2"),
  ("Polizei Hessen","https://polizei.hessen.de/presse-feed/all"),
@@ -184,7 +184,7 @@ for c in cases:
 cases.sort(key=lambda c:(c["event_date"],c.get("city","")),reverse=True)
 cases_changed=json.dumps(cases,ensure_ascii=False,sort_keys=True)!=before_cases
 generated=(datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z") if cases_changed or not previous_generated else previous_generated)
-payload["meta"]={"generated_at":generated,"window_days":WINDOW,"scope":"Germany","case_count":len(cases),"geocoded_count":sum(c.get("lat") is not None for c in cases),"method":"Verified seed set plus automated monitoring of public police RSS sources; strict death+homicide filter with follow-up-date and contact-address guards.","disclaimer":"Public-source monitor, not an official or exhaustive crime register. Locations reflect the most precise place publicly reported; Fundort means body-discovery location and may not be the crime scene."}
+payload["meta"]={"generated_at":generated,"window_days":WINDOW,"scope":"Germany","case_count":len(cases),"geocoded_count":sum(c.get("lat") is not None for c in cases),"method":"Verified 90-day seed/backfill set plus automated monitoring of public police RSS sources; strict death+homicide filter with follow-up-date and contact-address guards.","disclaimer":"Public-source monitor, not an official or exhaustive crime register. Locations reflect the most precise place publicly reported; Fundort means body-discovery location and may not be the crime scene."}
 payload["cases"]=cases
 save(CASES,payload); save(CACHE,cache); save(SEEN,seen)
 print(f"cases={len(cases)} added={added} geocoded={payload['meta']['geocoded_count']} changed={cases_changed}")

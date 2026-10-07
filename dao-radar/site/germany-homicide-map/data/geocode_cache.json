@@ -297,5 +297,408 @@
       "country": "Deutschland",
       "country_code": "de"
     }
+  },
+  "Tatverdächtiger mit Bezügen nach Heilbronn gesucht Heilbronn, Germany": null,
+  "kommunalen Unterbringungseinrichtung auf der Grimpingstraße, Polizei richtet Mordkommission ein Münster, Germany": null,
+  "Polizei richtet Mordkommission ein Münster, Germany": null,
+  "Mordkommission sucht weiter nach Zeugen Düsseldorf, Germany": null,
+  "Tötungsdelikt - Anklageerhebung wegen Mordes Neuenbürg, Germany": null,
+  "Uhr war Ewa M. zu Fuß auf den Heimweg, Medieninhalte Mönchengladbach, Germany": null,
+  "Medieninhalte Mönchengladbach, Germany": null,
+  "Zwei Tatverdächtige flüchtig Dortmund, Germany": null,
+  "Marsberg Dortmund, Germany": null,
+  "Uhr war Ewa M. zu Fuß auf den Heimweg, Medieninhalte Krefeld, Germany": null,
+  "Medieninhalte Krefeld, Germany": null,
+  "kommunalen Unterbringungseinrichtung auf der Grimpingstraße, Coesfeld, Germany": null,
+  "Coesfeld, Germany": {
+    "lat": 51.9458943,
+    "lon": 7.1691108,
+    "address": {
+      "town": "Coesfeld",
+      "county": "Kreis Coesfeld",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "48653",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hammer Straße, Zuführung nach Tötungsdelikt in Hamburg-Marienthal Hamburg, Germany": null,
+  "Zuführung nach Tötungsdelikt in Hamburg-Marienthal Hamburg, Germany": null,
+  "Uhr war Ewa M. zu Fuß auf den Heimweg, Vorst Bild-Infos Download Mönchengladbach, Germany": null,
+  "Vorst Bild-Infos Download Mönchengladbach, Germany": null,
+  "Bonn, Germany": {
+    "lat": 50.7352621,
+    "lon": 7.1024635,
+    "address": {
+      "city": "Bonn",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Lagerstraße, Hamburg, Germany": {
+    "lat": 53.5624507,
+    "lon": 9.9724259,
+    "address": {
+      "road": "Lagerstraße",
+      "neighbourhood": "Karolinenviertel",
+      "suburb": "St. Pauli",
+      "borough": "Hamburg-Mitte",
+      "city": "Hamburg",
+      "ISO3166-2-lvl4": "DE-HH",
+      "postcode": "20357",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Breddestraße, Hattingen, Germany": {
+    "lat": 51.39917,
+    "lon": 7.1144871,
+    "address": {
+      "road": "Breddestraße",
+      "suburb": "Niederbonsfeld",
+      "town": "Hattingen",
+      "county": "Ennepe-Ruhr-Kreis",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "45529",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Ingenheim, Billigheim-Ingenheim, Germany": {
+    "lat": 49.1355756,
+    "lon": 8.0821264,
+    "address": {
+      "village": "Ingenheim",
+      "municipality": "Billigheim-Ingenheim",
+      "county": "Landkreis Südliche Weinstraße",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "76831",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Heppenser Straße, Wilhelmshaven, Germany": {
+    "lat": 53.5300303,
+    "lon": 8.1373,
+    "address": {
+      "road": "Heppenser Straße",
+      "neighbourhood": "Alt Heppens",
+      "suburb": "Heppens",
+      "town": "Wilhelmshaven",
+      "municipality": "Wangerland",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "26384",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hörde, Dortmund, Germany": {
+    "lat": 51.4884311,
+    "lon": 7.4972451,
+    "address": {
+      "census": "Hörde",
+      "city_district": "Hörde",
+      "city": "Dortmund",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "44263",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hennebergpark, Hamburg, Germany": {
+    "lat": 53.661737,
+    "lon": 10.0912271,
+    "address": {
+      "park": "Hennebergpark",
+      "suburb": "Poppenbüttel",
+      "city_district": "Wandsbek",
+      "city": "Hamburg",
+      "ISO3166-2-lvl4": "DE-HH",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bahnhofstraße, Verden (Aller), Germany": {
+    "lat": 52.919834,
+    "lon": 9.2374052,
+    "address": {
+      "road": "Bahnhofstraße",
+      "town": "Verden (Aller)",
+      "city": "Verden (Aller)",
+      "county": "Landkreis Verden",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "27283",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Zeiss-Großplanetarium, Berlin, Germany": {
+    "lat": 52.5430569,
+    "lon": 13.4281438,
+    "address": {
+      "amenity": "Zeiss-Großplanetarium",
+      "house_number": "80",
+      "road": "Prenzlauer Allee",
+      "neighbourhood": "Wohnstadt Carl Legien",
+      "quarter": "Humann-Kiez",
+      "suburb": "Prenzlauer Berg",
+      "borough": "Pankow",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "postcode": "10405",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hepstedt, Niedersachsen, Germany": {
+    "lat": 53.2579813,
+    "lon": 9.0854103,
+    "address": {
+      "village": "Hepstedt",
+      "municipality": "Samtgemeinde Tarmstedt",
+      "county": "Landkreis Rotenburg (Wümme)",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hochbruckerstraße, Donauwörth, Germany": {
+    "lat": 48.7352077,
+    "lon": 10.7920614,
+    "address": {
+      "road": "Hochbruckerstraße",
+      "suburb": "Parkstadt",
+      "village": "Berg",
+      "town": "Donauwörth",
+      "county": "Landkreis Donau-Ries",
+      "state": "Bayern",
+      "ISO3166-2-lvl4": "DE-BY",
+      "postcode": "86609",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Ginsheim, Ginsheim-Gustavsburg, Germany": {
+    "lat": 49.9711057,
+    "lon": 8.3484576,
+    "address": {
+      "village": "Ginsheim",
+      "municipality": "Ginsheim-Gustavsburg",
+      "county": "Kreis Groß-Gerau",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "65462",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Thiestraße, Rheine, Germany": {
+    "lat": 52.2343764,
+    "lon": 7.486022,
+    "address": {
+      "road": "Thiestraße",
+      "village": "Mesum",
+      "town": "Rheine",
+      "municipality": "Steinfurt",
+      "county": "Kreis Steinfurt",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "48565",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Coventrystraße, Frankfurt am Main, Germany": {
+    "lat": 50.1018567,
+    "lon": 8.5774128,
+    "address": {
+      "road": "Coventrystraße",
+      "suburb": "Nied",
+      "city_district": "West",
+      "city": "Frankfurt am Main",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "65934",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Hardenbergplatz, Berlin, Germany": {
+    "lat": 52.5067049,
+    "lon": 13.3328708,
+    "address": {
+      "road": "Hardenbergplatz",
+      "neighbourhood": "City West",
+      "suburb": "Charlottenburg",
+      "borough": "Charlottenburg-Wilmersdorf",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "postcode": "10623",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Engerstraße, Werther (Westf.), Germany": {
+    "lat": 52.0728211,
+    "lon": 8.4115539,
+    "address": {
+      "road": "Engerstraße",
+      "town": "Werther (Westf.)",
+      "municipality": "Werther (Westf.)",
+      "county": "Kreis Gütersloh",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "33824",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Kirchweg, Bremen, Germany": {
+    "lat": 53.0618865,
+    "lon": 8.8094746,
+    "address": {
+      "road": "Kirchweg",
+      "quarter": "Buntentor",
+      "suburb": "Neustadt",
+      "city_district": "Bremen-Süd",
+      "city": "Bremen",
+      "state": "Bremen",
+      "ISO3166-2-lvl4": "DE-HB",
+      "postcode": "28201",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bad Dürkheim, Rheinland-Pfalz, Germany": {
+    "lat": 49.4632944,
+    "lon": 8.1705063,
+    "address": {
+      "town": "Bad Dürkheim",
+      "county": "Landkreis Bad Dürkheim",
+      "state": "Rheinland-Pfalz",
+      "ISO3166-2-lvl4": "DE-RP",
+      "postcode": "67098",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Rees, Nordrhein-Westfalen, Germany": {
+    "lat": 51.7581242,
+    "lon": 6.3956605,
+    "address": {
+      "town": "Rees",
+      "county": "Kreis Kleve",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "46459",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "U-Bahnhof Berne, Hamburg, Germany": null,
+  "Hamburg, Germany": {
+    "lat": 53.5501721,
+    "lon": 10.0013165,
+    "address": {
+      "city": "Hamburg",
+      "ISO3166-2-lvl4": "DE-HH",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "City-Galerie Wolfsburg, Porschestraße, Wolfsburg, Germany": {
+    "lat": 52.4222829,
+    "lon": 10.7886292,
+    "address": {
+      "shop": "City-Galerie Wolfsburg",
+      "house_number": "45",
+      "road": "Porschestraße",
+      "suburb": "Stadtmitte",
+      "city": "Wolfsburg",
+      "state": "Niedersachsen",
+      "ISO3166-2-lvl4": "DE-NI",
+      "postcode": "38440",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Mariendorfer Damm, Berlin, Germany": {
+    "lat": 52.4389552,
+    "lon": 13.3877943,
+    "address": {
+      "road": "Mariendorfer Damm",
+      "neighbourhood": "Alt-Mariendorf",
+      "suburb": "Mariendorf",
+      "borough": "Tempelhof-Schöneberg",
+      "city": "Berlin",
+      "ISO3166-2-lvl4": "DE-BE",
+      "postcode": "12107",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Wambel, Dortmund, Germany": {
+    "lat": 51.5204477,
+    "lon": 7.5205435,
+    "address": {
+      "census": "Wambel",
+      "city_district": "Brackel",
+      "city": "Dortmund",
+      "state": "Nordrhein-Westfalen",
+      "ISO3166-2-lvl4": "DE-NW",
+      "postcode": "44143",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Frankfurter Straße, Kelkheim (Taunus), Germany": {
+    "lat": 50.1237988,
+    "lon": 8.4675907,
+    "address": {
+      "road": "Frankfurter Straße",
+      "suburb": "Münster",
+      "town": "Kelkheim (Taunus)",
+      "county": "Main-Taunus-Kreis",
+      "state": "Hessen",
+      "ISO3166-2-lvl4": "DE-HE",
+      "postcode": "65779",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Bramfeld, Hamburg, Germany": {
+    "lat": 53.6168289,
+    "lon": 10.0789221,
+    "address": {
+      "suburb": "Bramfeld",
+      "city_district": "Wandsbek",
+      "city": "Hamburg",
+      "ISO3166-2-lvl4": "DE-HH",
+      "municipality": "Brunsbek",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
+  },
+  "Nebenbahnstraße, Hamburg, Germany": {
+    "lat": 53.6106004,
+    "lon": 9.9039415,
+    "address": {
+      "road": "Nebenbahnstraße",
+      "suburb": "Eidelstedt",
+      "city": "Hamburg",
+      "ISO3166-2-lvl4": "DE-HH",
+      "postcode": "22523",
+      "country": "Deutschland",
+      "country_code": "de"
+    }
   }
 }

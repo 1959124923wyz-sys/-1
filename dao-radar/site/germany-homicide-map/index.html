@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>德国近30天凶杀案地图 · Germany Homicide Monitor</title>
-<meta name="description" content="德国最近30天公开警方/检察机关通报中的致死凶杀案件动态地图。">
+<title>德国近3个月凶杀案地图 · Germany Homicide Monitor</title>
+<meta name="description" content="德国最近90天公开警方/检察机关通报中的致死凶杀案件动态地图。">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
 :root{
@@ -51,7 +51,7 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
 <header>
   <div class="titleblock">
     <div class="kicker">PUBLIC-SOURCE MONITOR · GERMANY</div>
-    <h1>德国近30天凶杀案地图</h1>
+    <h1>德国近3个月凶杀案地图</h1>
     <p class="sub">Germany homicide monitor · 依据公开警方/检察机关通报整理；不是德国官方或穷尽式犯罪数据库。</p>
   </div>
   <div class="stat">
@@ -76,9 +76,9 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
     <div class="filters">
       <label>时间
         <select id="days">
-          <option value="7">7天</option>
-          <option value="14">14天</option>
-          <option value="30" selected>30天</option>
+          <option value="30">30天</option>
+          <option value="60">60天</option>
+          <option value="90" selected>90天</option>
         </select>
       </label>
       <label><input id="confirmed" type="checkbox" checked> confirmed</label>
@@ -91,7 +91,7 @@ footer span:first-child{overflow:hidden;text-overflow:ellipsis}
 
 <footer>
   <span>本地州界：deutschlandGeoJSON（Unlicense） · 街道底图（可用时）：© OpenStreetMap contributors</span>
-  <span>自动筛选优先降低误报；每天检查一次</span>
+  <span>自动筛选优先降低误报；滚动保留90天，每天检查一次</span>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
