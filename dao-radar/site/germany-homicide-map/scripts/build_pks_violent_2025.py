@@ -41,7 +41,7 @@ def scrape_one(item):
     ags,name,url=item
     s=session()
     r=s.get(url,timeout=35);r.raise_for_status()
-    soup=BeautifulSoup(r.text,"html.parser")
+    soup=BeautifulSoup(r.content.decode("utf-8","replace"),"html.parser")
     rows={}
     for tr in soup.find_all("tr"):
         cells=[c.get_text(" ",strip=True) for c in tr.find_all(["th","td"])]
