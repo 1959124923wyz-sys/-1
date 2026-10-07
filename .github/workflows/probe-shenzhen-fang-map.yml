@@ -15,12 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Find Fang dataUrl assignments
+      - name: Query Fang ajaxSearch directly
         shell: python
         run: |
-          import requests,re
+          import requests,json
           h={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/154.0 Safari/537.36","Referer":"https://map.fang.com/"}
-          t=requests.get("https://static.soufunimg.com/map/ditu/js/modules/vueMap/js/app.js?v=20250820001",headers=h,timeout=25).text
-          for m in re.finditer(r'dataUrl',t):
-            i=m.start()
-            print(repr(t[max(0,i-350):i+600]))
+          params={"city":"sz","type":"esf","xfPrice":"","esfPrice":"","zfPrice":"","room":"","area":"","purpose":"住宅","keyword":"","zoom":"12","newcodeType":"","newcode":"","pagingType":"","pagingNum":"","x1":"113.72","x2":"114.65","y1":"22.35","y2":"22.90","subwayline":"","subwaystation":"","issamllcity":"0","fapaiPrice":"","fapaiPropertyType":"","fapaiStage":"","fapaiStatus":""}
+          for host in ["https://map.fang.com/ajaxSearch.html","https://sz.map.fang.com/ajaxSearch.html"]:
+            try:
+              r=requests.get(host,params=params,headers=h,timeout=25,allow_redirects=True)
+              print("\nURL",host,"STATUS",r.status_code,"FINAL",r.url,"CTYPE",r.headers.get("content-type"),"LEN",len(r.content))
+              print("HEAD",repr(r.text[:12000]))
+            except Exception as e: print("ERR",host,repr(e))
