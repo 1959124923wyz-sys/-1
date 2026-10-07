@@ -135,7 +135,7 @@ def poi_category(tags):
     if tags.get("industrial")=="port" or tags.get("harbour")=="yes": return "port"
     if tags.get("amenity")=="ferry_terminal": return "ferry"
     if re.search(r"(口岸(?:\s*[①②])?|管制站)$",name): return "border"
-    if re.search(r"(蛇口港|蛇口邮轮|赤湾港|赤湾码头|大铲湾港|妈湾港|盐田港)",name): return "port"
+    if re.fullmatch(r"(蛇口港|蛇口邮轮中心|赤湾港|赤湾码头|大铲湾港|妈湾港|盐田港)",name): return "port"
     return None
 
 def poi_priority(cat,name):
@@ -177,7 +177,7 @@ def build(raw,source):
             noise=("社区","公交","上客","下客","停车","地铁","巴士","警岗","派出所","商业","旅行社","大楼","医院","联络道","立交","出租车","项目","酒店","公安","宿舍","口岸區","口岸区")
             if cat=="border" and (any(x in name for x in noise) or not ("口岸" in name or "管制站" in name)): continue
             if cat=="airport" and not ("宝安" in name or "深圳机场" in name): continue
-            if cat in ("port","ferry") and (any(x in name for x in ("地铁","公交","社区","医院","酒店","大厦")) or not any(x.lower() in name.lower() for x in ("港","码头","port","terminal","蛇口","赤湾","大铲湾","盐田","妈湾","邮轮"))): continue
+            if cat in ("port","ferry") and (any(x in name for x in ("地铁","公交","社区","医院","酒店","大厦","交警","物流","保税","堆场","集团","公司","住宅","供水","仓","供应链","园区","工程","桥")) or not any(x.lower() in name.lower() for x in ("港","码头","port","terminal","蛇口","赤湾","大铲湾","盐田","妈湾","邮轮"))): continue
             pois.append({"t":cat,"n":name,"p":[round(pos[0],5),round(pos[1],5)],"q":poi_priority(cat,name)})
 
     # Deduplicate POIs by normalized name, preferring the higher-priority representation.
