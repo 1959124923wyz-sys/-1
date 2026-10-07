@@ -15,6 +15,7 @@ on:
     paths:
       - '.github/workflows/germany-homicide-map.yml'
       - 'dao-radar/site/germany-homicide-map/scripts/**'
+      - 'dao-radar/site/germany-homicide-map/index.html'
       - 'dao-radar/site/germany-homicide-map/requirements.txt'
 
 permissions:
