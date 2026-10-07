@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 import csv, io, json, re
-from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
@@ -150,8 +149,8 @@ if missing or len(features)!=25:
 out={
   "type":"FeatureCollection",
   "meta":{
-    "generated_at":datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),
-    "year":2025,"scope":"München Stadtbezirke","feature_count":len(features),"district_count":len(seen),
+    "schema_version":1,
+        "year":2025,"scope":"München Stadtbezirke","feature_count":len(features),"district_count":len(seen),
     "crime_source":"Statistisches Amt München / Polizeipräsidium München: Straftaten in den Stadtbezirken 2025",
     "crime_source_url":CRIME_SOURCE,
     "population_source":"Open Data Portal München: Bevölkerung in den Stadtbezirken (31.12.2024)",
