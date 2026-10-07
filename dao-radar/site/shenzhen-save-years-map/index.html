@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#101114" />
   <title>深圳 · 攒房地图</title>
-  <meta name="description" content="把深圳小区参考房价换算成：每月存下一定金额，需要攒多少年才能付清整套房款。" />
+  <meta name="description" content="把深圳小区参考房价换算成：每年存下一定金额，需要攒多少年才能付清整套房款。" />
   <style>
     :root{--bg:#0d0f12;--panel:#15181d;--panel2:#1b1f25;--text:#f5f7fa;--muted:#a9b0bb;--line:#2a3038;--accent:#e7ff59;--green:#46d685;--yellow:#ffd557;--orange:#ff9955;--red:#ff6464;--pink:#ff79b8}
     *{box-sizing:border-box} html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
@@ -33,7 +33,7 @@
     .community-dot{stroke:#fff;stroke-width:2.2;vector-effect:non-scaling-stroke}
     .community-halo{fill:none;stroke:#fff;stroke-width:8;opacity:.06;vector-effect:non-scaling-stroke}
     .community-tag{pointer-events:none;display:none}
-    .city-svg.show-tags .community-tag,.community-marker:hover .community-tag,.community-marker.selected .community-tag{display:block}
+    .community-tag.auto-visible,.community-marker:hover .community-tag,.community-marker.selected .community-tag{display:block}
     .community-tag-bg{fill:#0f1318;stroke:#5e6874;stroke-width:1;vector-effect:non-scaling-stroke}
     .community-tag-text{fill:#fff;font-size:12px;font-weight:900;text-anchor:middle;dominant-baseline:middle;paint-order:stroke;stroke:#0f1318;stroke-width:2px}
     .community-marker.selected .community-dot{stroke:var(--accent);stroke-width:4}
@@ -78,7 +78,7 @@
       
     </div>
     <div class="maptop"><div class="status" id="status">正在读取数据…</div><button class="share" id="share">复制当前参数链接</button></div>
-    <div class="map-hint">拖动平移 · 滚轮缩放 · 点击点位看详情</div>
+    <div class="map-hint" id="mapHint">拖动平移 · 滚轮缩放 · 点击点位看详情</div>
     <div class="zoomctl"><button id="zoomIn" title="放大">＋</button><button id="zoomOut" title="缩小">−</button><button id="zoomHome" title="全深圳">⌂</button></div>
     <div id="mapPopup" class="map-popup" hidden></div>
   </main>
@@ -95,7 +95,7 @@
   const qs=new URLSearchParams(location.search);
   let area=Math.max(20,Math.min(300,Number(qs.get('area'))||DATA.meta.default_area_sqm||90));
   let saving=Math.max(10000,Number(qs.get('annual'))||DATA.meta.default_annual_savings||100000);
-  let selectedId=null,currentRowCount=0;
+  let selectedId=null,currentRowCount=0,currentRows=[];
 
   $('#saving').value=saving;
   const preset=[...document.querySelectorAll('#areaSeg button')];
@@ -184,9 +184,9 @@
     x=Math.max(-160,Math.min(SVG_W-w+160,x));
     y=Math.max(-120,Math.min(SVG_H-h+120,y));
     view={x,y,w,h};
-    svg.classList.toggle('show-tags',currentRowCount<=120||w<620);
     svg.style.transition=animate?'viewBox .18s ease':'none';
     svg.setAttribute('viewBox',`${x} ${y} ${w} ${h}`);
+    requestAnimationFrame(refreshViewportVisuals);
   }
   function zoomAt(factor,cx=view.x+view.w/2,cy=view.y+view.h/2){
     const nw=view.w*factor,nh=nw*(SVG_H/SVG_W);
@@ -197,13 +197,73 @@
     const r=svg.getBoundingClientRect();
     return [view.x+(clientX-r.left)/r.width*view.w,view.y+(clientY-r.top)/r.height*(view.w*(SVG_H/SVG_W))]
   }
+  function markerZoom(){
+    return Math.max(.68,Math.min(7.7,SVG_W/view.w));
+  }
+
+  function pointToScreen(x,y){
+    const m=svg.getScreenCTM();
+    if(m&&typeof DOMPoint!=='undefined'){
+      const p=new DOMPoint(x,y).matrixTransform(m);
+      return [p.x,p.y];
+    }
+    const r=svg.getBoundingClientRect();
+    return [r.left+(x-view.x)/view.w*r.width,r.top+(y-view.y)/view.h*r.height];
+  }
+
+  function boxesOverlap(a,b,pad=5){
+    return !(a.r+pad<b.l||b.r+pad<a.l||a.b+pad<b.t||b.b+pad<a.t);
+  }
+
+  function refreshViewportVisuals(){
+    const z=markerZoom(),inv=1/z;
+    const markers=[...document.querySelectorAll('.community-marker')];
+    markers.forEach(g=>{
+      const x=Number(g.dataset.x),y=Number(g.dataset.y);
+      g.setAttribute('transform',`translate(${x} ${y}) scale(${inv})`);
+      const tag=g.querySelector('.community-tag');
+      if(tag)tag.classList.remove('auto-visible');
+    });
+
+    document.querySelectorAll('.district-label').forEach(t=>{
+      t.style.fontSize=(13*inv)+'px';
+      t.style.strokeWidth=(4*inv)+'px';
+    });
+
+    const r=svg.getBoundingClientRect();
+    const viewport={l:r.left+6,t:r.top+6,r:r.right-6,b:r.bottom-6};
+    const center=[r.left+r.width/2,r.top+r.height/2];
+    const candidates=markers.map(g=>{
+      const x=Number(g.dataset.x),y=Number(g.dataset.y);
+      const [sx,sy]=pointToScreen(x,y);
+      const labelW=Number(g.dataset.labelw)||54;
+      return {g,sx,sy,labelW,d2:(sx-center[0])**2+(sy-center[1])**2,selected:g.dataset.id===selectedId};
+    }).filter(o=>o.sx>=viewport.l-80&&o.sx<=viewport.r+80&&o.sy>=viewport.t-60&&o.sy<=viewport.b+60);
+
+    candidates.sort((a,b)=>(b.selected-a.selected)||(a.d2-b.d2));
+    const accepted=[];
+    const maxLabels=z<1.15?34:z<1.6?55:z<2.2?90:z<3.2?145:z<4.5?210:9999;
+    for(const o of candidates){
+      if(accepted.length>=maxLabels&&!o.selected)continue;
+      const box={l:o.sx-o.labelW/2-3,r:o.sx+o.labelW/2+3,t:o.sy-43,b:o.sy-13};
+      if(box.l<viewport.l||box.r>viewport.r||box.t<viewport.t||box.b>viewport.b){if(!o.selected)continue;}
+      if(!o.selected&&accepted.some(a=>boxesOverlap(box,a.box)))continue;
+      const tag=o.g.querySelector('.community-tag');
+      if(tag)tag.classList.add('auto-visible');
+      accepted.push({...o,box});
+    }
+
+    const hint=$('#mapHint');
+    if(hint)hint.textContent=`缩放 ${z.toFixed(1)}× · 标签 ${accepted.length}/${currentRowCount} · 拖动平移 · 滚轮缩放 · 点击查看详情`;
+  }
   function showPopup(c){
     selectedId=c.id;
     document.querySelectorAll('.community-marker').forEach(n=>n.classList.toggle('selected',n.dataset.id===c.id));
+    requestAnimationFrame(refreshViewportVisuals);
     const y=years(c),total=c.unit_price*area;
     $('#mapPopup').innerHTML=`<button class="close" aria-label="关闭">×</button><h3>${esc(c.name)}</h3><div class="popgrid"><span>折算年数</span><b style="color:${color(y)}">${y.toFixed(1)} 年</b><span>参考单价</span><b>¥${fmt(c.unit_price)}/㎡</b><span>假设面积</span><b>${area}㎡</b><span>估算总价</span><b>¥${(total/10000).toFixed(0)}万</b><span>每年储蓄</span><b>¥${fmt(saving)}</b><span>数据期</span><b class="${ageClass(c)}">${esc(c.price_period||'未知')}</b><span>区域</span><b>${esc(c.district||'')} · ${esc(c.subdistrict||'')}</b></div>${c.source_url?`<a href="${encodeURI(c.source_url)}" target="_blank" rel="noopener noreferrer">查看价格来源 ↗</a>`:''}`;
     $('#mapPopup').hidden=false;
-    $('#mapPopup .close').onclick=()=>{selectedId=null;$('#mapPopup').hidden=true;document.querySelectorAll('.community-marker').forEach(n=>n.classList.remove('selected'))}
+    $('#mapPopup .close').onclick=()=>{selectedId=null;$('#mapPopup').hidden=true;document.querySelectorAll('.community-marker').forEach(n=>n.classList.remove('selected'));requestAnimationFrame(refreshViewportVisuals)}
   }
   function focusCommunity(id){
     const c=DATA.communities.find(x=>x.id===id);if(!c)return;
@@ -214,14 +274,15 @@
   function drawMarkers(rows){
     const layer=$('#markerLayer');layer.replaceChildren();
     currentRowCount=rows.length;
-    svg.classList.toggle('show-tags',currentRowCount<=120||view.w<620);
+    currentRows=rows;
     rows.forEach(c=>{
-      const [x,y]=project(c.lng,c.lat),yr=years(c),g=el('g',{class:'community-marker','data-id':c.id,transform:`translate(${x} ${y})`});
+      const [x,y]=project(c.lng,c.lat),yr=years(c),g=el('g',{class:'community-marker','data-id':c.id,'data-x':x,'data-y':y,transform:`translate(${x} ${y})`});
       const halo=el('circle',{r:12,class:'community-halo'});
       const dot=el('circle',{r:6.5,class:'community-dot',fill:color(yr)});
       g.append(halo,dot);
       {
         const txt=yr.toFixed(yr<100?1:0)+'年',w=Math.max(42,txt.length*12+12);
+        g.dataset.labelw=String(w);
         const rect=el('rect',{x:-w/2,y:-35,width:w,height:23,rx:7,ry:7,class:'community-tag-bg'});
         const text=el('text',{x:0,y:-23.5,class:'community-tag-text'});text.textContent=txt;
         const stem=el('line',{x1:0,y1:-12,x2:0,y2:-7,stroke:'#707a85','stroke-width':1});
@@ -230,6 +291,7 @@
       g.onclick=e=>{e.stopPropagation();showPopup(c)};
       layer.appendChild(g);
     });
+    requestAnimationFrame(refreshViewportVisuals);
   }
 
   function render(){
@@ -268,7 +330,9 @@
   svg.addEventListener('pointermove',e=>{if(!drag)return;const r=svg.getBoundingClientRect();const dx=(e.clientX-drag.x)/r.width*drag.v.w,dy=(e.clientY-drag.y)/r.height*(drag.v.w*(SVG_H/SVG_W));setView({x:drag.v.x-dx,y:drag.v.y-dy,w:drag.v.w})});
   const endDrag=()=>{drag=null;svg.classList.remove('dragging')};
   svg.addEventListener('pointerup',endDrag);svg.addEventListener('pointercancel',endDrag);
-  svg.addEventListener('click',e=>{if(e.target===svg||e.target.closest('#districtLayer')){$('#mapPopup').hidden=true;selectedId=null;document.querySelectorAll('.community-marker').forEach(n=>n.classList.remove('selected'))}});
+  svg.addEventListener('click',e=>{if(e.target===svg||e.target.closest('#districtLayer')){$('#mapPopup').hidden=true;selectedId=null;document.querySelectorAll('.community-marker').forEach(n=>n.classList.remove('selected'));requestAnimationFrame(refreshViewportVisuals)}});
+  if('ResizeObserver' in window)new ResizeObserver(()=>requestAnimationFrame(refreshViewportVisuals)).observe(svg);
+  else window.addEventListener('resize',()=>requestAnimationFrame(refreshViewportVisuals));
 
   render();
 })();
