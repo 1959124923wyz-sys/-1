@@ -51,6 +51,12 @@ def main() -> None:
         if not data_path.is_file():
             fail(f"{cid}: missing data file {data_path.relative_to(ROOT)}")
 
+        builder = city.get("builder")
+        if builder:
+            builder_path = ROOT / str(builder)
+            if not builder_path.is_file():
+                fail(f"{cid}: missing builder {builder}")
+
         metrics = city.get("metrics")
         if not isinstance(metrics, dict) or not metrics:
             fail(f"{cid}: no metrics configured")
