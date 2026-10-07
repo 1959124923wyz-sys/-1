@@ -10,13 +10,13 @@
     },
     "updated": "2026-10-07",
     "methodology": "Official venue pages are the primary source. OpenStreetMap/Nominatim is used only for geocoding and candidate discovery; public-wall coordinates may use climbing/community references. Prices and hours are not inferred when an official source is unavailable.",
-    "generated_at": "2026-10-07T05:06:32.175503+00:00",
+    "generated_at": "2026-10-07T05:09:21.354356+00:00",
     "venue_count": 27,
-    "mapped_count": 23,
+    "mapped_count": 25,
     "active_count": 25,
     "core_gym_count": 21,
-    "geocode_attempted": 14,
-    "geocode_new": 11,
+    "geocode_attempted": 1,
+    "geocode_new": 0,
     "candidate_count": 22,
     "source_health": {
       "https://baysiderock.com.au/": {
@@ -163,7 +163,7 @@
       "website": "https://www.hardrock.com.au/",
       "verified_at": "2026-10-07",
       "note": "CBD rope-focused gym with top-rope, lead and limited auto-belay.",
-      "geocode_source": "nominatim",
+      "geocode_source": "cache:nominatim",
       "distance_cbd_km": 0.7,
       "effective_status": "active"
     },
@@ -369,7 +369,7 @@
       "website": "https://northsideboulders.com/",
       "verified_at": "2026-10-07",
       "note": "Northside bouldering location in Northcote.",
-      "geocode_source": "nominatim",
+      "geocode_source": "cache:nominatim",
       "distance_cbd_km": 5.7,
       "effective_status": "active"
     },
@@ -434,7 +434,7 @@
       "website": "https://boulderlab.com.au/",
       "verified_at": "2026-10-07",
       "note": "Bouldering facility with early-bird openings on selected days.",
-      "geocode_source": "nominatim",
+      "geocode_source": "cache:nominatim",
       "distance_cbd_km": 4.1,
       "effective_status": "active"
     },
@@ -467,7 +467,7 @@
       "website": "https://boulderlab.com.au/",
       "verified_at": "2026-10-07",
       "note": "Boulder Lab's south-east location.",
-      "geocode_source": "nominatim",
+      "geocode_source": "cache:nominatim",
       "distance_cbd_km": 19.4,
       "effective_status": "active"
     },
@@ -476,8 +476,8 @@
       "name": "Boulder Lab Ferntree Gully",
       "suburb": "Ferntree Gully",
       "address": "Shop 8/1821 Ferntree Gully Road, Ferntree Gully VIC 3156, Australia",
-      "lat": null,
-      "lng": null,
+      "lat": -37.8838002,
+      "lng": 145.269253,
       "kind": "gym",
       "disciplines": [
         "Bouldering",
@@ -500,6 +500,8 @@
       "website": "https://boulderlab.com.au/",
       "verified_at": "2026-10-07",
       "note": "Boulder Lab's outer-east location.",
+      "geocode_source": "curated",
+      "distance_cbd_km": 28.0,
       "effective_status": "active"
     },
     {
@@ -621,7 +623,7 @@
       "website": "https://laroca.com.au/",
       "verified_at": "2026-10-07",
       "note": "Bouldering and espresso venue; distinguishes staffed hours from 24/7 member-style access.",
-      "geocode_source": "nominatim",
+      "geocode_source": "cache:nominatim",
       "distance_cbd_km": 17.0,
       "effective_status": "active"
     },
@@ -653,7 +655,7 @@
       "website": "https://www.onsightclimbing.com.au/",
       "verified_at": "2026-10-07",
       "note": "Community-focused bouldering gym in Glen Waverley.",
-      "geocode_source": "nominatim",
+      "geocode_source": "cache:nominatim",
       "distance_cbd_km": 18.9,
       "effective_status": "active"
     },
@@ -687,7 +689,7 @@
       "website": "https://upclimbing.com.au/",
       "verified_at": "2026-10-07",
       "note": "Inner-south bouldering gym next to Balaclava station with training board and café.",
-      "geocode_source": "nominatim",
+      "geocode_source": "cache:nominatim",
       "distance_cbd_km": 6.8,
       "effective_status": "active"
     },
@@ -721,7 +723,7 @@
       "website": "https://www.rocket-climbing.com.au/",
       "verified_at": "2026-10-07",
       "note": "Footscray bouldering venue with Kilter/spray/campus training and café.",
-      "geocode_source": "nominatim",
+      "geocode_source": "cache:nominatim",
       "distance_cbd_km": 7.4,
       "effective_status": "active"
     },
@@ -754,7 +756,7 @@
       "website": "https://climbwestmelbourne.com.au/",
       "verified_at": "2026-10-07",
       "note": "Dedicated west-side bouldering gym; first paid climb includes a week of unlimited climbing.",
-      "geocode_source": "nominatim",
+      "geocode_source": "cache:nominatim",
       "distance_cbd_km": 14.4,
       "effective_status": "active"
     },
@@ -824,7 +826,7 @@
       "website": "https://www.thecrux.com.au/",
       "verified_at": "2026-10-07",
       "note": "Status flag: a July 2026 closure announcement was later superseded by an update saying the gym would remain open past Aug 2; the current official website is active. Verify before a long trip.",
-      "geocode_source": "nominatim",
+      "geocode_source": "cache:nominatim",
       "distance_cbd_km": 9.2,
       "effective_status": "attention"
     },
@@ -833,8 +835,8 @@
       "name": "Industry Boulders",
       "suburb": "Grovedale / Geelong",
       "address": "Unit 39/8 Lewalan Street, Grovedale VIC 3216, Australia",
-      "lat": null,
-      "lng": null,
+      "lat": -38.197857,
+      "lng": 144.346644,
       "kind": "gym",
       "disciplines": [
         "Bouldering"
@@ -856,6 +858,8 @@
       "website": "https://www.industryboulders.com.au/",
       "verified_at": "2026-10-07",
       "note": "Geelong-region bouldering gym; included as the western fringe of the wider map.",
+      "geocode_source": "curated",
+      "distance_cbd_km": 68.9,
       "effective_status": "active"
     },
     {
@@ -923,7 +927,7 @@
       "website": "https://clipnclimbberwick.com.au/",
       "verified_at": "2026-10-07",
       "note": "Family-focused climbing theme park, separated from sport-climbing gyms in filters.",
-      "geocode_source": "nominatim",
+      "geocode_source": "cache:nominatim",
       "distance_cbd_km": 41.2,
       "effective_status": "active"
     },
