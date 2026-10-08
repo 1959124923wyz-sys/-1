@@ -1,4 +1,4 @@
-name: Germany crime map updater
+name: Germany crime map updater (legacy manual backup)
 
 on:
   workflow_dispatch:
@@ -8,18 +8,8 @@ on:
         required: false
         default: false
         type: boolean
-  schedule:
-    - cron: "17 20 * * *"
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/germany-homicide-map.yml'
-      - 'dao-radar/site/germany-homicide-map/scripts/**'
-      - 'dao-radar/site/germany-homicide-map/index.html'
-      - 'dao-radar/site/germany-homicide-map/css/**'
-      - 'dao-radar/site/germany-homicide-map/js/**'
-      - 'dao-radar/site/germany-homicide-map/data/city_layers.json'
-      - 'dao-radar/site/germany-homicide-map/requirements.txt'
+# Moved to 1959124923wyz-sys/German-Map.
+# Keep manual dispatch for historical emergency recovery only.
 
 permissions:
   contents: write
