@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-07T12:02:19+08:00",
+    "generated_at": "2026-10-08T09:15:49+08:00",
     "currency": "CNY",
     "default_area_sqm": 90,
     "price_basis": "community_reference_unit_price",
@@ -8,24 +8,24 @@
     "next_discovery_url": "https://sz.esf.fang.com/housing/__0_3_0_0_9_0_0_0/",
     "last_run_successes": 0,
     "discovery_added": 0,
-    "discovery_updated": 0,
+    "discovery_updated": 201,
     "last_run_failures": 1,
     "last_run_notes": [
       {
         "name": "Fang index",
-        "url": "https://sz.esf.fang.com/housing/__0_2_0_0_1_0_0_0/",
-        "error": "parser got only 0 priced residential rows on page 1; stopped"
+        "url": "https://sz.esf.fang.com/housing/__0_3_0_0_59_0_0_0/",
+        "error": "ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
       }
     ],
     "default_annual_savings": 100000,
     "discovery_start_page": 1,
-    "discovery_pages_ok": 0,
-    "discovery_rows_seen": 0,
-    "discovery_unmatched": 0,
+    "discovery_pages_ok": 58,
+    "discovery_rows_seen": 1024,
+    "discovery_unmatched": 823,
     "coordinate_cache_size": 629,
-    "discovery_cursor_page": 76,
-    "last_run_stopped_reason": "parser got only 0 priced residential rows on page 1; stopped",
-    "discovery_sort_code": 2
+    "discovery_cursor_page": 59,
+    "last_run_stopped_reason": "ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
+    "discovery_sort_code": 3
   },
   "communities": [
     {
@@ -37,12 +37,12 @@
       "lat": 22.744281,
       "lng": 113.939086,
       "unit_price": 57174,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811048494.htm",
       "coord_source": "Amap GCJ-02 converted to WGS84",
       "coord_quality": "approximate",
-      "last_success_at": "2026-10-07T11:54:33+08:00",
+      "last_success_at": "2026-10-08T09:15:49+08:00",
       "property_type": "住宅",
       "newcode": "2811048494"
     },
@@ -55,14 +55,14 @@
       "lat": 22.746660461750785,
       "lng": 113.93693532121476,
       "unit_price": 53710,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811002868.htm",
       "property_type": "住宅",
       "newcode": "2811002868",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811135080",
@@ -73,14 +73,14 @@
       "lat": 22.76665353586948,
       "lng": 113.89384134867149,
       "unit_price": 35191,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811135080.htm",
       "property_type": "住宅",
       "newcode": "2811135080",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810264234",
@@ -109,14 +109,14 @@
       "lat": 22.784708320192706,
       "lng": 113.90178149141667,
       "unit_price": 39691,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810867072.htm",
       "property_type": "住宅",
       "newcode": "2810867072",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811168282",
@@ -127,14 +127,14 @@
       "lat": 22.784952164614282,
       "lng": 113.87235886757837,
       "unit_price": 34255,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811168282.htm",
       "property_type": "住宅",
       "newcode": "2811168282",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810066340",
@@ -145,14 +145,14 @@
       "lat": 22.78231419817231,
       "lng": 113.90140846177107,
       "unit_price": 36614,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810066340.htm",
       "property_type": "住宅",
       "newcode": "2810066340",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811087944",
@@ -163,14 +163,14 @@
       "lat": 22.779613445492547,
       "lng": 113.89507153619583,
       "unit_price": 37034,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811087944.htm",
       "property_type": "住宅",
       "newcode": "2811087944",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810318422",
@@ -199,14 +199,14 @@
       "lat": 22.498155799558734,
       "lng": 113.8812420965936,
       "unit_price": 73418,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811092658.htm",
       "property_type": "住宅",
       "newcode": "2811092658",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810138502",
@@ -217,14 +217,14 @@
       "lat": 22.544581344648694,
       "lng": 113.899141282822,
       "unit_price": 107583,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810138502.htm",
       "property_type": "住宅",
       "newcode": "2810138502",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810486382",
@@ -235,12 +235,12 @@
       "lat": 22.54051,
       "lng": 113.90754,
       "unit_price": 68874,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810486382.htm",
       "coord_source": "Amap GCJ-02 converted to WGS84 (星海名城 complex)",
       "coord_quality": "approximate",
-      "last_success_at": "2026-10-07T11:54:33+08:00",
+      "last_success_at": "2026-10-08T09:15:49+08:00",
       "property_type": "住宅",
       "newcode": "2810486382"
     },
@@ -289,14 +289,14 @@
       "lat": 22.502448800008267,
       "lng": 113.88940786088672,
       "unit_price": 90350,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810439342.htm",
       "property_type": "住宅",
       "newcode": "2810439342",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810955544",
@@ -361,14 +361,14 @@
       "lat": 22.532781417573304,
       "lng": 113.90807252892728,
       "unit_price": 69952,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810037413.htm",
       "property_type": "住宅",
       "newcode": "2810037413",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810795072",
@@ -397,14 +397,14 @@
       "lat": 22.531206394870125,
       "lng": 113.90827466330785,
       "unit_price": 72309,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810041693.htm",
       "property_type": "住宅",
       "newcode": "2810041693",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810031073",
@@ -415,14 +415,14 @@
       "lat": 22.531206394870125,
       "lng": 113.90827466330785,
       "unit_price": 65233,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810031073.htm",
       "property_type": "住宅",
       "newcode": "2810031073",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810888168",
@@ -505,14 +505,14 @@
       "lat": 22.54147163514976,
       "lng": 113.97487648035457,
       "unit_price": 96478,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810138060.htm",
       "property_type": "住宅",
       "newcode": "2810138060",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810555190",
@@ -523,14 +523,14 @@
       "lat": 22.54341966221274,
       "lng": 113.96206885027412,
       "unit_price": 73878,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810555190.htm",
       "property_type": "住宅",
       "newcode": "2810555190",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810018379",
@@ -577,14 +577,14 @@
       "lat": 22.54147163514976,
       "lng": 113.97487648035457,
       "unit_price": 78791,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810004870.htm",
       "property_type": "住宅",
       "newcode": "2810004870",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810134744",
@@ -595,14 +595,14 @@
       "lat": 22.536226657376147,
       "lng": 113.92561405510871,
       "unit_price": 85831,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810134744.htm",
       "property_type": "住宅",
       "newcode": "2810134744",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810006458",
@@ -613,14 +613,14 @@
       "lat": 22.530687058588803,
       "lng": 113.91365890467732,
       "unit_price": 54083,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810006458.htm",
       "property_type": "住宅",
       "newcode": "2810006458",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811152526",
@@ -631,14 +631,14 @@
       "lat": 22.555738151994593,
       "lng": 113.91531210703698,
       "unit_price": 86100,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811152526.htm",
       "property_type": "住宅",
       "newcode": "2811152526",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810004571",
@@ -649,14 +649,14 @@
       "lat": 22.526903246796216,
       "lng": 113.92217763081689,
       "unit_price": 59694,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810004571.htm",
       "property_type": "住宅",
       "newcode": "2810004571",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810656580",
@@ -667,14 +667,14 @@
       "lat": 22.527506419149358,
       "lng": 113.92109110547062,
       "unit_price": 71551,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810656580.htm",
       "property_type": "住宅",
       "newcode": "2810656580",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810004512",
@@ -685,14 +685,14 @@
       "lat": 22.536226657376147,
       "lng": 113.92561405510871,
       "unit_price": 65450,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810004512.htm",
       "property_type": "住宅",
       "newcode": "2810004512",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810171199",
@@ -703,14 +703,14 @@
       "lat": 22.529858517790323,
       "lng": 113.91994743634096,
       "unit_price": 49177,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810171199.htm",
       "property_type": "住宅",
       "newcode": "2810171199",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810487142",
@@ -721,14 +721,14 @@
       "lat": 22.52731655080327,
       "lng": 113.92002656563419,
       "unit_price": 52059,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810487142.htm",
       "property_type": "住宅",
       "newcode": "2810487142",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810029938",
@@ -775,14 +775,14 @@
       "lat": 22.53054318905415,
       "lng": 113.92380552868354,
       "unit_price": 48345,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810004453.htm",
       "property_type": "住宅",
       "newcode": "2810004453",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810795058",
@@ -793,14 +793,14 @@
       "lat": 22.52809929703923,
       "lng": 113.92208660039789,
       "unit_price": 84566,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810795058.htm",
       "property_type": "住宅",
       "newcode": "2810795058",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810559262",
@@ -811,14 +811,14 @@
       "lat": 22.52229252442824,
       "lng": 113.91926517025003,
       "unit_price": 87691,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810559262.htm",
       "property_type": "住宅",
       "newcode": "2810559262",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810264862",
@@ -829,14 +829,14 @@
       "lat": 22.524960069549923,
       "lng": 113.91754754910983,
       "unit_price": 36263,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810264862.htm",
       "property_type": "住宅",
       "newcode": "2810264862",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811225796",
@@ -847,12 +847,12 @@
       "lat": 22.52303,
       "lng": 113.94186,
       "unit_price": 171108,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811225796.htm",
       "coord_source": "OpenStreetMap/Mapcarta public place data",
       "coord_quality": "approximate",
-      "last_success_at": "2026-10-07T12:00:16+08:00",
+      "last_success_at": "2026-10-08T09:15:49+08:00",
       "property_type": "住宅",
       "newcode": "2811225796"
     },
@@ -865,14 +865,14 @@
       "lat": 22.49777572931452,
       "lng": 113.9345188168426,
       "unit_price": 194699,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810892334.htm",
       "property_type": "住宅",
       "newcode": "2810892334",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811225766",
@@ -883,14 +883,14 @@
       "lat": 22.49777572931452,
       "lng": 113.9345188168426,
       "unit_price": 265901,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811225766.htm",
       "property_type": "住宅",
       "newcode": "2811225766",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811103594",
@@ -901,14 +901,14 @@
       "lat": 22.501498802980496,
       "lng": 113.93384928127813,
       "unit_price": 199699,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811103594.htm",
       "property_type": "住宅",
       "newcode": "2811103594",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811130420",
@@ -919,14 +919,14 @@
       "lat": 22.50983562925796,
       "lng": 113.92789210266092,
       "unit_price": 145054,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811130420.htm",
       "property_type": "住宅",
       "newcode": "2811130420",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810930112",
@@ -937,14 +937,14 @@
       "lat": 22.492458063988924,
       "lng": 113.93610142159982,
       "unit_price": 221013,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810930112.htm",
       "property_type": "住宅",
       "newcode": "2810930112",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810893136",
@@ -955,14 +955,14 @@
       "lat": 22.488100636234865,
       "lng": 113.9126216576114,
       "unit_price": 155395,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810893136.htm",
       "property_type": "住宅",
       "newcode": "2810893136",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810205996",
@@ -973,14 +973,14 @@
       "lat": 22.544897817924642,
       "lng": 113.94954922387514,
       "unit_price": 132153,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810205996.htm",
       "property_type": "住宅",
       "newcode": "2810205996",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810135074",
@@ -991,13 +991,13 @@
       "lat": 22.544969,
       "lng": 113.949548,
       "unit_price": 122922,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810135074.htm",
       "fallback_url": "https://www.fang.com/xiaoqu/sz-2810135074/",
       "coord_source": "Amap GCJ-02 converted to WGS84 (华润城 complex)",
       "coord_quality": "approximate",
-      "last_success_at": "2026-10-07T12:00:16+08:00",
+      "last_success_at": "2026-10-08T09:15:49+08:00",
       "property_type": "住宅",
       "newcode": "2810135074"
     },
@@ -1010,14 +1010,14 @@
       "lat": 22.547620006506556,
       "lng": 113.9411596822455,
       "unit_price": 142551,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810858088.htm",
       "property_type": "住宅",
       "newcode": "2810858088",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810135506",
@@ -1028,14 +1028,14 @@
       "lat": 22.546307149908515,
       "lng": 113.94980670468028,
       "unit_price": 117860,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810135506.htm",
       "property_type": "住宅",
       "newcode": "2810135506",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810175344",
@@ -1064,14 +1064,14 @@
       "lat": 22.54441257124275,
       "lng": 113.93938220362537,
       "unit_price": 55077,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810004415.htm",
       "property_type": "住宅",
       "newcode": "2810004415",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811126496",
@@ -1082,14 +1082,14 @@
       "lat": 22.59511066386663,
       "lng": 113.9958838646213,
       "unit_price": 90406,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811126496.htm",
       "property_type": "住宅",
       "newcode": "2811126496",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810892324",
@@ -1118,14 +1118,14 @@
       "lat": 22.593026720295526,
       "lng": 113.99200784604655,
       "unit_price": 92855,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811093454.htm",
       "property_type": "住宅",
       "newcode": "2811093454",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810682588",
@@ -1136,14 +1136,14 @@
       "lat": 22.557426500049836,
       "lng": 113.98771997897337,
       "unit_price": 86277,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810682588.htm",
       "property_type": "住宅",
       "newcode": "2810682588",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811092816",
@@ -1154,14 +1154,14 @@
       "lat": 22.58483897923859,
       "lng": 113.94245155492722,
       "unit_price": 82137,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811092816.htm",
       "property_type": "住宅",
       "newcode": "2811092816",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810137972",
@@ -1172,14 +1172,14 @@
       "lat": 22.72751591653763,
       "lng": 114.35513007381236,
       "unit_price": 23790,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810137972.htm",
       "property_type": "住宅",
       "newcode": "2810137972",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810331346",
@@ -1190,14 +1190,14 @@
       "lat": 22.71041951916881,
       "lng": 114.33638193350723,
       "unit_price": 31078,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810331346.htm",
       "property_type": "住宅",
       "newcode": "2810331346",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810989182",
@@ -1208,14 +1208,14 @@
       "lat": 22.706971658531156,
       "lng": 114.33464071767672,
       "unit_price": 39770,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810989182.htm",
       "property_type": "住宅",
       "newcode": "2810989182",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810137762",
@@ -1226,14 +1226,14 @@
       "lat": 22.694485679120145,
       "lng": 114.34707206257126,
       "unit_price": 26962,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810137762.htm",
       "property_type": "住宅",
       "newcode": "2810137762",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810037917",
@@ -1244,14 +1244,14 @@
       "lat": 22.694485679120145,
       "lng": 114.34707206257126,
       "unit_price": 20318,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810037917.htm",
       "property_type": "住宅",
       "newcode": "2810037917",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810969788",
@@ -1262,14 +1262,14 @@
       "lat": 22.744514303519026,
       "lng": 114.38990540125688,
       "unit_price": 17203,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810969788.htm",
       "property_type": "住宅",
       "newcode": "2810969788",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811126942",
@@ -1280,12 +1280,12 @@
       "lat": 22.68057,
       "lng": 114.329316,
       "unit_price": 28673,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811126942.htm",
       "coord_source": "Amap GCJ-02 converted to WGS84",
       "coord_quality": "approximate",
-      "last_success_at": "2026-10-07T11:54:33+08:00",
+      "last_success_at": "2026-10-08T09:15:49+08:00",
       "property_type": "住宅",
       "newcode": "2811126942"
     },
@@ -1298,14 +1298,14 @@
       "lat": 22.680403756261228,
       "lng": 114.32487315123103,
       "unit_price": 29457,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811157686.htm",
       "property_type": "住宅",
       "newcode": "2811157686",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811186112",
@@ -1316,14 +1316,14 @@
       "lat": 22.709681677437256,
       "lng": 114.33370992419438,
       "unit_price": 40409,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811186112.htm",
       "property_type": "住宅",
       "newcode": "2811186112",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811102414",
@@ -1334,14 +1334,14 @@
       "lat": 22.670077394044736,
       "lng": 114.3465143658152,
       "unit_price": 32227,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811102414.htm",
       "property_type": "住宅",
       "newcode": "2811102414",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810134966",
@@ -1352,14 +1352,14 @@
       "lat": 22.709652695420143,
       "lng": 114.38611152848299,
       "unit_price": 23163,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810134966.htm",
       "property_type": "住宅",
       "newcode": "2810134966",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811268456",
@@ -1370,14 +1370,14 @@
       "lat": 22.692521723744193,
       "lng": 114.3432642988069,
       "unit_price": 24299,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811268456.htm",
       "property_type": "住宅",
       "newcode": "2811268456",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810448342",
@@ -1388,14 +1388,14 @@
       "lat": 22.685800532155156,
       "lng": 114.33327910021525,
       "unit_price": 27218,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810448342.htm",
       "property_type": "住宅",
       "newcode": "2810448342",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810622544",
@@ -1406,14 +1406,14 @@
       "lat": 22.683042247817394,
       "lng": 114.32376766515344,
       "unit_price": 25952,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810622544.htm",
       "property_type": "住宅",
       "newcode": "2810622544",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810135018",
@@ -1424,14 +1424,14 @@
       "lat": 22.7048183799622,
       "lng": 114.33401977643135,
       "unit_price": 34902,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810135018.htm",
       "property_type": "住宅",
       "newcode": "2810135018",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811093426",
@@ -1442,14 +1442,14 @@
       "lat": 22.661362601187655,
       "lng": 114.39725083273242,
       "unit_price": 23745,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811093426.htm",
       "property_type": "住宅",
       "newcode": "2811093426",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810134944",
@@ -1494,14 +1494,14 @@
       "lat": 22.552373591372472,
       "lng": 113.88926656286891,
       "unit_price": 122824,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810137574.htm",
       "property_type": "住宅",
       "newcode": "2810137574",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810179262",
@@ -1512,14 +1512,14 @@
       "lat": 22.564493018205333,
       "lng": 113.87646875265985,
       "unit_price": 77825,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810179262.htm",
       "property_type": "住宅",
       "newcode": "2810179262",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810156028",
@@ -1530,14 +1530,14 @@
       "lat": 22.557232978586537,
       "lng": 113.88417530202513,
       "unit_price": 120049,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810156028.htm",
       "property_type": "住宅",
       "newcode": "2810156028",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810179742",
@@ -1548,14 +1548,14 @@
       "lat": 22.562027555986866,
       "lng": 113.8745367567661,
       "unit_price": 87988,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810179742.htm",
       "property_type": "住宅",
       "newcode": "2810179742",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811179030",
@@ -1566,14 +1566,14 @@
       "lat": 22.55475445049104,
       "lng": 113.88940155492872,
       "unit_price": 123285,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811179030.htm",
       "property_type": "住宅",
       "newcode": "2811179030",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810137416",
@@ -1584,14 +1584,14 @@
       "lat": 22.556266626015265,
       "lng": 113.89037145858174,
       "unit_price": 110764,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810137416.htm",
       "property_type": "住宅",
       "newcode": "2810137416",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810659298",
@@ -1602,14 +1602,14 @@
       "lat": 22.56233457492416,
       "lng": 113.86688189737508,
       "unit_price": 84132,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810659298.htm",
       "property_type": "住宅",
       "newcode": "2810659298",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810939148",
@@ -1620,14 +1620,14 @@
       "lat": 22.549794918238806,
       "lng": 113.88698719980005,
       "unit_price": 132496,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810939148.htm",
       "property_type": "住宅",
       "newcode": "2810939148",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810151622",
@@ -1656,14 +1656,14 @@
       "lat": 22.55985556513914,
       "lng": 113.88809281827389,
       "unit_price": 86469,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810092263.htm",
       "property_type": "住宅",
       "newcode": "2810092263",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810860964",
@@ -1674,14 +1674,14 @@
       "lat": 22.557622893894433,
       "lng": 113.8823518740308,
       "unit_price": 80456,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810860964.htm",
       "property_type": "住宅",
       "newcode": "2810860964",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810156026",
@@ -1692,14 +1692,14 @@
       "lat": 22.557622893894433,
       "lng": 113.8823518740308,
       "unit_price": 110494,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810156026.htm",
       "property_type": "住宅",
       "newcode": "2810156026",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810137578",
@@ -1710,14 +1710,14 @@
       "lat": 22.55270372822779,
       "lng": 113.88705209119377,
       "unit_price": 123306,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810137578.htm",
       "property_type": "住宅",
       "newcode": "2810137578",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810066474",
@@ -1728,14 +1728,14 @@
       "lat": 22.565547875127717,
       "lng": 113.87763952544347,
       "unit_price": 64062,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810066474.htm",
       "property_type": "住宅",
       "newcode": "2810066474",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810749778",
@@ -1782,14 +1782,14 @@
       "lat": 22.773045027354684,
       "lng": 113.81556317261814,
       "unit_price": 32854,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810288622.htm",
       "property_type": "住宅",
       "newcode": "2810288622",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810067882",
@@ -1818,14 +1818,14 @@
       "lat": 22.777809541581696,
       "lng": 113.80854537930408,
       "unit_price": 28834,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810675818.htm",
       "property_type": "住宅",
       "newcode": "2810675818",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810135558",
@@ -1854,14 +1854,14 @@
       "lat": 22.76478627986577,
       "lng": 113.85130710575535,
       "unit_price": 44024,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811116062.htm",
       "property_type": "住宅",
       "newcode": "2811116062",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810931848",
@@ -1872,14 +1872,14 @@
       "lat": 22.725709382413786,
       "lng": 113.82456139338233,
       "unit_price": 42123,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810931848.htm",
       "property_type": "住宅",
       "newcode": "2810931848",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811186090",
@@ -1890,14 +1890,14 @@
       "lat": 22.69655355022801,
       "lng": 113.81521418353026,
       "unit_price": 41637,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811186090.htm",
       "property_type": "住宅",
       "newcode": "2811186090",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811135866",
@@ -1926,14 +1926,14 @@
       "lat": 22.651470394629868,
       "lng": 113.8256460876648,
       "unit_price": 42975,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811145110.htm",
       "property_type": "住宅",
       "newcode": "2811145110",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810858774",
@@ -1944,14 +1944,14 @@
       "lat": 22.61278334923039,
       "lng": 113.85163158177505,
       "unit_price": 55943,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810858774.htm",
       "property_type": "住宅",
       "newcode": "2810858774",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810441262",
@@ -1980,14 +1980,14 @@
       "lat": 22.597751189245333,
       "lng": 113.87640454547977,
       "unit_price": 63253,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811054170.htm",
       "property_type": "住宅",
       "newcode": "2811054170",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810912194",
@@ -2034,14 +2034,14 @@
       "lat": 22.572406081676647,
       "lng": 113.8470460423368,
       "unit_price": 77496,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811179010.htm",
       "property_type": "住宅",
       "newcode": "2811179010",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810860788",
@@ -2052,14 +2052,14 @@
       "lat": 22.57854857603332,
       "lng": 113.86026131095673,
       "unit_price": 66104,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810860788.htm",
       "property_type": "住宅",
       "newcode": "2810860788",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810085662",
@@ -2070,14 +2070,14 @@
       "lat": 22.57725753743733,
       "lng": 113.85727985933123,
       "unit_price": 79372,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810085662.htm",
       "property_type": "住宅",
       "newcode": "2810085662",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811178998",
@@ -2088,14 +2088,14 @@
       "lat": 22.579223876733355,
       "lng": 113.87689750068928,
       "unit_price": 85456,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811178998.htm",
       "property_type": "住宅",
       "newcode": "2811178998",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810198982",
@@ -2106,14 +2106,14 @@
       "lat": 22.5704150792381,
       "lng": 113.84997230841195,
       "unit_price": 61139,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810198982.htm",
       "property_type": "住宅",
       "newcode": "2810198982",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810931802",
@@ -2142,14 +2142,14 @@
       "lat": 22.579223876733355,
       "lng": 113.87689750068928,
       "unit_price": 60087,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811109766.htm",
       "property_type": "住宅",
       "newcode": "2811109766",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810209448",
@@ -2178,12 +2178,12 @@
       "lat": 22.617027,
       "lng": 113.855752,
       "unit_price": 35253,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810041975.htm",
       "coord_source": "Amap nearby POI GCJ-02 converted to WGS84",
       "coord_quality": "approximate",
-      "last_success_at": "2026-10-07T11:54:33+08:00",
+      "last_success_at": "2026-10-08T09:15:49+08:00",
       "property_type": "住宅",
       "newcode": "2810041975"
     },
@@ -2214,14 +2214,14 @@
       "lat": 22.577159355366476,
       "lng": 113.8512108473111,
       "unit_price": 77352,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810660904.htm",
       "property_type": "住宅",
       "newcode": "2810660904",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811275948",
@@ -2232,14 +2232,14 @@
       "lat": 22.628693777934576,
       "lng": 113.85762736515763,
       "unit_price": 45396,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811275948.htm",
       "property_type": "住宅",
       "newcode": "2811275948",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810273142",
@@ -2250,14 +2250,14 @@
       "lat": 22.585217576483757,
       "lng": 113.85655172111468,
       "unit_price": 49039,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810273142.htm",
       "property_type": "住宅",
       "newcode": "2810273142",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811151090",
@@ -2268,12 +2268,12 @@
       "lat": 22.556638,
       "lng": 114.216331,
       "unit_price": 51289,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811151090.htm",
       "coord_source": "public historical Amap-geocoded snapshot converted GCJ-02 to WGS84",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00",
+      "last_success_at": "2026-10-08T09:15:49+08:00",
       "property_type": "住宅",
       "newcode": "2811151090"
     },
@@ -2286,14 +2286,14 @@
       "lat": 22.552742878871847,
       "lng": 114.09591516931131,
       "unit_price": 65348,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810256304.htm",
       "property_type": "住宅",
       "newcode": "2810256304",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810171791",
@@ -2304,14 +2304,14 @@
       "lat": 22.541845945929982,
       "lng": 114.01706809763444,
       "unit_price": 121397,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810171791.htm",
       "property_type": "住宅",
       "newcode": "2810171791",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810004855",
@@ -2322,14 +2322,14 @@
       "lat": 22.541845945929982,
       "lng": 114.01706809763444,
       "unit_price": 138141,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810004855.htm",
       "property_type": "住宅",
       "newcode": "2810004855",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810968614",
@@ -2340,14 +2340,14 @@
       "lat": 22.541738715355084,
       "lng": 114.01470264980277,
       "unit_price": 175983,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810968614.htm",
       "property_type": "住宅",
       "newcode": "2810968614",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810137180",
@@ -2358,14 +2358,14 @@
       "lat": 22.54362632848883,
       "lng": 114.0190194892262,
       "unit_price": 196897,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810137180.htm",
       "property_type": "住宅",
       "newcode": "2810137180",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810263184",
@@ -2412,14 +2412,14 @@
       "lat": 22.54593188516711,
       "lng": 114.08738304562968,
       "unit_price": 111499,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810135228.htm",
       "property_type": "住宅",
       "newcode": "2810135228",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810020129",
@@ -2430,14 +2430,14 @@
       "lat": 22.54485653055028,
       "lng": 114.0895071806453,
       "unit_price": 84640,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810020129.htm",
       "property_type": "住宅",
       "newcode": "2810020129",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810892356",
@@ -2448,14 +2448,14 @@
       "lat": 22.526609972413308,
       "lng": 114.04270812425246,
       "unit_price": 76134,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810892356.htm",
       "property_type": "住宅",
       "newcode": "2810892356",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810287340",
@@ -2466,14 +2466,14 @@
       "lat": 22.550854081489494,
       "lng": 114.03796742814791,
       "unit_price": 71629,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810287340.htm",
       "property_type": "住宅",
       "newcode": "2810287340",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810054216",
@@ -2484,14 +2484,14 @@
       "lat": 22.5475260523039,
       "lng": 114.03594225379021,
       "unit_price": 91354,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810054216.htm",
       "property_type": "住宅",
       "newcode": "2810054216",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810252472",
@@ -2502,12 +2502,12 @@
       "lat": 22.56945,
       "lng": 114.03198,
       "unit_price": 67952,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810252472.htm",
       "coord_source": "OpenStreetMap/Mapcarta public place data",
       "coord_quality": "approximate",
-      "last_success_at": "2026-10-07T11:54:33+08:00",
+      "last_success_at": "2026-10-08T09:15:49+08:00",
       "property_type": "住宅",
       "newcode": "2810252472"
     },
@@ -2538,14 +2538,14 @@
       "lat": 22.56754272771117,
       "lng": 114.08526078730304,
       "unit_price": 78920,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811122756.htm",
       "property_type": "住宅",
       "newcode": "2811122756",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810093221",
@@ -2556,14 +2556,14 @@
       "lat": 22.52959090449521,
       "lng": 114.06179030513479,
       "unit_price": 46562,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810093221.htm",
       "property_type": "住宅",
       "newcode": "2810093221",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810972640",
@@ -2574,14 +2574,14 @@
       "lat": 22.53043678896573,
       "lng": 114.04913055935901,
       "unit_price": 107885,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810972640.htm",
       "property_type": "住宅",
       "newcode": "2810972640",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810263142",
@@ -2610,14 +2610,14 @@
       "lat": 22.536152010875586,
       "lng": 114.04681336048452,
       "unit_price": 93889,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810005145.htm",
       "property_type": "住宅",
       "newcode": "2810005145",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810004472",
@@ -2628,14 +2628,14 @@
       "lat": 22.53870758976986,
       "lng": 114.06239425413,
       "unit_price": 51307,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810004472.htm",
       "property_type": "住宅",
       "newcode": "2810004472",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810028633",
@@ -2646,14 +2646,14 @@
       "lat": 22.533979347036194,
       "lng": 114.04822753947559,
       "unit_price": 109802,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810028633.htm",
       "property_type": "住宅",
       "newcode": "2810028633",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810031133",
@@ -2664,14 +2664,14 @@
       "lat": 22.532969283675722,
       "lng": 114.06140038871129,
       "unit_price": 78373,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810031133.htm",
       "property_type": "住宅",
       "newcode": "2810031133",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810240382",
@@ -2700,14 +2700,14 @@
       "lat": 22.543759034072785,
       "lng": 114.01076695676802,
       "unit_price": 83371,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810259182.htm",
       "property_type": "住宅",
       "newcode": "2810259182",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810033254",
@@ -2736,14 +2736,14 @@
       "lat": 22.536183033295067,
       "lng": 114.00888803198798,
       "unit_price": 85807,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810066914.htm",
       "property_type": "住宅",
       "newcode": "2810066914",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810085879",
@@ -2754,14 +2754,14 @@
       "lat": 22.543236660566006,
       "lng": 114.00954696287114,
       "unit_price": 115552,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810085879.htm",
       "property_type": "住宅",
       "newcode": "2810085879",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810171243",
@@ -2790,14 +2790,14 @@
       "lat": 22.546527279644582,
       "lng": 114.04890281376426,
       "unit_price": 91881,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810004739.htm",
       "property_type": "住宅",
       "newcode": "2810004739",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810026433",
@@ -2808,14 +2808,14 @@
       "lat": 22.546527279644582,
       "lng": 114.04890281376426,
       "unit_price": 97714,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810026433.htm",
       "property_type": "住宅",
       "newcode": "2810026433",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810452902",
@@ -2826,14 +2826,14 @@
       "lat": 22.534432817429895,
       "lng": 114.02830091402154,
       "unit_price": 110017,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810452902.htm",
       "property_type": "住宅",
       "newcode": "2810452902",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810894426",
@@ -2844,14 +2844,14 @@
       "lat": 22.54317792715716,
       "lng": 114.01634170321684,
       "unit_price": 155494,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810894426.htm",
       "property_type": "住宅",
       "newcode": "2810894426",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810021612",
@@ -2862,12 +2862,12 @@
       "lat": 22.551461,
       "lng": 114.031899,
       "unit_price": 201411,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810021612.htm",
       "coord_source": "Amap GCJ-02 converted to WGS84",
       "coord_quality": "approximate",
-      "last_success_at": "2026-10-07T12:00:16+08:00",
+      "last_success_at": "2026-10-08T09:15:49+08:00",
       "property_type": "住宅",
       "newcode": "2810021612"
     },
@@ -2880,14 +2880,14 @@
       "lat": 22.544965551088193,
       "lng": 114.11160149580256,
       "unit_price": 58159,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810138500.htm",
       "property_type": "住宅",
       "newcode": "2810138500",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810205342",
@@ -2898,14 +2898,14 @@
       "lat": 22.547622769531337,
       "lng": 114.12155747378394,
       "unit_price": 64349,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810205342.htm",
       "property_type": "住宅",
       "newcode": "2810205342",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811179110",
@@ -2916,14 +2916,14 @@
       "lat": 22.545614038888942,
       "lng": 114.11887762709117,
       "unit_price": 62374,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811179110.htm",
       "property_type": "住宅",
       "newcode": "2811179110",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811138488",
@@ -2952,14 +2952,14 @@
       "lat": 22.54314096444035,
       "lng": 114.11322715721104,
       "unit_price": 42462,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810264342.htm",
       "property_type": "住宅",
       "newcode": "2810264342",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810397222",
@@ -2970,14 +2970,14 @@
       "lat": 22.54607915155986,
       "lng": 114.12354041678523,
       "unit_price": 49750,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810397222.htm",
       "property_type": "住宅",
       "newcode": "2810397222",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810264308",
@@ -2988,14 +2988,14 @@
       "lat": 22.545681899485878,
       "lng": 114.11671880154185,
       "unit_price": 38699,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810264308.htm",
       "property_type": "住宅",
       "newcode": "2810264308",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810028113",
@@ -3006,14 +3006,14 @@
       "lat": 22.543157000626344,
       "lng": 114.12058292411776,
       "unit_price": 51154,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810028113.htm",
       "property_type": "住宅",
       "newcode": "2810028113",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810264036",
@@ -3024,14 +3024,14 @@
       "lat": 22.54406112527568,
       "lng": 114.11982044977562,
       "unit_price": 43067,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810264036.htm",
       "property_type": "住宅",
       "newcode": "2810264036",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810256742",
@@ -3060,14 +3060,14 @@
       "lat": 22.54288326459851,
       "lng": 114.12171407964834,
       "unit_price": 43677,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810004581.htm",
       "property_type": "住宅",
       "newcode": "2810004581",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810019458",
@@ -3078,14 +3078,14 @@
       "lat": 22.542731844644134,
       "lng": 114.12132835548519,
       "unit_price": 42632,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810019458.htm",
       "property_type": "住宅",
       "newcode": "2810019458",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810888182",
@@ -3096,14 +3096,14 @@
       "lat": 22.540832320472486,
       "lng": 114.1122487641756,
       "unit_price": 38977,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810888182.htm",
       "property_type": "住宅",
       "newcode": "2810888182",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810068129",
@@ -3114,14 +3114,14 @@
       "lat": 22.53642499165286,
       "lng": 114.11620752256916,
       "unit_price": 45839,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810068129.htm",
       "property_type": "住宅",
       "newcode": "2810068129",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810005035",
@@ -3132,14 +3132,14 @@
       "lat": 22.539382587937578,
       "lng": 114.1190242970243,
       "unit_price": 33270,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810005035.htm",
       "property_type": "住宅",
       "newcode": "2810005035",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810555192",
@@ -3168,14 +3168,14 @@
       "lat": 22.535297882570973,
       "lng": 114.11255159708062,
       "unit_price": 46814,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810035695.htm",
       "property_type": "住宅",
       "newcode": "2810035695",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810072540",
@@ -3186,14 +3186,14 @@
       "lat": 22.545269939639184,
       "lng": 114.12658662595213,
       "unit_price": 52291,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810072540.htm",
       "property_type": "住宅",
       "newcode": "2810072540",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810004604",
@@ -3204,14 +3204,14 @@
       "lat": 22.543933654522842,
       "lng": 114.12212079103134,
       "unit_price": 36956,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810004604.htm",
       "property_type": "住宅",
       "newcode": "2810004604",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810061606",
@@ -3222,14 +3222,14 @@
       "lat": 22.54039090797745,
       "lng": 114.12214606926922,
       "unit_price": 43818,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810061606.htm",
       "property_type": "住宅",
       "newcode": "2810061606",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810009984",
@@ -3240,14 +3240,14 @@
       "lat": 22.54139370693432,
       "lng": 114.11827982564338,
       "unit_price": 44922,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810009984.htm",
       "property_type": "住宅",
       "newcode": "2810009984",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810397542",
@@ -3258,13 +3258,13 @@
       "lat": 22.572966,
       "lng": 114.129464,
       "unit_price": 61003,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810397542.htm",
       "fallback_url": "https://www.fang.com/xiaoqu/sz-2810397542/",
       "coord_source": "Amap GCJ-02 converted to WGS84 (compound vicinity)",
       "coord_quality": "approximate",
-      "last_success_at": "2026-10-07T11:54:33+08:00",
+      "last_success_at": "2026-10-08T09:15:49+08:00",
       "property_type": "住宅",
       "newcode": "2810397542"
     },
@@ -3277,14 +3277,14 @@
       "lat": 22.56078676782431,
       "lng": 114.11879148683748,
       "unit_price": 57328,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810326746.htm",
       "property_type": "住宅",
       "newcode": "2810326746",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810051894",
@@ -3295,14 +3295,14 @@
       "lat": 22.540365341461733,
       "lng": 114.10800454746452,
       "unit_price": 42007,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810051894.htm",
       "property_type": "住宅",
       "newcode": "2810051894",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810004653",
@@ -3367,14 +3367,14 @@
       "lat": 22.66693947846975,
       "lng": 113.9944159592079,
       "unit_price": 44477,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810265182.htm",
       "property_type": "住宅",
       "newcode": "2810265182",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810509624",
@@ -3385,14 +3385,14 @@
       "lat": 22.601259781098793,
       "lng": 114.03791324095636,
       "unit_price": 73347,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810509624.htm",
       "property_type": "住宅",
       "newcode": "2810509624",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810632422",
@@ -3421,14 +3421,14 @@
       "lat": 22.631487129906578,
       "lng": 114.00745040750101,
       "unit_price": 64497,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811087154.htm",
       "property_type": "住宅",
       "newcode": "2811087154",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811146580",
@@ -3439,14 +3439,14 @@
       "lat": 22.631487129906578,
       "lng": 114.00745040750101,
       "unit_price": 90552,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811146580.htm",
       "property_type": "别墅",
       "newcode": "2811146580",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811150514",
@@ -3457,14 +3457,14 @@
       "lat": 22.63494827647929,
       "lng": 114.01365509840188,
       "unit_price": 72144,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811150514.htm",
       "property_type": "住宅",
       "newcode": "2811150514",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810908134",
@@ -3475,14 +3475,14 @@
       "lat": 22.63314400053183,
       "lng": 114.03114477198773,
       "unit_price": 58188,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810908134.htm",
       "property_type": "住宅",
       "newcode": "2810908134",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810139336",
@@ -3493,14 +3493,14 @@
       "lat": 22.622676615121858,
       "lng": 114.02542220621753,
       "unit_price": 132386,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810139336.htm",
       "property_type": "住宅",
       "newcode": "2810139336",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810102122",
@@ -3511,14 +3511,14 @@
       "lat": 22.63216612584499,
       "lng": 114.02764591230445,
       "unit_price": 47932,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810102122.htm",
       "property_type": "住宅",
       "newcode": "2810102122",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810620864",
@@ -3529,14 +3529,14 @@
       "lat": 22.63216612584499,
       "lng": 114.02764591230445,
       "unit_price": 48172,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810620864.htm",
       "property_type": "住宅",
       "newcode": "2810620864",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811179014",
@@ -3547,14 +3547,14 @@
       "lat": 22.602894035103255,
       "lng": 114.03641679160691,
       "unit_price": 83053,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811179014.htm",
       "property_type": "住宅",
       "newcode": "2811179014",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T12:00:16+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811182618",
@@ -3565,14 +3565,14 @@
       "lat": 22.713928448502244,
       "lng": 114.03493624606106,
       "unit_price": 38541,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811182618.htm",
       "property_type": "住宅",
       "newcode": "2811182618",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811108546",
@@ -3583,14 +3583,14 @@
       "lat": 22.718876406191942,
       "lng": 114.06409626812614,
       "unit_price": 31382,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811108546.htm",
       "property_type": "住宅",
       "newcode": "2811108546",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810582182",
@@ -3601,14 +3601,14 @@
       "lat": 22.687584312782185,
       "lng": 114.04234519679501,
       "unit_price": 39876,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810582182.htm",
       "property_type": "住宅",
       "newcode": "2810582182",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811058998",
@@ -3619,14 +3619,14 @@
       "lat": 22.69319078590566,
       "lng": 114.05673908040765,
       "unit_price": 38698,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811058998.htm",
       "property_type": "住宅",
       "newcode": "2811058998",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810931834",
@@ -3637,14 +3637,14 @@
       "lat": 22.69718597978821,
       "lng": 114.0369836197501,
       "unit_price": 38072,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810931834.htm",
       "property_type": "住宅",
       "newcode": "2810931834",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810270622",
@@ -3655,14 +3655,14 @@
       "lat": 22.745302088578725,
       "lng": 114.0318231150842,
       "unit_price": 57884,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810270622.htm",
       "property_type": "别墅",
       "newcode": "2810270622",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810135100",
@@ -3673,14 +3673,14 @@
       "lat": 22.716439132079525,
       "lng": 114.02915232297082,
       "unit_price": 37006,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810135100.htm",
       "property_type": "住宅",
       "newcode": "2810135100",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811191494",
@@ -3691,14 +3691,14 @@
       "lat": 22.689358135855105,
       "lng": 114.04316079608552,
       "unit_price": 40461,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811191494.htm",
       "property_type": "住宅",
       "newcode": "2811191494",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810206026",
@@ -3709,14 +3709,14 @@
       "lat": 22.664111892254322,
       "lng": 114.03194119210241,
       "unit_price": 57068,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810206026.htm",
       "property_type": "住宅",
       "newcode": "2810206026",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810861140",
@@ -3727,14 +3727,14 @@
       "lat": 22.645635475753934,
       "lng": 114.00578462306497,
       "unit_price": 53820,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810861140.htm",
       "property_type": "住宅",
       "newcode": "2810861140",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811166602",
@@ -3745,14 +3745,14 @@
       "lat": 22.645635475753934,
       "lng": 114.00578462306497,
       "unit_price": 48117,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811166602.htm",
       "property_type": "住宅",
       "newcode": "2811166602",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810860840",
@@ -3763,12 +3763,12 @@
       "lat": 22.662117,
       "lng": 114.023481,
       "unit_price": 41045,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810860840.htm",
       "coord_source": "Amap GCJ-02 converted to WGS84",
       "coord_quality": "approximate",
-      "last_success_at": "2026-10-07T11:54:33+08:00",
+      "last_success_at": "2026-10-08T09:15:49+08:00",
       "property_type": "住宅",
       "newcode": "2810860840"
     },
@@ -3781,14 +3781,14 @@
       "lat": 22.67547850283903,
       "lng": 114.04359203538607,
       "unit_price": 42731,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810858736.htm",
       "property_type": "住宅",
       "newcode": "2810858736",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811040584",
@@ -3799,12 +3799,12 @@
       "lat": 22.661012,
       "lng": 114.068082,
       "unit_price": 50370,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811040584.htm",
       "coord_source": "nearby Amap POI converted to WGS84",
       "coord_quality": "approximate",
-      "last_success_at": "2026-10-07T11:54:33+08:00",
+      "last_success_at": "2026-10-08T09:15:49+08:00",
       "property_type": "住宅",
       "newcode": "2811040584"
     },
@@ -3817,14 +3817,14 @@
       "lat": 22.635642451395096,
       "lng": 114.05301686839002,
       "unit_price": 58122,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811168360.htm",
       "property_type": "住宅",
       "newcode": "2811168360",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810931850",
@@ -3835,14 +3835,14 @@
       "lat": 22.639489011600514,
       "lng": 114.05343513526269,
       "unit_price": 63659,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810931850.htm",
       "property_type": "住宅",
       "newcode": "2810931850",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811204164",
@@ -3871,14 +3871,14 @@
       "lat": 22.62852756406178,
       "lng": 114.05667937473468,
       "unit_price": 52884,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811048388.htm",
       "property_type": "住宅",
       "newcode": "2811048388",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811267862",
@@ -3925,14 +3925,14 @@
       "lat": 22.628786800979462,
       "lng": 114.06330771160346,
       "unit_price": 60011,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811183582.htm",
       "property_type": "住宅",
       "newcode": "2811183582",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810159392",
@@ -3943,14 +3943,14 @@
       "lat": 22.59491854861458,
       "lng": 114.11157120105575,
       "unit_price": 39643,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810159392.htm",
       "property_type": "住宅",
       "newcode": "2810159392",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810004995",
@@ -3961,14 +3961,14 @@
       "lat": 22.632857229150716,
       "lng": 114.10226727489807,
       "unit_price": 26236,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810004995.htm",
       "property_type": "住宅",
       "newcode": "2810004995",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810070642",
@@ -3979,14 +3979,14 @@
       "lat": 22.60327017368736,
       "lng": 114.13060042278485,
       "unit_price": 44738,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810070642.htm",
       "property_type": "住宅",
       "newcode": "2810070642",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811089548",
@@ -3997,14 +3997,14 @@
       "lat": 22.62795949602005,
       "lng": 114.13146873488469,
       "unit_price": 53731,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811089548.htm",
       "property_type": "住宅",
       "newcode": "2811089548",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810326786",
@@ -4033,14 +4033,14 @@
       "lat": 22.671305384819153,
       "lng": 114.11678173771416,
       "unit_price": 38127,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811135650.htm",
       "property_type": "住宅",
       "newcode": "2811135650",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810209334",
@@ -4051,14 +4051,14 @@
       "lat": 22.671305384819153,
       "lng": 114.11678173771416,
       "unit_price": 35541,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810209334.htm",
       "property_type": "住宅",
       "newcode": "2810209334",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810137470",
@@ -4069,14 +4069,14 @@
       "lat": 22.693190080916647,
       "lng": 114.11767086672825,
       "unit_price": 36803,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810137470.htm",
       "property_type": "住宅",
       "newcode": "2810137470",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810113640",
@@ -4087,14 +4087,14 @@
       "lat": 22.64666603524374,
       "lng": 114.17367220370481,
       "unit_price": 33652,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810113640.htm",
       "property_type": "住宅",
       "newcode": "2810113640",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811059582",
@@ -4105,14 +4105,14 @@
       "lat": 22.693219299958738,
       "lng": 114.26491984914827,
       "unit_price": 37037,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811059582.htm",
       "property_type": "住宅",
       "newcode": "2811059582",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811058960",
@@ -4123,14 +4123,14 @@
       "lat": 22.653452938973903,
       "lng": 114.20796506370326,
       "unit_price": 35345,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811058960.htm",
       "property_type": "住宅",
       "newcode": "2811058960",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810841904",
@@ -4141,14 +4141,14 @@
       "lat": 22.693114407450654,
       "lng": 114.26612759014739,
       "unit_price": 37657,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810841904.htm",
       "property_type": "住宅",
       "newcode": "2810841904",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811235286",
@@ -4159,14 +4159,14 @@
       "lat": 22.653167582910914,
       "lng": 114.18228062705187,
       "unit_price": 42835,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811235286.htm",
       "property_type": "住宅",
       "newcode": "2811235286",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811102872",
@@ -4177,14 +4177,14 @@
       "lat": 22.684827688069,
       "lng": 114.25782678212698,
       "unit_price": 26693,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811102872.htm",
       "property_type": "住宅",
       "newcode": "2811102872",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810331022",
@@ -4195,14 +4195,14 @@
       "lat": 22.691374785636814,
       "lng": 114.2619653762046,
       "unit_price": 24217,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810331022.htm",
       "property_type": "住宅",
       "newcode": "2810331022",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810031613",
@@ -4213,14 +4213,14 @@
       "lat": 22.67254524599515,
       "lng": 114.22019516273711,
       "unit_price": 28818,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810031613.htm",
       "property_type": "住宅",
       "newcode": "2810031613",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811019192",
@@ -4231,14 +4231,14 @@
       "lat": 22.68529613968092,
       "lng": 114.2566036168596,
       "unit_price": 27371,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811019192.htm",
       "property_type": "住宅",
       "newcode": "2811019192",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811186096",
@@ -4249,14 +4249,14 @@
       "lat": 22.635832109038436,
       "lng": 114.17368794092002,
       "unit_price": 37831,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811186096.htm",
       "property_type": "住宅",
       "newcode": "2811186096",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811058922",
@@ -4267,14 +4267,14 @@
       "lat": 22.63990276529152,
       "lng": 114.18094999730462,
       "unit_price": 42691,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811058922.htm",
       "property_type": "住宅",
       "newcode": "2811058922",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811081854",
@@ -4285,14 +4285,14 @@
       "lat": 22.73332222950859,
       "lng": 114.22601604100956,
       "unit_price": 61270,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811081854.htm",
       "property_type": "住宅",
       "newcode": "2811081854",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810005147",
@@ -4303,14 +4303,14 @@
       "lat": 22.721672928828117,
       "lng": 114.2492421896631,
       "unit_price": 27770,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810005147.htm",
       "property_type": "住宅",
       "newcode": "2810005147",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810443902",
@@ -4321,14 +4321,14 @@
       "lat": 22.678313551866687,
       "lng": 114.12047994514121,
       "unit_price": 34851,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810443902.htm",
       "property_type": "住宅",
       "newcode": "2810443902",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810932360",
@@ -4339,14 +4339,14 @@
       "lat": 22.72103745104128,
       "lng": 114.2449169349437,
       "unit_price": 39661,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810932360.htm",
       "property_type": "住宅",
       "newcode": "2810932360",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811056710",
@@ -4375,14 +4375,14 @@
       "lat": 22.733595741811158,
       "lng": 114.23432021688528,
       "unit_price": 43504,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811141718.htm",
       "property_type": "住宅",
       "newcode": "2811141718",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811058954",
@@ -4393,14 +4393,14 @@
       "lat": 22.737778651861834,
       "lng": 114.24585643538451,
       "unit_price": 42177,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811058954.htm",
       "property_type": "住宅",
       "newcode": "2811058954",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810607588",
@@ -4411,14 +4411,14 @@
       "lat": 22.72103745104128,
       "lng": 114.2449169349437,
       "unit_price": 55138,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810607588.htm",
       "property_type": "住宅",
       "newcode": "2810607588",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810135496",
@@ -4429,14 +4429,14 @@
       "lat": 22.726184079362948,
       "lng": 114.2713437016795,
       "unit_price": 40054,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810135496.htm",
       "property_type": "住宅",
       "newcode": "2810135496",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811122272",
@@ -4447,14 +4447,14 @@
       "lat": 22.743984660309298,
       "lng": 114.26307191711157,
       "unit_price": 30216,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811122272.htm",
       "property_type": "住宅",
       "newcode": "2811122272",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810209210",
@@ -4483,14 +4483,14 @@
       "lat": 22.753997146994276,
       "lng": 114.26642764161993,
       "unit_price": 28253,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810137334.htm",
       "property_type": "住宅",
       "newcode": "2810137334",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810326822",
@@ -4501,14 +4501,14 @@
       "lat": 22.753798741521784,
       "lng": 114.27447039104959,
       "unit_price": 23379,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810326822.htm",
       "property_type": "住宅",
       "newcode": "2810326822",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811036072",
@@ -4519,14 +4519,14 @@
       "lat": 22.723395929899713,
       "lng": 114.26408708077042,
       "unit_price": 36218,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811036072.htm",
       "property_type": "住宅",
       "newcode": "2811036072",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810135446",
@@ -4555,14 +4555,14 @@
       "lat": 22.746174438498983,
       "lng": 114.23296093706924,
       "unit_price": 34946,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810875140.htm",
       "property_type": "住宅",
       "newcode": "2810875140",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2811081380",
@@ -4573,14 +4573,14 @@
       "lat": 22.714598146829452,
       "lng": 114.2468864863577,
       "unit_price": 34207,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2811081380.htm",
       "property_type": "住宅",
       "newcode": "2811081380",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     },
     {
       "id": "fang-2810468302",
@@ -4591,14 +4591,14 @@
       "lat": 22.737212519157247,
       "lng": 114.24090707979505,
       "unit_price": 40569,
-      "price_period": "2026-10-07",
+      "price_period": "2026-10-08",
       "price_source": "房天下小区列表",
       "source_url": "https://sz.esf.fang.com/loupan/2810468302.htm",
       "property_type": "住宅",
       "newcode": "2810468302",
       "coord_source": "public historical Lianjia geocoded snapshot; coordinate cache only",
       "coord_quality": "historical-cache",
-      "last_success_at": "2026-10-07T11:54:33+08:00"
+      "last_success_at": "2026-10-08T09:15:49+08:00"
     }
   ]
 }
