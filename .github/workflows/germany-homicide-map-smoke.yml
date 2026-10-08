@@ -76,6 +76,9 @@ jobs:
       - name: Validate Berlin official heatmap
         run: python dao-radar/site/germany-homicide-map/scripts/validate_berlin_heatmap.py
 
+      - name: Rebuild Munich city layer with WGS84 coordinates
+        run: python dao-radar/site/germany-homicide-map/scripts/build_city_layers.py --city munich
+
       - name: Validate expanded crime data
         run: |
           python dao-radar/site/germany-homicide-map/scripts/validate_crime_data.py
