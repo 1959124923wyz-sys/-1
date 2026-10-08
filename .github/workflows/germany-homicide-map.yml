@@ -66,6 +66,9 @@ jobs:
           node --check dao-radar/site/germany-homicide-map/js/app.js
           node --check dao-radar/site/germany-homicide-map/js/layers/city-detail.js
 
+      - name: Test deterministic city builder I/O
+        run: python dao-radar/site/germany-homicide-map/scripts/test_city_build_common.py
+
       - name: Validate city-layer registry JSON
         run: python -m json.tool dao-radar/site/germany-homicide-map/data/city_layers.json >/dev/null
 
