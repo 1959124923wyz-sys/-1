@@ -67,6 +67,9 @@ jobs:
           node --check dao-radar/site/germany-homicide-map/js/app.js
           node --check dao-radar/site/germany-homicide-map/js/layers/city-detail.js
 
+      - name: Test deterministic city builder I/O
+        run: python dao-radar/site/germany-homicide-map/scripts/test_city_build_common.py
+
       - name: Refresh Berlin official theft heatmap
         run: python dao-radar/site/germany-homicide-map/scripts/update_berlin_heatmap.py
 
