@@ -60,6 +60,8 @@ jobs:
           node --check dao-radar/site/germany-homicide-map/js/panels/state-panel.js
           node --check dao-radar/site/germany-homicide-map/js/layers/recent-events.js
           node --check dao-radar/site/germany-homicide-map/js/layers/berlin-detail.js
+          node --check dao-radar/site/germany-homicide-map/js/layers/county-layer.js
+          node --check dao-radar/site/germany-homicide-map/js/layers/state-layer.js
           node --check dao-radar/site/germany-homicide-map/js/app.js
           node --check dao-radar/site/germany-homicide-map/js/layers/city-detail.js
 
