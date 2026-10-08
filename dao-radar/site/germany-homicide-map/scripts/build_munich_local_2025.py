@@ -2,8 +2,8 @@
 from __future__ import annotations
 import csv, io, json, re
 from pathlib import Path
+from city_build_common import download_json as get_json, download_text as get_text, write_geojson
 
-import requests
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"data/munich_local_2025.geojson"
@@ -11,7 +11,6 @@ WFS="https://geoportal.muenchen.de/geoserver/gsm_wfs/ows?outputFormat=applicatio
 POP_RESOURCE="a641ce6a-4e01-4f4b-9976-1ae6a47e3762"
 POP_API=f"https://opendata.muenchen.de/de/api/3/action/datastore_search?resource_id={POP_RESOURCE}&limit=100"
 CRIME_SOURCE="https://stadt.muenchen.de/dam/jcr:6291ac42-463d-4267-b436-c4b1a3313454/jt260904.pdf"
-HEAD={"User-Agent":"GermanyCrimeMonitor/1.0 (+https://github.com/1959124923wyz-sys/-1)"}
 
 # Official Statistisches Amt München / Polizeipräsidium München table:
 # total, life, sexual, violence-broad (Rohheitsdelikte + offences against personal freedom),
@@ -47,16 +46,6 @@ RAW={
 def norm(s):
     return re.sub(r"[^a-z0-9]+","",str(s or "").lower()
         .replace("ä","ae").replace("ö","oe").replace("ü","ue").replace("ß","ss"))
-
-def get_json(url):
-    r=requests.get(url,headers=HEAD,timeout=90);r.raise_for_status();return r.json()
-
-def get_text(url):
-    r=requests.get(url,headers=HEAD,timeout=90);r.raise_for_status()
-    for enc in ("utf-8-sig","utf-8","latin-1"):
-        try:return r.content.decode(enc)
-        except UnicodeDecodeError:pass
-    return r.text
 
 def parse_population():
     payload=get_json(POP_API)
@@ -161,5 +150,5 @@ out={
   },
   "features":features
 }
-OUT.write_text(json.dumps(out,ensure_ascii=False,separators=(",",":"))+"\n",encoding="utf-8")
+write_geojson(OUT,out)
 print(json.dumps({"features":len(features),"districts":len(seen),"pop":len(pop),"names":[x["properties"]["name"] for x in features[:4]]},ensure_ascii=False,indent=2))
