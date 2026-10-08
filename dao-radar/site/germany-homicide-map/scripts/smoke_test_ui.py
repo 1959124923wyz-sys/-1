@@ -151,6 +151,39 @@ with sync_playwright() as playwright:
     }""",timeout=20000)
     page.screenshot(path=str(SCREENSHOT.with_name("germany-crime-map-hamburg.png")),full_page=True)
 
+    # Regression: Munich's upstream WFS uses metre-based UTM coordinates.
+    # The builder must reproject all 25 Stadtbezirke to geographic lon/lat.
+    page.click("#focusCity_munich")
+    page.wait_for_function("""() => {
+        const m=window.__CRIME_MAP__.map;
+        let rendered=false;
+        m.eachLayer(l=>{
+            if(!(l instanceof L.GeoJSON))return;
+            const n=l.getLayers()?.filter(x=>x.feature?.properties?.city==='München').length||0;
+            if(n===25 && l.getBounds().isValid() && m.getBounds().intersects(l.getBounds()))
+                rendered=true;
+        });
+        return rendered;
+    }""",timeout=25000)
+    munich = page.evaluate("""() => {
+        const m=window.__CRIME_MAP__.map;
+        let detail=null;
+        m.eachLayer(l=>{
+            if(l instanceof L.GeoJSON && l.getLayers()?.some(x=>x.feature?.properties?.city==='München')) detail=l;
+        });
+        const coords=detail?.getBounds();
+        return {
+            count:detail?.getLayers().length||0,
+            withinViewport:!!(coords?.isValid() && m.getBounds().intersects(coords)),
+            west:coords?.getWest(),east:coords?.getEast(),
+            south:coords?.getSouth(),north:coords?.getNorth(),
+        };
+    }""")
+    assert munich["count"]==25 and munich["withinViewport"], munich
+    assert 11 < munich["west"] < munich["east"] < 12.1,munich
+    assert 47.8 < munich["south"] < munich["north"] < 48.5,munich
+    page.screenshot(path=str(SCREENSHOT.with_name("germany-crime-map-munich.png")),full_page=True)
+
     assert not errors, errors
     print(json.dumps({
         "result":"PASS",
@@ -159,6 +192,7 @@ with sync_playwright() as playwright:
         "state_reopen":{"first":states["first"],"second":second},
         "berlin":True,
         "hamburg":True,
+        "munich":munich,
         "page_errors":errors,
     },ensure_ascii=False))
     browser.close()
