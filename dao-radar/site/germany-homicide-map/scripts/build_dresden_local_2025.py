@@ -2,18 +2,17 @@
 from __future__ import annotations
 import io,json,re,xml.etree.ElementTree as ET
 from pathlib import Path
-import requests
+from city_build_common import download_bytes, write_geojson
+
+def get(url,params=None):
+    return download_bytes(url, params=params, timeout=180)
 from pypdf import PdfReader
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"data/dresden_local_2025.geojson"
 PDF="https://www.polizei.sachsen.de/de/download/PKS-Atlas25_Grossstaedte.pdf"
 WFS="https://kommisdd.dresden.de/net3/public/ogc.ashx"
-H={"User-Agent":"GermanyCrimeMonitor/1.0 (+https://github.com/1959124923wyz-sys/-1)"}
 NS={"wfs":"http://www.opengis.net/wfs/2.0","cls":"http://www.cardogis.com/kommisdd","gml":"http://www.opengis.net/gml/3.2"}
-
-def get(url,params=None):
-    r=requests.get(url,params=params,headers=H,timeout=180);r.raise_for_status();return r.content
 
 def nint(s):
     s=str(s).strip()
@@ -98,5 +97,5 @@ out={"type":"FeatureCollection","meta":{
  "geometry_source":"Landeshauptstadt Dresden OpenData WFS: Stadtteile","geometry_source_url":WFS+"?NODEID=188&SERVICE=WFS",
  "note":"Local violence uses 'Rohheitsdelikte und Straftaten gegen die persönliche Freiheit' as a proxy; it is not identical to BKA Gewaltkriminalität. Population is back-calculated from the atlas total-case frequency."
 },"features":features}
-OUT.write_text(json.dumps(out,ensure_ascii=False,separators=(",",":"))+"\n",encoding="utf-8")
+write_geojson(OUT,out)
 print(json.dumps({"features":len(features),"sample":[f["properties"] for f in features[:3]]},ensure_ascii=False,indent=2))
