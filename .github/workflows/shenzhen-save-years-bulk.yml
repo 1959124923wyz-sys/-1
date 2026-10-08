@@ -10,8 +10,9 @@ on:
 permissions:
   contents: write
 
+# Keep bulk writes serialized with map refreshes and shared Pages deployments.
 concurrency:
-  group: shenzhen-save-years-map-refresh
+  group: shared-github-pages-deployment
   cancel-in-progress: false
 
 jobs:
