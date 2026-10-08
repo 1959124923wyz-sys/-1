@@ -2,14 +2,13 @@
 from __future__ import annotations
 import io,json,re,zipfile
 from pathlib import Path
-import requests
+from city_build_common import download_bytes as get, write_geojson
 from pypdf import PdfReader
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"data/hamburg_local_2025.geojson"
 PDF="https://daten.transparenz.hamburg.de/Dataport.HmbTG.ZS.Webservice.GetRessource100/GetRessource100.svc/8c90d027-c52d-45f4-8bdc-d3e2dde784e6/Upload__Stadtteilatlas-pks-2025_do.PDF"
 GEOZIP="https://archiv.transparenz.hamburg.de/hmbtgarchive/HMDK/regionalstatistische_daten_stadtteile_json_245681_snap_4.zip"
-HEAD={"User-Agent":"GermanyCrimeMonitor/1.0 (+https://github.com/1959124923wyz-sys/-1)"}
 
 # One metric occupies four citywide pages; numbers below are human PDF page numbers.
 METRIC_PAGES={
@@ -34,9 +33,6 @@ METRIC_LABELS={
  "theft_from_vehicle":"Diebstahl an/aus Kraftfahrzeugen",
  "bicycle_theft":"Fahrraddiebstahl",
 }
-
-def get(url):
-    r=requests.get(url,headers=HEAD,timeout=120);r.raise_for_status();return r.content
 
 def norm(s):
     return re.sub(r"[^a-z0-9]+","",str(s or "").lower()
@@ -186,5 +182,5 @@ out={
  },
  "features":features
 }
-OUT.write_text(json.dumps(out,ensure_ascii=False,separators=(",",":"))+"\n",encoding="utf-8")
+write_geojson(OUT,out)
 print(json.dumps({"features":len(features),"stadtteile":len(matched),"latest_geo":len(latest),"missing":missing,"geo_unmatched":geo_unmatched,"metric_rows":{k:len(v) for k,v in tables.items()}},ensure_ascii=False,indent=2))
