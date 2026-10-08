@@ -7,18 +7,23 @@ This directory powers the public Germany crime map. The current goal is to keep 
 ```text
 index.html                      thin page shell
 css/map.css                     all map UI styling
-js/app.js                       application orchestration + national/state map
+js/app.js                       startup, orchestration and UI event wiring
 js/core/config.js               metric labels, categories and palettes
 js/core/geo-stats.js            shared geometry / quantile helpers
 js/core/data-model.js           aggregation and case-matching logic
 js/panels/state-panel.js        state drawer rendering / selection state
+js/panels/area-panel.js         area data and national summary cards
 js/panels/drawer-drag.js        reusable draggable panel behavior
 js/layers/berlin-detail.js      Berlin-specific annual + rolling local layers
+js/layers/county-layer.js       national county boundaries and choropleth
+js/layers/state-layer.js        federal state borders and selection
 js/layers/city-detail.js        generic registry-driven city detail loader
+js/layers/recent-events.js      recent police-publication markers
 js/layers/recent-events.js      rolling report markers and list rendering
 data/city_layers.json           city layer + builder registry
 data/*.geojson / *.json         generated runtime datasets
 scripts/build_city_layers.py    registry-driven annual city build orchestrator
+scripts/city_build_common.py    shared HTTP download and atomic deterministic GeoJSON I/O
 scripts/*.py                    source adapters, updaters and validators
 ```
 
@@ -57,7 +62,7 @@ A city may expose only the subset supported by its official source. If a local s
 
 ## Adding a city detail layer
 
-1. Create a deterministic builder such as `scripts/build_<city>_local_2025.py`. Annual builders must not embed the current wall-clock time in output; identical source data should produce identical files.
+1. Create a deterministic builder such as `scripts/build_<city>_local_2025.py`. Annual builders must not embed the current wall-clock time in output; identical source data should produce identical files. Use `city_build_common.py` for official downloads and atomic output writing; do not duplicate HTTP and JSON publishing boilerplate.
 2. Generate a GeoJSON FeatureCollection into `data/<city>_local_2025.geojson`.
 3. Each feature should have a stable `id`, Polygon/MultiPolygon geometry, `properties.name`, and metric objects such as:
    ```json
@@ -85,7 +90,10 @@ The generic city loader will create the jump button, detect the city by map exte
 ## Files that should remain stable
 
 - `index.html`: HTML structure only.
-- `js/app.js`: orchestration and national/state behavior only.
+- `js/app.js`: orchestration only; map layers and area UI should stay in their own modules.
+- `js/layers/county-layer.js`: nationwide geography and click/hover selection.
+- `js/layers/state-layer.js`: federal state boundaries and selection.
+- `js/panels/area-panel.js`: current-area and national-aggregate card.
 - `js/layers/berlin-detail.js`: Berlin-only behavior.
 - `js/layers/city-detail.js`: generic city detail behavior.
 - `data/city_layers.json`: declarative city/data-builder registry.
@@ -99,7 +107,7 @@ Avoid putting source-specific scraping/parsing logic in browser JavaScript.
 - `validate_*.py`: invariants and schema/data checks.
 - one-off probes should not have permanent push-triggered workflows once the production builder exists.
 
-The main workflow runs one registry-driven city build step, validates JavaScript and registry/data consistency, runs rolling-data validators/updaters, commits only changed generated data, and deploys Pages. Static annual builders are deterministic so a no-change rebuild does not create a new commit or fight concurrent UI commits.
+The main workflow runs one registry-driven city build step, validates JavaScript and registry/data consistency, runs rolling-data validators/updaters, commits only changed generated data, and deploys Pages. Static annual builders are deterministic so a no-change rebuild does not create a new commit. A Playwright smoke workflow also tests national hover/click, state close/reopen, Berlin mode switching and Hamburg lazy detail loading.
 
 ## Data integrity principles
 
