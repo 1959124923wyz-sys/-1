@@ -117,12 +117,23 @@ jobs:
             # UI/source commits may land while this updater is running.
             # Rebase the generated-data commit before pushing instead of failing
             # with a non-fast-forward error.
-            git fetch origin main
-            # The commit contains generated data only. During a concurrent UI/source
-            # change, prefer this run's freshly generated data while rebasing onto
-            # the newest code, avoiding conflicts caused by regenerated snapshots.
-            git rebase -X theirs origin/main
-            git push origin HEAD:main
+            # Generated-data commits can race with other source and UI changes.
+            # Rebase against the newest main and retry non-fast-forward pushes.
+            pushed=false
+            for attempt in 1 2 3 4; do
+              git fetch origin main
+              git rebase -X theirs origin/main
+              if git push origin HEAD:main; then
+                pushed=true
+                break
+              fi
+              echo "Generated-data push raced with another commit: $attempt/4"
+              sleep "$((attempt * 2))"
+            done
+            if [ "$pushed" != "true" ]; then
+              echo "Could not publish generated data after four attempts" >&2
+              exit 1
+            fi
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "No map data changes"
