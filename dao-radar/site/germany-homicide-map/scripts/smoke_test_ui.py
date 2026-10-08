@@ -112,7 +112,7 @@ with sync_playwright() as playwright:
     page.wait_for_timeout(900)
 
     # Berlin's official annual violence layer and rolling 90-day property layer.
-    page.evaluate("window.__CRIME_MAP__.map.stop()")
+    page.evaluate("() => { window.__CRIME_MAP__.map.stop(); }")
     page.click("#focusBerlin")
     page.wait_for_timeout(1300)
     berlin_state=page.evaluate("""() => {
