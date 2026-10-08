@@ -2,17 +2,13 @@
 from __future__ import annotations
 import io,json,re
 from pathlib import Path
-import requests
+from city_build_common import download_bytes as get, write_geojson
 from pypdf import PdfReader
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"data/chemnitz_local_2025.geojson"
 PDF="https://www.polizei.sachsen.de/de/download/PKS-Atlas25_Grossstaedte.pdf"
 ARC="https://services6.arcgis.com/jiszdsDupTUO3fSM/arcgis/rest/services/Stadtteile_FL_1/FeatureServer/0/query"
-H={"User-Agent":"GermanyCrimeMonitor/1.0 (+https://github.com/1959124923wyz-sys/-1)"}
-
-def get(url,params=None):
-    r=requests.get(url,params=params,headers=H,timeout=120);r.raise_for_status();return r.content
 
 def nint(s):
     s=str(s).strip()
@@ -67,5 +63,5 @@ out={"type":"FeatureCollection","meta":{
  "geometry_source":"Stadt Chemnitz Open Data: Stadtteile","geometry_source_url":ARC,
  "note":"Local violence uses 'Rohheitsdelikte und Straftaten gegen die persönliche Freiheit' as a proxy; it is not identical to BKA Gewaltkriminalität. Population is back-calculated from the atlas total-case frequency."
 },"features":features}
-OUT.write_text(json.dumps(out,ensure_ascii=False,separators=(",",":"))+"\n",encoding="utf-8")
+write_geojson(OUT,out)
 print(json.dumps({"features":len(features),"sample":[f["properties"] for f in features[:3]]},ensure_ascii=False,indent=2))
