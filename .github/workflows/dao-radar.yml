@@ -18,9 +18,11 @@ permissions:
   pages: write
   id-token: write
 
+# Serialize the shared GitHub Pages environment across site publishers.
+# The latest source/data must not collide with another active Pages deployment.
 concurrency:
-  group: dao-radar-pages-v2
-  cancel-in-progress: true
+  group: shared-github-pages-deployment
+  cancel-in-progress: false
 
 jobs:
   update:
