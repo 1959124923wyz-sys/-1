@@ -6,6 +6,13 @@ on:
       - 'dao-radar/site/germany-homicide-map/**'
       - '.github/workflows/germany-homicide-map-smoke.yml'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'dao-radar/site/germany-homicide-map/js/**'
+      - 'dao-radar/site/germany-homicide-map/index.html'
+      - 'dao-radar/site/germany-homicide-map/scripts/smoke_test_ui.py'
+      - '.github/workflows/germany-homicide-map-smoke.yml'
 
 permissions:
   contents: read
@@ -54,6 +61,8 @@ jobs:
           node --check dao-radar/site/germany-homicide-map/js/panels/state-panel.js
           node --check dao-radar/site/germany-homicide-map/js/layers/recent-events.js
           node --check dao-radar/site/germany-homicide-map/js/layers/berlin-detail.js
+          node --check dao-radar/site/germany-homicide-map/js/layers/county-layer.js
+          node --check dao-radar/site/germany-homicide-map/js/layers/state-layer.js
           node --check dao-radar/site/germany-homicide-map/js/app.js
           node --check dao-radar/site/germany-homicide-map/js/layers/city-detail.js
 
