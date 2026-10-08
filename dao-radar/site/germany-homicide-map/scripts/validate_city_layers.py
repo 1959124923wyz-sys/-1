@@ -17,6 +17,55 @@ def is_number(value) -> bool:
     return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
 
 
+def iter_vertices(node):
+    """Yield [longitude, latitude] vertices from Polygon/MultiPolygon trees."""
+    if isinstance(node, list) and len(node) >= 2 and all(
+        isinstance(v, (int, float)) and not isinstance(v, bool) for v in node[:2]
+    ):
+        yield float(node[0]), float(node[1])
+    elif isinstance(node, list):
+        for child in node:
+            yield from iter_vertices(child)
+
+
+def validate_city_coordinates(cid: str, features: list, bounds: list) -> tuple:
+    # Configured bounds cover the town; a small buffer allows official coastal
+    # islands/outlying geometry but rejects projected metre-based CRS entirely.
+    (south, west), (north, east) = bounds
+    buffer_degrees = 0.5
+    extent = [float("inf"), float("inf"), float("-inf"), float("-inf")]
+    count = 0
+    for feature in features:
+        geometry = feature.get("geometry") or {}
+        for lon, lat in iter_vertices(geometry.get("coordinates")):
+            if not (math.isfinite(lon) and math.isfinite(lat)):
+                fail(f"{cid}: non-finite coordinate in {feature.get('id')}")
+            if not (-180 <= lon <= 180 and -90 <= lat <= 90):
+                fail(
+                    f"{cid}: coordinate {lon}, {lat} is not EPSG:4326 longitude/latitude; "
+                    "source CRS must be reprojected before publishing"
+                )
+            if not (
+                west - buffer_degrees <= lon <= east + buffer_degrees
+                and south - buffer_degrees <= lat <= north + buffer_degrees
+            ):
+                fail(
+                    f"{cid}: feature {feature.get('id')} coordinate {lon}, {lat} "
+                    f"is outside city region {bounds}; check CRS and geometry join"
+                )
+            extent[0] = min(extent[0], lon)
+            extent[1] = min(extent[1], lat)
+            extent[2] = max(extent[2], lon)
+            extent[3] = max(extent[3], lat)
+            count += 1
+
+    if count < len(features) * 4:
+        fail(f"{cid}: insufficient polygon coordinate vertices ({count})")
+    if extent[2] < west or extent[0] > east or extent[3] < south or extent[1] > north:
+        fail(f"{cid}: geographic layer does not overlap its registered bounds")
+    return tuple(round(value, 5) for value in extent)
+
+
 def main() -> None:
     registry = json.loads(REGISTRY.read_text(encoding="utf-8"))
     if registry.get("schema_version") != 1:
@@ -79,6 +128,8 @@ def main() -> None:
             if geometry.get("type") not in {"Polygon", "MultiPolygon"}:
                 fail(f"{cid}: unsupported geometry type {geometry.get('type')!r}")
 
+        extent = validate_city_coordinates(cid, features, bounds)
+
         for public_key, cfg in metrics.items():
             field = (cfg or {}).get("field")
             if not field:
@@ -98,7 +149,7 @@ def main() -> None:
 
         print(
             f"[city-layers] {cid}: {len(features)} polygons, "
-            f"{len(metrics)} exposed metrics, source={city.get('source_label', 'n/a')}"
+            f"{len(metrics)} exposed metrics, extent={extent}, source={city.get('source_label', 'n/a')}"
         )
 
     print(f"[city-layers] OK: {len(cities)} registered city layers")
