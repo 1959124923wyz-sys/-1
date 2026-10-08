@@ -169,11 +169,11 @@
     }
   }
   function renderLayerInfo(cs){
-    if(hoverArea||pinnedArea){renderAreaOverlay(hoverArea||pinnedArea);return;}
+    if(hoverArea||pinnedArea){areaPanel.renderAreaOverlay(hoverArea||pinnedArea);return;}
     if(mode==='violence'){
-      renderAreaOverlay(null);
+      areaPanel.renderAreaOverlay(null);
     }else{
-      renderAreaOverlay(null);
+      areaPanel.renderAreaOverlay(null);
     }
   }
   function renderSummary(){
