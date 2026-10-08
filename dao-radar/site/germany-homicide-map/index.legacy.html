@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>德国犯罪态势地图 · Germany Crime Situation Monitor</title>
+<meta name="description" content="德国犯罪态势可视化：BKA官方年度统计底图、近90天警方公开通报点、柏林高覆盖局部数据叠加。">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="css/map.css">
+</head>
+<body>
+<header>
+  <div class="header-main">
+    <div class="titleblock">
+      <div class="title">德国犯罪态势地图</div>
+      <div class="header-meta">BKA PKS 2025 · <span id="updated">读取中…</span></div>
+    </div>
+    <div class="modebar">
+      <button class="modebtn active" id="modeViolence">暴力犯罪</button>
+      <button class="modebtn" id="modeProperty">财产犯罪</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="mapwrap">
+    <div id="map"></div>
+    <div id="mapStatus" class="mapstatus">底图加载中…</div>
+    <div id="legend" class="legend"></div>
+    <div id="layerInfo" class="layerinfo"></div>
+    <aside class="state-drawer" id="stateDrawer" aria-live="polite">
+      <div class="state-head" id="stateDragHandle" title="拖动窗口">
+        <div><small>州概览 · 可拖动</small><h3 id="stateName">—</h3></div>
+        <button class="state-close" id="stateClose" type="button" aria-label="关闭州详情">×</button>
+      </div>
+      <div class="state-metric" id="stateMetric">—</div>
+      <div class="state-stats">
+        <div class="state-stat"><b id="stateRate">—</b><small>每10万人·年</small></div>
+        <div class="state-stat"><b id="stateCases">—</b><small>2025登记案件</small></div>
+        <div class="state-stat"><b id="stateRank">—</b><small>16州排名</small></div>
+        <div class="state-stat"><b id="stateRecent">—</b><small>90天相关通报</small></div>
+      </div>
+      <div class="state-section">
+        <div class="state-section-head"><strong>州内高值县/市</strong><span>每10万人</span></div>
+        <div id="stateTopCounties"></div>
+      </div>
+      <div class="state-section">
+        <div class="state-section-head"><strong>近90天相关通报</strong><span id="stateNewsCount"></span></div>
+        <div id="stateNews"></div>
+      </div>
+    </aside>
+  </section>
+
+  <aside>
+    <div class="controls">
+      <div class="control-row" id="violenceLayers">
+        <strong>指标</strong>
+        <select id="violenceMetric">
+          <option value="violence">暴力总体</option>
+          <option value="serious_injury">严重伤害</option>
+          <option value="robbery">抢劫</option>
+          <option value="sexual">性犯罪</option>
+          <option value="homicide">凶杀</option>
+        </select>
+        <button id="toggleViolenceNews" type="button" aria-pressed="false">近期事件</button>
+      </div>
+      <div class="control-row" id="propertyLayers" hidden>
+        <strong>指标</strong>
+        <select id="propertyMetric">
+          <option value="property_total">盗窃总体</option>
+          <option value="burglary">入室盗窃</option>
+          <option value="bicycle_theft">自行车盗窃</option>
+          <option value="vehicle_theft">机动车盗窃</option>
+          <option value="theft_from_vehicle">车内/车上盗窃</option>
+        </select>
+        <button id="togglePropertyNews" type="button" aria-pressed="false">近期事件</button>
+      </div>
+      <div class="control-row">
+        <strong>定位</strong>
+        <button id="viewGermany" type="button">全国</button>
+        <button id="focusBerlin" type="button">柏林</button>
+      </div>
+    </div>
+
+    <section class="safety-panel" id="safetyPanel">
+      <div class="safety-head"><strong>区域数据</strong><span class="safety-hint">悬停查看 · 点击锁定</span></div>
+      <div class="area-title"><div class="area-name" id="areaName">德国全国</div><span class="risk-badge mid" id="riskBadge">全国概览</span></div>
+      <div class="area-metric" id="areaMetric">正在读取当前指标…</div>
+      <div class="coverage-line"><span class="coverage-pill standard" id="coveragePill">全国覆盖</span><span class="coverage-text" id="coverageText">读取中…</span></div>
+      <div class="area-grid">
+        <div class="area-stat"><b id="areaRate">—</b><small id="areaRateLabel">每10万人·年</small></div>
+        <div class="area-stat"><b id="areaQuarter">—</b><small id="areaQuarterLabel">2025登记案件</small></div>
+        <div class="area-stat"><b id="areaRecent">—</b><small id="areaRecentLabel">较2024变化</small></div>
+      </div>
+      <div class="area-note" id="areaNote">全国概览会显示当前指标的真实分布统计；悬停或点击地图后切换为该县/市的实际数据。</div>
+      <div class="rank-section">
+        <div class="rank-head"><strong>高值地区</strong><span>每10万人</span></div>
+        <div class="rank-list" id="rankList"></div>
+      </div>
+    </section>
+
+    <details class="incident-drawer">
+      <summary><span id="listTitle">近90天公开通报（次要参考）</span></summary>
+      <div id="list"></div>
+    </details>
+  </aside>
+</main>
+
+<footer>
+  <span>全国层：BKA PKS 2025 · 县/市每10万人犯罪率；柏林、汉堡、慕尼黑及萨克森主要城市在官方数据可用时自动下钻。</span>
+  <span>警方登记数据，不代表未报案犯罪。</span>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="vendor/leaflet-heat.js"></script>
+<script src="js/core/geo-stats.js"></script>
+<script src="js/core/config.js"></script>
+<script src="js/core/data-model.js"></script>
+<script src="js/panels/drawer-drag.js"></script>
+<script src="js/panels/state-panel.js"></script>
+<script src="js/panels/area-panel.js"></script>
+<script src="js/layers/recent-events.js"></script>
+<script src="js/layers/berlin-detail.js"></script>
+<script src="js/layers/county-layer.js"></script>
+<script src="js/layers/state-layer.js"></script>
+<script src="js/app.js"></script>
+<script src="js/layers/city-detail.js"></script>
+</body>
+</html>
