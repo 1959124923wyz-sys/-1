@@ -2,6 +2,7 @@
 from __future__ import annotations
 import csv, io, json, re
 from pathlib import Path
+from pyproj import Transformer
 from city_build_common import download_json as get_json, download_text as get_text, write_geojson
 
 
@@ -85,6 +86,29 @@ def district_no(props):
         if norm(name) and norm(name) in ns:return n
     return None
 
+# The WFS publishes metre-based ETRS89/UTM zone 32 coordinates (EPSG:25832).
+# Leaflet/GeoJSON require longitude/latitude in EPSG:4326. Merely placing the
+# UTM numbers into a GeoJSON Polygon makes the entire Munich layer invisible.
+TO_WGS84=Transformer.from_crs("EPSG:25832","EPSG:4326",always_xy=True)
+
+def to_wgs84_coordinates(node):
+    """Recursively convert a Polygon/MultiPolygon coordinate tree."""
+    if isinstance(node,(list,tuple)) and len(node)>=2 and isinstance(node[0],(int,float)) and isinstance(node[1],(int,float)):
+        easting,northing=float(node[0]),float(node[1])
+        if 10.8 <= easting <= 12.5 and 47.5 <= northing <= 49.0:
+            # Defensive pass-through if the source service switches to WGS84.
+            longitude,latitude=easting,northing
+        else:
+            if not (600000 <= easting <= 800000 and 5200000 <= northing <= 5500000):
+                raise ValueError(f"Unexpected Munich source coordinates {(easting,northing)}; refusing to publish invalid geometry")
+            longitude,latitude=TO_WGS84.transform(easting,northing)
+        if not (11.1 < longitude < 12.1 and 47.8 < latitude < 48.5):
+            raise ValueError(f"Munich vertex outside expected WGS84 bounds: {(longitude,latitude)}")
+        return [round(longitude,7),round(latitude,7)]
+    if isinstance(node,(list,tuple)):
+        return [to_wgs84_coordinates(child) for child in node]
+    raise TypeError(f"Invalid Munich coordinate node: {node!r}")
+
 pop=parse_population()
 geo=get_json(WFS)
 
@@ -127,7 +151,9 @@ for n in sorted(RAW):
         "fraud":metric(fraud),
         "adjusted_total":metric(adjusted),
     }
-    geometry={"type":"Polygon","coordinates":polygons[0]} if len(polygons)==1 else {"type":"MultiPolygon","coordinates":polygons}
+    # All district polygons must be longitude/latitude for Leaflet.
+    transformed=to_wgs84_coordinates(polygons)
+    geometry={"type":"Polygon","coordinates":transformed[0]} if len(transformed)==1 else {"type":"MultiPolygon","coordinates":transformed}
     features.append({"type":"Feature","id":f"munich-{n:02d}","properties":p,"geometry":geometry})
     seen.add(n)
 
@@ -145,6 +171,8 @@ out={
     "population_source":"Open Data Portal München: Bevölkerung in den Stadtbezirken (31.12.2024)",
     "population_source_url":POP_API,
     "geometry_source":"GeodatenService München: Stadtbezirke WFS",
+    "geometry_source_crs":"EPSG:25832",
+    "published_geometry_crs":"EPSG:4326",
     "geometry_source_url":WFS,
     "note":"Violence local layer uses 'Rohheitsdelikte und Straftaten gegen die persönliche Freiheit' as a clearly labelled local proxy; it is not identical to BKA Gewaltkriminalität."
   },
