@@ -21,7 +21,7 @@
   const {categories:cats,palettes,propertyMetrics,violenceMetrics}=window.CrimeMapConfig;
   const {national:nationalPalette,berlin:berlinPalette,property:propertyPalette,berlinProperty:berlinPropertyPalette}=palettes;
   let mode='violence',caseData=null,pksData=null,propertyData=null,countyGeo=null,berlinViolence=null,heatData=null,stateGeo=null;
-  let countyLayer=null,stateLayer=null,selectedCountyLayer=null;
+  let countyLayer=null,stateLayer=null,countyController=null,stateController=null;
   let pinnedArea=null,hoverArea=null,showViolenceNews=false,showPropertyNews=false,statePanel=null,eventLayer=null,berlinDetail=null;
   const stateDrawerDrag=window.CrimeDrawerDrag.create({drawer:el.stateDrawer,handle:el.stateDragHandle});
 
@@ -199,81 +199,10 @@
     const alias=propertyData?.meta?.geometry_aliases?.[id];
     return propertyData?.records?.[id]||propertyData?.records?.[alias]||null;
   }
-  function nationalStyle(feature){
-    if(mode==='property'){
-      const key=currentPropertyMetric(),rec=propertyRecord(feature),breaks=quantileBreaks(propertyRates(key));
-      const val=rec?.[key]?.rate;
-      if(rec?.name==='Berlin'&&berlinLocalActive())return {pane:'countyPane',color:'transparent',weight:0,opacity:0,fillColor:'transparent',fillOpacity:0};
-      return {pane:'countyPane',color:'#718390',weight:.28,opacity:.58,fillColor:rec?scaleColor(val,breaks,propertyPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.68:0.07};
-    }
-    const key=currentViolenceMetric(),rec=pksRecord(feature),breaks=quantileBreaks(nationalRates(key)),val=rec?.[key]?.rate;
-    if(rec?.name==='Berlin'&&berlinLocalActive())return {pane:'countyPane',color:'transparent',weight:0,opacity:0,fillColor:'transparent',fillOpacity:0};
-    return {pane:'countyPane',color:'#7c7f82',weight:.28,opacity:.56,fillColor:rec?scaleColor(val,breaks,nationalPalette):'#cbd4d9',fillOpacity:(rec&&val!=null)?0.68:0.07};
-  }
-  function selectCountyLayer(layer){
-    if(!countyLayer||!layer)return;
-    if(selectedCountyLayer&&selectedCountyLayer!==layer)countyLayer.resetStyle(selectedCountyLayer);
-    selectedCountyLayer=layer;
-    countyLayer.resetStyle(layer);
-    layer.setStyle({color:'#ffffff',weight:2.65,opacity:1,fillOpacity:.78});
-    if(layer.bringToFront)layer.bringToFront();
-  }
-  function hoverCountyLayer(layer){
-    if(!layer||layer===selectedCountyLayer)return;
-    layer.setStyle({color:'#d8f2ff',weight:1.45,opacity:1,fillOpacity:.74});
-    if(layer.bringToFront)layer.bringToFront();
-  }
-  function unhoverCountyLayer(layer){
-    if(!countyLayer||!layer||layer===selectedCountyLayer)return;
-    countyLayer.resetStyle(layer);
-  }
+  function selectCountyLayer(layer){countyController.select(layer);}
+  function buildCountyLayer(){countyLayer=countyController.render();}
+  function buildStateLayer(){stateLayer=stateController.render();}
 
-  function buildCountyLayer(){
-    if(countyLayer){map.removeLayer(countyLayer);countyLayer=null;}
-    selectedCountyLayer=null;
-    if(!countyGeo)return;
-    if(mode==='violence'&&!pksData)return;
-    if(mode==='property'&&!propertyData)return;
-    countyLayer=L.geoJSON(countyGeo,{
-      pane:'countyPane',style:nationalStyle,
-      onEachFeature:(feature,layer)=>{
-        const r=mode==='property'?propertyRecord(feature):pksRecord(feature);if(!r)return;
-        const area=()=>mode==='property'?propertyCountyArea(feature,r):countyArea(feature,r);
-        layer.bindTooltip(()=>{
-          const a=area(),rk=riskLabel(a.pct);
-          return '<b>'+esc(r.name)+'</b><br>'+esc(a.metric.replace('BKA PKS 2025 · ',''))+'<br>'+fmt(Math.round(a.rate))+' /10万人·年 · '+rk.text;
-        },{sticky:true});
-        layer.on('mouseover',()=>{hoverCountyLayer(layer);showArea(area());});
-        layer.on('mouseout',()=>{unhoverCountyLayer(layer);hoverArea=null;showArea(pinnedArea);});
-        layer.on('click',()=>{selectCountyLayer(layer);showArea(area(),{pin:true});});
-      }
-    }).addTo(map);
-  }
-  function stateStyle(feature){
-    const selected=feature?.properties?.name===statePanel?.selectedName;
-    return {pane:'statePane',color:selected?'#ffffff':'#20384b',weight:selected?3.1:2.0,opacity:selected?1:.98,fillColor:'#dce7ee',fillOpacity:selected?.045:.006};
-  }
-  function buildStateLayer(){
-    if(stateLayer){map.removeLayer(stateLayer);stateLayer=null;}
-    if(!stateGeo)return;
-    if(map.getZoom()>=7.5)return;
-    const interactive=map.getZoom()<=7.15;
-    stateLayer=L.geoJSON(stateGeo,{
-      pane:'statePane',style:stateStyle,interactive,
-      onEachFeature:(feature,layer)=>{
-        if(!interactive)return;
-        layer.bindTooltip(()=>stateTooltipHtml(feature),{sticky:true,direction:'top',className:'state-tip'});
-        layer.on('mouseover',()=>{if(feature.properties?.name!==statePanel?.selectedName)layer.setStyle({color:'#f4fbff',weight:2.65,fillOpacity:.055});});
-        layer.on('mouseout',()=>stateLayer&&stateLayer.resetStyle(layer));
-        layer.on('click',()=>{
-          statePanel.select(feature);
-          stateLayer.eachLayer(l=>stateLayer.resetStyle(l));
-          layer.setStyle(stateStyle(feature));
-          if(layer.getBounds)map.fitBounds(layer.getBounds(),{padding:[32,32],maxZoom:7.05});
-        });
-      }
-    }).addTo(map);
-  }
   function visibleCases(){
     if(!caseData)return[];
     let rows=caseData.cases.filter(caseMatchesCurrentMetric);
@@ -345,6 +274,22 @@
     const stateFilter=statePanel?.filterName;if(stateFilter){const f=stateFeatureByName(stateFilter);if(f)statePanel.render(f);}
   }
 
+  countyController=window.CrimeCountyLayer.create({
+    map,getCountyGeo:()=>countyGeo,getMode:()=>mode,
+    getPksData:()=>pksData,getPropertyData:()=>propertyData,
+    getMetric:kind=>kind==='property'?currentPropertyMetric():currentViolenceMetric(),
+    getRates:(key,kind)=>kind==='property'?propertyRates(key):nationalRates(key),
+    getRecord:(feature,kind)=>kind==='property'?propertyRecord(feature):pksRecord(feature),
+    getArea:(feature,record,kind)=>kind==='property'?propertyCountyArea(feature,record):countyArea(feature,record),
+    isBerlinDetailActive:berlinLocalActive,
+    showArea,getPinnedArea:()=>pinnedArea,onLeave:()=>{hoverArea=null;},
+    formatNumber:fmt,escapeHtml:esc,nationalPalette,propertyPalette
+  });
+  stateController=window.CrimeStateLayer.create({
+    map,getStateGeo:()=>stateGeo,getStatePanel:()=>statePanel,
+    tooltipHtml:stateTooltipHtml
+  });
+
   berlinDetail=window.CrimeBerlinDetail.create({
     map,
     getMode:()=>mode,
@@ -411,8 +356,8 @@
   el.togglePropertyNews.onclick=()=>{showPropertyNews=!showPropertyNews;render();};
   el.violenceMetric.addEventListener('change',()=>{pinnedArea=null;hoverArea=null;render();showArea(null);});
   el.propertyMetric.addEventListener('change',()=>{pinnedArea=null;hoverArea=null;render();showArea(null);});
-  el.viewGermany.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;statePanel.reset();render();showArea(null);map.fitBounds(germanyBounds,{padding:[14,14]});};
-  el.focusBerlin.onclick=()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;statePanel.reset();showArea(null);map.fitBounds(berlinBounds,{padding:[25,25],maxZoom:10});};
+  el.viewGermany.onclick=()=>{pinnedArea=null;hoverArea=null;countyController.clearSelection();statePanel.reset();render();showArea(null);map.fitBounds(germanyBounds,{padding:[14,14]});};
+  el.focusBerlin.onclick=()=>{pinnedArea=null;hoverArea=null;countyController.clearSelection();statePanel.reset();showArea(null);map.fitBounds(berlinBounds,{padding:[25,25],maxZoom:10});};
   map.on('zoomend',()=>{buildStateLayer();berlinDetail.render();renderLegend();});
   map.on('moveend',()=>{if(!stateLayer)buildStateLayer();if(el.stateDrawer.classList.contains('open'))stateDrawerDrag.keepInside();});
 
@@ -438,7 +383,7 @@
     map,getMode:()=>mode,getCaseData:()=>caseData,getPksData:()=>pksData,getPropertyData:()=>propertyData,getBerlinViolence:()=>berlinViolence,getHeatData:()=>heatData,
     getCountyLayer:()=>countyLayer,getBerlinLayer:()=>berlinDetail?.violenceLayer||null,getHeatLayer:()=>berlinDetail?.propertyLayer||null,getVisibleCases:()=>visibleCases(),
     getPinnedArea:()=>pinnedArea,getHoverArea:()=>hoverArea,
-    clearSelection:()=>{pinnedArea=null;hoverArea=null;selectedCountyLayer=null;statePanel.reset();showArea(null);},
+    clearSelection:()=>{pinnedArea=null;hoverArea=null;countyController.clearSelection();statePanel.reset();showArea(null);},
     showArea
   };
 })();
