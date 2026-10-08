@@ -16,10 +16,30 @@ function matchingCity(){
 }
 async function cityData(c){
   if(cache.has(c.id))return cache.get(c.id);
-  const p=fetch(c.file,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(c.id+' '+r.status);return r.json()});
+  const p=fetch(c.file,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(c.id+' '+r.status);return r.json()})
+    .catch(error=>{cache.delete(c.id);throw error});
   cache.set(c.id,p);return p
 }
 function values(data,field){return (data?.features||[]).map(f=>Number(f?.properties?.[field]?.rate)).filter(Number.isFinite)}
+function firstCoordinate(tree){
+  if(Array.isArray(tree)&&tree.length>=2&&typeof tree[0]==='number'&&typeof tree[1]==='number')return tree;
+  if(Array.isArray(tree))for(const part of tree){const found=firstCoordinate(part);if(found)return found}
+  return null
+}
+// A missing/bad municipality file must never leave a blank hole in the
+// nationwide choropleth. WFS datasets can silently use projected UTM metres.
+function validCityGeometry(data,city){
+  if(!Array.isArray(data?.features)||data.features.length===0)return false;
+  const [[south,west],[north,east]]=city.bounds;
+  return data.features.every(feature=>{
+    const type=feature?.geometry?.type;
+    if(type!=='Polygon'&&type!=='MultiPolygon')return false;
+    const point=firstCoordinate(feature.geometry.coordinates);
+    if(!point||!Number.isFinite(point[0])||!Number.isFinite(point[1]))return false;
+    const [lon,lat]=point;
+    return lon>=west-0.5&&lon<=east+0.5&&lat>=south-0.5&&lat<=north+0.5
+  });
+}
 function recordForFeature(feature,data){
   const id=String(feature?.id??feature?.properties?.AGS??'').padStart(5,'0'),alias=data?.meta?.geometry_aliases?.[id];
   return data?.records?.[id]||data?.records?.[alias]
@@ -61,15 +81,21 @@ async function rebuild(){
   if(!active)return;
   try{
     const data=await cityData(active),cfg=active.metrics[metricKey()],vals=values(data,cfg.field),br=quantileBreaks(vals),pal=api.getMode()==='property'?COOL:WARM;
-    hideBase(active);
+    if(!validCityGeometry(data,active))throw new Error(active.id+' invalid CRS/geometry: expected longitude/latitude near configured city bounds');
     layer=L.geoJSON(data,{pane:'berlinPane',filter:f=>Number.isFinite(Number(f?.properties?.[cfg.field]?.rate)),style:f=>({pane:'berlinPane',color:api.getMode()==='property'?'#486783':'#8a563b',weight:.34,opacity:.62,fillColor:scaleColor(Number(f.properties[cfg.field].rate),br,pal),fillOpacity:.84}),onEachFeature:(f,l)=>{
       l.bindTooltip(()=>{const a=areaFor(active,data,f);return '<b>'+esc(a.name)+'</b><br>'+esc(cfg.label)+' '+fmt(Math.round(a.rate))+'/10万人 · '+riskLabel(a.pct).text},{sticky:true});
       l.on('mouseover',()=>{if(l!==selected)l.setStyle({color:'#fff',weight:1.35,opacity:1,fillOpacity:.89});showPanel(areaFor(active,data,f))});
       l.on('mouseout',()=>{if(l!==selected)layer?.resetStyle(l);const p=api.getPinnedArea?.();if(p?.kind==='city-local-generic')showPanel(p,false);else api.showArea(p)});
       l.on('click',()=>{if(selected&&selected!==l)layer?.resetStyle(selected);selected=l;layer?.resetStyle(l);l.setStyle({color:'#fff',weight:2.1,opacity:1,fillOpacity:.91});showPanel(areaFor(active,data,f),true)})
     }}).addTo(api.map);
+    if(layer.getLayers().length===0){api.map.removeLayer(layer);layer=null;throw new Error(active.id+' has no drawable features for '+metricKey())}
+    hideBase(active);
     setTimeout(()=>addLegend(active,data),0)
-  }catch(e){console.warn('city detail skipped',active?.id,e)}
+  }catch(e){
+    if(layer){api.map.removeLayer(layer);layer=null}
+    if(active)restoreBase(active);
+    console.warn('city detail skipped; retaining nationwide county fill',active?.id,e)
+  }
 }
 function addButtons(){
   const anchor=$('focusMunich')||$('focusBerlin');if(!anchor)return;
