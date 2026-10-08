@@ -11,7 +11,7 @@
     "updated": "2026-10-07",
     "methodology": "Official venue pages are the primary source. OpenStreetMap/Nominatim is used only for geocoding and candidate discovery; public-wall coordinates may use climbing/community references. Prices and hours are not inferred when an official source is unavailable.",
     "experienced_view": "V2 adds venue scale, route/problem richness, reset cadence, training boards and long-term pass pricing. Quantitative fields are only filled where an official venue source publishes them.",
-    "generated_at": "2026-10-07T05:28:05.990829+00:00",
+    "generated_at": "2026-10-08T01:03:20.410836+00:00",
     "venue_count": 27,
     "mapped_count": 25,
     "active_count": 25,
@@ -57,7 +57,7 @@
       },
       "https://gravityworx.com.au/": {
         "ok": true,
-        "status": 202,
+        "status": 200,
         "final_url": "https://gravityworx.com.au/"
       },
       "https://laroca.com.au/": {
@@ -72,7 +72,7 @@
       },
       "https://northsideboulders.com/": {
         "ok": true,
-        "status": 202,
+        "status": 200,
         "final_url": "https://northsideboulders.com/"
       },
       "https://rockadventures.com.au/": {
