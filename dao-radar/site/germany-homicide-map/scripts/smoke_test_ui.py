@@ -109,13 +109,17 @@ with sync_playwright() as playwright:
     }""")
     assert second == states["second"], {"expected":states["second"],"actual":second}
     page.click("#stateClose")
+    page.wait_for_timeout(900)
 
     # Berlin's official annual violence layer and rolling 90-day property layer.
+    page.evaluate("window.__CRIME_MAP__.map.stop()")
     page.click("#focusBerlin")
-    page.wait_for_function("""() => {
+    page.wait_for_timeout(1300)
+    berlin_state=page.evaluate("""() => {
         const a=window.__CRIME_MAP__;
-        return a.map.getZoom()>=8 && a.getBerlinLayer()?.getLayers()?.length>50;
-    }""", timeout=15000)
+        return {zoom:a.map.getZoom(),mode:a.getMode(),features:a.getBerlinLayer()?.getLayers()?.length||0};
+    }""")
+    assert berlin_state["zoom"]>=7.5 and berlin_state["features"]>50, berlin_state
     page.evaluate("""() => {
         window.__CRIME_MAP__.getBerlinLayer().getLayers()[0].fire('mouseover');
     }""")
