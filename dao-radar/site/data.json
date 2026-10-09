@@ -1,6 +1,31 @@
 {
-  "updated_at": "2026-10-08",
+  "updated_at": "2026-10-09",
   "items": [
+    {
+      "id": "ee175acd7d06c5",
+      "title": "TCM Classic Film Festival 2027 | April 8–11 | Hollywood",
+      "title_zh": "2027年中医经典电影节 | 4 月 8 日至 11 日 |好莱坞",
+      "country": "国际",
+      "city": "",
+      "region": "海外",
+      "type": "培训课程",
+      "event_date": "",
+      "deadline": "",
+      "summary_zh": "与我们一起参加 2027 年 4 月 8 日至 11 日举行的第 18 届年度中医经典电影节。与特纳经典电影和来自世界各地的电影迷一起在好莱坞分享您对经典电影的热爱，结交新朋友，并观看以原样体验的方式呈现的电影：在大屏幕…",
+      "source_name": "filmfestival.tcm.com",
+      "source_url": "https://filmfestival.tcm.com/",
+      "discovered_at": "2026-10-09",
+      "last_seen": "2026-10-09",
+      "expires_on": "",
+      "manual": false,
+      "score": 8,
+      "outbound": false,
+      "outbound_action": "",
+      "low_barrier": false,
+      "barrier_note": "",
+      "community_entry": false,
+      "entry_note": ""
+    },
     {
       "id": "5f3adb60755957",
       "title": "正一嗣漢張天師府 - cts65.org",
