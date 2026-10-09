@@ -296,5 +296,7 @@
         "website": "https://www.thecrag.com/climbing/australia/the-you-yangs/area/2343311802"
       }
     }
-  ]
+  ],
+  "last_error": "HTTP Error 504: Gateway Timeout",
+  "last_error_at": "2026-10-09T01:15:33.420928+00:00"
 }
