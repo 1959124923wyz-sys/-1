@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-08T14:06:48+08:00",
+    "generated_at": "2026-10-09T14:10:55+08:00",
     "currency": "CNY",
     "default_area_sqm": 90,
     "price_basis": "community_reference_unit_price",
@@ -8,7 +8,7 @@
     "next_discovery_url": "https://sz.esf.fang.com/housing/__0_3_0_0_9_0_0_0/",
     "last_run_successes": 0,
     "discovery_added": 0,
-    "discovery_updated": 30,
+    "discovery_updated": 0,
     "last_run_failures": 3,
     "last_run_notes": [
       {
@@ -17,8 +17,8 @@
         "error": "challenge/captcha detected; stopped"
       },
       {
-        "name": "世界花园海华居",
-        "url": "https://sz.esf.fang.com/loupan/2810004761.htm",
+        "name": "云栖西岸阁",
+        "url": "https://sz.esf.fang.com/loupan/2810318422.htm",
         "error": "challenge/captcha detected; stopped"
       },
       {
@@ -28,12 +28,12 @@
       }
     ],
     "default_annual_savings": 100000,
-    "discovery_start_page": 59,
-    "discovery_pages_ok": 16,
-    "discovery_rows_seen": 276,
-    "discovery_unmatched": 246,
+    "discovery_start_page": 75,
+    "discovery_pages_ok": 0,
+    "discovery_rows_seen": 0,
+    "discovery_unmatched": 0,
     "coordinate_cache_size": 629,
-    "discovery_cursor_page": 75,
+    "discovery_cursor_page": 76,
     "last_run_stopped_reason": "parser got only 3 priced residential rows on page 75; stopped",
     "discovery_sort_code": 3
   },
