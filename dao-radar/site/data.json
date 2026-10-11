@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10",
+  "updated_at": "2026-10-11",
   "items": [
     {
       "id": "21b85d2fcda192",
@@ -2123,29 +2123,6 @@
       "outbound_action": "公开EOI｜文化体验/摊位",
       "low_barrier": true,
       "barrier_note": "个人/小型文化项目可尝试；差旅签证自理"
-    },
-    {
-      "id": "nsw-georges-lny-vendor-2027",
-      "title": "Georges River Council Lunar New Year 2027 Stallholder EOI",
-      "title_zh": "澳大利亚悉尼｜2027农历新年摊位公开征集",
-      "country": "澳大利亚",
-      "city": "悉尼 Hurstville",
-      "region": "海外",
-      "type": "文化展演",
-      "event_date": "2027年2月13日",
-      "deadline": "2026年10月10日",
-      "summary_zh": "Georges River Council夏季活动计划为农历新年接受约30个摊位申请，可作为中华文化展示、文化产品或体验项目的公开入口。",
-      "source_name": "Georges River Council",
-      "source_url": "https://www.georgesriver.nsw.gov.au/Community/Events/Council-Events/Stallholders-and-Performers",
-      "discovered_at": "2026-10-03",
-      "last_seen": "2026-10-03",
-      "expires_on": "2026-10-10",
-      "manual": true,
-      "score": 28,
-      "outbound": true,
-      "outbound_action": "公开EOI｜文化摊位",
-      "low_barrier": true,
-      "barrier_note": "公开摊位申请；具体经营/保险要求看原文"
     },
     {
       "id": "osu-integrative-tai-chi-qigong-2026",
