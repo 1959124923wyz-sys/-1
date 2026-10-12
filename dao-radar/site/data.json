@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-11",
+  "updated_at": "2026-10-12",
   "items": [
     {
       "id": "21b85d2fcda192",
@@ -3008,25 +3008,6 @@
       "expires_on": "2026-10-14",
       "manual": true,
       "score": 15
-    },
-    {
-      "id": "wudang-baduanjin-oct-2026",
-      "title": "Baduanjin Workshop — September–October Sessions",
-      "title_zh": "新加坡武当文化｜古法八段锦十月工作坊",
-      "country": "新加坡",
-      "city": "新加坡",
-      "region": "海外",
-      "type": "武术养生",
-      "event_date": "2026年10月4日、11日",
-      "deadline": "",
-      "summary_zh": "适合零基础的小组八段锦工作坊，两场可选，主办方提供直接报名渠道。",
-      "source_name": "Wudang.Org",
-      "source_url": "https://wudang.org/zh/events/internal-arts-wellness/baduanjin-workshop-september",
-      "discovered_at": "2026-10-01",
-      "last_seen": "2026-10-01",
-      "expires_on": "2026-10-11",
-      "manual": true,
-      "score": 16
     }
   ]
 }
