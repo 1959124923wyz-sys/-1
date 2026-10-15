@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14",
+  "updated_at": "2026-10-15",
   "items": [
     {
       "id": "536a060d7f29e6",
@@ -2850,29 +2850,6 @@
       "score": 30,
       "outbound": true,
       "outbound_action": "可报名｜可参展｜东南亚交流"
-    },
-    {
-      "id": "nsw-lunar-lanes-stallholder-2027",
-      "title": "Lunar Lanes 2027 - Creative Arts Market Stallholder EOI",
-      "title_zh": "澳大利亚悉尼Burwood｜2027农历新年文化创意摊位征集",
-      "country": "澳大利亚",
-      "city": "悉尼 Burwood",
-      "region": "海外",
-      "type": "文化展演",
-      "event_date": "2027年2月13日",
-      "deadline": "2026年10月14日",
-      "summary_zh": "Burwood Council公开征集文化艺术摊位，接受艺术、手工、文化产品与文化体验项目；适合以道教书画、传统文化体验等形式参与。",
-      "source_name": "NSW Government Neon Marketplace / Burwood Council",
-      "source_url": "https://www.neonmarketplace.nsw.gov.au/opportunity/nd/lunar-lanes-2027-creative-arts-market-stallholder-eoi",
-      "discovered_at": "2026-10-03",
-      "last_seen": "2026-10-03",
-      "expires_on": "2026-10-14",
-      "manual": true,
-      "score": 30,
-      "outbound": true,
-      "outbound_action": "公开EOI｜文化体验/摊位",
-      "low_barrier": true,
-      "barrier_note": "个人/小型文化项目可尝试；差旅签证自理"
     },
     {
       "id": "osu-integrative-tai-chi-qigong-2026",
