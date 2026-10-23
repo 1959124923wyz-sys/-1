@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-22T12:49:15+08:00",
+    "generated_at": "2026-10-23T12:51:44+08:00",
     "currency": "CNY",
     "default_area_sqm": 90,
     "price_basis": "community_reference_unit_price",
@@ -8,8 +8,8 @@
     "next_discovery_url": "https://sz.esf.fang.com/housing/__0_3_0_0_9_0_0_0/",
     "last_run_successes": 0,
     "discovery_added": 0,
-    "discovery_updated": 15,
-    "last_run_failures": 3,
+    "discovery_updated": 0,
+    "last_run_failures": 13,
     "last_run_notes": [
       {
         "name": "承翰半山海别墅",
@@ -19,22 +19,72 @@
       {
         "name": "云栖西岸阁",
         "url": "https://sz.esf.fang.com/loupan/2810318422.htm",
-        "error": "challenge/captcha detected; stopped"
+        "error": "HTTPError: 521 Server Error:  for url: https://sz.esf.fang.com/loupan/2810318422.htm"
+      },
+      {
+        "name": "汉京山",
+        "url": "https://sz.esf.fang.com/loupan/2810586746.htm",
+        "error": "HTTPError: 521 Server Error:  for url: https://sz.esf.fang.com/loupan/2810586746.htm"
+      },
+      {
+        "name": "汉京确悦",
+        "url": "https://sz.esf.fang.com/loupan/2810894904.htm",
+        "error": "HTTPError: 521 Server Error:  for url: https://sz.esf.fang.com/loupan/2810894904.htm"
+      },
+      {
+        "name": "泛海拉菲花园二期",
+        "url": "https://sz.esf.fang.com/loupan/2810955544.htm",
+        "error": "HTTPError: 521 Server Error:  for url: https://sz.esf.fang.com/loupan/2810955544.htm"
+      },
+      {
+        "name": "泛海拉菲花园别墅",
+        "url": "https://sz.esf.fang.com/loupan/2810940498.htm",
+        "error": "HTTPError: 521 Server Error:  for url: https://sz.esf.fang.com/loupan/2810940498.htm"
+      },
+      {
+        "name": "深物业前海港湾花园",
+        "url": "https://sz.esf.fang.com/loupan/2810876908.htm",
+        "error": "HTTPError: 521 Server Error:  for url: https://sz.esf.fang.com/loupan/2810876908.htm"
+      },
+      {
+        "name": "明珠花园",
+        "url": "https://sz.esf.fang.com/loupan/2810396184.htm",
+        "error": "HTTPError: 521 Server Error:  for url: https://sz.esf.fang.com/loupan/2810396184.htm"
+      },
+      {
+        "name": "荔秀华庭",
+        "url": "https://sz.esf.fang.com/loupan/2810662424.htm",
+        "error": "HTTPError: 521 Server Error:  for url: https://sz.esf.fang.com/loupan/2810662424.htm"
+      },
+      {
+        "name": "金泓凯旋城二期",
+        "url": "https://sz.esf.fang.com/loupan/2810749778.htm",
+        "error": "HTTPError: 521 Server Error:  for url: https://sz.esf.fang.com/loupan/2810749778.htm"
+      },
+      {
+        "name": "中熙香缇湾",
+        "url": "https://sz.esf.fang.com/loupan/2810441262.htm",
+        "error": "HTTPError: 521 Server Error:  for url: https://sz.esf.fang.com/loupan/2810441262.htm"
+      },
+      {
+        "name": "松茂御龙湾雅苑二期",
+        "url": "https://sz.esf.fang.com/loupan/2810209448.htm",
+        "error": "HTTPError: 521 Server Error:  for url: https://sz.esf.fang.com/loupan/2810209448.htm"
       },
       {
         "name": "Fang index",
         "url": "https://sz.esf.fang.com/housing/__0_3_0_0_92_0_0_0/",
-        "error": "parser got only 0 priced residential rows on page 92; stopped"
+        "error": "HTTPError: 521 Server Error:  for url: https://sz.esf.fang.com/housing/__0_3_0_0_92_0_0_0/"
       }
     ],
     "default_annual_savings": 100000,
-    "discovery_start_page": 85,
-    "discovery_pages_ok": 7,
-    "discovery_rows_seen": 127,
-    "discovery_unmatched": 112,
+    "discovery_start_page": 92,
+    "discovery_pages_ok": 0,
+    "discovery_rows_seen": 0,
+    "discovery_unmatched": 0,
     "coordinate_cache_size": 629,
-    "discovery_cursor_page": 92,
-    "last_run_stopped_reason": "parser got only 0 priced residential rows on page 92; stopped",
+    "discovery_cursor_page": 93,
+    "last_run_stopped_reason": "HTTPError: 521 Server Error:  for url: https://sz.esf.fang.com/housing/__0_3_0_0_92_0_0_0/",
     "discovery_sort_code": 3
   },
   "communities": [
