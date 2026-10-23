@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22",
+  "updated_at": "2026-10-23",
   "items": [
     {
       "id": "0893130033c01f",
@@ -15,7 +15,7 @@
       "source_name": "sohu.com",
       "source_url": "https://www.sohu.com/a/1090835677_121107011",
       "discovered_at": "2026-10-22",
-      "last_seen": "2026-10-22",
+      "last_seen": "2026-10-23",
       "expires_on": "",
       "manual": false,
       "score": 15,
@@ -2715,7 +2715,7 @@
       "source_name": "daojiaoyili.hk",
       "source_url": "http://www.daojiaoyili.hk/NewsDetail.aspx?ID=91",
       "discovered_at": "2026-10-13",
-      "last_seen": "2026-10-21",
+      "last_seen": "2026-10-23",
       "expires_on": "",
       "manual": false,
       "score": 12,
