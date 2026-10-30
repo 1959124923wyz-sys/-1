@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-29",
+  "updated_at": "2026-10-30",
   "items": [
     {
       "id": "a8ba47681be549",
@@ -2273,31 +2273,6 @@
       "outbound_action": "海外交流机会",
       "low_barrier": true,
       "barrier_note": "公开/社区型机会，具体签证和资格要求请看原文",
-      "community_entry": false,
-      "entry_note": ""
-    },
-    {
-      "id": "8e24946565f6ff",
-      "title": "DahnMuDo Basics: Tai Chi Qigong Workshop with Master David ...",
-      "title_zh": "DahnMuDo 基础知识：大卫大师的太极气功工作坊...",
-      "country": "国际",
-      "city": "",
-      "region": "海外",
-      "type": "武术养生",
-      "event_date": "",
-      "deadline": "",
-      "summary_zh": "Eventbrite - 身体与大脑 - Magnolia 呈现 DahnMuDo 基础知识：与 David Driscoll 大师一起参加太极气功研讨会 - 2026 年 10 月 29 日星期四，在德克萨斯州木兰的身…",
-      "source_name": "eventbrite.com",
-      "source_url": "https://www.eventbrite.com/e/dahnmudo-basics-tai-chi-qigong-workshop-with-master-david-driscoll-tickets-2003220779276",
-      "discovered_at": "2026-10-19",
-      "last_seen": "2026-10-28",
-      "expires_on": "2026-10-29",
-      "manual": false,
-      "score": 6,
-      "outbound": true,
-      "outbound_action": "海外交流机会",
-      "low_barrier": false,
-      "barrier_note": "",
       "community_entry": false,
       "entry_note": ""
     },
