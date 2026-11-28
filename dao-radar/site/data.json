@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-27",
+  "updated_at": "2026-11-28",
   "items": [
     {
       "id": "381a95299ebb7b",
@@ -223,31 +223,6 @@
       "outbound_action": "海外交流机会",
       "low_barrier": true,
       "barrier_note": "公开/社区型机会，具体签证和资格要求请看原文",
-      "community_entry": false,
-      "entry_note": ""
-    },
-    {
-      "id": "c0757f70e7f67c",
-      "title": "23+ Best Taoist Retreats | 2027 Prices & Reviews",
-      "title_zh": "23+ 最佳道教静修处 | 2027 价格与评论",
-      "country": "国际",
-      "city": "",
-      "region": "海外",
-      "type": "道教活动",
-      "event_date": "",
-      "deadline": "",
-      "summary_zh": "2026 年 11 月 27 日 · 查找并比较超过 23 个道教静修处。浏览经过验证的评论、全包价格和供应情况，以获得理想的体验",
-      "source_name": "retreat.guru",
-      "source_url": "https://retreat.guru/be/taoist-retreats",
-      "discovered_at": "2026-11-26",
-      "last_seen": "2026-11-27",
-      "expires_on": "2026-11-27",
-      "manual": false,
-      "score": 8,
-      "outbound": false,
-      "outbound_action": "",
-      "low_barrier": false,
-      "barrier_note": "",
       "community_entry": false,
       "entry_note": ""
     },
